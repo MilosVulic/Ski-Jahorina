@@ -9,17 +9,27 @@ import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
 import androidx.core.view.WindowCompat
 import androidx.lifecycle.Lifecycle
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.skiserbia.R
 import com.example.skiserbia.databinding.ActivityMainBinding
+import com.example.skiserbia.NavigationGraphDirections
 
 class MainActivity2 : AppCompatActivity() , MenuProvider {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
+
+    private val navController: NavController by lazy {
+        Navigation.findNavController(
+            this,
+            R.id.nav_host_fragment_content_main
+        )
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         WindowCompat.setDecorFitsSystemWindows(window, false)
@@ -48,9 +58,8 @@ class MainActivity2 : AppCompatActivity() , MenuProvider {
 
     override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
         when (menuItem.itemId) {
-            R.id.action_settings -> true
+            R.id.action_settings -> navController.navigate(NavigationGraphDirections.actionGlobalSettingsFragment())
         }
-        // findNavController().navigate(NavigationGraphDirections.actionGlobalPremiumFragment())
         return false
     }
 }
