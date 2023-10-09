@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="settings">Settings</string>
+    <string name="settings_other_therms_of_service">Условия и правила</string>
+    <string name="application_settings">Настройки приложения</string>
+    <string name="settings_turn_dark_mode_on">Включить ночной режим</string>
+    <string name="change_application_language">Поменять язык приложения</string>
+    <string name="settings_other">Остальное</string>
+    <string name="settings_other_help_center">Помощь</string>
+    <string name="settings_other_about">О нас</string>
 </resources>

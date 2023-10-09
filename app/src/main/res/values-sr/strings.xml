@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="settings">Settings</string>
+    <string name="settings_other_therms_of_service">Uslovi i odredbe</string>
+    <string name="application_settings">Postavke Aplikacije</string>
+    <string name="settings_turn_dark_mode_on">Uključite tamni rezim</string>
+    <string name="change_application_language">Promenite jezik aplikacije</string>
+    <string name="settings_other">Ostalo</string>
+    <string name="settings_other_help_center">Pomoć</string>
+    <string name="settings_other_about">O aplikaciji</string>
 </resources>

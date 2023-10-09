@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorBackground">#2b2b2b</color>
+    <color name="iconColorSettings">#B3B3B3</color>
+    <color name="colorCardBackgroundSettings">#1c1c1c</color>
+    <color name="colorDivider">#737373</color>
+    <color name="textColorSettings">#A6A6A6</color>
+    <color name="colorRippleEnteringElements">#3D4348</color>
+    <color name="colorBlackWhite">#ffffff</color>
+    <color name="startColor">#222222</color>
+    <color name="endColor">#222222</color>
+</resources>

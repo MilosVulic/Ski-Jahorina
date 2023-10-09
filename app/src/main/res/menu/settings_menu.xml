@@ -6,6 +6,6 @@
         android:id="@+id/action_settings"
         android:icon="@drawable/ic_settings"
         app:showAsAction="ifRoom"
-        app:iconTint="@color/black"
+        app:iconTint="@color/colorBlackWhite"
         android:title="@string/settings" />
 </menu>
