@@ -18,6 +18,7 @@
     <string name="settings_dialog_language_english">Engleski</string>
     <string name="settings_dialog_language_serbian">Srpski</string>
     <string name="settings_dialog_language_russian">Ruski</string>
+    <string name="settings_dialog_language_german">Nemacki</string>
 
     <!-- Ski center names -->
     <string name="kopaonik">Kopaonik</string>

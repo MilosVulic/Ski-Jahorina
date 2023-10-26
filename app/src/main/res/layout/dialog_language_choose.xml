@@ -77,7 +77,7 @@
         </RadioGroup>
 
         <RadioGroup
-            android:id="@+id/checkTerms"
+            android:id="@+id/radioSerbian"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
@@ -93,15 +93,31 @@
         </RadioGroup>
 
         <RadioGroup
+            android:id="@+id/radioGerman"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            app:layout_constraintEnd_toEndOf="@+id/radioSerbian"
+            app:layout_constraintStart_toStartOf="@+id/radioSerbian"
+            app:layout_constraintTop_toBottomOf="@+id/radioSerbian">
+
+            <RadioButton
+                android:id="@+id/radioButtonGerman"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </RadioGroup>
+
+        <RadioGroup
             android:id="@+id/radioRussian"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/checkTerms"
-            app:layout_constraintStart_toStartOf="@+id/checkTerms"
-            app:layout_constraintTop_toBottomOf="@+id/checkTerms">
+            app:layout_constraintEnd_toEndOf="@+id/radioGerman"
+            app:layout_constraintStart_toStartOf="@+id/radioGerman"
+            app:layout_constraintTop_toBottomOf="@+id/radioGerman">
 
             <RadioButton
                 android:id="@+id/radioButtonRussian"
@@ -145,20 +161,41 @@
             android:layout_height="20dp"
             app:srcCompat="@drawable/picture_language_serbian"
             app:layout_constraintStart_toStartOf="@+id/imageViewEnglish"
-            app:layout_constraintTop_toTopOf="@+id/textViewAgreement"
-            app:layout_constraintBottom_toBottomOf="@+id/textViewAgreement"/>
+            app:layout_constraintTop_toTopOf="@+id/textViewSerbian"
+            app:layout_constraintBottom_toBottomOf="@+id/textViewSerbian"/>
 
 
         <TextView
-            android:id="@+id/textViewAgreement"
+            android:id="@+id/textViewSerbian"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/settings_dialog_language_serbian"
             android:textColor="@color/textColorDialogs"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/checkTerms"
+            app:layout_constraintBottom_toBottomOf="@+id/radioSerbian"
             app:layout_constraintStart_toStartOf="@+id/textViewTermsAgreementTitle"
-            app:layout_constraintTop_toTopOf="@+id/checkTerms" />
+            app:layout_constraintTop_toTopOf="@+id/radioSerbian" />
+
+        <ImageView
+            android:id="@+id/imageViewGerman"
+            android:layout_width="40dp"
+            android:layout_height="20dp"
+            app:srcCompat="@drawable/picture_language_germany"
+            app:layout_constraintStart_toStartOf="@+id/imageViewSerbian"
+            app:layout_constraintTop_toTopOf="@+id/textViewGerman"
+            app:layout_constraintBottom_toBottomOf="@+id/textViewGerman"/>
+
+
+        <TextView
+            android:id="@+id/textViewGerman"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/settings_dialog_language_german"
+            android:textColor="@color/textColorDialogs"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/radioGerman"
+            app:layout_constraintStart_toStartOf="@+id/textViewTermsAgreementTitle"
+            app:layout_constraintTop_toTopOf="@+id/radioGerman" />
 
 
         <ImageView
@@ -166,7 +203,7 @@
             android:layout_width="40dp"
             android:layout_height="20dp"
             app:srcCompat="@drawable/picture_language_russian"
-            app:layout_constraintStart_toStartOf="@+id/imageViewSerbian"
+            app:layout_constraintStart_toStartOf="@+id/imageViewGerman"
             app:layout_constraintTop_toTopOf="@+id/textViewRussian"
             app:layout_constraintBottom_toBottomOf="@+id/textViewRussian"/>
 
@@ -178,7 +215,7 @@
             android:textColor="@color/textColorDialogs"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/radioRussian"
-            app:layout_constraintStart_toStartOf="@+id/textViewAgreement"
+            app:layout_constraintStart_toStartOf="@+id/textViewGerman"
             app:layout_constraintTop_toTopOf="@+id/radioRussian" />
 
 

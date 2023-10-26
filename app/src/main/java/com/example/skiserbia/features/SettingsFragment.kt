@@ -61,7 +61,7 @@ class SettingsFragment : Fragment() {
         dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
         val radioGroupEnglish = dialog?.findViewById<RadioGroup>(R.id.radioEnglish)
-        val radioGroupSerbian = dialog?.findViewById<RadioGroup>(R.id.checkTerms)
+        val radioGroupSerbian = dialog?.findViewById<RadioGroup>(R.id.radioSerbian)
         val radioGroupRussian = dialog?.findViewById<RadioGroup>(R.id.radioRussian)
 
         val radioButtonEnglish = dialog?.findViewById<RadioButton>(R.id.radioButtonEnglish)
