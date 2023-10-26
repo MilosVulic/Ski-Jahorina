@@ -13,8 +13,19 @@
     <string name="settings_other_help_center">Pomoć</string>
     <string name="settings_other_about">O aplikaciji</string>
 
+    <!-- Settings Language -->
+    <string name="settings_dialog_language">Odaberite jezik</string>
+    <string name="settings_dialog_language_english">Engleski</string>
+    <string name="settings_dialog_language_serbian">Srpski</string>
+    <string name="settings_dialog_language_russian">Ruski</string>
+
     <!-- Ski center names -->
     <string name="kopaonik">Kopaonik</string>
     <string name="stara_planina">Stara planina</string>
     <string name="tornik">Tornik</string>
+    <string name="kopaonik_altitude">2017</string>
+    <string name="stara_planina_altitude">2169</string>
+    <string name="tornik_altitude">1496</string>
+    <string name="meters">m</string>
+    <string name="feet">ft</string>
 </resources>

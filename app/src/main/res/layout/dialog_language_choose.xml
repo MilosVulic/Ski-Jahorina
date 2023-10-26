@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/languageDialogConstraint"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintDialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="25dp"
+        android:background="@color/colorBackgroundDialogs"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <io.github.florent37.shapeofview.shapes.ArcView
+            android:id="@+id/arcView"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:elevation="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shape_arc_height="20dp"
+            app:shape_arc_position="bottom">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/gradient_drawable">
+
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:gravity="center"
+                    android:text="@string/settings_dialog_language"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </io.github.florent37.shapeofview.shapes.ArcView>
+
+
+        <RadioGroup
+            android:id="@+id/radioEnglish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/arcView">
+
+            <RadioButton
+                android:id="@+id/radioButtonEnglish"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </RadioGroup>
+
+        <RadioGroup
+            android:id="@+id/checkTerms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            app:layout_constraintEnd_toEndOf="@+id/radioEnglish"
+            app:layout_constraintStart_toStartOf="@+id/radioEnglish"
+            app:layout_constraintTop_toBottomOf="@+id/radioEnglish">
+
+            <RadioButton
+                android:id="@+id/radioButtonSerbian"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </RadioGroup>
+
+        <RadioGroup
+            android:id="@+id/radioRussian"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/checkTerms"
+            app:layout_constraintStart_toStartOf="@+id/checkTerms"
+            app:layout_constraintTop_toBottomOf="@+id/checkTerms">
+
+            <RadioButton
+                android:id="@+id/radioButtonRussian"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </RadioGroup>
+
+        <ImageView
+            android:id="@+id/imageViewEnglish"
+            android:layout_width="40dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="30dp"
+            app:layout_constraintBottom_toBottomOf="@+id/textViewTermsAgreementTitle"
+            app:layout_constraintEnd_toStartOf="@+id/textViewTermsAgreementTitle"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textViewTermsAgreementTitle"
+            app:srcCompat="@drawable/picture_language_english" />
+
+
+        <TextView
+            android:id="@+id/textViewTermsAgreementTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:text="@string/settings_dialog_language_english"
+            android:textColor="@color/textColorDialogs"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/radioEnglish"
+            app:layout_constraintEnd_toStartOf="@+id/radioEnglish"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/radioEnglish" />
+
+
+        <ImageView
+            android:id="@+id/imageViewSerbian"
+            android:layout_width="40dp"
+            android:layout_height="20dp"
+            app:srcCompat="@drawable/picture_language_serbian"
+            app:layout_constraintStart_toStartOf="@+id/imageViewEnglish"
+            app:layout_constraintTop_toTopOf="@+id/textViewAgreement"
+            app:layout_constraintBottom_toBottomOf="@+id/textViewAgreement"/>
+
+
+        <TextView
+            android:id="@+id/textViewAgreement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/settings_dialog_language_serbian"
+            android:textColor="@color/textColorDialogs"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/checkTerms"
+            app:layout_constraintStart_toStartOf="@+id/textViewTermsAgreementTitle"
+            app:layout_constraintTop_toTopOf="@+id/checkTerms" />
+
+
+        <ImageView
+            android:id="@+id/imageViewRussian"
+            android:layout_width="40dp"
+            android:layout_height="20dp"
+            app:srcCompat="@drawable/picture_language_russian"
+            app:layout_constraintStart_toStartOf="@+id/imageViewSerbian"
+            app:layout_constraintTop_toTopOf="@+id/textViewRussian"
+            app:layout_constraintBottom_toBottomOf="@+id/textViewRussian"/>
+
+        <TextView
+            android:id="@+id/textViewRussian"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/settings_dialog_language_russian"
+            android:textColor="@color/textColorDialogs"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/radioRussian"
+            app:layout_constraintStart_toStartOf="@+id/textViewAgreement"
+            app:layout_constraintTop_toTopOf="@+id/radioRussian" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imageViewCircleCloseDialog"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:clickable="true"
+        android:src="@color/dilogXCircle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/ic_cancel"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewCircleCloseDialog"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewCircleCloseDialog"
+        app:layout_constraintStart_toStartOf="@+id/imageViewCircleCloseDialog"
+        app:layout_constraintTop_toTopOf="@+id/imageViewCircleCloseDialog"
+        app:tint="@color/colorBlackWhite" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
