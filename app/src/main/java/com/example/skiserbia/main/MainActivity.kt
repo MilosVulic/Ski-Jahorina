@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
@@ -40,11 +39,14 @@ class MainActivity : AppCompatActivity(), MenuProvider {
 
         val menuHost: MenuHost = this
         menuHost.addMenuProvider(this, this, Lifecycle.State.RESUMED)
-
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setupNavigationDrawer()
-        binding.title1.visibility = View.GONE
+    }
+
+    override fun onResume() {
+        super.onResume()
+        supportActionBar?.title = ""
     }
 
     private fun setupNavigationDrawer() {
