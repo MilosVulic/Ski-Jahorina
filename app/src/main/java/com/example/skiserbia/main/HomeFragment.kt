@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.example.skiserbia.NavigationGraphDirections
 import com.example.skiserbia.R
 import com.example.skiserbia.databinding.FragmentHomeBinding
 
@@ -18,6 +20,18 @@ class HomeFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         hideTitle()
+
+        binding.cardViewKopaonik.setOnClickListener {
+            findNavController().navigate(NavigationGraphDirections.actionKopaonik())
+        }
+
+        binding.cardViewTornik.setOnClickListener {
+            findNavController().navigate(NavigationGraphDirections.actionSkiMapKopaonik())
+        }
+
+        binding.cardViewStaraPlanina.setOnClickListener {
+            findNavController().navigate(NavigationGraphDirections.actionKopaonik())
+        }
         return binding.root
     }
 

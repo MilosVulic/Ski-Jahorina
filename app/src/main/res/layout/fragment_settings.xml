@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBackground"
-    tools:context=".features.SettingsFragment">
+    tools:context=".features.settings.SettingsFragment">
 
     <FrameLayout
         android:id="@+id/frameLayoutTop"
@@ -99,7 +99,7 @@
                         android:text="@string/settings_turn_dark_mode_on"
                         android:textColor="@color/textColorSettings"
                         android:textStyle="bold"
-                        app:layout_constraintEnd_toStartOf="@+id/switch1"
+                        app:layout_constraintEnd_toStartOf="@+id/switchDarkLightTheme"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toEndOf="@+id/imageViewTheme"
                         app:layout_constraintTop_toBottomOf="@+id/divider4" />
@@ -117,7 +117,7 @@
                         app:layout_constraintTop_toBottomOf="@+id/textViewChangeTheme" />
 
                     <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/ripple5"
+                        android:id="@+id/changeApplicationLanguage"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_marginStart="16dp"
@@ -162,7 +162,7 @@
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <com.google.android.material.switchmaterial.SwitchMaterial
-                        android:id="@+id/switch1"
+                        android:id="@+id/switchDarkLightTheme"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="30dp"
@@ -224,7 +224,7 @@
                         app:layout_constraintTop_toBottomOf="@+id/textViewOtherSettings" />
 
                     <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/ripple11"
+                        android:id="@+id/helpCenter"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_marginStart="16dp"
@@ -277,10 +277,10 @@
                         android:background="@color/colorDivider"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/ripple11" />
+                        app:layout_constraintTop_toBottomOf="@+id/helpCenter" />
 
                     <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/ripple8"
+                        android:id="@+id/about"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_marginStart="16dp"
@@ -333,11 +333,11 @@
                         android:background="@color/colorDivider"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/ripple8" />
+                        app:layout_constraintTop_toBottomOf="@id/about" />
 
 
                     <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/ripple9"
+                        android:id="@+id/termsAndConditions"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_marginStart="16dp"

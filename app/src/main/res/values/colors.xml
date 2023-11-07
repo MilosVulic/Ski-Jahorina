@@ -15,4 +15,9 @@
     <color name="textColorDialogs">#737373</color>
     <color name="colorBackgroundDialogs">#ffffff</color>
     <color name="dilogXCircle">#ffffff</color>
+
+    <!-- Working hours indicator -->
+    <color name="cancelColor">#f84f31</color>
+    <color name="acceptColor">#23c552</color>
+
 </resources>

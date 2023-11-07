@@ -34,7 +34,7 @@
 
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/cardViewApplicationSettings"
+                android:id="@+id/cardViewKopaonik"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:layout_marginStart="20dp"
@@ -51,7 +51,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/cardViewOtherSettings"
+                android:id="@+id/cardViewStaraPlanina"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:layout_marginStart="20dp"
@@ -64,7 +64,7 @@
                 app:cardPreventCornerOverlap="false"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/cardViewApplicationSettings"></androidx.cardview.widget.CardView>
+                app:layout_constraintTop_toBottomOf="@id/cardViewKopaonik"></androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardViewTornik"
@@ -81,7 +81,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/cardViewOtherSettings"></androidx.cardview.widget.CardView>
+                app:layout_constraintTop_toBottomOf="@id/cardViewStaraPlanina"></androidx.cardview.widget.CardView>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

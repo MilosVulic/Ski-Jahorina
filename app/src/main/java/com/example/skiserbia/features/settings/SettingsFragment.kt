@@ -1,4 +1,4 @@
-package com.example.skiserbia.features
+package com.example.skiserbia.features.settings
 
 import android.app.Dialog
 import android.graphics.Color
@@ -35,7 +35,7 @@ class SettingsFragment : Fragment() {
         bindingProp = FragmentSettingsBinding.inflate(inflater, container, false)
         setUpFragmentName()
 
-        binding.ripple5.setOnClickListener {
+        binding.changeApplicationLanguage.setOnClickListener {
             val dialogLanguage = createLanguageDialog()!!
             clickedLanguageChange = false
             AppLocale.desiredLocale = Locale(PreferenceProvider.language)

@@ -42,4 +42,11 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <!-- Customizing ripple effect for the buttons for the entering pin/setting pin  -->
+    <style name="AppTheme.ApplicationRipple">
+        <item name="colorControlHighlight">@color/colorRippleEnteringElements</item>
+        <item name="android:background">?selectableItemBackgroundBorderless</item>
+        <item name="android:forceDarkAllowed">false</item>
+    </style>
+
 </resources>
