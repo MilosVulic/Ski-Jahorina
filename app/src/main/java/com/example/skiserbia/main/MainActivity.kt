@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity(), MenuProvider {
     }
 
     private val topLevelFragments = setOf(
-        R.id.FirstFragment
+        R.id.firstFragment
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {

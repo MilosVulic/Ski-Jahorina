@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.skiserbia.NavigationGraphDirections
 import com.example.skiserbia.R
+import com.example.skiserbia.common.PreferenceProvider
 import com.example.skiserbia.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
@@ -22,15 +23,15 @@ class HomeFragment : Fragment() {
         hideTitle()
 
         binding.cardViewKopaonik.setOnClickListener {
-            findNavController().navigate(NavigationGraphDirections.actionKopaonik())
+            findNavController().navigate(NavigationGraphDirections.actionSkiInfo(PreferenceProvider.kopaonikUrl))
         }
 
         binding.cardViewTornik.setOnClickListener {
-            findNavController().navigate(NavigationGraphDirections.actionSkiMapKopaonik())
+            findNavController().navigate(NavigationGraphDirections.actionSkiInfo(PreferenceProvider.zlatiborUrl))
         }
 
         binding.cardViewStaraPlanina.setOnClickListener {
-            findNavController().navigate(NavigationGraphDirections.actionKopaonik())
+            findNavController().navigate(NavigationGraphDirections.actionSkiInfo(PreferenceProvider.staraPlaninaUrl))
         }
         return binding.root
     }

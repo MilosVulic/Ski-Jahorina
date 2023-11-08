@@ -3,10 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_graph"
-    app:startDestination="@id/FirstFragment">
+    app:startDestination="@id/firstFragment">
 
     <fragment
-        android:id="@+id/FirstFragment"
+        android:id="@+id/firstFragment"
         android:name="com.example.skiserbia.main.HomeFragment"
         tools:layout="@layout/fragment_home" />
 
@@ -16,11 +16,23 @@
 
     <fragment
         android:id="@+id/skiCenterDetailsFragment"
-        android:name="com.example.skiserbia.features.lifts.SkiCenterDetailsFragment" />
+        android:name="com.example.skiserbia.features.lifts.SkiCenterDetailsFragment">
+    <argument
+        android:name="skiCenter"
+        app:argType="string" />
+    </fragment>
 
     <fragment
-        android:id="@+id/skiMapKopaonikFragment"
+        android:id="@+id/skiMapFragment"
         android:name="com.example.skiserbia.features.maps.KopaonikMapFragment" />
+
+    <fragment
+        android:id="@+id/liftInfoFragment"
+        android:name="com.example.skiserbia.features.lifts.LiftInfoFragment">
+    <argument
+        android:name="skiCenter"
+        app:argType="string" />
+</fragment>
 
     <action
         android:id="@+id/action_global_settingsFragment"
@@ -29,26 +41,36 @@
         app:exitAnim="@anim/nav_default_exit_anim"
         app:popEnterAnim="@anim/nav_default_pop_enter_anim"
         app:popExitAnim="@anim/nav_default_pop_exit_anim"
-        app:popUpTo="@id/FirstFragment"
+        app:popUpTo="@id/firstFragment"
         app:popUpToInclusive="false" />
 
     <action
-        android:id="@+id/action_kopaonik"
+        android:id="@+id/action_ski_info"
         app:destination="@id/skiCenterDetailsFragment"
         app:enterAnim="@anim/nav_default_enter_anim"
         app:exitAnim="@anim/nav_default_exit_anim"
         app:popEnterAnim="@anim/nav_default_pop_enter_anim"
         app:popExitAnim="@anim/nav_default_pop_exit_anim"
-        app:popUpTo="@id/FirstFragment"
+        app:popUpTo="@id/firstFragment"
         app:popUpToInclusive="false" />
 
     <action
-        android:id="@+id/action_ski_map_kopaonik"
-        app:destination="@id/skiMapKopaonikFragment"
+        android:id="@+id/action_ski_map"
+        app:destination="@id/skiMapFragment"
         app:enterAnim="@anim/nav_default_enter_anim"
         app:exitAnim="@anim/nav_default_exit_anim"
         app:popEnterAnim="@anim/nav_default_pop_enter_anim"
         app:popExitAnim="@anim/nav_default_pop_exit_anim"
-        app:popUpTo="@id/FirstFragment"
+        app:popUpTo="@id/firstFragment"
+        app:popUpToInclusive="false" />
+
+    <action
+        android:id="@+id/action_lift_info"
+        app:destination="@id/liftInfoFragment"
+        app:enterAnim="@anim/nav_default_enter_anim"
+        app:exitAnim="@anim/nav_default_exit_anim"
+        app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+        app:popExitAnim="@anim/nav_default_pop_exit_anim"
+        app:popUpTo="@id/skiCenterDetailsFragment"
         app:popUpToInclusive="false" />
 </navigation>
