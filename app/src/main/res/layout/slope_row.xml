@@ -31,18 +31,33 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/imageViewDifficulty"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:src="@color/colorBlackWhite"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/imageViewIcon"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:src="@color/colorBlackWhite"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:id="@+id/textViewMark"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1B"
+                    android:layout_centerInParent="true"
+                    android:textColor="@color/colorWhite"
+                    android:layout_gravity="center"
+                    android:padding="0dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageViewDifficulty"
+                    app:layout_constraintEnd_toEndOf="@+id/imageViewDifficulty"
+                    app:layout_constraintStart_toStartOf="@+id/imageViewDifficulty"
+                    app:layout_constraintTop_toTopOf="@+id/imageViewDifficulty"
+                    />
+
 
             <TextView
                 android:id="@+id/textViewRowTitle"
@@ -56,11 +71,11 @@
                 android:textStyle="bold"
                 android:maxLines="2"
                 android:ellipsize="end"
-                app:layout_constraintBottom_toBottomOf="@+id/imageViewIcon"
+                app:layout_constraintBottom_toBottomOf="@+id/imageViewDifficulty"
                 app:layout_constraintEnd_toStartOf="@+id/workingIndicator"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/imageViewIcon"
-                app:layout_constraintTop_toTopOf="@+id/imageViewIcon" />
+                app:layout_constraintStart_toEndOf="@+id/imageViewDifficulty"
+                app:layout_constraintTop_toTopOf="@+id/imageViewDifficulty" />
 
 
             <ImageView

@@ -1,4 +1,4 @@
-package com.example.skiserbia.features.lifts
+package com.example.skiserbia.features.skicenter.lifts
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,6 +9,7 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.skiserbia.common.WebScarpingServiceImpl
 import com.example.skiserbia.databinding.FragmentLiftInfoBinding
+import com.example.skiserbia.features.skicenter.lifts.LiftInfoFragmentArgs
 import okhttp3.ResponseBody
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document

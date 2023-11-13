@@ -3,13 +3,11 @@ package com.example.skiserbia.common
 import android.widget.ImageView
 import androidx.core.content.ContextCompat
 import com.example.skiserbia.R
-import com.example.skiserbia.features.lifts.LiftInfo
-import de.hdodenhof.circleimageview.CircleImageView
 
-object IconLiftSetter {
+object IconWorkingIndicatorSetter {
 
-    fun displayImage(liftInfo: LiftInfo, view: ImageView) {
-        when (liftInfo.inFunction) {
+    fun displayImage(inFunction: String, view: ImageView) {
+        when (inFunction) {
             "Ne" -> view.setImageResource(R.drawable.ic_cancel)
             "NE" -> view.setImageResource(R.drawable.ic_cancel)
             "No" -> view.setImageResource(R.drawable.ic_cancel)
@@ -25,18 +23,12 @@ object IconLiftSetter {
         }
     }
 
-    fun setBackground(liftInfo: LiftInfo, view: CircleImageView) {
-        when (liftInfo.inFunction) {
+    fun setBackground(inFunction: String, view: ImageView) {
+        when (inFunction) {
             "Ne", "NE", "No", "NO", "Closed", "CLOSED" -> {
-                view.circleBackgroundColor = ContextCompat.getColor(view.context, R.color.cancelColor)
-                view.borderColor = ContextCompat.getColor(view.context, R.color.cancelColor)
-                view.borderWidth = 1
                 view.setColorFilter(ContextCompat.getColor(view.context, R.color.cancelColor))
             }
             "DA", "Da", "Yes", "YES", "OPENED", "Opened" -> {
-                view.circleBackgroundColor = ContextCompat.getColor(view.context, R.color.acceptColor)
-                view.borderColor = ContextCompat.getColor(view.context, R.color.acceptColor)
-                view.borderWidth = 1
                 view.setColorFilter(ContextCompat.getColor(view.context, R.color.acceptColor))
             }
         }

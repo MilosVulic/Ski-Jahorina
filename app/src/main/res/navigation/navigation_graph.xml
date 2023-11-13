@@ -16,7 +16,7 @@
 
     <fragment
         android:id="@+id/skiCenterDetailsFragment"
-        android:name="com.example.skiserbia.features.lifts.SkiCenterDetailsFragment">
+        android:name="com.example.skiserbia.features.skicenter.SkiCenterDetailsFragment">
     <argument
         android:name="skiCenter"
         app:argType="string" />
@@ -24,15 +24,34 @@
 
     <fragment
         android:id="@+id/skiMapFragment"
-        android:name="com.example.skiserbia.features.maps.KopaonikMapFragment" />
+        android:name="com.example.skiserbia.features.skicenter.maps.KopaonikMapFragment" />
 
     <fragment
         android:id="@+id/liftInfoFragment"
-        android:name="com.example.skiserbia.features.lifts.LiftInfoFragment">
+        android:name="com.example.skiserbia.features.skicenter.lifts.LiftInfoFragment">
     <argument
         android:name="skiCenter"
         app:argType="string" />
-</fragment>
+    </fragment>
+
+    <fragment
+        android:id="@+id/slopeInfoFragment"
+        android:name="com.example.skiserbia.features.skicenter.slopes.SlopeInfoFragment">
+        <argument
+            android:name="skiCenter"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/weatherInfoFragment"
+        android:name="com.example.skiserbia.features.skicenter.weather.WeatherFragment">
+        <argument
+            android:name="skiCenter"
+            app:argType="string" />
+        <argument
+            android:name="weatherUrl"
+            app:argType="string" />
+    </fragment>
 
     <action
         android:id="@+id/action_global_settingsFragment"
@@ -67,6 +86,26 @@
     <action
         android:id="@+id/action_lift_info"
         app:destination="@id/liftInfoFragment"
+        app:enterAnim="@anim/nav_default_enter_anim"
+        app:exitAnim="@anim/nav_default_exit_anim"
+        app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+        app:popExitAnim="@anim/nav_default_pop_exit_anim"
+        app:popUpTo="@id/skiCenterDetailsFragment"
+        app:popUpToInclusive="false" />
+
+    <action
+        android:id="@+id/action_slope_info"
+        app:destination="@id/slopeInfoFragment"
+        app:enterAnim="@anim/nav_default_enter_anim"
+        app:exitAnim="@anim/nav_default_exit_anim"
+        app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+        app:popExitAnim="@anim/nav_default_pop_exit_anim"
+        app:popUpTo="@id/skiCenterDetailsFragment"
+        app:popUpToInclusive="false" />
+
+    <action
+        android:id="@+id/action_weather_info"
+        app:destination="@id/weatherInfoFragment"
         app:enterAnim="@anim/nav_default_enter_anim"
         app:exitAnim="@anim/nav_default_exit_anim"
         app:popEnterAnim="@anim/nav_default_pop_enter_anim"

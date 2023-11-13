@@ -10,4 +10,7 @@ object PreferenceProvider : KotprefModel() {
     var kopaonikUrl: String by stringPref("https://www.skijalistasrbije.rs/sr/prohodnost-staza-i-rad-zicara-kopaonik/")
     var zlatiborUrl: String by stringPref("https://www.skijalistasrbije.rs/en/lifts-and-slopes-tornik-zlatibor/")
     var staraPlaninaUrl: String by stringPref("https://www.skijalistasrbije.rs/en/lifts-and-slopes-stara-planina/")
+
+    var weatherUrl: String by stringPref("https://www.skijalistasrbije.rs/en/node/1313/")
+
 }

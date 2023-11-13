@@ -1,4 +1,4 @@
-package com.example.skiserbia.features.lifts
+package com.example.skiserbia.features.skicenter.lifts
 
 data class LiftInfo(
     val name: String,

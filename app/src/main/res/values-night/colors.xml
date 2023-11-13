@@ -19,4 +19,8 @@
     <!-- Working hours indicator -->
     <color name="cancelColor">#f84f31</color>
     <color name="acceptColor">#23c552</color>
+
+    <!-- Category slopes colors -->
+    <color name="easyColor">#20a5ff</color>
+    <color name="difficultColor">#1f1f1f</color>
 </resources>

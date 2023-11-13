@@ -1,4 +1,4 @@
-package com.example.skiserbia.features.lifts
+package com.example.skiserbia.features.skicenter
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,13 +8,13 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.skiserbia.NavigationGraphDirections
+import com.example.skiserbia.common.PreferenceProvider
 import com.example.skiserbia.databinding.FragmentSkiCenterDetailsBinding
 
 class SkiCenterDetailsFragment : Fragment() {
 
     private var bindingProp: FragmentSkiCenterDetailsBinding? = null
     private val binding get() = bindingProp!!
-
     private val skiCenterUrl: SkiCenterDetailsFragmentArgs by navArgs()
 
     override fun onCreateView(
@@ -28,11 +28,15 @@ class SkiCenterDetailsFragment : Fragment() {
         }
 
         binding.cardViewSlopesInfo.setOnClickListener {
-            findNavController().navigate(NavigationGraphDirections.actionLiftInfo(skiCenterUrl.skiCenter))
+            findNavController().navigate(NavigationGraphDirections.actionSlopeInfo(skiCenterUrl.skiCenter))
         }
 
         binding.cardViewMap.setOnClickListener {
             findNavController().navigate(NavigationGraphDirections.actionSkiMap())
+        }
+
+        binding.button2.setOnClickListener {
+            findNavController().navigate(NavigationGraphDirections.actionWeatherInfo(skiCenterUrl.skiCenter, PreferenceProvider.weatherUrl))
         }
         return binding.root
     }

@@ -48,6 +48,55 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/skiCenterKopaonikImage"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginBottom="10dp"
+                        app:layout_constraintBottom_toTopOf="@+id/skiCenterKopaonik"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/skiCenterKopaonik"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="@string/kopaonik"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/skiCenterKopaonikImage" />
+
+                    <TextView
+                        android:id="@+id/skiCenterKopaonikAltitude"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/kopaonik_altitude"
+                        android:layout_marginEnd="15dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/KopaonikImageAltitudeIcon"
+                        app:layout_constraintTop_toTopOf="@+id/KopaonikImageAltitudeIcon"
+                        app:layout_constraintEnd_toStartOf="@+id/KopaonikImageAltitudeIcon"
+                        tools:layout_editor_absoluteX="295dp" />
+
+                    <ImageView
+                        android:id="@+id/KopaonikImageAltitudeIcon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_altitude"
+                        app:tint="@color/colorBlackWhite"
+                        app:layout_constraintBottom_toBottomOf="@+id/skiCenterKopaonik"
+                        app:layout_constraintTop_toTopOf="@+id/skiCenterKopaonik"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_marginEnd="15dp" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
@@ -64,7 +113,58 @@
                 app:cardPreventCornerOverlap="false"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/cardViewKopaonik"></androidx.cardview.widget.CardView>
+                app:layout_constraintTop_toBottomOf="@id/cardViewKopaonik">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/skiCenterStaraPlaninaImage"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginBottom="10dp"
+                        app:layout_constraintBottom_toTopOf="@+id/skiCenterStaraPlanina"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/skiCenterStaraPlanina"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="@string/stara_planina"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/skiCenterStaraPlaninaImage" />
+
+                    <TextView
+                        android:id="@+id/skiCenterStaraPlaninaAltitude"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/stara_planina_altitude"
+                        android:layout_marginEnd="15dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/StaraPlaninaImageAltitudeIcon"
+                        app:layout_constraintTop_toTopOf="@+id/StaraPlaninaImageAltitudeIcon"
+                        app:layout_constraintEnd_toStartOf="@+id/StaraPlaninaImageAltitudeIcon"
+                        tools:layout_editor_absoluteX="295dp" />
+
+                    <ImageView
+                        android:id="@+id/StaraPlaninaImageAltitudeIcon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_altitude"
+                        app:tint="@color/colorBlackWhite"
+                        app:layout_constraintBottom_toBottomOf="@+id/skiCenterStaraPlanina"
+                        app:layout_constraintTop_toTopOf="@+id/skiCenterStaraPlanina"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_marginEnd="15dp" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardViewTornik"
@@ -81,7 +181,58 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/cardViewStaraPlanina"></androidx.cardview.widget.CardView>
+                app:layout_constraintTop_toBottomOf="@id/cardViewStaraPlanina">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/skiCenterTornikImage"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginBottom="10dp"
+                        app:layout_constraintBottom_toTopOf="@+id/skiCenterTornik"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/skiCenterTornik"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="@string/tornik"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/skiCenterTornikImage" />
+
+                    <TextView
+                        android:id="@+id/skiCenterTornikAltitude"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/tornik_altitude"
+                        android:layout_marginEnd="15dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/TornikImageAltitudeIcon"
+                        app:layout_constraintTop_toTopOf="@+id/TornikImageAltitudeIcon"
+                        app:layout_constraintEnd_toStartOf="@+id/TornikImageAltitudeIcon"
+                        tools:layout_editor_absoluteX="295dp" />
+
+                    <ImageView
+                        android:id="@+id/TornikImageAltitudeIcon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_altitude"
+                        app:tint="@color/colorBlackWhite"
+                        app:layout_constraintBottom_toBottomOf="@+id/skiCenterTornik"
+                        app:layout_constraintTop_toTopOf="@+id/skiCenterTornik"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_marginEnd="15dp" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -1,4 +1,4 @@
-package com.example.skiserbia.features.lifts
+package com.example.skiserbia.features.skicenter.lifts
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,8 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.skiserbia.R
-import com.example.skiserbia.common.IconLiftSetter
-import de.hdodenhof.circleimageview.CircleImageView
+import com.example.skiserbia.common.IconWorkingIndicatorSetter
 
 
 class LiftInfoAdapter(private val mList: List<LiftInfo>) : RecyclerView.Adapter<LiftInfoAdapter.ViewHolder>() {
@@ -25,8 +24,8 @@ class LiftInfoAdapter(private val mList: List<LiftInfo>) : RecyclerView.Adapter<
         val liftInfo = mList[position]
 
         holder.textViewCardTitle.text = liftInfo.name
-        IconLiftSetter.displayImage(liftInfo, holder.workingIndicator)
-        IconLiftSetter.setBackground(liftInfo, holder.circleImageView)
+        IconWorkingIndicatorSetter.displayImage(liftInfo.inFunction, holder.workingIndicator)
+        IconWorkingIndicatorSetter.setBackground(liftInfo.inFunction, holder.workingIndicator)
     }
 
     override fun getItemCount(): Int {
@@ -36,6 +35,5 @@ class LiftInfoAdapter(private val mList: List<LiftInfo>) : RecyclerView.Adapter<
     class ViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
         val textViewCardTitle: TextView = itemView.findViewById(R.id.textViewRowTitle)
         val workingIndicator: ImageView = itemView.findViewById(R.id.workingIndicator)
-        val circleImageView: CircleImageView = itemView.findViewById(R.id.imageViewCircleCloseDialog)
     }
 }

@@ -1,4 +1,4 @@
-package com.example.skiserbia.features.maps
+package com.example.skiserbia.features.skicenter.maps
 
 import android.os.Bundle
 import android.view.LayoutInflater
