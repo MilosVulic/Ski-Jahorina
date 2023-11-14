@@ -24,7 +24,11 @@
 
     <fragment
         android:id="@+id/skiMapFragment"
-        android:name="com.example.skiserbia.features.skicenter.maps.KopaonikMapFragment" />
+        android:name="com.example.skiserbia.features.skicenter.maps.SkiMapFragment">
+    <argument
+        android:name="skiCenter"
+        app:argType="string" />
+    </fragment>
 
     <fragment
         android:id="@+id/liftInfoFragment"
@@ -46,10 +50,16 @@
         android:id="@+id/weatherInfoFragment"
         android:name="com.example.skiserbia.features.skicenter.weather.WeatherFragment">
         <argument
-            android:name="skiCenter"
+            android:name="temperature"
             app:argType="string" />
         <argument
-            android:name="weatherUrl"
+            android:name="wind"
+            app:argType="string" />
+        <argument
+            android:name="snow"
+            app:argType="string" />
+        <argument
+            android:name="forecast"
             app:argType="string" />
     </fragment>
 

@@ -3,13 +3,192 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".features.skicenter.weather.WeatherFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:id="@+id/weather"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent" />
 
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewTemperature"
+        android:layout_width="0dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginEnd="10dp"
+        app:cardBackgroundColor="@color/colorCardBackgroundSettings"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="5dp"
+        app:cardPreventCornerOverlap="false"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/cardViewWind"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/temperatureIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_altitude"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="20dp"
+            app:tint="@color/colorBlackWhite" />
+
+        <TextView
+            android:id="@+id/temperatureName"
+            android:text="@string/temperature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/temperatureIcon">
+        </TextView>
+
+        <TextView
+            android:id="@+id/temperatureValue"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/temperatureName">
+        </TextView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewWind"
+        android:layout_width="0dp"
+        android:layout_height="120dp"
+        android:layout_marginEnd="10dp"
+        app:cardBackgroundColor="@color/colorCardBackgroundSettings"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="5dp"
+        app:cardPreventCornerOverlap="false"
+        app:layout_constraintEnd_toStartOf="@+id/cardViewSnow"
+        app:layout_constraintStart_toEndOf="@+id/cardViewTemperature"
+        app:layout_constraintTop_toTopOf="@+id/cardViewTemperature"
+        app:layout_constraintBottom_toBottomOf="@+id/cardViewTemperature">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/windIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_air"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="20dp"
+                app:tint="@color/colorBlackWhite" />
+
+            <TextView
+                android:id="@+id/windName"
+                android:text="@string/wind"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/windIcon">
+            </TextView>
+
+            <TextView
+                android:id="@+id/windValue"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/windName">
+            </TextView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewSnow"
+        android:layout_width="0dp"
+        android:layout_height="120dp"
+        android:layout_marginEnd="20dp"
+        app:cardBackgroundColor="@color/colorCardBackgroundSettings"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="5dp"
+        app:cardPreventCornerOverlap="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/cardViewWind"
+        app:layout_constraintTop_toTopOf="@+id/cardViewWind"
+        app:layout_constraintBottom_toBottomOf="@+id/cardViewWind">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/snowIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_snow"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="20dp"
+            app:tint="@color/colorBlackWhite" />
+
+        <TextView
+            android:id="@+id/snowName"
+            android:text="@string/snow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/snowIcon">
+        </TextView>
+
+        <TextView
+            android:id="@+id/snowValue"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/snowName">
+        </TextView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

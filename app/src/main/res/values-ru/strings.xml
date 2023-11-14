@@ -29,4 +29,9 @@
     <string name="tornik_altitude">1496</string>
     <string name="meters">m</string>
     <string name="feet">ft</string>
+
+    <!-- Forecast -->
+    <string name="temperature">Temperature</string>
+    <string name="snow">Snow</string>
+    <string name="wind">Wind</string>
 </resources>
