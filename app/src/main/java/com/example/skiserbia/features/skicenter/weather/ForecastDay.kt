@@ -5,5 +5,6 @@ data class ForecastDay(
     val date: String,
     val maxTemp: String,
     val minTemp: String,
-    val windSpeed: String
+    val windSpeed: String,
+    val image: String
 )

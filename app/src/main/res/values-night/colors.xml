@@ -23,4 +23,8 @@
     <!-- Category slopes colors -->
     <color name="easyColor">#20a5ff</color>
     <color name="difficultColor">#1f1f1f</color>
+
+    <!-- Min Max Temperature colors -->
+    <color name="maxTemperatureColor">#c80900</color>
+    <color name="minTemperatureColor">#046edb</color>
 </resources>

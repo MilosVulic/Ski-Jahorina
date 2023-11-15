@@ -59,6 +59,9 @@
             android:name="snow"
             app:argType="string" />
         <argument
+            android:name="currentWeatherIcon"
+            app:argType="string" />
+        <argument
             android:name="forecast"
             app:argType="string" />
     </fragment>

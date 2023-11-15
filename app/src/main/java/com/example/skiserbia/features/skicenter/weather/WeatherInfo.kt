@@ -5,5 +5,6 @@ data class WeatherInfo(
     val temperature: String,
     val snowHeight: String,
     val windSpeed: String,
+    val image: String,
     val forecastDays: List<ForecastDay>
 )

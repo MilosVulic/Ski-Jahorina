@@ -28,6 +28,7 @@ class SkiCenterDetailsFragment : Fragment() {
     lateinit var temperature : String
     lateinit var wind : String
     lateinit var snow : String
+    lateinit var currentWeatherImage : String
     lateinit var forecast : String
 
     override fun onCreateView(
@@ -49,7 +50,7 @@ class SkiCenterDetailsFragment : Fragment() {
         }
 
         binding.button2.setOnClickListener {
-            findNavController().navigate(NavigationGraphDirections.actionWeatherInfo(temperature, wind, snow, forecast))
+            findNavController().navigate(NavigationGraphDirections.actionWeatherInfo(temperature, wind, snow, currentWeatherImage, forecast))
         }
 
 
@@ -64,7 +65,8 @@ class SkiCenterDetailsFragment : Fragment() {
                         temperature = weatherDetailsList.temperature
                         wind = weatherDetailsList.windSpeed
                         snow = weatherDetailsList.snowHeight
-                        forecast = weatherDetailsList.toString()
+                        currentWeatherImage = weatherDetailsList.image
+                        forecast = weatherDetailsList.forecastDays.joinToString("|") { "${it.day},${it.date},${it.maxTemp},${it.minTemp},${it.windSpeed},${it.image}" }
                     }
                 }
             }
@@ -85,6 +87,7 @@ class SkiCenterDetailsFragment : Fragment() {
         val location = document.select(".current-weather .forecast-day").text()
         val temperature = document.select(".current-weather .current-temp").text()
         val humidityTempElements = document.select(".current-weather .humidity-temp")
+        val currentWeatherImageSrc = document.select(".current-temp img").attr("src")
 
         var snowHeight = ""
         var windSpeed = ""
@@ -108,12 +111,13 @@ class SkiCenterDetailsFragment : Fragment() {
             val maxTemp = forecastElement.select(".forecast-right-side .forecast-temp-red").text()
             val minTemp = forecastElement.select(".forecast-right-side .forecast-temp-blue").text()
             val forecastWindSpeed = forecastElement.select(".forecast-right-side .forecast-cond").text()
+            val imageSrc = forecastElement.select(".forecast-left-side img").attr("src")
 
-            val forecastDay = ForecastDay(day, date, maxTemp, minTemp, forecastWindSpeed)
+            val forecastDay = ForecastDay(day, date, maxTemp, minTemp, forecastWindSpeed, imageSrc)
             forecastDays.add(forecastDay)
         }
 
-        return WeatherInfo(location, temperature, snowHeight, windSpeed, forecastDays)
+        return WeatherInfo(location, temperature, snowHeight, windSpeed, currentWeatherImageSrc, forecastDays)
     }
 
     private fun getCall(skiCenterUrl: String): Call<ResponseBody> {
