@@ -10,7 +10,6 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.skiserbia.common.WebScarpingServiceImpl
 import com.example.skiserbia.databinding.FragmentSlopeInfoBinding
-import com.example.skiserbia.features.skicenter.slopes.SlopeInfoFragmentArgs
 import okhttp3.ResponseBody
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document

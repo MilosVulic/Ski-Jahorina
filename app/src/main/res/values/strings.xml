@@ -33,4 +33,16 @@
     <string name="temperature">Temperature</string>
     <string name="snow">Snow</string>
     <string name="wind">Wind</string>
+
+    <!-- Useful information -->
+    <string name="police">Police</string>
+    <string name="firefighter">Firefighter</string>
+    <string name="emergency">Emergency</string>
+    <string name="mountain_rescue">Mountain Rescue</string>
+    <string name="police_number">192</string>
+    <string name="firefighter_number">193</string>
+    <string name="emergency_number">194</string>
+    <string name="mountain_rescue_kopaonik_number">063 466 466</string>
+    <string name="mountain_rescue_stara_planina_number">063 466 461</string>
+    <string name="mountain_rescue_tornik_number">063 466 467</string>
 </resources>

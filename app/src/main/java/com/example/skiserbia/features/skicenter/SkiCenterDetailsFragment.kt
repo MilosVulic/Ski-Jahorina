@@ -49,8 +49,12 @@ class SkiCenterDetailsFragment : Fragment() {
             findNavController().navigate(NavigationGraphDirections.actionSkiMap(skiCenterUrl.skiCenter))
         }
 
-        binding.button2.setOnClickListener {
+        binding.cardViewForecastInfo.setOnClickListener {
             findNavController().navigate(NavigationGraphDirections.actionWeatherInfo(temperature, wind, snow, currentWeatherImage, forecast))
+        }
+
+        binding.cardViewUsefulInformation.setOnClickListener {
+            findNavController().navigate(NavigationGraphDirections.actionUsefulInformation(skiCenterUrl.skiCenter))
         }
 
 

@@ -1,10 +1,13 @@
 package com.example.skiserbia.main
 
+import android.content.Context
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.appcompat.app.ViewPumpAppCompatDelegate
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
 import androidx.core.view.WindowCompat
@@ -17,6 +20,7 @@ import androidx.navigation.ui.navigateUp
 import com.example.skiserbia.NavigationGraphDirections
 import com.example.skiserbia.R
 import com.example.skiserbia.databinding.ActivityMainBinding
+import dev.b3nedikt.app_locale.AppLocale
 
 class MainActivity : AppCompatActivity(), MenuProvider {
 
@@ -33,6 +37,14 @@ class MainActivity : AppCompatActivity(), MenuProvider {
         R.id.firstFragment
     )
 
+    private val appCompatDelegate: AppCompatDelegate by lazy {
+        ViewPumpAppCompatDelegate(
+            baseDelegate = super.getDelegate(),
+            baseContext = this,
+            wrapContext = AppLocale::wrap
+        )
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         WindowCompat.setDecorFitsSystemWindows(window, false)
         super.onCreate(savedInstanceState)
@@ -42,11 +54,6 @@ class MainActivity : AppCompatActivity(), MenuProvider {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setupNavigationDrawer()
-    }
-
-    override fun onResume() {
-        super.onResume()
-        supportActionBar?.title = ""
     }
 
     private fun setupNavigationDrawer() {
@@ -63,6 +70,11 @@ class MainActivity : AppCompatActivity(), MenuProvider {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        supportActionBar?.title = ""
+    }
+
     override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
         menuInflater.inflate(R.menu.settings_menu, menu)
     }
@@ -73,4 +85,13 @@ class MainActivity : AppCompatActivity(), MenuProvider {
         }
         return false
     }
+
+    override fun attachBaseContext(newBase: Context) {
+        super.attachBaseContext(newBase)
+    }
+
+    override fun getDelegate(): AppCompatDelegate {
+        return appCompatDelegate
+    }
+
 }

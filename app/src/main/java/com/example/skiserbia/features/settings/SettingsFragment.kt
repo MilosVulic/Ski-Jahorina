@@ -11,6 +11,7 @@ import android.view.Window
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import com.example.skiserbia.R
 import com.example.skiserbia.common.PreferenceProvider
@@ -34,7 +35,9 @@ class SettingsFragment : Fragment() {
     ): View {
         bindingProp = FragmentSettingsBinding.inflate(inflater, container, false)
         setUpFragmentName()
+        themeSettings()
 
+        // changing application language
         binding.changeApplicationLanguage.setOnClickListener {
             val dialogLanguage = createLanguageDialog()!!
             clickedLanguageChange = false
@@ -43,14 +46,30 @@ class SettingsFragment : Fragment() {
             dialogLanguage.show()
         }
 
+        // changing dark/light mode
+        binding.switchDarkLightTheme.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                PreferenceProvider.darkMode = true
+                binding.imageViewTheme.setImageResource(R.drawable.ic_dark_mode)
+            } else {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                PreferenceProvider.darkMode = false
+                binding.imageViewTheme.setImageResource(R.drawable.ic_light_mode)
+            }
+        }
+
         return binding.root
     }
 
     private fun setUpFragmentName() {
         (activity as MainActivity).supportActionBar?.title = ""
         val title1TextView = (activity as MainActivity).findViewById<TextView>(R.id.title1)
-        title1TextView.visibility = View.VISIBLE
-        title1TextView.text = resources.getText(R.string.settings)
+
+        if (title1TextView != null) {
+            title1TextView.visibility = View.VISIBLE
+            title1TextView.text = resources.getText(R.string.settings)
+        }
     }
 
     private fun createLanguageDialog(): Dialog? {
@@ -170,5 +189,14 @@ class SettingsFragment : Fragment() {
             dialog.dismiss()
         }
         return dialog
+    }
+
+    private fun themeSettings() {
+        binding.switchDarkLightTheme.isChecked = PreferenceProvider.darkMode
+        if (PreferenceProvider.darkMode) {
+            binding.imageViewTheme.setImageResource(R.drawable.ic_dark_mode)
+        } else {
+            binding.imageViewTheme.setImageResource(R.drawable.ic_light_mode)
+        }
     }
 }

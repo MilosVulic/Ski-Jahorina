@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".features.skicenter.usefulinformation.UsefulInformationFragment">
+
+    <TextView
+        android:id="@+id/mountainRescueTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="40dp"
+        android:text="@string/mountain_rescue"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+    </TextView>
+
+    <ImageView
+        android:id="@+id/phoneIconMountainRescue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:src="@drawable/ic_phone"
+        app:layout_constraintEnd_toStartOf="@+id/mountainRescueNumber"
+        app:layout_constraintTop_toTopOf="@+id/mountainRescueNumber"
+        app:layout_constraintBottom_toBottomOf="@+id/mountainRescueNumber">
+    </ImageView>
+
+    <TextView
+        android:id="@+id/mountainRescueNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="40dp"
+        android:text="@string/mountain_rescue_kopaonik_number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+    </TextView>
+
+    <TextView
+        android:id="@+id/policeTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/police"
+        app:layout_constraintStart_toStartOf="@+id/mountainRescueTitle"
+        app:layout_constraintTop_toBottomOf="@+id/mountainRescueTitle">
+    </TextView>
+
+    <ImageView
+        android:id="@+id/phoneIconPolice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:src="@drawable/ic_phone"
+        app:layout_constraintEnd_toStartOf="@+id/policeNumber"
+        app:layout_constraintTop_toTopOf="@+id/policeNumber"
+        app:layout_constraintBottom_toBottomOf="@+id/policeNumber">
+    </ImageView>
+
+    <TextView
+        android:id="@+id/policeNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/police_number"
+        app:layout_constraintStart_toStartOf="@+id/mountainRescueNumber"
+        app:layout_constraintTop_toBottomOf="@+id/mountainRescueNumber">
+    </TextView>
+
+    <TextView
+        android:id="@+id/firefighterTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/firefighter"
+        app:layout_constraintStart_toStartOf="@+id/policeTitle"
+        app:layout_constraintTop_toBottomOf="@+id/policeTitle">
+    </TextView>
+
+    <ImageView
+        android:id="@+id/phoneIconFirefigther"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:src="@drawable/ic_phone"
+        app:layout_constraintEnd_toStartOf="@+id/firefighterNumber"
+        app:layout_constraintTop_toTopOf="@+id/firefighterNumber"
+        app:layout_constraintBottom_toBottomOf="@+id/firefighterNumber">
+    </ImageView>
+
+
+    <TextView
+        android:id="@+id/firefighterNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/firefighter_number"
+        app:layout_constraintStart_toStartOf="@+id/policeNumber"
+        app:layout_constraintTop_toBottomOf="@+id/policeNumber">
+    </TextView>
+
+    <TextView
+        android:id="@+id/emergencyTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/emergency"
+        app:layout_constraintStart_toStartOf="@+id/firefighterTitle"
+        app:layout_constraintTop_toBottomOf="@+id/firefighterTitle">
+    </TextView>
+
+    <ImageView
+        android:id="@+id/phoneIconEmergency"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:src="@drawable/ic_phone"
+        app:layout_constraintEnd_toStartOf="@+id/emergencyNumber"
+        app:layout_constraintTop_toTopOf="@+id/emergencyNumber"
+        app:layout_constraintBottom_toBottomOf="@+id/emergencyNumber">
+    </ImageView>
+
+    <TextView
+        android:id="@+id/emergencyNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/emergency_number"
+        app:layout_constraintStart_toStartOf="@+id/firefighterNumber"
+        app:layout_constraintTop_toBottomOf="@+id/firefighterNumber">
+    </TextView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

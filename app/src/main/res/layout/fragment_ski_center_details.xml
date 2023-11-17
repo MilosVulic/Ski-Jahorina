@@ -24,24 +24,23 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardViewLiftInfo"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="200dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginEnd="20dp"
                 app:cardBackgroundColor="@color/colorCardBackgroundSettings"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="5dp"
                 app:cardPreventCornerOverlap="false"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/cardViewSlopesInfo"
                 app:layout_constraintTop_toTopOf="parent">
 
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardViewSlopesInfo"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="200dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
@@ -52,38 +51,63 @@
                 app:cardElevation="5dp"
                 app:cardPreventCornerOverlap="false"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/cardViewLiftInfo"></androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardViewMap"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginBottom="15dp"
-                app:cardBackgroundColor="@color/colorCardBackgroundSettings"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="5dp"
-                app:cardPreventCornerOverlap="false"
-                app:layout_constraintBottom_toTopOf="@+id/button2"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/cardViewSlopesInfo">
+                app:layout_constraintStart_toEndOf="@+id/cardViewLiftInfo"
+                app:layout_constraintTop_toTopOf="@id/cardViewLiftInfo"
+                app:layout_constraintBottom_toBottomOf="@id/cardViewLiftInfo">
 
             </androidx.cardview.widget.CardView>
 
-            <Button
-                android:id="@+id/button2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewMap"
+                android:layout_width="0dp"
+                android:layout_height="200dp"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
-                android:text="weather"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:cardBackgroundColor="@color/colorCardBackgroundSettings"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="5dp"
+                app:cardPreventCornerOverlap="false"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cardViewMap" />
+                app:layout_constraintEnd_toStartOf="@+id/cardViewForecastInfo"
+                app:layout_constraintTop_toBottomOf="@+id/cardViewLiftInfo">
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewForecastInfo"
+                android:layout_width="0dp"
+                android:layout_height="200dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="15dp"
+                app:cardBackgroundColor="@color/colorCardBackgroundSettings"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="5dp"
+                app:cardPreventCornerOverlap="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/cardViewMap"
+                app:layout_constraintTop_toTopOf="@+id/cardViewMap"
+                app:layout_constraintBottom_toBottomOf="@+id/cardViewMap">
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewUsefulInformation"
+                android:layout_width="0dp"
+                android:layout_height="200dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                app:cardBackgroundColor="@color/colorCardBackgroundSettings"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="5dp"
+                android:layout_marginEnd="20dp"
+                app:cardPreventCornerOverlap="false"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardViewMap">
+
+            </androidx.cardview.widget.CardView>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
