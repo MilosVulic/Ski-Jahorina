@@ -1,5 +1,7 @@
 package com.example.skiserbia.features.skicenter.usefulinformation
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -22,6 +24,46 @@ class UsefulInformationFragment : Fragment() {
     ): View {
         bindingProp = FragmentUsefulInformationBinding.inflate(inflater, container, false)
         binding.mountainRescueNumber.text = getMountainRescueNumber(skiCenterUrl.skiCenter)
+
+        binding.phoneIconPolice.setOnClickListener {
+            val dialIntent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + requireContext().getString(R.string.police_number)))
+            startActivity(dialIntent)
+        }
+
+        binding.policeNumber.setOnClickListener {
+            val dialIntent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + requireContext().getString(R.string.police_number)))
+            startActivity(dialIntent)
+        }
+
+        binding.phoneIconEmergency.setOnClickListener {
+            val dialIntent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + requireContext().getString(R.string.emergency_number)))
+            startActivity(dialIntent)
+        }
+
+        binding.emergencyNumber.setOnClickListener {
+            val dialIntent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + requireContext().getString(R.string.emergency_number)))
+            startActivity(dialIntent)
+        }
+
+        binding.phoneIconFirefigther.setOnClickListener {
+            val dialIntent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + requireContext().getString(R.string.firefighter_number)))
+            startActivity(dialIntent)
+        }
+
+        binding.firefighterNumber.setOnClickListener {
+            val dialIntent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + requireContext().getString(R.string.firefighter_number)))
+            startActivity(dialIntent)
+        }
+
+        binding.phoneIconMountainRescue.setOnClickListener {
+            val dialIntent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + getMountainRescueNumber(skiCenterUrl.skiCenter)))
+            startActivity(dialIntent)
+        }
+
+        binding.mountainRescueNumber.setOnClickListener {
+            val dialIntent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + getMountainRescueNumber(skiCenterUrl.skiCenter)))
+            startActivity(dialIntent)
+        }
         return binding.root
     }
 

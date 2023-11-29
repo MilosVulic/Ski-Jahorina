@@ -27,4 +27,12 @@
     <!-- Min Max Temperature colors -->
     <color name="maxTemperatureColor">#c80900</color>
     <color name="minTemperatureColor">#046edb</color>
+
+    <!-- Fragment Details colors -->
+    <color name="blueOverlayPurple">#800080</color>
+    <color name="blueOverlayColor">#800000FF</color>
+    <color name="darkGreenOverlayColor">#80008000</color>
+    <color name="orangeOverlayColor">#FF8000</color>
+    <color name="darkYellowOverlayColor">#B8860B</color>
+    <color name="redOverlayColor">#FF0000</color>
 </resources>

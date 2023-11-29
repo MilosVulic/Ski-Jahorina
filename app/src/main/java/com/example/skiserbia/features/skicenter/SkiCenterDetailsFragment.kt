@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.skiserbia.NavigationGraphDirections
+import com.example.skiserbia.common.PreferenceProvider
 import com.example.skiserbia.common.WebScarpingServiceImpl
 import com.example.skiserbia.databinding.FragmentSkiCenterDetailsBinding
 import com.example.skiserbia.features.skicenter.weather.ForecastDay
@@ -56,6 +57,11 @@ class SkiCenterDetailsFragment : Fragment() {
         binding.cardViewUsefulInformation.setOnClickListener {
             findNavController().navigate(NavigationGraphDirections.actionUsefulInformation(skiCenterUrl.skiCenter))
         }
+
+        binding.cardViewSomethingInfo.setOnClickListener {
+            findNavController().navigate(NavigationGraphDirections.actionCamera(getCameraUrl(skiCenterUrl.skiCenter)))
+        }
+
 
 
         val call = getCall(skiCenterUrl.skiCenter)
@@ -131,6 +137,16 @@ class SkiCenterDetailsFragment : Fragment() {
             WebScarpingServiceImpl.getService().scrapeTornikWeatherWebPage()
         } else {
             WebScarpingServiceImpl.getService().scrapeStaraPlaninaWeatherWebPage()
+        }
+    }
+
+    private fun getCameraUrl(skiCenterUrl: String): String {
+        return if (skiCenterUrl.contains("kopaonik")) {
+            PreferenceProvider.kopaonikCameraUrl
+        } else if (skiCenterUrl.contains("tornik")) {
+            PreferenceProvider.zlatiborCameraUrl
+        } else {
+            PreferenceProvider.staraPlaninaCameraUrl
         }
     }
 }

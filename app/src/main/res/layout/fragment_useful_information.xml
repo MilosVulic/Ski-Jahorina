@@ -13,6 +13,8 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="40dp"
         android:text="@string/mountain_rescue"
+        android:textStyle="bold"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
     </TextView>
@@ -23,6 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="20dp"
         android:src="@drawable/ic_phone"
+        android:clickable="true"
         app:layout_constraintEnd_toStartOf="@+id/mountainRescueNumber"
         app:layout_constraintTop_toTopOf="@+id/mountainRescueNumber"
         app:layout_constraintBottom_toBottomOf="@+id/mountainRescueNumber">
@@ -35,6 +38,9 @@
         android:layout_marginEnd="30dp"
         android:layout_marginTop="40dp"
         android:text="@string/mountain_rescue_kopaonik_number"
+        android:textSize="18sp"
+        android:padding="0dp"
+        android:clickable="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
     </TextView>
@@ -43,8 +49,10 @@
         android:id="@+id/policeTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:text="@string/police"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/mountainRescueTitle"
         app:layout_constraintTop_toBottomOf="@+id/mountainRescueTitle">
     </TextView>
@@ -55,6 +63,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="20dp"
         android:src="@drawable/ic_phone"
+        android:clickable="true"
         app:layout_constraintEnd_toStartOf="@+id/policeNumber"
         app:layout_constraintTop_toTopOf="@+id/policeNumber"
         app:layout_constraintBottom_toBottomOf="@+id/policeNumber">
@@ -64,8 +73,11 @@
         android:id="@+id/policeNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:text="@string/police_number"
+        android:textSize="18sp"
+        android:padding="0dp"
+        android:clickable="true"
         app:layout_constraintStart_toStartOf="@+id/mountainRescueNumber"
         app:layout_constraintTop_toBottomOf="@+id/mountainRescueNumber">
     </TextView>
@@ -74,8 +86,10 @@
         android:id="@+id/firefighterTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:text="@string/firefighter"
+        android:textStyle="bold"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="@+id/policeTitle"
         app:layout_constraintTop_toBottomOf="@+id/policeTitle">
     </TextView>
@@ -86,6 +100,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="20dp"
         android:src="@drawable/ic_phone"
+        android:clickable="true"
         app:layout_constraintEnd_toStartOf="@+id/firefighterNumber"
         app:layout_constraintTop_toTopOf="@+id/firefighterNumber"
         app:layout_constraintBottom_toBottomOf="@+id/firefighterNumber">
@@ -96,8 +111,11 @@
         android:id="@+id/firefighterNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:text="@string/firefighter_number"
+        android:padding="0dp"
+        android:textSize="18sp"
+        android:clickable="true"
         app:layout_constraintStart_toStartOf="@+id/policeNumber"
         app:layout_constraintTop_toBottomOf="@+id/policeNumber">
     </TextView>
@@ -106,8 +124,10 @@
         android:id="@+id/emergencyTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:text="@string/emergency"
+        android:textStyle="bold"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="@+id/firefighterTitle"
         app:layout_constraintTop_toBottomOf="@+id/firefighterTitle">
     </TextView>
@@ -118,6 +138,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="20dp"
         android:src="@drawable/ic_phone"
+        android:clickable="true"
         app:layout_constraintEnd_toStartOf="@+id/emergencyNumber"
         app:layout_constraintTop_toTopOf="@+id/emergencyNumber"
         app:layout_constraintBottom_toBottomOf="@+id/emergencyNumber">
@@ -127,8 +148,11 @@
         android:id="@+id/emergencyNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:text="@string/emergency_number"
+        android:padding="0dp"
+        android:textSize="18sp"
+        android:clickable="true"
         app:layout_constraintStart_toStartOf="@+id/firefighterNumber"
         app:layout_constraintTop_toBottomOf="@+id/firefighterNumber">
     </TextView>

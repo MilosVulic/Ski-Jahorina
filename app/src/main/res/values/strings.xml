@@ -45,4 +45,14 @@
     <string name="mountain_rescue_kopaonik_number">063 466 466</string>
     <string name="mountain_rescue_stara_planina_number">063 466 461</string>
     <string name="mountain_rescue_tornik_number">063 466 467</string>
+
+
+    <!-- Ski Fragment Details Information -->
+    <string name="lifts">LIFTS</string>
+    <string name="slopes">SLOPES</string>
+    <string name="map">MAP</string>
+    <string name="weather">WEATHER</string>
+    <string name="useful">USEFUL</string>
+    <string name="information">INFORMATION</string>
+    <string name="webcams">WEBCAMS</string>
 </resources>
