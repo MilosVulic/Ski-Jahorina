@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".features.settings.AboutFragment"
+    android:background="@color/colorBackground">
+
+
+    <io.github.florent37.shapeofview.shapes.ArcView
+        android:id="@+id/arcView"
+        android:layout_width="0dp"
+        android:layout_height="190dp"
+        android:elevation="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shape_arc_height="40dp"
+        app:shape_arc_position="bottom">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/gradient_drawable">
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imageViewIconOverview"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="35dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="5dp"
+                android:src="@drawable/somil_logo"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </io.github.florent37.shapeofview.shapes.ArcView>
+
+    <ScrollView
+        android:id="@+id/scrollAboutFrag"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/arcView">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constrainAboutFrag"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/textViewAuthor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="25dp"
+                android:text="@string/about_author"
+                android:textColor="@color/headerColorTextAbout"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:text="@string/about_author_name"
+                android:textColor="@color/colorTextAbout"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageViewFlixeron"
+                app:layout_constraintStart_toEndOf="@+id/imageViewFlixeron"
+                app:layout_constraintTop_toTopOf="@+id/imageViewFlixeron" />
+
+            <ImageView
+                android:id="@+id/imageViewFlixeron"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:src="@mipmap/neoapps_logo_round"
+                app:layout_constraintStart_toStartOf="@+id/textViewAuthor"
+                app:layout_constraintTop_toBottomOf="@+id/textViewAuthor" />
+
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="35dp"
+                android:text="@string/about_app_version"
+                android:textColor="@color/headerColorTextAbout"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/imageViewFlixeron"
+                app:layout_constraintTop_toBottomOf="@+id/imageViewFlixeron" />
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/colorTextAbout"
+                android:text="@string/about_app_version_number"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/textView8"
+                app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="35dp"
+                android:text="@string/about_contact_email"
+                android:textColor="@color/headerColorTextAbout"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/textView9"
+                app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/colorTextAbout"
+                android:text="@string/about_email"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/textView11"
+                app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="35dp"
+                android:text="@string/about_social"
+                android:textColor="@color/headerColorTextAbout"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/textView12"
+                app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+
+            <ImageView
+                android:id="@+id/imageViewEmailSocial"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="15dp"
+                android:src="@drawable/ic_mail_about"
+                app:layout_constraintBottom_toBottomOf="@+id/imageViewYoutubeAbout"
+                app:layout_constraintStart_toEndOf="@+id/imageViewYoutubeAbout"
+                app:layout_constraintTop_toTopOf="@+id/imageViewYoutubeAbout" />
+
+            <ImageView
+                android:id="@+id/imageViewInstagramAbout"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="15dp"
+                android:src="@drawable/picture_instagram"
+                app:layout_constraintBottom_toBottomOf="@+id/imageViewTwitterAbout"
+                app:layout_constraintStart_toEndOf="@+id/imageViewTwitterAbout"
+                app:layout_constraintTop_toTopOf="@+id/imageViewTwitterAbout" />
+
+
+            <FrameLayout
+                android:id="@+id/imageViewYoutubeAbout"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="15dp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageViewInstagramAbout"
+                app:layout_constraintStart_toEndOf="@+id/imageViewInstagramAbout"
+                app:layout_constraintTop_toTopOf="@+id/imageViewInstagramAbout">
+
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/imageViewCircleBackground"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    app:civ_circle_background_color="@color/colorWebSite"
+                    android:src="@android:color/transparent" />
+
+                <ImageView
+                    android:id="@+id/imageViewCategory"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_website_about"
+                    android:layout_gravity="center" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/imageViewTwitterAbout"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="10dp"
+                android:src="@drawable/picture_twitter_x_icon"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/textView13"
+                app:layout_constraintTop_toBottomOf="@+id/textView13">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/imageViewCircleBackground1"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@android:color/transparent"
+                    app:civ_circle_background_color="@color/colorBlack" />
+
+                <ImageView
+                    android:id="@+id/imageViewCategory1"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/picture_twitter_x_icon" />
+            </FrameLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -55,4 +55,26 @@
     <string name="useful">USEFUL</string>
     <string name="information">INFORMATION</string>
     <string name="webcams">WEBCAMS</string>
+
+    <!-- About -->
+    <string name="about">About</string>
+    <string name="about_author">Author</string>
+    <string name="about_author_name">Neoapps</string>
+    <string name="about_app_version">App Version</string>
+    <string name="about_app_version_number">1.0.0</string>
+    <string name="about_contact_email">Contact Email</string>
+    <string name="about_email">neoapps.services@gmail.com</string>
+    <string name="about_social">Social</string>
+
+    <!-- Help center -->
+    <string name="help_center_faq">FAQ</string>
+    <string name="help">Help Center</string>
+    <string name="help_center_question1">How many categories can be used in the free version?</string>
+    <string name="help_center_answer1">You can use 4 categories (general, mail, card, wifi) and with the pro version, you got unlimited access to categories.</string>
+    <string name="help_center_question2">How many entires can be stored within categories?</string>
+    <string name="help_center_answer2">You can insert up to 15 entries with the free version and unlimited with the pro.</string>
+    <string name="help_center_question3">Can I have all my entries if i start using the application on the new device?</string>
+    <string name="help_center_answer3">No, there isn\'t any option for such a occasion. All your data is stored locally on the device.</string>
+    <string name="help_center_question4">How to change my application pin?</string>
+    <string name="help_center_answer4">You can change the pin in the settings menu.</string>
 </resources>

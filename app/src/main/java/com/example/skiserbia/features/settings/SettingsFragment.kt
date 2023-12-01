@@ -13,6 +13,8 @@ import android.widget.RadioGroup
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.example.skiserbia.NavigationGraphDirections
 import com.example.skiserbia.R
 import com.example.skiserbia.common.PreferenceProvider
 import com.example.skiserbia.databinding.FragmentSettingsBinding
@@ -57,6 +59,14 @@ class SettingsFragment : Fragment() {
                 PreferenceProvider.darkMode = false
                 binding.imageViewTheme.setImageResource(R.drawable.ic_light_mode)
             }
+        }
+
+        binding.about.setOnClickListener {
+            findNavController().navigate(NavigationGraphDirections.actionAbout())
+        }
+
+        binding.helpCenter.setOnClickListener {
+            findNavController().navigate(NavigationGraphDirections.actionHelpCenter())
         }
 
         return binding.root

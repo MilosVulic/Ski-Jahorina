@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".features.settings.HelpCenterFragment"
+android:background="@color/colorBackground">
+
+<io.github.florent37.shapeofview.shapes.ArcView
+        android:id="@+id/arcView"
+        android:layout_width="0dp"
+        android:layout_height="190dp"
+        android:elevation="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shape_arc_height="40dp"
+        app:shape_arc_position="bottom">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/gradient_drawable">
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imageViewIconOverview"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="15dp"
+                android:src="@drawable/somil_logo"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </io.github.florent37.shapeofview.shapes.ArcView>
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="@string/help_center_faq"
+        android:textColor="@color/colorTextAbout"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/arcView" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintFirst"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="15dp"
+                android:clickable="true"
+                android:theme="@style/AppTheme.SettingsFragmentRipple"
+                app:layout_constraintBottom_toTopOf="@+id/textViewStubce"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/textView14"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="30dp"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="start"
+                    android:text="@string/help_center_question1"
+                    android:textColor="@color/colorTextAbout"
+                    android:textSize="15sp"
+                    android:background="@android:color/transparent"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/imageViewDownFirst"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imageViewDownFirst"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/ic_down_arrow"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/textView14"
+                    app:tint="@color/colorDropDown" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <TextView
+                android:id="@+id/textViewStubce"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/constraintFirst" />
+
+
+            <net.cachapa.expandablelayout.ExpandableLayout
+                android:id="@+id/expandableLayoutFirst"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="15dp"
+                app:el_duration="300"
+                app:el_expanded="false"
+                app:el_parallax="1"
+                app:layout_constraintEnd_toEndOf="@+id/constraintFirst"
+                app:layout_constraintStart_toStartOf="@+id/constraintFirst"
+                app:layout_constraintTop_toBottomOf="@+id/textViewStubce">
+
+                <TextView
+                    android:id="@+id/textView15"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="start"
+                    android:textColor="@color/colorTextAbout"
+                    android:text="@string/help_center_answer1" />
+
+            </net.cachapa.expandablelayout.ExpandableLayout>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintSecond"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:clickable="true"
+                android:theme="@style/AppTheme.SettingsFragmentRipple"
+                app:layout_constraintBottom_toTopOf="@id/textViewStubce1"
+                app:layout_constraintEnd_toEndOf="@+id/constraintFirst"
+                app:layout_constraintStart_toStartOf="@+id/constraintFirst"
+                app:layout_constraintTop_toBottomOf="@+id/expandableLayoutFirst">
+
+
+                <TextView
+                    android:id="@+id/textViewEntriesQuestion"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="30dp"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="start"
+                    android:background="@android:color/transparent"
+                    android:text="@string/help_center_question2"
+                    android:textColor="@color/colorTextAbout"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/imageViewDownSecond"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imageViewDownSecond"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/ic_down_arrow"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/textViewEntriesQuestion"
+                    app:tint="@color/colorDropDown" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <TextView
+                android:id="@+id/textViewStubce1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/constraintSecond" />
+
+
+            <net.cachapa.expandablelayout.ExpandableLayout
+                android:id="@+id/expandableLayoutSecond"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="15dp"
+                app:el_duration="300"
+                app:el_expanded="false"
+                app:el_parallax="1"
+                app:layout_constraintEnd_toEndOf="@+id/constraintSecond"
+                app:layout_constraintStart_toStartOf="@+id/constraintSecond"
+                app:layout_constraintTop_toBottomOf="@+id/textViewStubce1">
+
+                <TextView
+                    android:id="@+id/textViewEntriesAns"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="start"
+                    android:textColor="@color/colorTextAbout"
+                    android:text="@string/help_center_answer2" />
+
+            </net.cachapa.expandablelayout.ExpandableLayout>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintThird"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:clickable="true"
+                android:theme="@style/AppTheme.SettingsFragmentRipple"
+                app:layout_constraintBottom_toTopOf="@id/textViewStubce2"
+                app:layout_constraintEnd_toEndOf="@+id/constraintSecond"
+                app:layout_constraintStart_toStartOf="@+id/constraintSecond"
+                app:layout_constraintTop_toBottomOf="@+id/expandableLayoutSecond">
+
+                <TextView
+                    android:id="@+id/textViewThirdQuestion"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="30dp"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="start"
+                    android:background="@android:color/transparent"
+                    android:text="@string/help_center_question3"
+                    android:textColor="@color/colorTextAbout"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/imageViewDownThird"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imageViewDownThird"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/ic_down_arrow"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/textViewThirdQuestion"
+                    app:tint="@color/colorDropDown" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/textViewStubce2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/constraintThird" />
+
+
+            <net.cachapa.expandablelayout.ExpandableLayout
+                android:id="@+id/expandableLayoutThird"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="15dp"
+                app:el_duration="300"
+                app:el_expanded="false"
+                app:el_parallax="1"
+                app:layout_constraintEnd_toEndOf="@+id/constraintThird"
+                app:layout_constraintStart_toStartOf="@+id/constraintThird"
+                app:layout_constraintTop_toBottomOf="@+id/textViewStubce2">
+
+                <TextView
+                    android:id="@+id/textViewThirdAns"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="start"
+                    android:textColor="@color/colorTextAbout"
+                    android:text="@string/help_center_answer3" />
+
+            </net.cachapa.expandablelayout.ExpandableLayout>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintForth"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:clickable="true"
+                android:theme="@style/AppTheme.SettingsFragmentRipple"
+                app:layout_constraintBottom_toTopOf="@id/textViewStubce3"
+                app:layout_constraintEnd_toEndOf="@+id/constraintThird"
+                app:layout_constraintStart_toStartOf="@+id/constraintThird"
+                app:layout_constraintTop_toBottomOf="@+id/expandableLayoutThird">
+
+
+                <TextView
+                    android:id="@+id/textViewForthQuestion"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="30dp"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="start"
+                    android:text="@string/help_center_question4"
+                    android:background="@android:color/transparent"
+                    android:textColor="@color/colorTextAbout"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/imageViewDownForth"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imageViewDownForth"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:src="@drawable/ic_down_arrow"
+                    android:background="@android:color/transparent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/textViewForthQuestion"
+                    app:tint="@color/colorDropDown" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/textViewStubce3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/constraintForth" />
+
+
+            <net.cachapa.expandablelayout.ExpandableLayout
+                android:id="@+id/expandableLayoutForth"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="15dp"
+                app:el_duration="300"
+                app:el_expanded="false"
+                app:el_parallax="1"
+                app:layout_constraintEnd_toEndOf="@+id/constraintForth"
+                app:layout_constraintStart_toStartOf="@+id/constraintForth"
+                app:layout_constraintTop_toBottomOf="@+id/textViewStubce3">
+
+                <TextView
+                    android:id="@+id/textViewForthAns"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="start"
+                    android:textColor="@color/colorTextAbout"
+                    android:text="@string/help_center_answer4" />
+
+            </net.cachapa.expandablelayout.ExpandableLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

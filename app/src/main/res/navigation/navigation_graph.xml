@@ -82,6 +82,14 @@
         app:argType="string" />
     </fragment>
 
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.example.skiserbia.features.settings.AboutFragment"/>
+
+    <fragment
+        android:id="@+id/helpCenterFragment"
+        android:name="com.example.skiserbia.features.settings.HelpCenterFragment"/>
+
     <action
         android:id="@+id/action_global_settingsFragment"
         app:destination="@id/settingsFragment"
@@ -160,5 +168,25 @@
         app:popEnterAnim="@anim/nav_default_pop_enter_anim"
         app:popExitAnim="@anim/nav_default_pop_exit_anim"
         app:popUpTo="@id/skiCenterDetailsFragment"
+        app:popUpToInclusive="false" />
+
+    <action
+        android:id="@+id/action_about"
+        app:destination="@id/aboutFragment"
+        app:enterAnim="@anim/nav_default_enter_anim"
+        app:exitAnim="@anim/nav_default_exit_anim"
+        app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+        app:popExitAnim="@anim/nav_default_pop_exit_anim"
+        app:popUpTo="@id/settingsFragment"
+        app:popUpToInclusive="false" />
+
+    <action
+        android:id="@+id/action_help_center"
+        app:destination="@id/helpCenterFragment"
+        app:enterAnim="@anim/nav_default_enter_anim"
+        app:exitAnim="@anim/nav_default_exit_anim"
+        app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+        app:popExitAnim="@anim/nav_default_pop_exit_anim"
+        app:popUpTo="@id/settingsFragment"
         app:popUpToInclusive="false" />
 </navigation>
