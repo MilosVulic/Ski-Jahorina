@@ -78,6 +78,8 @@ class LiftInfoFragment : Fragment() {
                 }
             }
         }
+
         return detailsList
+            .filter { it.type.isNotEmpty() }
     }
 }

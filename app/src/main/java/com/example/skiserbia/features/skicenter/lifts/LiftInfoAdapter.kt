@@ -7,8 +7,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.skiserbia.R
+import com.example.skiserbia.common.IconLiftSetter
 import com.example.skiserbia.common.IconWorkingIndicatorSetter
-
 
 class LiftInfoAdapter(private val mList: List<LiftInfo>) : RecyclerView.Adapter<LiftInfoAdapter.ViewHolder>() {
 
@@ -26,6 +26,7 @@ class LiftInfoAdapter(private val mList: List<LiftInfo>) : RecyclerView.Adapter<
         holder.textViewCardTitle.text = liftInfo.name
         IconWorkingIndicatorSetter.displayImage(liftInfo.inFunction, holder.workingIndicator)
         IconWorkingIndicatorSetter.setBackground(liftInfo.inFunction, holder.workingIndicator)
+        IconLiftSetter.displayImage(liftInfo.type, holder.imageViewIcon)
     }
 
     override fun getItemCount(): Int {
@@ -35,5 +36,6 @@ class LiftInfoAdapter(private val mList: List<LiftInfo>) : RecyclerView.Adapter<
     class ViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
         val textViewCardTitle: TextView = itemView.findViewById(R.id.textViewRowTitle)
         val workingIndicator: ImageView = itemView.findViewById(R.id.workingIndicator)
+        val imageViewIcon: ImageView = itemView.findViewById(R.id.imageViewIcon)
     }
 }
