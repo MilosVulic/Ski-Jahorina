@@ -43,4 +43,5 @@
     <color name="headerColorTextAbout">#f5f7f8</color>
     <color name="colorDropDown">#919191</color>
     <color  name="colorFocusedField">#7685DA</color>
+    <color  name="colorHelpCenter">#f5f7f8</color>
 </resources>

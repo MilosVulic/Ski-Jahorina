@@ -12,11 +12,15 @@ import com.example.skiserbia.NavigationGraphDirections
 import com.example.skiserbia.common.PreferenceProvider
 import com.example.skiserbia.common.WebScarpingServiceImpl
 import com.example.skiserbia.databinding.FragmentSkiCenterDetailsBinding
+import com.example.skiserbia.features.skicenter.lifts.LiftInfo
+import com.example.skiserbia.features.skicenter.slopes.SlopeCategoryMapper
+import com.example.skiserbia.features.skicenter.slopes.SlopeInfo
 import com.example.skiserbia.features.skicenter.weather.ForecastDay
 import com.example.skiserbia.features.skicenter.weather.WeatherInfo
 import okhttp3.ResponseBody
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
+import org.jsoup.nodes.Element
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -26,11 +30,13 @@ class SkiCenterDetailsFragment : Fragment() {
     private var bindingProp: FragmentSkiCenterDetailsBinding? = null
     private val binding get() = bindingProp!!
     private val skiCenterUrl: SkiCenterDetailsFragmentArgs by navArgs()
-    lateinit var temperature : String
-    lateinit var wind : String
-    lateinit var snow : String
-    lateinit var currentWeatherImage : String
-    lateinit var forecast : String
+    lateinit var temperature: String
+    lateinit var wind: String
+    lateinit var snow: String
+    lateinit var currentWeatherImage: String
+    lateinit var forecast: String
+    lateinit var slopes: String
+    lateinit var lifts: String
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,11 +45,11 @@ class SkiCenterDetailsFragment : Fragment() {
         bindingProp = FragmentSkiCenterDetailsBinding.inflate(inflater, container, false)
 
         binding.cardViewLiftInfo.setOnClickListener {
-            findNavController().navigate(NavigationGraphDirections.actionLiftInfo(skiCenterUrl.skiCenter))
+            findNavController().navigate(NavigationGraphDirections.actionLiftInfo(lifts))
         }
 
         binding.cardViewSlopesInfo.setOnClickListener {
-            findNavController().navigate(NavigationGraphDirections.actionSlopeInfo(skiCenterUrl.skiCenter))
+            findNavController().navigate(NavigationGraphDirections.actionSlopeInfo(slopes))
         }
 
         binding.cardViewMap.setOnClickListener {
@@ -63,9 +69,8 @@ class SkiCenterDetailsFragment : Fragment() {
         }
 
 
-
-        val call = getCall(skiCenterUrl.skiCenter)
-        call.enqueue(object : Callback<ResponseBody> {
+        val callForecast = getCall(skiCenterUrl.skiCenter)
+        callForecast.enqueue(object : Callback<ResponseBody> {
             override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
                 if (response.isSuccessful) {
                     val responseBody = response.body()
@@ -76,7 +81,31 @@ class SkiCenterDetailsFragment : Fragment() {
                         wind = weatherDetailsList.windSpeed
                         snow = weatherDetailsList.snowHeight
                         currentWeatherImage = weatherDetailsList.image
-                        forecast = weatherDetailsList.forecastDays.joinToString("|") { "${it.day},${it.date},${it.maxTemp},${it.minTemp},${it.windSpeed},${it.image}" }
+                        forecast =
+                            weatherDetailsList.forecastDays.joinToString("|") { "${it.day},${it.date},${it.maxTemp},${it.minTemp},${it.windSpeed},${it.image}" }
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                t.printStackTrace()
+            }
+        })
+
+
+        val callSkiSlopes = WebScarpingServiceImpl.getService(skiCenterUrl.skiCenter).scrapeWebPage(skiCenterUrl.skiCenter)
+        callSkiSlopes.enqueue(object : Callback<ResponseBody> {
+            override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
+                if (response.isSuccessful) {
+                    val responseBody = response.body()
+                    if (responseBody != null) {
+                        val htmlContent = responseBody.string()
+
+                        val slopeLiftDetailsList = parseHtmlToSkiSlopeDetails(htmlContent)
+                        slopes = slopeLiftDetailsList.joinToString("|") { "${it.name},${it.mark},${it.inFunction},${it.category},${it.lastChange}" }
+
+                        val skiLiftDetailsList = parseHtmlToSkiLiftDetails(htmlContent)
+                        lifts = skiLiftDetailsList.joinToString("|") { "${it.name},${it.type},${it.inFunction},${it.lastChange}" }
                     }
                 }
             }
@@ -128,6 +157,61 @@ class SkiCenterDetailsFragment : Fragment() {
         }
 
         return WeatherInfo(location, temperature, snowHeight, windSpeed, currentWeatherImageSrc, forecastDays)
+    }
+
+    private fun parseHtmlToSkiSlopeDetails(html: String): List<SlopeInfo> {
+        val document: Document = Jsoup.parse(html)
+        val detailsList = ArrayList<SlopeInfo>()
+
+        val rows = document.select("table.views-table tbody tr")
+
+        for (row in rows) {
+            val columns = row.select("td")
+
+            if (columns.size == 5) {
+                val name = columns[0].select("strong").text()
+                val mark = columns[1].select("span").text()
+                val category = columns[2].select("span").text()
+                val open = columns[3].text()
+                val lastUpdate = columns[4].text()
+
+                val slopeLiftDetails = SlopeInfo(name, mark, open, SlopeCategoryMapper.mapToSlopeCategory(category), lastUpdate)
+                Log.d("Nesto ", "item number  " + detailsList.size + " " + slopeLiftDetails.toString())
+                detailsList.add(slopeLiftDetails)
+            }
+        }
+
+        return detailsList
+            .filter { it.mark.isNotEmpty() && !it.mark.contains(",") && !it.mark.contains(".") }
+            .distinctBy { it.mark }
+    }
+
+    private fun parseHtmlToSkiLiftDetails(html: String): List<LiftInfo> {
+        val document: Document = Jsoup.parse(html)
+        val detailsList = ArrayList<LiftInfo>()
+
+        val table: Element? = document.select("table.views-table").first()
+
+        if (table != null) {
+            val rows: List<Element> = table.select("tr")
+
+            for (row in rows) {
+                val columns: List<Element> = row.select("td")
+
+                if (columns.size == 6) {
+                    val name = columns[0].text()
+                    val type = columns[1].text()
+                    val inFunction = columns[4].text()
+                    val lastChange = columns[5].text()
+
+                    val skiLiftDetails = LiftInfo(name, type, inFunction, lastChange)
+                    detailsList.add(skiLiftDetails)
+                }
+            }
+        }
+
+        return detailsList
+            .filter { it.type.isNotEmpty() }
     }
 
     private fun getCall(skiCenterUrl: String): Call<ResponseBody> {

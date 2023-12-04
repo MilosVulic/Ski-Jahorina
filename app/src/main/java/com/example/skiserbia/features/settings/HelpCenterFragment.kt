@@ -32,6 +32,7 @@ class HelpCenterFragment : Fragment() {
         val title1TextView = (activity as MainActivity).findViewById<TextView>(R.id.title1)
         title1TextView.visibility = View.VISIBLE
         title1TextView.text = resources.getString(R.string.help)
+        title1TextView.setTextColor(ResourcesCompat.getColor(resources, R.color.colorWhite, null))
 
         binding.constraintFirst.setOnClickListener {
             if (openedFirst) {
@@ -39,7 +40,7 @@ class HelpCenterFragment : Fragment() {
                 val anim = createAnimCollapse(binding.imageViewDownFirst)
                 anim.start()
                 openedFirst = false
-                binding.textView14.setTextColor(ResourcesCompat.getColor(resources, R.color.colorTextAbout, null))
+                binding.textView14.setTextColor(ResourcesCompat.getColor(resources, R.color.colorHelpCenter, null))
                 binding.imageViewDownFirst.setColorFilter(ResourcesCompat.getColor(resources, R.color.colorDropDown, null))
 
             } else {
@@ -61,7 +62,7 @@ class HelpCenterFragment : Fragment() {
                 binding.textViewEntriesQuestion.setTextColor(
                     ResourcesCompat.getColor(
                         resources,
-                        R.color.colorTextAbout,
+                        R.color.colorHelpCenter,
                         null
                     )
                 )
@@ -87,7 +88,7 @@ class HelpCenterFragment : Fragment() {
                 binding.textViewThirdQuestion.setTextColor(
                     ResourcesCompat.getColor(
                         resources,
-                        R.color.colorTextAbout,
+                        R.color.colorHelpCenter,
                         null
                     )
                 )
@@ -113,7 +114,7 @@ class HelpCenterFragment : Fragment() {
                 binding.textViewForthQuestion.setTextColor(
                     ResourcesCompat.getColor(
                         resources,
-                        R.color.colorTextAbout,
+                        R.color.colorHelpCenter,
                         null
                     )
                 )

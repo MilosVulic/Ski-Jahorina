@@ -14,4 +14,6 @@ object PreferenceProvider : KotprefModel() {
     var kopaonikCameraUrl: String by stringPref("https://www.yr.no/en/other-conditions/2-8436574/Serbia/Central%20Serbia/Ra%C5%A1ka/Kopaonik/")
     var zlatiborCameraUrl: String by stringPref("https://www.yr.no/en/other-conditions/2-3186400/Serbia/Zlatibor/")
     var staraPlaninaCameraUrl: String by stringPref("https://www.yr.no/en/other-conditions/2-8555992/Serbia/Central%20Serbia/Pirot/Stara%20Planina%20Nature%20Park/")
+
+
 }

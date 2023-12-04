@@ -34,7 +34,7 @@
         android:id="@+id/liftInfoFragment"
         android:name="com.example.skiserbia.features.skicenter.lifts.LiftInfoFragment">
     <argument
-        android:name="skiCenter"
+        android:name="lifts"
         app:argType="string" />
     </fragment>
 
@@ -42,7 +42,7 @@
         android:id="@+id/slopeInfoFragment"
         android:name="com.example.skiserbia.features.skicenter.slopes.SlopeInfoFragment">
         <argument
-            android:name="skiCenter"
+            android:name="slopes"
             app:argType="string" />
     </fragment>
 
