@@ -10,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.skiserbia.NavigationGraphDirections
 import com.example.skiserbia.common.PreferenceProvider
+import com.example.skiserbia.common.Utils
 import com.example.skiserbia.common.WebScarpingServiceImpl
 import com.example.skiserbia.databinding.FragmentSkiCenterDetailsBinding
 import com.example.skiserbia.features.skicenter.lifts.LiftInfo
@@ -24,6 +25,7 @@ import org.jsoup.nodes.Element
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.time.LocalDateTime
 
 class SkiCenterDetailsFragment : Fragment() {
 
@@ -93,28 +95,39 @@ class SkiCenterDetailsFragment : Fragment() {
         })
 
 
-        val callSkiSlopes = WebScarpingServiceImpl.getService(skiCenterUrl.skiCenter).scrapeWebPage(skiCenterUrl.skiCenter)
-        callSkiSlopes.enqueue(object : Callback<ResponseBody> {
-            override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
-                if (response.isSuccessful) {
-                    val responseBody = response.body()
-                    if (responseBody != null) {
-                        val htmlContent = responseBody.string()
+        if (Utils.isTimeDifferenceGreaterThanProvidedMinutes(
+                LocalDateTime.parse(getLastTimeFetchedForTheSlopesFromThePreferences(skiCenterUrl.skiCenter)),
+                LocalDateTime.now(),
+                5
+            )
+        ) {
+            val callSkiSlopes = WebScarpingServiceImpl.getService(skiCenterUrl.skiCenter).scrapeWebPage(skiCenterUrl.skiCenter)
+            callSkiSlopes.enqueue(object : Callback<ResponseBody> {
+                override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
+                    if (response.isSuccessful) {
+                        val responseBody = response.body()
+                        if (responseBody != null) {
+                            val htmlContent = responseBody.string()
 
-                        val slopeLiftDetailsList = parseHtmlToSkiSlopeDetails(htmlContent)
-                        slopes = slopeLiftDetailsList.joinToString("|") { "${it.name},${it.mark},${it.inFunction},${it.category},${it.lastChange}" }
+                            val slopeLiftDetailsList = parseHtmlToSkiSlopeDetails(htmlContent)
+                            slopes = slopeLiftDetailsList.joinToString("|") { "${it.name},${it.mark},${it.inFunction},${it.category},${it.lastChange}" }
+                            setInfoForTheSlopes(skiCenterUrl.skiCenter, slopes)
 
-                        val skiLiftDetailsList = parseHtmlToSkiLiftDetails(htmlContent)
-                        lifts = skiLiftDetailsList.joinToString("|") { "${it.name},${it.type},${it.inFunction},${it.lastChange}" }
+                            val skiLiftDetailsList = parseHtmlToSkiLiftDetails(htmlContent)
+                            lifts = skiLiftDetailsList.joinToString("|") { "${it.name},${it.type},${it.inFunction},${it.lastChange}" }
+                            setInfoForTheLifts(skiCenterUrl.skiCenter, lifts)
+                        }
                     }
                 }
-            }
 
-            override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
-                t.printStackTrace()
-            }
-        })
-
+                override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                    t.printStackTrace()
+                }
+            })
+        } else {
+            slopes = getSlopesFromThePreferences(skiCenterUrl.skiCenter)
+            lifts = getLiftsFromThePreferences(skiCenterUrl.skiCenter)
+        }
         return binding.root
     }
 
@@ -176,7 +189,6 @@ class SkiCenterDetailsFragment : Fragment() {
                 val lastUpdate = columns[4].text()
 
                 val slopeLiftDetails = SlopeInfo(name, mark, open, SlopeCategoryMapper.mapToSlopeCategory(category), lastUpdate)
-                Log.d("Nesto ", "item number  " + detailsList.size + " " + slopeLiftDetails.toString())
                 detailsList.add(slopeLiftDetails)
             }
         }
@@ -221,6 +233,59 @@ class SkiCenterDetailsFragment : Fragment() {
             WebScarpingServiceImpl.getService().scrapeTornikWeatherWebPage()
         } else {
             WebScarpingServiceImpl.getService().scrapeStaraPlaninaWeatherWebPage()
+        }
+    }
+
+    private fun setInfoForTheSlopes(skiCenterUrl: String, slopes: String) {
+        return if (skiCenterUrl.contains("kopaonik")) {
+            PreferenceProvider.slopesKopaonik = slopes
+            PreferenceProvider.lastSlopesInfoKopaonikFetchTime = LocalDateTime.now().toString()
+        } else if (skiCenterUrl.contains("tornik")) {
+            PreferenceProvider.slopesTornik = slopes
+            PreferenceProvider.lastSlopesInfoTornikFetchTime = LocalDateTime.now().toString()
+        } else {
+            PreferenceProvider.slopesStaraPlanina = slopes
+            PreferenceProvider.lastSlopesInfoStaraPlaninaFetchTime = LocalDateTime.now().toString()
+        }
+    }
+
+    private fun setInfoForTheLifts(skiCenterUrl: String, lifts: String) {
+        return if (skiCenterUrl.contains("kopaonik")) {
+            PreferenceProvider.liftsKopaonik = lifts
+        } else if (skiCenterUrl.contains("tornik")) {
+            PreferenceProvider.liftsTornik = lifts
+        } else {
+            PreferenceProvider.liftsStaraPlanina = lifts
+        }
+    }
+
+    private fun getSlopesFromThePreferences(skiCenterUrl: String): String {
+        return if (skiCenterUrl.contains("kopaonik")) {
+            PreferenceProvider.slopesKopaonik
+        } else if (skiCenterUrl.contains("tornik")) {
+            PreferenceProvider.slopesTornik
+        } else {
+            PreferenceProvider.slopesStaraPlanina
+        }
+    }
+
+    private fun getLiftsFromThePreferences(skiCenterUrl: String): String {
+        return if (skiCenterUrl.contains("kopaonik")) {
+            PreferenceProvider.liftsKopaonik
+        } else if (skiCenterUrl.contains("tornik")) {
+            PreferenceProvider.liftsTornik
+        } else {
+            PreferenceProvider.liftsStaraPlanina
+        }
+    }
+
+    private fun getLastTimeFetchedForTheSlopesFromThePreferences(skiCenterUrl: String): String {
+        return if (skiCenterUrl.contains("kopaonik")) {
+            PreferenceProvider.lastSlopesInfoKopaonikFetchTime
+        } else if (skiCenterUrl.contains("tornik")) {
+            PreferenceProvider.lastSlopesInfoTornikFetchTime
+        } else {
+            PreferenceProvider.lastSlopesInfoStaraPlaninaFetchTime
         }
     }
 

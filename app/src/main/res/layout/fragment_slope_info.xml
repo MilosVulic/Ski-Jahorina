@@ -7,10 +7,21 @@
     android:layout_height="match_parent"
     tools:context=".features.skicenter.slopes.SlopeInfoFragment">
 
+    <FrameLayout
+        android:id="@+id/frameLayoutTop"
+        android:layout_width="0dp"
+        android:layout_height="?android:attr/actionBarSize"
+        android:layout_marginTop="0dp"
+        android:background="@drawable/gradient_drawable"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/slopes_recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
         android:clipToPadding="false"
         android:fadingEdgeLength="15dp"
         android:overScrollMode="never"
@@ -19,6 +30,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/frameLayoutTop" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

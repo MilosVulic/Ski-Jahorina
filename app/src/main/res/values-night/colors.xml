@@ -42,6 +42,11 @@
     <color  name="colorTextAbout">#A6A6A6</color>
     <color name="headerColorTextAbout">#f5f7f8</color>
     <color name="colorDropDown">#919191</color>
-    <color  name="colorFocusedField">#7685DA</color>
+    <color  name="colorFocusedField">#609bcb</color>
     <color  name="colorHelpCenter">#f5f7f8</color>
+
+    <!-- Ski details colors -->
+    <color name="homeScreenStart">#6f74f2</color>
+    <color name="homeScreenCenter">#896fff</color>
+    <color name="homeScreenEnd">#e05ff7</color>
 </resources>

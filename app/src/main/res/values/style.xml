@@ -3,9 +3,9 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
 
-        <item name="colorPrimary">#5c6bc0</item>
+        <item name="colorPrimary">#609bcb</item>
         <item name="colorPrimaryDark">#26418f</item>
-        <item name="colorAccent">#7B4CDE</item>
+        <item name="colorAccent">#609bcb</item>
     </style>
 
     <!-- Customizing ripple effect for the layouts within the settings menu  -->

@@ -5,13 +5,49 @@
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient_ski_details"
     tools:context=".features.skicenter.SkiCenterDetailsFragment">
+
+    <FrameLayout
+        android:id="@+id/frameLayoutBackground"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/parabolaShapeLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/parabolaShapeLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="70dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayoutBackground">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/drawable_shape_parabola" />
+    </FrameLayout>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="@color/colorBackground"
+        android:background="@android:color/transparent"
         android:scrollbars="none"
+        android:layout_marginTop="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -57,10 +93,10 @@
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <View
-                            android:alpha="0.8"
+                            android:alpha="0.5"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:background="@color/blueOverlayColor" />
+                            android:background="@color/orangeOverlayColor" />
 
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="match_parent"
@@ -140,10 +176,10 @@
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <View
-                            android:alpha="0.5"
+                            android:alpha="0.6"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:background="@color/orangeOverlayColor" />
+                            android:background="@color/blueOverlayColor" />
 
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="match_parent"
@@ -301,7 +337,7 @@
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <View
-                            android:alpha="0.7"
+                            android:alpha="0.6"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@color/darkYellowOverlayColor" />
@@ -525,7 +561,6 @@
             </androidx.cardview.widget.CardView>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
     </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

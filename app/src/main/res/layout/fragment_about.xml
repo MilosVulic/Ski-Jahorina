@@ -39,26 +39,45 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
-                android:id="@+id/imageView2"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:src="@drawable/shape_right_circle"
-                app:layout_constraintBottom_toTopOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
-                android:id="@+id/imageView3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:src="@drawable/shape_left_circle"
+                android:id="@+id/imageViewFirstSnowIcon"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginBottom="50dp"
+                android:src="@drawable/ic_snowflake1"
+                app:tint="@color/colorWhite"
+                android:alpha="0.3"
+                android:rotation="45"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="parent" />
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageViewSecondSnowIcon"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginBottom="30dp"
+                android:src="@drawable/ic_snowflake"
+                app:tint="@color/colorWhite"
+                android:alpha="0.3"
+                android:rotation="45"
+                app:layout_constraintBottom_toTopOf="@+id/imageViewFirstSnowIcon"
+                app:layout_constraintStart_toStartOf="@+id/imageViewFirstSnowIcon" />
+
+            <ImageView
+                android:id="@+id/imageViewThirdSnowIcon"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="35dp"
+                android:layout_marginBottom="5dp"
+                android:src="@drawable/ic_snow"
+                app:tint="@color/colorWhite"
+                android:alpha="0.3"
+                android:rotation="45"
+                app:layout_constraintBottom_toTopOf="@+id/imageViewFirstSnowIcon"
+                app:layout_constraintStart_toEndOf="@+id/imageViewIconOverview" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

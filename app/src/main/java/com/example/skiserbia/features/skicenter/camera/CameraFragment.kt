@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.asynclayoutinflater.view.AsyncLayoutInflater
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
@@ -14,6 +15,7 @@ import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.example.skiserbia.R
 import com.example.skiserbia.databinding.FragmentAsyncCameraBinding
+import com.example.skiserbia.main.MainActivity
 
 
 class CameraFragment : Fragment() {
@@ -35,6 +37,7 @@ class CameraFragment : Fragment() {
         asyncLayoutInflater?.inflate(R.layout.fragment_async_camera, null) { view, _, _ ->
             (screen as? ViewGroup)?.addView(view)
             _binding = FragmentAsyncCameraBinding.bind(view)
+            setUpFragmentName()
         }
         return screen
     }
@@ -56,9 +59,9 @@ class CameraFragment : Fragment() {
                         .load(imageBitmap)
                         .into(imageView)
 
-                    val layoutParams =
-                        cardView.layoutParams as ViewGroup.MarginLayoutParams
-                    layoutParams.setMargins(0, 10, 0, 0)
+                    val layoutParams = cardView.layoutParams as ViewGroup.MarginLayoutParams
+                    cardView.radius = 45F
+                    layoutParams.setMargins(40, 40, 40, 0)
 
                     container.addView(cardView)
                 }
@@ -66,6 +69,16 @@ class CameraFragment : Fragment() {
         }
 
         viewModel.fetchImages(skiCenterUrl.skiCenter)
+    }
+
+    private fun setUpFragmentName() {
+        (activity as MainActivity).supportActionBar?.title = ""
+        val title1TextView = (activity as MainActivity).findViewById<TextView>(R.id.title1)
+
+        if (title1TextView != null) {
+            title1TextView.visibility = View.VISIBLE
+            title1TextView.text = resources.getText(R.string.webcams_lowercase)
+        }
     }
 
     override fun onDestroyView() {

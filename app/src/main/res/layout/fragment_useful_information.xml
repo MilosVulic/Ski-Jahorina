@@ -6,6 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".features.skicenter.usefulinformation.UsefulInformationFragment">
 
+    <FrameLayout
+        android:id="@+id/frameLayoutTop"
+        android:layout_width="0dp"
+        android:layout_height="?android:attr/actionBarSize"
+        android:layout_marginTop="0dp"
+        android:background="@drawable/gradient_drawable"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/mountainRescueTitle"
         android:layout_width="wrap_content"
@@ -16,7 +26,7 @@
         android:textStyle="bold"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/frameLayoutTop">
     </TextView>
 
     <ImageView
@@ -42,7 +52,7 @@
         android:padding="0dp"
         android:clickable="true"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/frameLayoutTop">
     </TextView>
 
     <TextView

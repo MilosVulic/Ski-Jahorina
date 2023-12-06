@@ -20,7 +20,6 @@
     <color name="cancelColor">#f84f31</color>
     <color name="acceptColor">#23c552</color>
 
-
     <!-- Category slopes colors -->
     <color name="easyColor">#20a5ff</color>
     <color name="difficultColor">#1f1f1f</color>
@@ -33,7 +32,7 @@
     <color name="blueOverlayPurple">#800080</color>
     <color name="blueOverlayColor">#800000FF</color>
     <color name="darkGreenOverlayColor">#80008000</color>
-    <color name="orangeOverlayColor">#FF8000</color>
+    <color name="orangeOverlayColor">#cc6600</color>
     <color name="darkYellowOverlayColor">#B8860B</color>
     <color name="redOverlayColor">#FF0000</color>
 
@@ -43,6 +42,11 @@
     <color  name="colorTextAbout">#737373</color>
     <color name="headerColorTextAbout">#474a4d</color>
     <color name="colorDropDown">#919191</color>
-    <color  name="colorFocusedField">#5c6bc0</color>
+    <color  name="colorFocusedField">#609bcb</color>
     <color  name="colorHelpCenter">#4D4D4D</color>
+
+    <!-- Ski details colors -->
+    <color name="homeScreenStart">#7dc3e6</color>
+    <color name="homeScreenCenter">#4e9cbf</color>
+    <color name="homeScreenEnd">#2b7a9f</color>
 </resources>

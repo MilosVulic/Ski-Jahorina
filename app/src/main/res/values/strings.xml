@@ -54,6 +54,7 @@
     <string name="useful">USEFUL</string>
     <string name="information">INFORMATION</string>
     <string name="webcams">WEBCAMS</string>
+    <string name="webcams_lowercase">Webcams</string>
 
     <!-- About -->
     <string name="about">About</string>
