@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.skiserbia'
+    namespace 'com.neoapps.skiserbia'
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.example.skiserbia"
+        applicationId "com.neoapps.skiserbia"
         minSdk 29
         targetSdk 34
         versionCode 1
@@ -114,6 +114,9 @@ dependencies {
     implementation 'dev.b3nedikt.applocale:applocale:3.0.0'
     implementation 'dev.b3nedikt.viewpump:viewpump:4.0.10'
     implementation 'dev.b3nedikt.reword:reword:4.0.2'
+
+    // Ads
+    implementation 'com.google.android.gms:play-services-ads:22.6.0'
 
     // Networking
     implementation 'com.squareup.retrofit2:retrofit:2.9.0' // Use the latest version

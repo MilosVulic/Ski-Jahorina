@@ -7,16 +7,16 @@
 
     <fragment
         android:id="@+id/firstFragment"
-        android:name="com.example.skiserbia.main.HomeFragment"
+        android:name="com.neoapps.skiserbia.main.HomeFragment"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/settingsFragment"
-        android:name="com.example.skiserbia.features.settings.SettingsFragment" />
+        android:name="com.neoapps.skiserbia.features.settings.SettingsFragment" />
 
     <fragment
         android:id="@+id/skiCenterDetailsFragment"
-        android:name="com.example.skiserbia.features.skicenter.SkiCenterDetailsFragment">
+        android:name="com.neoapps.skiserbia.features.skicenter.SkiCenterDetailsFragment">
     <argument
         android:name="skiCenter"
         app:argType="string" />
@@ -24,7 +24,7 @@
 
     <fragment
         android:id="@+id/skiMapFragment"
-        android:name="com.example.skiserbia.features.skicenter.maps.SkiMapFragment">
+        android:name="com.neoapps.skiserbia.features.skicenter.maps.SkiMapFragment">
     <argument
         android:name="skiCenter"
         app:argType="string" />
@@ -32,7 +32,7 @@
 
     <fragment
         android:id="@+id/liftInfoFragment"
-        android:name="com.example.skiserbia.features.skicenter.lifts.LiftInfoFragment">
+        android:name="com.neoapps.skiserbia.features.skicenter.lifts.LiftInfoFragment">
     <argument
         android:name="lifts"
         app:argType="string" />
@@ -40,7 +40,7 @@
 
     <fragment
         android:id="@+id/slopeInfoFragment"
-        android:name="com.example.skiserbia.features.skicenter.slopes.SlopeInfoFragment">
+        android:name="com.neoapps.skiserbia.features.skicenter.slopes.SlopeInfoFragment">
         <argument
             android:name="slopes"
             app:argType="string" />
@@ -48,7 +48,7 @@
 
     <fragment
         android:id="@+id/weatherInfoFragment"
-        android:name="com.example.skiserbia.features.skicenter.weather.WeatherFragment">
+        android:name="com.neoapps.skiserbia.features.skicenter.weather.WeatherFragment">
         <argument
             android:name="temperature"
             app:argType="string" />
@@ -68,7 +68,7 @@
 
     <fragment
         android:id="@+id/usefulInformationFragment"
-        android:name="com.example.skiserbia.features.skicenter.usefulinformation.UsefulInformationFragment">
+        android:name="com.neoapps.skiserbia.features.skicenter.usefulinformation.UsefulInformationFragment">
         <argument
             android:name="skiCenter"
             app:argType="string" />
@@ -76,7 +76,7 @@
 
     <fragment
         android:id="@+id/cameraFragment"
-        android:name="com.example.skiserbia.features.skicenter.camera.CameraFragment">
+        android:name="com.neoapps.skiserbia.features.skicenter.camera.CameraFragment">
     <argument
         android:name="skiCenter"
         app:argType="string" />
@@ -84,11 +84,11 @@
 
     <fragment
         android:id="@+id/aboutFragment"
-        android:name="com.example.skiserbia.features.settings.AboutFragment"/>
+        android:name="com.neoapps.skiserbia.features.settings.AboutFragment"/>
 
     <fragment
         android:id="@+id/helpCenterFragment"
-        android:name="com.example.skiserbia.features.settings.HelpCenterFragment"/>
+        android:name="com.neoapps.skiserbia.features.settings.HelpCenterFragment"/>
 
     <action
         android:id="@+id/action_global_settingsFragment"
