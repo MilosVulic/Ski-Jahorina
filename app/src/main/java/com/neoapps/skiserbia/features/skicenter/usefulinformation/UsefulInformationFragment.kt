@@ -6,10 +6,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.neoapps.skiserbia.R
 import com.neoapps.skiserbia.databinding.FragmentUsefulInformationBinding
+import com.neoapps.skiserbia.main.MainActivity
 
 class UsefulInformationFragment : Fragment() {
 
@@ -24,6 +26,7 @@ class UsefulInformationFragment : Fragment() {
     ): View {
         bindingProp = FragmentUsefulInformationBinding.inflate(inflater, container, false)
         binding.mountainRescueNumber.text = getMountainRescueNumber(skiCenterUrl.skiCenter)
+        setUpFragmentName()
 
         binding.firstNumber.setOnClickListener {
             val dialIntent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + getMountainRescueNumber(skiCenterUrl.skiCenter)))
@@ -55,5 +58,20 @@ class UsefulInformationFragment : Fragment() {
         } else {
             requireContext().getString(R.string.mountain_rescue_stara_planina_number)
         }
+    }
+
+    private fun setUpFragmentName() {
+        (activity as MainActivity).supportActionBar?.title = ""
+        val title1TextView = (activity as MainActivity).findViewById<TextView>(R.id.title1)
+
+        if (title1TextView != null) {
+            title1TextView.visibility = View.VISIBLE
+            title1TextView.text = resources.getText(R.string.useful_information_lowercase)
+        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        bindingProp = null
     }
 }

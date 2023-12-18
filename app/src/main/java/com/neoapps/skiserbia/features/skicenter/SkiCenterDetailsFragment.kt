@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -14,6 +15,7 @@ import com.google.android.gms.ads.FullScreenContentCallback
 import com.google.android.gms.ads.LoadAdError
 import com.google.android.gms.ads.interstitial.InterstitialAd
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
+import com.neoapps.skiserbia.R
 import com.neoapps.skiserbia.common.PreferenceProvider
 import com.neoapps.skiserbia.common.Utils
 import com.neoapps.skiserbia.common.WebScarpingServiceImpl
@@ -23,6 +25,7 @@ import com.neoapps.skiserbia.features.skicenter.slopes.SlopeCategoryMapper
 import com.neoapps.skiserbia.features.skicenter.slopes.SlopeInfo
 import com.neoapps.skiserbia.features.skicenter.weather.ForecastDay
 import com.neoapps.skiserbia.features.skicenter.weather.WeatherInfo
+import com.neoapps.skiserbia.main.MainActivity
 import okhttp3.ResponseBody
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
@@ -45,15 +48,17 @@ class SkiCenterDetailsFragment : Fragment() {
     lateinit var slopes: String
     lateinit var lifts: String
     private var mInterstitialAd: InterstitialAd? = null
+    private var mInterstitialLiftsAd: InterstitialAd? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         bindingProp = FragmentSkiCenterDetailsBinding.inflate(inflater, container, false)
+        setUpFragmentName()
 
         val adRequest = AdRequest.Builder().build()
-        InterstitialAd.load(requireContext(),"ca-app-pub-3940256099942544/1033173712", adRequest, object : InterstitialAdLoadCallback() {
+        InterstitialAd.load(requireContext(), "ca-app-pub-3940256099942544/1033173712", adRequest, object : InterstitialAdLoadCallback() {
             override fun onAdFailedToLoad(adError: LoadAdError) {
                 mInterstitialAd = null
             }
@@ -63,7 +68,18 @@ class SkiCenterDetailsFragment : Fragment() {
             }
         })
 
-        mInterstitialAd?.fullScreenContentCallback = object: FullScreenContentCallback() {
+        val adRequest1 = AdRequest.Builder().build()
+        InterstitialAd.load(requireContext(), "ca-app-pub-3940256099942544/1033173712", adRequest1, object : InterstitialAdLoadCallback() {
+            override fun onAdFailedToLoad(adError: LoadAdError) {
+                mInterstitialLiftsAd = null
+            }
+
+            override fun onAdLoaded(interstitialAd: InterstitialAd) {
+                mInterstitialLiftsAd = interstitialAd
+            }
+        })
+
+        mInterstitialAd?.fullScreenContentCallback = object : FullScreenContentCallback() {
             override fun onAdDismissedFullScreenContent() {
                 mInterstitialAd = null
                 findNavController().navigate(
@@ -78,8 +94,25 @@ class SkiCenterDetailsFragment : Fragment() {
             }
         }
 
+        mInterstitialLiftsAd?.fullScreenContentCallback = object : FullScreenContentCallback() {
+            override fun onAdDismissedFullScreenContent() {
+                mInterstitialLiftsAd = null
+                findNavController().navigate(com.neoapps.skiserbia.NavigationGraphDirections.actionLiftInfo(lifts))
+            }
+        }
+
         binding.cardViewLiftInfo.setOnClickListener {
-            findNavController().navigate(com.neoapps.skiserbia.NavigationGraphDirections.actionLiftInfo(lifts))
+            PreferenceProvider.liftsClicks += 1
+            if (PreferenceProvider.liftsClicks % 3 == 0) {
+                if (mInterstitialLiftsAd != null) {
+                    PreferenceProvider.liftsClicks = 0
+                    mInterstitialLiftsAd?.show(context as Activity)
+                } else {
+                    findNavController().navigate(com.neoapps.skiserbia.NavigationGraphDirections.actionLiftInfo(lifts))
+                }
+            } else {
+                findNavController().navigate(com.neoapps.skiserbia.NavigationGraphDirections.actionLiftInfo(lifts))
+            }
         }
 
         binding.cardViewSlopesInfo.setOnClickListener {
@@ -147,13 +180,19 @@ class SkiCenterDetailsFragment : Fragment() {
                             wind = weatherDetailsList.windSpeed
                             snow = weatherDetailsList.snowHeight
                             currentWeatherImage = weatherDetailsList.image
-                            forecast = weatherDetailsList.forecastDays.joinToString("|") { "${it.day},${it.date},${it.maxTemp},${it.minTemp},${it.windSpeed},${it.image}" }
+                            forecast =
+                                weatherDetailsList.forecastDays.joinToString("|") { "${it.day},${it.date},${it.maxTemp},${it.minTemp},${it.windSpeed},${it.image}" }
                             setInfoForTheForecast(skiCenterUrl.skiCenter, forecast, temperature, wind, snow, currentWeatherImage)
                         }
                     }
                 }
 
                 override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                    temperature = ""
+                    wind = ""
+                    snow = ""
+                    currentWeatherImage = ""
+                    forecast = ""
                     t.printStackTrace()
                 }
             })
@@ -193,6 +232,8 @@ class SkiCenterDetailsFragment : Fragment() {
                 }
 
                 override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                    lifts = ""
+                    slopes = ""
                     t.printStackTrace()
                 }
             })
@@ -343,7 +384,7 @@ class SkiCenterDetailsFragment : Fragment() {
             PreferenceProvider.forecastTornik = forecast
             PreferenceProvider.lastForecastTornikFetchTime = LocalDateTime.now().toString()
             PreferenceProvider.temperatureTornik = temperature
-            PreferenceProvider.windTornik= wind
+            PreferenceProvider.windTornik = wind
             PreferenceProvider.snowTornik = snow
             PreferenceProvider.imageTornik = image
         } else {
@@ -455,6 +496,20 @@ class SkiCenterDetailsFragment : Fragment() {
             PreferenceProvider.zlatiborCameraUrl
         } else {
             PreferenceProvider.staraPlaninaCameraUrl
+        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        bindingProp = null
+    }
+
+    private fun setUpFragmentName() {
+        (activity as MainActivity).supportActionBar?.title = ""
+        val title1TextView = (activity as MainActivity).findViewById<TextView>(R.id.title1)
+
+        if (title1TextView != null) {
+            title1TextView.visibility = View.GONE
         }
     }
 }

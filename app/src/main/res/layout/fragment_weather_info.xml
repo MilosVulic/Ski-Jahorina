@@ -16,14 +16,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <include
+        android:id="@+id/include_emptylist_placeholder"
+        layout="@layout/include_empty_list_placeholder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayoutTop" />
+
     <androidx.cardview.widget.CardView
         android:id="@+id/cardViewTemperature"
         android:layout_width="0dp"
-        android:layout_height="120dp"
+        android:layout_height="140dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="10dp"
-        app:cardBackgroundColor="@color/colorCardBackgroundSettings"
+        app:cardBackgroundColor="@color/currentWeatherBackgroundColor"
         app:cardCornerRadius="20dp"
         app:cardElevation="5dp"
         app:cardPreventCornerOverlap="false"
@@ -37,8 +49,8 @@
 
         <ImageView
             android:id="@+id/temperatureIcon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:src="@drawable/ic_air"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
@@ -46,7 +58,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="20dp"
-            app:tint="@color/colorBlackWhite" />
+            app:tint="@color/currentWeatherIconsColor" />
 
         <TextView
             android:id="@+id/temperatureName"
@@ -56,6 +68,8 @@
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:layout_marginTop="10dp"
+            android:textColor="@color/currentWeatherTitleColor"
+            android:textSize="17sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/temperatureIcon">
@@ -66,6 +80,9 @@
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:layout_marginTop="10dp"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/currentWeatherValueColor"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_width="wrap_content"
@@ -79,9 +96,9 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cardViewWind"
         android:layout_width="0dp"
-        android:layout_height="120dp"
+        android:layout_height="140dp"
         android:layout_marginEnd="10dp"
-        app:cardBackgroundColor="@color/colorCardBackgroundSettings"
+        app:cardBackgroundColor="@color/currentWeatherBackgroundColor"
         app:cardCornerRadius="20dp"
         app:cardElevation="5dp"
         app:cardPreventCornerOverlap="false"
@@ -96,8 +113,8 @@
 
             <ImageView
                 android:id="@+id/windIcon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
                 android:src="@drawable/ic_air"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
@@ -105,7 +122,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 android:layout_marginTop="20dp"
-                app:tint="@color/colorBlackWhite" />
+                app:tint="@color/currentWeatherIconsColor" />
 
             <TextView
                 android:id="@+id/windName"
@@ -115,6 +132,8 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginTop="10dp"
+                android:textSize="17sp"
+                android:textColor="@color/currentWeatherTitleColor"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/windIcon">
@@ -129,6 +148,9 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/currentWeatherValueColor"
                 app:layout_constraintTop_toBottomOf="@+id/windName">
             </TextView>
 
@@ -139,9 +161,9 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cardViewSnow"
         android:layout_width="0dp"
-        android:layout_height="120dp"
+        android:layout_height="140dp"
         android:layout_marginEnd="20dp"
-        app:cardBackgroundColor="@color/colorCardBackgroundSettings"
+        app:cardBackgroundColor="@color/currentWeatherBackgroundColor"
         app:cardCornerRadius="20dp"
         app:cardElevation="5dp"
         app:cardPreventCornerOverlap="false"
@@ -156,8 +178,8 @@
 
         <ImageView
             android:id="@+id/snowIcon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:src="@drawable/ic_snow"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
@@ -165,7 +187,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="20dp"
-            app:tint="@color/colorBlackWhite" />
+            app:tint="@color/currentWeatherIconsColor" />
 
         <TextView
             android:id="@+id/snowName"
@@ -173,6 +195,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
+            android:textSize="17sp"
+            android:textColor="@color/currentWeatherTitleColor"
             android:layout_marginEnd="10dp"
             android:layout_marginTop="10dp"
             app:layout_constraintStart_toStartOf="parent"
@@ -187,6 +211,9 @@
             android:layout_marginTop="10dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/currentWeatherValueColor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@+id/snowName">

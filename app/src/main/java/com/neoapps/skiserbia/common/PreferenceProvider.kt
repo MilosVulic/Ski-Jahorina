@@ -50,4 +50,5 @@ object PreferenceProvider : KotprefModel() {
     var lastForecastStaraPlaninaFetchTime: String by stringPref("2007-12-03T10:15:30")
 
     var weatherClicks: Int by intPref(0)
+    var liftsClicks: Int by intPref(0)
 }

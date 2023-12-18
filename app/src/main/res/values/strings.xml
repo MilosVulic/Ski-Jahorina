@@ -55,6 +55,11 @@
     <string name="information">INFORMATION</string>
     <string name="webcams">WEBCAMS</string>
     <string name="webcams_lowercase">Webcams</string>
+    <string name="slopes_lowercase">Slopes</string>
+    <string name="map_lowercase">Map</string>
+    <string name="lifts_lowercase">Lifts</string>
+    <string name="useful_information_lowercase">Info</string>
+    <string name="weather_lowercase">Weather</string>
 
     <!-- About -->
     <string name="about">About</string>
@@ -78,4 +83,8 @@
         They will intervene on the spot and transport you to the official medical facility at the ski resort. Contact number can be found under the useful information section.</string>
     <string name="help_center_question4">What are the operating hours of the ski resort during the ski season?</string>
     <string name="help_center_answer4">The operating hours of the ski resort vary during the ski season. At the beginning of the season, it is from 9 am to 4 pm, and in the latter part of the season, it extends until 4:30 pm.</string>
+
+    <!-- Empty List -->
+    <string name="emptylist_title">Network Disconnected</string>
+    <string name="emptylist_description">Connection coudn\'t be made, check your internet data.</string>
 </resources>

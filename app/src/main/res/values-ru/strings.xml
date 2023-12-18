@@ -4,26 +4,26 @@
     <string name="app_name">Ski Serbia</string>
 
     <!-- Settings -->
-    <string name="settings">Settings</string>
-    <string name="settings_other_therms_of_service">Условия и правила</string>
+    <string name="settings">Настройки</string>
+    <string name="settings_other_therms_of_service">Условия и положения</string>
     <string name="application_settings">Настройки приложения</string>
-    <string name="settings_turn_dark_mode_on">Включить ночной режим</string>
-    <string name="change_application_language">Поменять язык приложения</string>
-    <string name="settings_other">Остальное</string>
-    <string name="settings_other_help_center">Помощь</string>
-    <string name="settings_other_about">О нас</string>
+    <string name="settings_turn_dark_mode_on">Включить темный режим</string>
+    <string name="change_application_language">Изменить язык приложения</string>
+    <string name="settings_other">Другое</string>
+    <string name="settings_other_help_center">Центр помощи</string>
+    <string name="settings_other_about">О приложении</string>
 
     <!-- Settings Language -->
     <string name="settings_dialog_language">Выбрать язык</string>
     <string name="settings_dialog_language_english">Английский</string>
     <string name="settings_dialog_language_serbian">Сербский</string>
     <string name="settings_dialog_language_russian">Русский</string>
-    <string name="settings_dialog_language_german">Nemacki</string>
+    <string name="settings_dialog_language_german">Немецкий</string>
 
     <!-- Ski center names -->
-    <string name="kopaonik">Kopaonik</string>
-    <string name="stara_planina">Stara planina</string>
-    <string name="tornik">Tornik</string>
+    <string name="kopaonik">Копаоник</string>
+    <string name="stara_planina">Старая гора</string>
+    <string name="tornik">Торник</string>
     <string name="kopaonik_altitude">2017</string>
     <string name="stara_planina_altitude">2169</string>
     <string name="tornik_altitude">1496</string>
@@ -31,15 +31,15 @@
     <string name="feet">ft</string>
 
     <!-- Forecast -->
-    <string name="temperature">Temperature</string>
-    <string name="snow">Snow</string>
-    <string name="wind">Wind</string>
+    <string name="temperature">Температура</string>
+    <string name="snow">Снег</string>
+    <string name="wind">Ветер</string>
 
     <!-- Useful information -->
-    <string name="police">Police</string>
-    <string name="firefighter">Firefighter</string>
-    <string name="emergency">Emergency</string>
-    <string name="mountain_rescue">Mountain Rescue</string>
+    <string name="police">Полиция</string>
+    <string name="firefighter">Пожарная служба</string>
+    <string name="emergency">Экстренная помощь</string>
+    <string name="mountain_rescue">Горная спасательная служба</string>
     <string name="police_number">192</string>
     <string name="firefighter_number">193</string>
     <string name="emergency_number">194</string>
@@ -48,36 +48,41 @@
     <string name="mountain_rescue_tornik_number">063 466 467</string>
 
     <!-- Ski Fragment Details Information -->
-    <string name="lifts">LIFTS</string>
-    <string name="slopes">SLOPES</string>
-    <string name="map">MAP</string>
-    <string name="weather">WEATHER</string>
-    <string name="useful">USEFUL</string>
-    <string name="information">INFORMATION</string>
-    <string name="webcams">WEBCAMS</string>
-    <string name="webcams_lowercase">Webcams</string>
+    <string name="lifts">ЛИФТЫ</string>
+    <string name="slopes">СКЛОНЫ</string>
+    <string name="map">КАРТА</string>
+    <string name="weather">ПОГОДА</string>
+    <string name="useful">ПОЛЕЗНОЕ</string>
+    <string name="information">ИНФОРМАЦИЯ</string>
+    <string name="webcams">ВЕБ-КАМЕРЫ</string>
+    <string name="webcams_lowercase">Веб-камеры</string>
+    <string name="map_lowercase">Карта</string>
+    <string name="lifts_lowercase">Лифты</string>
+    <string name="slopes_lowercase">Слоны</string>
+    <string name="useful_information_lowercase">Инфо</string>
+    <string name="weather_lowercase">Погода</string>
 
     <!-- About -->
-    <string name="about">About</string>
-    <string name="about_author">Author</string>
+    <string name="about">О нас</string>
+    <string name="about_author">Автор</string>
     <string name="about_author_name">Neoapps</string>
-    <string name="about_app_version">App Version</string>
+    <string name="about_app_version">Версия приложения</string>
     <string name="about_app_version_number">1.0.0</string>
-    <string name="about_contact_email">Contact Email</string>
+    <string name="about_contact_email">Контактный email</string>
     <string name="about_email">neoapps.services@gmail.com</string>
-    <string name="about_social">Social</string>
+    <string name="about_social">Социальные сети</string>
 
     <!-- Help center -->
     <string name="help_center_faq">FAQ</string>
-    <string name="help">Help Center</string>
-    <string name="help_center_question1">Is there a way to see if a particular ski road is in operation?</string>
-    <string name="help_center_answer1">Yes there is. You can see that under the list of the ski slopes.</string>
-    <string name="help_center_question2">Is there an option for night skiing?</string>
-    <string name="help_center_answer2">Night skiing is only possible at the Kopaonik ski resort.</string>
-    <string name="help_center_question3">What should I do in case of an injury on the ski slopes?</string>
-    <string name="help_center_answer3">In case of an injury, you are required to contact the mountain rescue service.
-        They will intervene on the spot and transport you to the official medical facility at the ski resort. Contact number can be found under the useful information section.</string>
-    <string name="help_center_question4">What are the operating hours of the ski resort during the ski season?</string>
-    <string name="help_center_answer4">The operating hours of the ski resort vary during the ski season. At the beginning of the season, it is from 9 am to 4 pm, and in the latter part of the season, it extends until 4:30 pm.</string>
+    <string name="help">Центр помощи</string>
+    <string name="help_center_question1">Есть ли способ узнать, открыт ли определенный лыжный спуск?</string>
+    <string name="help_center_answer1">Да, есть. Вы можете увидеть это в списке лыжных склонов.</string>
+    <string name="help_center_question2">Существует ли опция ночного катания?</string>
+    <string name="help_center_answer2">Ночное катание возможно только на лыжном курорте Копаоник.</string>
+    <string name="help_center_question3">Что мне делать в случае травмы на лыжных склонах?</string>
+    <string name="help_center_answer3">При травме обязательно свяжитесь с горной спасательной службой.
+        Они предпримут меры на месте и доставят вас в официальное медицинское учреждение на лыжном курорте. Номер контакта можно найти в разделе полезной информации.</string>
+    <string name="help_center_question4">Каковы часы работы лыжного курорта в течение сезона?</string>
+    <string name="help_center_answer4">Часы работы лыжного курорта меняются в течение сезона. В начале сезона с 9:00 до 16:00, а в конце сезона расширяются до 16:30.</string>
 
 </resources>

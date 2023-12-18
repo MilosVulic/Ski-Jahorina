@@ -20,8 +20,8 @@ import com.neoapps.skiserbia.main.MainActivity
 
 class CameraFragment : Fragment() {
 
-    private var _binding: FragmentAsyncCameraBinding? = null
-    private val binding get() = _binding!!
+    private var bindingProp: FragmentAsyncCameraBinding? = null
+    private val binding get() = bindingProp!!
     private val viewModel: CameraViewModel by viewModels()
     private val skiCenterUrl: CameraFragmentArgs by navArgs()
 
@@ -30,13 +30,13 @@ class CameraFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentAsyncCameraBinding.inflate(inflater, container, false)
+        bindingProp = FragmentAsyncCameraBinding.inflate(inflater, container, false)
         val screen = inflater.inflate(R.layout.fragment_camera, container, false)
 
         val asyncLayoutInflater = context?.let { AsyncLayoutInflater(it) }
         asyncLayoutInflater?.inflate(R.layout.fragment_async_camera, null) { view, _, _ ->
             (screen as? ViewGroup)?.addView(view)
-            _binding = FragmentAsyncCameraBinding.bind(view)
+            bindingProp = FragmentAsyncCameraBinding.bind(view)
             setUpFragmentName()
         }
         return screen
@@ -83,6 +83,6 @@ class CameraFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding = null
+        bindingProp = null
     }
 }

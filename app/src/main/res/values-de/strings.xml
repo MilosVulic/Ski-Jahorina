@@ -1,24 +1,23 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- App name -->
     <string name="app_name">Ski Serbia</string>
 
     <!-- Settings -->
-    <string name="settings">Settings</string>
-    <string name="settings_other_therms_of_service">Terms and conditions</string>
-    <string name="application_settings">Application Settings</string>
-    <string name="settings_turn_dark_mode_on">Turn dark mode on</string>
-    <string name="change_application_language">Change application language</string>
-    <string name="settings_other">Other</string>
-    <string name="settings_other_help_center">Help center</string>
-    <string name="settings_other_about">About</string>
+    <string name="settings">Einstellungen</string>
+    <string name="settings_other_therms_of_service">Geschäftsbedingungen</string>
+    <string name="application_settings">Anwendungseinstellungen</string>
+    <string name="settings_turn_dark_mode_on">Aktivieren Sie den Dunkelmodus</string>
+    <string name="change_application_language">Anwendungssprache ändern</string>
+    <string name="settings_other">Andere</string>
+    <string name="settings_other_help_center">Hilfezentrum</string>
+    <string name="settings_other_about">Über die App</string>
 
     <!-- Settings Language -->
-    <string name="settings_dialog_language">Select Language</string>
-    <string name="settings_dialog_language_english">English</string>
-    <string name="settings_dialog_language_serbian">Serbian</string>
-    <string name="settings_dialog_language_russian">Russian</string>
-    <string name="settings_dialog_language_german">Nemacki</string>
+    <string name="settings_dialog_language">Sprache auswählen</string>
+    <string name="settings_dialog_language_english">Englisch</string>
+    <string name="settings_dialog_language_serbian">Serbisch</string>
+    <string name="settings_dialog_language_russian">Russisch</string>
+    <string name="settings_dialog_language_german">Deutsch</string>
 
     <!-- Ski center names -->
     <string name="kopaonik">Kopaonik</string>
@@ -31,15 +30,15 @@
     <string name="feet">ft</string>
 
     <!-- Forecast -->
-    <string name="temperature">Temperature</string>
-    <string name="snow">Snow</string>
+    <string name="temperature">Temperatur</string>
+    <string name="snow">Schnee</string>
     <string name="wind">Wind</string>
 
     <!-- Useful information -->
-    <string name="police">Police</string>
-    <string name="firefighter">Firefighter</string>
-    <string name="emergency">Emergency</string>
-    <string name="mountain_rescue">Mountain Rescue</string>
+    <string name="police">Polizei</string>
+    <string name="firefighter">Feuerwehr</string>
+    <string name="emergency">Notfalldienst</string>
+    <string name="mountain_rescue">Bergdienst</string>
     <string name="police_number">192</string>
     <string name="firefighter_number">193</string>
     <string name="emergency_number">194</string>
@@ -48,18 +47,23 @@
     <string name="mountain_rescue_tornik_number">063 466 467</string>
 
     <!-- Ski Fragment Details Information -->
-    <string name="lifts">LIFTS</string>
-    <string name="slopes">SLOPES</string>
-    <string name="map">MAP</string>
-    <string name="weather">WEATHER</string>
-    <string name="useful">USEFUL</string>
+    <string name="lifts">AUFZÜGE</string>
+    <string name="slopes">PISTEN</string>
+    <string name="map">KARTE</string>
+    <string name="weather">WETTER</string>
+    <string name="useful">NÜTZLICH</string>
     <string name="information">INFORMATION</string>
     <string name="webcams">WEBCAMS</string>
     <string name="webcams_lowercase">Webcams</string>
+    <string name="slopes_lowercase">Pisten</string>
+    <string name="map_lowercase">Karte</string>
+    <string name="lifts_lowercase">Aufzüge</string>
+    <string name="useful_information_lowercase">Info</string>
+    <string name="weather_lowercase">Wetter</string>
 
     <!-- About -->
-    <string name="about">About</string>
-    <string name="about_author">Author</string>
+    <string name="about">Über die App</string>
+    <string name="about_author">Autor</string>
     <string name="about_author_name">Neoapps</string>
     <string name="about_app_version">App Version</string>
     <string name="about_app_version_number">1.0.0</string>
@@ -69,15 +73,14 @@
 
     <!-- Help center -->
     <string name="help_center_faq">FAQ</string>
-    <string name="help">Help Center</string>
-    <string name="help_center_question1">Is there a way to see if a particular ski road is in operation?</string>
-    <string name="help_center_answer1">Yes there is. You can see that under the list of the ski slopes.</string>
-    <string name="help_center_question2">Is there an option for night skiing?</string>
-    <string name="help_center_answer2">Night skiing is only possible at the Kopaonik ski resort.</string>
-    <string name="help_center_question3">What should I do in case of an injury on the ski slopes?</string>
-    <string name="help_center_answer3">In case of an injury, you are required to contact the mountain rescue service.
-        They will intervene on the spot and transport you to the official medical facility at the ski resort. Contact number can be found under the useful information section.</string>
-    <string name="help_center_question4">What are the operating hours of the ski resort during the ski season?</string>
-    <string name="help_center_answer4">The operating hours of the ski resort vary during the ski season. At the beginning of the season, it is from 9 am to 4 pm, and in the latter part of the season, it extends until 4:30 pm.</string>
-
+    <string name="help">Hilfezentrum</string>
+    <string name="help_center_question1">Gibt es eine Möglichkeit zu sehen, ob eine bestimmte Skipiste in Betrieb ist?</string>
+    <string name="help_center_answer1">Ja da ist. Das könnt ihr unter der Liste der Skipisten sehen.</string>
+    <string name="help_center_question2">Gibt es eine Möglichkeit zum Nachtskifahren?</string>
+    <string name="help_center_answer2">Nachtskifahren ist nur im Skigebiet Kopaonik möglich.</string>
+    <string name="help_center_question3">Was soll ich bei einer Verletzung auf der Skipiste tun?</string>
+    <string name="help_center_answer3">Im Falle einer Verletzung ist die Kontaktaufnahme mit dem Bergrettungsdienst erforderlich.
+        Sie greifen vor Ort ein und transportieren Sie zur offiziellen medizinischen Einrichtung im Skigebiet. Die Kontaktnummer finden Sie im Abschnitt Nützliche Informationen.</string>
+    <string name="help_center_question4">Wie sind die Betriebszeiten des Skigebiets während der Skisaison?</string>
+    <string name="help_center_answer4">Die Betriebszeiten des Skigebiets variieren während der Skisaison. Zu Beginn der Saison ist sie von 9.00 bis 16.00 Uhr, in  der letzte Saison Teil geht sie bis 16.30 Uhr.</string>
 </resources>

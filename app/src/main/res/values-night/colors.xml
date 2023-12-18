@@ -24,9 +24,13 @@
     <color name="easyColor">#20a5ff</color>
     <color name="difficultColor">#1f1f1f</color>
 
-    <!-- Min Max Temperature colors -->
+    <!-- Weather Temperature colors -->
     <color name="maxTemperatureColor">#c80900</color>
     <color name="minTemperatureColor">#046edb</color>
+    <color name="currentWeatherBackgroundColor">#dcedf9</color>
+    <color name="currentWeatherIconsColor">#1589e2</color>
+    <color name="currentWeatherTitleColor">#3e4448</color>
+    <color name="currentWeatherValueColor">#2e3336</color>
 
     <!-- Fragment Details colors -->
     <color name="blueOverlayPurple">#800080</color>
@@ -49,4 +53,7 @@
     <color name="homeScreenStart">#6f74f2</color>
     <color name="homeScreenCenter">#896fff</color>
     <color name="homeScreenEnd">#e05ff7</color>
+
+    <!-- Empty list colors -->
+    <color  name="colorTextSpark">#f5f7f8</color>
 </resources>
