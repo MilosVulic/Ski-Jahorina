@@ -55,5 +55,10 @@
     <color name="homeScreenEnd">#2b7a9f</color>
 
     <!-- Empty list colors -->
-    <color  name="colorTextSpark">#050505</color>
+    <color name="colorTextSpark">#050505</color>
+
+    <!-- Home screen colors -->
+    <color name="skiCenterTitleColor">#696969</color>
+    <color name="skiCenterAltitudeIcon">#2d2d2d</color>
+
 </resources>

@@ -23,9 +23,9 @@
     <string name="kopaonik">Kopaonik</string>
     <string name="stara_planina">Stara planina</string>
     <string name="tornik">Tornik</string>
-    <string name="kopaonik_altitude">2017</string>
-    <string name="stara_planina_altitude">2169</string>
-    <string name="tornik_altitude">1496</string>
+    <string name="kopaonik_altitude">2017  m</string>
+    <string name="stara_planina_altitude">2169  m</string>
+    <string name="tornik_altitude">1496  m</string>
     <string name="meters">m</string>
     <string name="feet">ft</string>
 

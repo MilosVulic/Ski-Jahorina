@@ -5,8 +5,18 @@
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_ski_details"
+    android:background="@color/colorBackground"
     tools:context=".features.skicenter.SkiCenterDetailsFragment">
+
+    <FrameLayout
+        android:id="@+id/frameLayoutTop"
+        android:layout_width="0dp"
+        android:layout_height="?android:attr/actionBarSize"
+        android:layout_marginTop="0dp"
+        android:background="@drawable/gradient_drawable"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <FrameLayout
         android:id="@+id/frameLayoutBackground"
@@ -15,7 +25,7 @@
         app:layout_constraintBottom_toTopOf="@+id/parabolaShapeLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/frameLayoutTop">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -39,7 +49,7 @@
             android:id="@+id/imageView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:srcCompat="@drawable/drawable_shape_parabola" />
+            app:cardBackgroundColor="@color/colorCardBackgroundSettings" />
     </FrameLayout>
 
     <ScrollView
@@ -63,7 +73,7 @@
                 android:layout_width="0dp"
                 android:layout_height="200dp"
                 android:layout_marginStart="15dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
                 app:cardBackgroundColor="@color/colorCardBackgroundSettings"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="5dp"
@@ -123,6 +133,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="10dp"
                                 android:text="@string/lifts"
+                                android:gravity="center"
                                 android:textColor="@color/colorWhite"
                                 android:textSize="19sp"
                                 android:textStyle="bold"
@@ -205,6 +216,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="10dp"
                                 android:text="@string/slopes"
+                                android:gravity="center"
                                 android:textColor="@color/colorWhite"
                                 android:textSize="19sp"
                                 android:textStyle="bold"
@@ -284,6 +296,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="10dp"
                                 android:text="@string/map"
+                                android:gravity="center"
                                 android:textColor="@color/colorWhite"
                                 android:textSize="19sp"
                                 android:textStyle="bold"
@@ -367,6 +380,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="10dp"
                                 android:text="@string/weather"
+                                android:gravity="center"
                                 android:textColor="@color/colorWhite"
                                 android:textSize="19sp"
                                 android:textStyle="bold"
@@ -447,6 +461,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="10dp"
                                 android:text="@string/useful"
+                                android:gravity="center"
                                 android:textColor="@color/colorWhite"
                                 android:textSize="19sp"
                                 android:textStyle="bold"
@@ -460,6 +475,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="3dp"
                                 android:text="@string/information"
+                                android:gravity="center"
                                 android:textColor="@color/colorWhite"
                                 android:textSize="19sp"
                                 android:textStyle="bold"
@@ -544,6 +560,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="10dp"
                                 android:text="@string/webcams"
+                                android:gravity="center"
                                 android:textColor="@color/colorWhite"
                                 android:textSize="19sp"
                                 android:textStyle="bold"

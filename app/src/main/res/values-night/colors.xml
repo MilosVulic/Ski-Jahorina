@@ -22,7 +22,7 @@
 
     <!-- Category slopes colors -->
     <color name="easyColor">#20a5ff</color>
-    <color name="difficultColor">#1f1f1f</color>
+    <color name="difficultColor">#000000</color>
 
     <!-- Weather Temperature colors -->
     <color name="maxTemperatureColor">#c80900</color>
@@ -56,4 +56,8 @@
 
     <!-- Empty list colors -->
     <color  name="colorTextSpark">#f5f7f8</color>
+
+    <!-- Home screen colors -->
+    <color name="skiCenterTitleColor">#f5f7f8</color>
+    <color name="skiCenterAltitudeIcon">#ffffff</color>
 </resources>

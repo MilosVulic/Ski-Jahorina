@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorBackground"
     tools:context=".features.skicenter.usefulinformation.UsefulInformationFragment">
 
     <FrameLayout
@@ -53,6 +54,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="25dp"
                     android:text="@string/mountain_rescue"
+                    android:textColor="@color/skiCenterTitleColor"
                     android:background="@android:color/transparent"
                     android:textSize="18sp"
                     android:textStyle="bold"
@@ -67,6 +69,7 @@
                     android:clickable="true"
                     android:background="@android:color/transparent"
                     android:src="@drawable/ic_phone"
+                    app:tint="@color/skiCenterTitleColor"
                     app:layout_constraintBottom_toBottomOf="@+id/mountainRescueNumber"
                     app:layout_constraintEnd_toStartOf="@+id/mountainRescueNumber"
                     app:layout_constraintTop_toTopOf="@+id/mountainRescueNumber" />
@@ -80,6 +83,7 @@
                     android:padding="0dp"
                     android:text="@string/mountain_rescue_kopaonik_number"
                     android:textSize="18sp"
+                    android:textColor="@color/skiCenterTitleColor"
                     android:background="@android:color/transparent"
                     android:layout_marginTop="25dp"
                     android:layout_marginBottom="20dp"
@@ -119,6 +123,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:text="@string/police"
+                    android:textColor="@color/skiCenterTitleColor"
                     android:background="@android:color/transparent"
                     android:textSize="18sp"
                     android:textStyle="bold"
@@ -133,6 +138,7 @@
                     android:clickable="true"
                     android:background="@android:color/transparent"
                     android:src="@drawable/ic_phone"
+                    app:tint="@color/skiCenterTitleColor"
                     app:layout_constraintBottom_toBottomOf="@+id/policeNumber"
                     app:layout_constraintEnd_toStartOf="@+id/policeNumber"
                     app:layout_constraintTop_toTopOf="@+id/policeNumber" />
@@ -146,6 +152,7 @@
                     android:clickable="true"
                     android:padding="0dp"
                     android:text="@string/police_number"
+                    android:textColor="@color/skiCenterTitleColor"
                     android:background="@android:color/transparent"
                     android:textSize="18sp"
                     android:layout_marginBottom="20dp"
@@ -184,6 +191,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/firefighter"
+                android:textColor="@color/skiCenterTitleColor"
                 android:background="@android:color/transparent"
                 android:layout_marginTop="20dp"
                 android:textSize="18sp"
@@ -199,6 +207,7 @@
                 android:clickable="true"
                 android:background="@android:color/transparent"
                 android:src="@drawable/ic_phone"
+                app:tint="@color/skiCenterTitleColor"
                 app:layout_constraintBottom_toBottomOf="@+id/firefighterNumber"
                 app:layout_constraintEnd_toStartOf="@+id/firefighterNumber"
                 app:layout_constraintTop_toTopOf="@+id/firefighterNumber" />
@@ -212,6 +221,7 @@
                 android:clickable="true"
                 android:padding="0dp"
                 android:text="@string/firefighter_number"
+                android:textColor="@color/skiCenterTitleColor"
                 android:background="@android:color/transparent"
                 android:textSize="18sp"
                 android:layout_marginTop="20dp"
@@ -253,6 +263,7 @@
                 android:layout_marginBottom="25dp"
                 android:layout_marginTop="20dp"
                 android:text="@string/emergency"
+                android:textColor="@color/skiCenterTitleColor"
                 android:background="@android:color/transparent"
                 android:textSize="18sp"
                 android:textStyle="bold"
@@ -268,6 +279,7 @@
                 android:clickable="true"
                 android:background="@android:color/transparent"
                 android:src="@drawable/ic_phone"
+                app:tint="@color/skiCenterTitleColor"
                 app:layout_constraintBottom_toBottomOf="@+id/emergencyNumber"
                 app:layout_constraintEnd_toStartOf="@+id/emergencyNumber"
                 app:layout_constraintTop_toTopOf="@+id/emergencyNumber" />
@@ -280,6 +292,7 @@
                 android:clickable="true"
                 android:padding="0dp"
                 android:background="@android:color/transparent"
+                android:textColor="@color/skiCenterTitleColor"
                 android:text="@string/emergency_number"
                 android:textSize="18sp"
                 android:layout_marginTop="20dp"

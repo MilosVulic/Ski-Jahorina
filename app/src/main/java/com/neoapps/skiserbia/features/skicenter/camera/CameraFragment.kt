@@ -1,14 +1,19 @@
 package com.neoapps.skiserbia.features.skicenter.camera
 
 import android.annotation.SuppressLint
+import android.content.Context
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.asynclayoutinflater.view.AsyncLayoutInflater
 import androidx.cardview.widget.CardView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
@@ -24,6 +29,7 @@ class CameraFragment : Fragment() {
     private val binding get() = bindingProp!!
     private val viewModel: CameraViewModel by viewModels()
     private val skiCenterUrl: CameraFragmentArgs by navArgs()
+    private lateinit var noInternetLayout: View
 
     @SuppressLint("InflateParams")
     override fun onCreateView(
@@ -33,11 +39,20 @@ class CameraFragment : Fragment() {
         bindingProp = FragmentAsyncCameraBinding.inflate(inflater, container, false)
         val screen = inflater.inflate(R.layout.fragment_camera, container, false)
 
+        // Find the ProgressBar in the inflated view
+        val progressBar = screen.findViewById<ProgressBar>(R.id.progressBar)
+
+        // Inflate the "no internet" layout
+        noInternetLayout =
+            inflater.inflate(R.layout.include_empty_list_placeholder, container, false)
+
+
         val asyncLayoutInflater = context?.let { AsyncLayoutInflater(it) }
         asyncLayoutInflater?.inflate(R.layout.fragment_async_camera, null) { view, _, _ ->
             (screen as? ViewGroup)?.addView(view)
             bindingProp = FragmentAsyncCameraBinding.bind(view)
             setUpFragmentName()
+            checkInternetConnection(progressBar)
         }
         return screen
     }
@@ -81,6 +96,43 @@ class CameraFragment : Fragment() {
         }
     }
 
+    @SuppressLint("ResourceType")
+    private fun checkInternetConnection(progressBar: ProgressBar) {
+        if (!isNetworkAvailable()) {
+            progressBar.visibility = View.GONE
+            binding.scrollView.visibility = View.GONE
+
+            // Layout parameters for noInternetLayout
+            val noInternetLayoutParams = ConstraintLayout.LayoutParams(
+                ConstraintLayout.LayoutParams.WRAP_CONTENT,
+                ConstraintLayout.LayoutParams.WRAP_CONTENT
+            )
+            noInternetLayoutParams.startToStart = ConstraintLayout.LayoutParams.PARENT_ID
+            noInternetLayoutParams.endToEnd = ConstraintLayout.LayoutParams.PARENT_ID
+            noInternetLayoutParams.topToBottom = R.id.frameLayoutTop
+            noInternetLayoutParams.bottomToBottom = ConstraintLayout.LayoutParams.PARENT_ID
+            noInternetLayoutParams.horizontalBias = 0.5f
+            noInternetLayoutParams.verticalBias = 0.5f
+
+            (binding.root as? ViewGroup)?.addView(noInternetLayout, noInternetLayoutParams)
+
+        } else {
+            progressBar.visibility = View.VISIBLE
+            binding.scrollView.visibility = View.VISIBLE
+        }
+    }
+
+    private fun isNetworkAvailable(): Boolean {
+        val connectivityManager =
+            context?.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+
+        val network = connectivityManager.activeNetwork
+        val capabilities = connectivityManager.getNetworkCapabilities(network)
+
+        return capabilities != null &&
+                (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) ||
+                        capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR))
+    }
     override fun onDestroyView() {
         super.onDestroyView()
         bindingProp = null
