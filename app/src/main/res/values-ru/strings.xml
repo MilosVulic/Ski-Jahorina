@@ -29,6 +29,7 @@
     <string name="tornik_altitude">1496  m</string>
     <string name="meters">m</string>
     <string name="feet">ft</string>
+    <string name="ski_resorts">Горнолыжные курорты</string>
 
     <!-- Forecast -->
     <string name="temperature">Температура</string>
@@ -85,4 +86,7 @@
     <string name="help_center_question4">Каковы часы работы лыжного курорта в течение сезона?</string>
     <string name="help_center_answer4">Часы работы лыжного курорта меняются в течение сезона. В начале сезона с 9:00 до 16:00, а в конце сезона расширяются до 16:30.</string>
 
+    <!-- Empty List -->
+    <string name="emptylist_title">Сеть отключена</string>
+    <string name="emptylist_description">Не удалось установить соединение. Проверьте свои интернет-данные.</string>
 </resources>

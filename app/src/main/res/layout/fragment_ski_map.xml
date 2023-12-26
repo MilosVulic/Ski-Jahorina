@@ -22,21 +22,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/frameLayoutTop">
 
-
-        <com.jsibbold.zoomage.ZoomageView
+        <com.github.chrisbanes.photoview.PhotoView
             android:id="@+id/myZoomageView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
             android:scaleType="centerCrop"
             android:src="@drawable/kopaonik_ski_map"
-            app:zoomage_animateOnReset="true"
-            app:zoomage_autoCenter="true"
-            app:zoomage_autoResetMode="UNDER"
-            app:zoomage_maxScale="8"
-            app:zoomage_minScale="0.0"
-            app:zoomage_restrictBounds="true"
-            app:zoomage_translatable="true"
-            app:zoomage_zoomable="true" />
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
     </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

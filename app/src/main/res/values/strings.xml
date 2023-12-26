@@ -28,6 +28,7 @@
     <string name="tornik_altitude">1496 m</string>
     <string name="meters">m</string>
     <string name="feet">ft</string>
+    <string name="ski_resorts">Ski Resorts</string>
 
     <!-- Forecast -->
     <string name="temperature">Temperature</string>

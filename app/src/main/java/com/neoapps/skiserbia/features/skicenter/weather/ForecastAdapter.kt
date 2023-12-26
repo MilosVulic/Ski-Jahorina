@@ -1,5 +1,6 @@
 package com.neoapps.skiserbia.features.skicenter.weather
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -25,7 +26,12 @@ class ForecastAdapter(private val mList: List<ForecastDay>) : RecyclerView.Adapt
 
         holder.textViewDay.text = forecastInfo.day
         holder.textViewDate.text = forecastInfo.date
-        holder.textViewWind.text = forecastInfo.windSpeed.substring(0, forecastInfo.windSpeed.length - 3) + " " + forecastInfo.windSpeed.substring(forecastInfo.windSpeed.length - 3, forecastInfo.windSpeed.length)
+        Log.d("Nesto", forecastInfo.windSpeed)
+        if (forecastInfo.windSpeed.length >= 4) {
+            holder.textViewWind.text = forecastInfo.windSpeed.substring(0, forecastInfo.windSpeed.length - 3) + " " + forecastInfo.windSpeed.substring(forecastInfo.windSpeed.length - 3, forecastInfo.windSpeed.length)
+        } else {
+            holder.textViewWind.text = "-"
+        }
         holder.textViewMinTemperature.text = forecastInfo.minTemp
         holder.textViewMaxTemperature.text = forecastInfo.maxTemp
 

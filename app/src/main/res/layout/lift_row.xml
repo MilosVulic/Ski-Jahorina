@@ -43,6 +43,7 @@
                 android:scaleType="centerCrop"
                 android:padding="0dp"
                 android:layout_gravity="center"
+                app:tint="@color/colorBlackWhite"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

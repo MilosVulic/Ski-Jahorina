@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
+import android.view.View
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.app.ViewPumpAppCompatDelegate
@@ -56,6 +58,7 @@ class MainActivity : AppCompatActivity(), MenuProvider {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setupNavigationDrawer()
+        setUpFragmentName()
 
         MobileAds.initialize(this) { }
     }
@@ -96,6 +99,16 @@ class MainActivity : AppCompatActivity(), MenuProvider {
 
     override fun getDelegate(): AppCompatDelegate {
         return appCompatDelegate
+    }
+
+    private fun setUpFragmentName() {
+        this.supportActionBar?.title = ""
+        val title1TextView = this.findViewById<TextView>(R.id.title1)
+
+        if (title1TextView != null) {
+            title1TextView.visibility = View.VISIBLE
+            title1TextView.text = resources.getText(R.string.ski_resorts)
+        }
     }
 
 }

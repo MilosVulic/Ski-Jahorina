@@ -68,13 +68,8 @@ class SlopeInfoAdapter(private val mList: MutableList<Any>) : RecyclerView.Adapt
 
     override fun getItemViewType(position: Int): Int {
         return if (position == 2 && adLoaded) {
-            // Return VIEW_TYPE_AD only for the third position if an ad is loaded
-            VIEW_TYPE_AD
-        } else if (position < mList.size - 1 && mList[position] is NativeAd) {
-            // Return VIEW_TYPE_AD for other positions where the item is a UnifiedNativeAd
             VIEW_TYPE_AD
         } else {
-            // Return VIEW_TYPE_SLOPE for regular slopes or last position
             VIEW_TYPE_SLOPE
         }
     }

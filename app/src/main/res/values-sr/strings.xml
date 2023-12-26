@@ -29,6 +29,7 @@
     <string name="tornik_altitude">1496  m</string>
     <string name="meters">m</string>
     <string name="feet">ft</string>
+    <string name="ski_resorts">Ski Centri</string>
 
     <!-- Forecast -->
     <string name="temperature">Temperatura</string>
@@ -85,4 +86,7 @@
     <string name="help_center_question4">Koje je radno vreme skijališta tokom ski sezone?</string>
     <string name="help_center_answer4">Radno vreme skijališta varira tokom ski sezone. Na početku sezone je od 9 do 16 časova, a u drugom delu sezone se produžava do 16:30 časova.</string>
 
+    <!-- Empty List -->
+    <string name="emptylist_title">Мрежа је прекинута</string>
+    <string name="emptylist_description">Није могуће успоставити везу, проверите своје интернет податке.</string>
 </resources>

@@ -42,7 +42,8 @@ class HomeFragment : Fragment() {
 
         if (null != toolbar) {
             val title1TextView = ac.findViewById<TextView>(R.id.title1)
-            title1TextView.visibility = View.INVISIBLE
+            title1TextView.visibility = View.VISIBLE
+            title1TextView.text = resources.getText(R.string.ski_resorts)
         }
     }
 

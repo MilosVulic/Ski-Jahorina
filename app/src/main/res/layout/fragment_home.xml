@@ -46,6 +46,7 @@
                 app:cardPreventCornerOverlap="false"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/cardViewStaraPlanina"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -57,8 +58,8 @@
                         android:layout_width="0dp"
                         android:layout_height="0dp"
                         android:layout_marginBottom="10dp"
-                        android:src="@drawable/kopaonik"
                         android:scaleType="centerCrop"
+                        android:src="@drawable/kopaonik"
                         app:layout_constraintBottom_toTopOf="@+id/skiCenterKopaonik"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -114,14 +115,14 @@
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginEnd="15dp"
-                android:layout_marginBottom="15dp"
                 app:cardBackgroundColor="@color/colorCardBackgroundSettings"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="5dp"
                 app:cardPreventCornerOverlap="false"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/cardViewKopaonik">
+                app:layout_constraintTop_toBottomOf="@id/cardViewKopaonik"
+                app:layout_constraintBottom_toTopOf="@+id/cardViewTornik">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"

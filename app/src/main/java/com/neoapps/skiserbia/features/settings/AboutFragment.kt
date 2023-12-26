@@ -46,7 +46,7 @@ class AboutFragment : Fragment() {
         binding.imageViewYoutubeAbout.setOnClickListener {
             val browserIntent = Intent(
                 Intent.ACTION_VIEW,
-                Uri.parse("https://landing.flycricket.io/my-passkeeper/38c6a25c-22af-433d-b08a-610cfdccbe80/")
+                Uri.parse("https://ski-serbia.carrd.co/")
             )
             startActivity(browserIntent)
         }

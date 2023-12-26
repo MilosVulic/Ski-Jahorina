@@ -45,7 +45,7 @@ class SlopeInfoFragment : Fragment() {
             val mutableSlopeList: MutableList<Any> = slopeList.toMutableList()
             val listAdapter = SlopeInfoAdapter(mutableSlopeList)
             binding.slopesRecyclerView.adapter = listAdapter
-            loadNativeAds(listAdapter, mutableSlopeList)
+            loadNativeAds(listAdapter)
         }
 
         if (slopes.slopes.isEmpty()) {
@@ -59,13 +59,12 @@ class SlopeInfoFragment : Fragment() {
         return binding.root
     }
 
-    private fun loadNativeAds(adapter: SlopeInfoAdapter, mutableSlopeList: MutableList<Any>) {
+    private fun loadNativeAds(adapter: SlopeInfoAdapter) {
         Log.d("SlopeInfoFragment", "loadNativeAds called")
 
         if (!adapter.adLoaded) {
             val adLoader = AdLoader.Builder(requireContext(), "ca-app-pub-3940256099942544/2247696110")
                 .forNativeAd { nativeAd ->
-                    mutableSlopeList.add(nativeAd)
 
                     // Add native ad only at the third position
                     adapter.addNativeAd(nativeAd)

@@ -50,14 +50,18 @@
 
                 <TextView
                     android:id="@+id/mountainRescueTitle"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="25dp"
+                    android:background="@android:color/transparent"
                     android:text="@string/mountain_rescue"
                     android:textColor="@color/skiCenterTitleColor"
-                    android:background="@android:color/transparent"
                     android:textSize="18sp"
                     android:textStyle="bold"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="20dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/phoneIconMountainRescue"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -66,30 +70,28 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="20dp"
-                    android:clickable="true"
                     android:background="@android:color/transparent"
+                    android:clickable="true"
                     android:src="@drawable/ic_phone"
-                    app:tint="@color/skiCenterTitleColor"
-                    app:layout_constraintBottom_toBottomOf="@+id/mountainRescueNumber"
+                    app:layout_constraintBottom_toBottomOf="@+id/mountainRescueTitle"
                     app:layout_constraintEnd_toStartOf="@+id/mountainRescueNumber"
-                    app:layout_constraintTop_toTopOf="@+id/mountainRescueNumber" />
+                    app:layout_constraintTop_toTopOf="@+id/mountainRescueTitle"
+                    app:tint="@color/skiCenterTitleColor" />
 
                 <TextView
                     android:id="@+id/mountainRescueNumber"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="20dp"
+                    android:background="@android:color/transparent"
                     android:clickable="true"
                     android:padding="0dp"
                     android:text="@string/mountain_rescue_kopaonik_number"
-                    android:textSize="18sp"
                     android:textColor="@color/skiCenterTitleColor"
-                    android:background="@android:color/transparent"
-                    android:layout_marginTop="25dp"
-                    android:layout_marginBottom="20dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/phoneIconMountainRescue"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="@+id/phoneIconMountainRescue" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

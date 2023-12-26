@@ -28,6 +28,7 @@
     <string name="tornik_altitude">1496  m</string>
     <string name="meters">m</string>
     <string name="feet">ft</string>
+    <string name="ski_resorts">Skigebiete</string>
 
     <!-- Forecast -->
     <string name="temperature">Temperatur</string>
@@ -83,4 +84,8 @@
         Sie greifen vor Ort ein und transportieren Sie zur offiziellen medizinischen Einrichtung im Skigebiet. Die Kontaktnummer finden Sie im Abschnitt Nützliche Informationen.</string>
     <string name="help_center_question4">Wie sind die Betriebszeiten des Skigebiets während der Skisaison?</string>
     <string name="help_center_answer4">Die Betriebszeiten des Skigebiets variieren während der Skisaison. Zu Beginn der Saison ist sie von 9.00 bis 16.00 Uhr, in  der letzte Saison Teil geht sie bis 16.30 Uhr.</string>
+
+    <!-- Empty List -->
+    <string name="emptylist_title">Netzwerk getrennt</string>
+    <string name="emptylist_description">Es konnte keine Verbindung hergestellt werden. Überprüfen Sie Ihre Internetdaten.</string>
 </resources>

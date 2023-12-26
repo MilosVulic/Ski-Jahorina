@@ -3,6 +3,7 @@
     <color name="colorBackground">#2b2b2b</color>
     <color name="iconColorSettings">#B3B3B3</color>
     <color name="colorCardBackgroundSettings">#1c1c1c</color>
+    <color name="colorCardBackgroundWeather">#1c1c1c</color>
     <color name="colorDivider">#737373</color>
     <color name="textColorSettings">#A6A6A6</color>
     <color name="colorRippleEnteringElements">#3D4348</color>
@@ -27,18 +28,18 @@
     <!-- Weather Temperature colors -->
     <color name="maxTemperatureColor">#c80900</color>
     <color name="minTemperatureColor">#046edb</color>
-    <color name="currentWeatherBackgroundColor">#dcedf9</color>
+    <color name="currentWeatherBackgroundColor">#1c1c1c</color>
     <color name="currentWeatherIconsColor">#1589e2</color>
-    <color name="currentWeatherTitleColor">#3e4448</color>
-    <color name="currentWeatherValueColor">#2e3336</color>
+    <color name="currentWeatherTitleColor">#F5F7F8</color>
+    <color name="currentWeatherValueColor">#F5F7F8</color>
 
     <!-- Fragment Details colors -->
-    <color name="blueOverlayPurple">#800080</color>
-    <color name="blueOverlayColor">#800000FF</color>
-    <color name="darkGreenOverlayColor">#80008000</color>
-    <color name="orangeOverlayColor">#FF8000</color>
-    <color name="darkYellowOverlayColor">#B8860B</color>
-    <color name="redOverlayColor">#FF0000</color>
+    <color name="blueOverlayPurple">#1c1c1c</color>
+    <color name="blueOverlayColor">#1c1c1c</color>
+    <color name="darkGreenOverlayColor">#1c1c1c</color>
+    <color name="orangeOverlayColor">#1c1c1c</color>
+    <color name="darkYellowOverlayColor">#1c1c1c</color>
+    <color name="redOverlayColor">#1c1c1c</color>
 
     <!-- Settings Fragment colors -->
     <color name="colorWebSite">#ff6882</color>
