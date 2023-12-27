@@ -11,7 +11,7 @@
         android:layout_marginTop="40dp"
         android:text="@string/emptylist_title"
         android:gravity="center"
-        android:textColor="#000000"
+        android:textColor="@color/colorBlackWhite"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
