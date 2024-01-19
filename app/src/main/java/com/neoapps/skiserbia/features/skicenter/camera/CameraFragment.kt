@@ -39,12 +39,8 @@ class CameraFragment : Fragment() {
         bindingProp = FragmentAsyncCameraBinding.inflate(inflater, container, false)
         val screen = inflater.inflate(R.layout.fragment_camera, container, false)
 
-        // Find the ProgressBar in the inflated view
         val progressBar = screen.findViewById<ProgressBar>(R.id.progressBar)
-
-        // Inflate the "no internet" layout
-        noInternetLayout =
-            inflater.inflate(R.layout.include_empty_list_placeholder, container, false)
+        noInternetLayout = inflater.inflate(R.layout.include_empty_list_placeholder, container, false)
 
 
         val asyncLayoutInflater = context?.let { AsyncLayoutInflater(it) }
@@ -102,7 +98,6 @@ class CameraFragment : Fragment() {
             progressBar.visibility = View.GONE
             binding.scrollView.visibility = View.GONE
 
-            // Layout parameters for noInternetLayout
             val noInternetLayoutParams = ConstraintLayout.LayoutParams(
                 ConstraintLayout.LayoutParams.WRAP_CONTENT,
                 ConstraintLayout.LayoutParams.WRAP_CONTENT

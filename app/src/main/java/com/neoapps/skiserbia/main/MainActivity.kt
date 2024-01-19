@@ -20,11 +20,13 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.navigateUp
 import com.google.android.gms.ads.MobileAds
+import com.google.android.play.core.appupdate.AppUpdateManager
+import com.google.android.play.core.appupdate.AppUpdateManagerFactory
+import com.google.android.play.core.install.model.AppUpdateType
 import com.neoapps.skiserbia.NavigationGraphDirections
 import com.neoapps.skiserbia.R
 import com.neoapps.skiserbia.databinding.ActivityMainBinding
 import dev.b3nedikt.app_locale.AppLocale
-
 
 class MainActivity : AppCompatActivity(), MenuProvider {
 
@@ -49,6 +51,10 @@ class MainActivity : AppCompatActivity(), MenuProvider {
         )
     }
 
+    val appUpdateManager: AppUpdateManager by lazy {
+        AppUpdateManagerFactory.create(this)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         WindowCompat.setDecorFitsSystemWindows(window, false)
         super.onCreate(savedInstanceState)
@@ -61,6 +67,31 @@ class MainActivity : AppCompatActivity(), MenuProvider {
         setUpFragmentName()
 
         MobileAds.initialize(this) { }
+
+        // Check for in-app updates
+        checkForUpdates()
+    }
+
+    fun checkForUpdates() {
+        val appUpdateInfoTask = appUpdateManager.appUpdateInfo
+
+        appUpdateInfoTask.addOnSuccessListener { appUpdateInfo ->
+            if (appUpdateInfo.updateAvailability() == com.google.android.play.core.install.model.UpdateAvailability.UPDATE_AVAILABLE
+                && appUpdateInfo.isUpdateTypeAllowed(AppUpdateType.IMMEDIATE)
+            ) {
+                // An update is available, prompt the user to update
+                startImmediateUpdate(appUpdateInfo)
+            }
+        }
+    }
+
+    private fun startImmediateUpdate(appUpdateInfo: com.google.android.play.core.appupdate.AppUpdateInfo) {
+        appUpdateManager.startUpdateFlowForResult(
+            appUpdateInfo,
+            AppUpdateType.IMMEDIATE,
+            this,
+            REQUEST_CODE_UPDATE
+        )
     }
 
     private fun setupNavigationDrawer() {
@@ -111,4 +142,7 @@ class MainActivity : AppCompatActivity(), MenuProvider {
         }
     }
 
+    companion object {
+        private const val REQUEST_CODE_UPDATE = 123
+    }
 }

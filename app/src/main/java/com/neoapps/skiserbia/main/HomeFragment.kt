@@ -6,8 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.snackbar.Snackbar
+import com.google.android.play.core.install.model.AppUpdateType
+import com.google.android.play.core.install.model.UpdateAvailability
 import com.neoapps.skiserbia.R
 import com.neoapps.skiserbia.common.PreferenceProvider
 import com.neoapps.skiserbia.databinding.FragmentHomeBinding
@@ -22,15 +26,15 @@ class HomeFragment : Fragment() {
         hideTitle()
 
         binding.cardViewKopaonik.setOnClickListener {
-            findNavController().navigate(com.neoapps.skiserbia.NavigationGraphDirections.actionSkiInfo(PreferenceProvider.kopaonikUrl))
+            checkForAppUpdateAndNavigate(PreferenceProvider.kopaonikUrl)
         }
 
         binding.cardViewTornik.setOnClickListener {
-            findNavController().navigate(com.neoapps.skiserbia.NavigationGraphDirections.actionSkiInfo(PreferenceProvider.zlatiborUrl))
+            checkForAppUpdateAndNavigate(PreferenceProvider.zlatiborUrl)
         }
 
         binding.cardViewStaraPlanina.setOnClickListener {
-            findNavController().navigate(com.neoapps.skiserbia.NavigationGraphDirections.actionSkiInfo(PreferenceProvider.staraPlaninaUrl))
+            checkForAppUpdateAndNavigate(PreferenceProvider.staraPlaninaUrl)
         }
         return binding.root
     }
@@ -45,6 +49,41 @@ class HomeFragment : Fragment() {
             title1TextView.visibility = View.VISIBLE
             title1TextView.text = resources.getText(R.string.ski_resorts)
         }
+    }
+
+    private fun checkForAppUpdateAndNavigate(url: String) {
+        val ac = activity as MainActivity
+        val appUpdateInfoTask = ac.appUpdateManager.appUpdateInfo
+
+        appUpdateInfoTask.addOnSuccessListener { appUpdateInfo ->
+            if (appUpdateInfo.updateAvailability() == UpdateAvailability.UPDATE_AVAILABLE
+                && appUpdateInfo.isUpdateTypeAllowed(AppUpdateType.IMMEDIATE)
+            ) {
+                showUpdateSnackbar()
+            } else {
+                findNavController().navigate(com.neoapps.skiserbia.NavigationGraphDirections.actionSkiInfo(url))
+            }
+        }
+
+        appUpdateInfoTask.addOnFailureListener {
+            findNavController().navigate(com.neoapps.skiserbia.NavigationGraphDirections.actionSkiInfo(url))
+        }
+    }
+
+    private fun showUpdateSnackbar() {
+        val ac = activity as MainActivity
+        val snackbar = Snackbar.make(requireView(), resources.getString(R.string.update_text), Snackbar.LENGTH_LONG)
+        val snackbarLayout: View = snackbar.view
+        snackbarLayout.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.colorSnackBarBackground))
+
+        val textView = snackbarLayout.findViewById<View>(com.google.android.material.R.id.snackbar_text) as TextView
+        textView.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_about_snackbar, 0, 0, 0)
+        textView.compoundDrawablePadding = resources.getDimensionPixelOffset(R.dimen.snackbar_warning)
+
+        snackbar.setAction(R.string.update) { ac.checkForUpdates() }
+        snackbar.setActionTextColor(ContextCompat.getColor(requireContext(), R.color.colorFocusedField))
+
+        snackbar.show()
     }
 
     override fun onDestroyView() {

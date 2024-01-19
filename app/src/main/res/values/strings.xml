@@ -88,4 +88,29 @@
     <!-- Empty List -->
     <string name="emptylist_title">Network Disconnected</string>
     <string name="emptylist_description">Connection coudn\'t be made, check your internet data.</string>
+
+    <!-- Force Update -->
+    <string name="update_text">Update is required.</string>
+    <string name="update">Update</string>
+
+    <!-- Kamera ski places -->
+    <string name="camera1">Viceroy Kopaonik Hotel</string>
+    <string name="camera2">Suvo Rudiste</string>
+    <string name="camera4">Green ski bar &amp; restaurant</string>
+    <string name="camera5">Restaurant Livello</string>
+    <string name="camera6">Malo Jezero</string>
+    <string name="camera7">Skituljko</string>
+    <string name="camera8">Crown Peaks</string>
+    <string name="camera9">Green ski bar &amp; restaurant</string>
+    <string name="camera10">Duboka</string>
+
+    <string name="altitude1">1726 m</string>
+    <string name="altitude2">1978 m</string>
+    <string name="altitude4">1890 m</string>
+    <string name="altitude5">1912 m</string>
+    <string name="altitude6">1726 m</string>
+    <string name="altitude7">1794 m</string>
+    <string name="altitude8">1801 m</string>
+    <string name="altitude9">1890 m</string>
+    <string name="altitude10">1961 m</string>
 </resources>

@@ -59,6 +59,8 @@ class SlopeInfoFragment : Fragment() {
         return binding.root
     }
 
+    // fake "ca-app-pub-3940256099942544/2247696110"
+    // original "ca-app-pub-7130760675198405/4141167785"
     private fun loadNativeAds(adapter: SlopeInfoAdapter) {
         Log.d("SlopeInfoFragment", "loadNativeAds called")
 

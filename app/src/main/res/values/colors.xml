@@ -62,6 +62,6 @@
     <color name="skiCenterTitleColor">#696969</color>
     <color name="skiCenterAltitudeIcon">#2d2d2d</color>
 
-    app:cardBackgroundColor="@color/colorCardBackgroundSettings"
+    <color name="colorSnackBarBackground">#1D1D1D</color>
 
 </resources>

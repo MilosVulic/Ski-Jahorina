@@ -18,6 +18,24 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/searchView"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        app:queryHint="Search by name"
+        android:clickable="true"
+        android:focusable="true"
+        app:queryBackground="@android:color/transparent"
+        app:searchIcon="@drawable/ic_search"
+        app:closeIcon="@drawable/custom_clear_icon"
+        app:searchHintIcon="@drawable/ic_search"
+        app:iconifiedByDefault="false"
+        app:layout_constraintBottom_toBottomOf="@+id/frameLayoutTop"
+        app:layout_constraintEnd_toEndOf="@+id/frameLayoutTop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/frameLayoutTop" />
+
     <include
         android:id="@+id/include_emptylist_placeholder"
         layout="@layout/include_empty_list_placeholder"

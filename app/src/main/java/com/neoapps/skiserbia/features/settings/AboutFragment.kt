@@ -27,10 +27,7 @@ class AboutFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         bindingProp = FragmentAboutBinding.inflate(inflater, container, false)
-
-        val title1TextView = (activity as MainActivity).findViewById<TextView>(R.id.title1)
-        title1TextView.visibility = View.VISIBLE
-        title1TextView.text = resources.getString(R.string.about)
+        setUpFragmentName()
 
         settingAnimationSocial()
 
@@ -106,5 +103,15 @@ class AboutFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         bindingProp = null
+    }
+
+    private fun setUpFragmentName() {
+        (activity as MainActivity).supportActionBar?.title = ""
+        val title1TextView = (activity as MainActivity).findViewById<TextView>(R.id.title1)
+
+        if (title1TextView != null) {
+            title1TextView.visibility = View.VISIBLE
+            title1TextView.text = resources.getString(R.string.about)
+        }
     }
 }

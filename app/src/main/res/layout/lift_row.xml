@@ -60,11 +60,26 @@
                 android:textStyle="bold"
                 android:maxLines="2"
                 android:ellipsize="end"
-                app:layout_constraintBottom_toBottomOf="@+id/imageViewIcon"
+                app:layout_constraintBottom_toTopOf="@+id/textViewRowWorkingHours"
                 app:layout_constraintEnd_toStartOf="@+id/workingIndicator"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/imageViewIcon"
                 app:layout_constraintTop_toTopOf="@+id/imageViewIcon" />
+
+            <TextView
+                android:id="@+id/textViewRowWorkingHours"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:gravity="start|center_vertical"
+                android:text="TextView"
+                android:textColor="@color/textColorSettings"
+                android:maxLines="2"
+                android:ellipsize="end"
+                app:layout_constraintBottom_toBottomOf="@+id/imageViewIcon"
+                app:layout_constraintEnd_toEndOf="@+id/textViewRowTitle"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/textViewRowTitle"
+                app:layout_constraintTop_toBottomOf="@+id/textViewRowTitle" />
 
 
             <ImageView

@@ -116,7 +116,7 @@ class SettingsFragment : Fragment() {
             "en" -> radioGroupEnglish?.check(R.id.radioButtonEnglish)
             "sr" -> radioGroupSerbian?.check(R.id.radioButtonSerbian)
             "ru" -> radioGroupRussian?.check(R.id.radioButtonRussian)
-            "de" -> radioGroupRussian?.check(R.id.radioButtonGerman)
+            "de" -> radioGroupGerman?.check(R.id.radioButtonGerman)
         }
 
 

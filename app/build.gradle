@@ -14,8 +14,8 @@ android {
         applicationId "com.neoapps.skiserbia"
         minSdk 29
         targetSdk 34
-        versionCode 8
-        versionName "1.0.8"
+        versionCode 18
+        versionName "1.0.18"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -131,4 +131,7 @@ dependencies {
 
     // LeakCanary
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.7'
+
+    // Play Core
+    implementation 'com.google.android.play:core:1.10.3'
 }

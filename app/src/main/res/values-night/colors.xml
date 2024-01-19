@@ -61,4 +61,6 @@
     <!-- Home screen colors -->
     <color name="skiCenterTitleColor">#f5f7f8</color>
     <color name="skiCenterAltitudeIcon">#ffffff</color>
+
+    <color name="colorSnackBarBackground">#1D1D1D</color>
 </resources>

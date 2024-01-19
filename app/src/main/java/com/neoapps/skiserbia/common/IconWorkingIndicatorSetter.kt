@@ -23,6 +23,24 @@ object IconWorkingIndicatorSetter {
         }
     }
 
+    fun getBooleanWorkability(inFunction: String) : Boolean {
+        return when (inFunction) {
+            "Ne" -> false
+            "NE" -> false
+            "No" -> false
+            "NO" -> false
+            "Closed" -> false
+            "CLOSED" -> false
+            "DA" -> true
+            "Da" -> true
+            "Yes" -> true
+            "YES" -> true
+            "OPENED" -> true
+            "Opened" -> true
+            else -> {false}
+        }
+    }
+
     fun setBackground(inFunction: String, view: ImageView) {
         when (inFunction) {
             "Ne", "NE", "No", "NO", "Closed", "CLOSED" -> {
