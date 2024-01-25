@@ -58,8 +58,9 @@ class SkiCenterDetailsFragment : Fragment() {
         setUpFragmentName()
 
         // "ca-app-pub-7130760675198405/9555493606"
+        // test ca-app-pub-3940256099942544/1033173712
         val adRequest = AdRequest.Builder().build()
-        InterstitialAd.load(requireContext(), "ca-app-pub-3940256099942544/1033173712", adRequest, object : InterstitialAdLoadCallback() {
+        InterstitialAd.load(requireContext(), "ca-app-pub-7130760675198405/9555493606", adRequest, object : InterstitialAdLoadCallback() {
             override fun onAdFailedToLoad(adError: LoadAdError) {
                 mInterstitialAd = null
             }
@@ -70,8 +71,9 @@ class SkiCenterDetailsFragment : Fragment() {
         })
 
         // "ca-app-pub-7130760675198405/2089719513"
+        // test ca-app-pub-3940256099942544/1033173712
         val adRequest1 = AdRequest.Builder().build()
-        InterstitialAd.load(requireContext(), "ca-app-pub-3940256099942544/1033173712", adRequest1, object : InterstitialAdLoadCallback() {
+        InterstitialAd.load(requireContext(), "ca-app-pub-7130760675198405/2089719513", adRequest1, object : InterstitialAdLoadCallback() {
             override fun onAdFailedToLoad(adError: LoadAdError) {
                 mInterstitialLiftsAd = null
             }
@@ -110,10 +112,10 @@ class SkiCenterDetailsFragment : Fragment() {
                     PreferenceProvider.liftsClicks = 0
                     mInterstitialLiftsAd?.show(context as Activity)
                 } else {
-                    findNavController().navigate(com.neoapps.skiserbia.NavigationGraphDirections.actionLiftInfo(getLifts(lifts, skiCenterUrl.skiCenter)))
+                    findNavController().navigate(com.neoapps.skiserbia.NavigationGraphDirections.actionLiftInfo(getLifts(skiCenterUrl.skiCenter)))
                 }
             } else {
-                findNavController().navigate(com.neoapps.skiserbia.NavigationGraphDirections.actionLiftInfo(getLifts(lifts, skiCenterUrl.skiCenter)))
+                findNavController().navigate(com.neoapps.skiserbia.NavigationGraphDirections.actionLiftInfo(getLifts(skiCenterUrl.skiCenter)))
             }
         }
 
@@ -134,22 +136,22 @@ class SkiCenterDetailsFragment : Fragment() {
                 } else {
                     findNavController().navigate(
                         com.neoapps.skiserbia.NavigationGraphDirections.actionWeatherInfo(
-                            getTemperature(temperature, skiCenterUrl.skiCenter),
-                            getWind(wind, skiCenterUrl.skiCenter),
-                            getSnow(snow, skiCenterUrl.skiCenter),
-                            getCurrentImage(currentWeatherImage, skiCenterUrl.skiCenter),
-                            getForecast(forecast, skiCenterUrl.skiCenter)
+                            getTemperature(skiCenterUrl.skiCenter),
+                            getWind(skiCenterUrl.skiCenter),
+                            getSnow(skiCenterUrl.skiCenter),
+                            getCurrentImage(skiCenterUrl.skiCenter),
+                            getForecast(skiCenterUrl.skiCenter)
                         )
                     )
                 }
             } else {
                 findNavController().navigate(
                     com.neoapps.skiserbia.NavigationGraphDirections.actionWeatherInfo(
-                        getTemperature(temperature, skiCenterUrl.skiCenter),
-                        getWind(wind, skiCenterUrl.skiCenter),
-                        getSnow(snow, skiCenterUrl.skiCenter),
-                        getCurrentImage(currentWeatherImage, skiCenterUrl.skiCenter),
-                        getForecast(forecast, skiCenterUrl.skiCenter)
+                        getTemperature(skiCenterUrl.skiCenter),
+                        getWind(skiCenterUrl.skiCenter),
+                        getSnow(skiCenterUrl.skiCenter),
+                        getCurrentImage(skiCenterUrl.skiCenter),
+                        getForecast(skiCenterUrl.skiCenter)
                     )
                 )
             }
@@ -520,7 +522,7 @@ class SkiCenterDetailsFragment : Fragment() {
         }
     }
 
-    private fun getLifts(lifts: String, skiCenterUrl: String): String {
+    private fun getLifts(skiCenterUrl: String): String {
         return if (::lifts.isInitialized) {
             lifts.takeIf { it.isNotEmpty() } ?: getLiftsFromThePreferences(skiCenterUrl)
         } else {
@@ -536,24 +538,43 @@ class SkiCenterDetailsFragment : Fragment() {
         }
     }
 
-    private fun getWind(wind: String, skiCenterUrl: String): String {
-        return wind.takeIf { it.isNotEmpty() } ?: getWindFromThePreferences(skiCenterUrl)
+    private fun getWind(skiCenterUrl: String): String {
+        return if (::wind.isInitialized) {
+            wind.takeIf { it.isNotEmpty() } ?: getWindFromThePreferences(skiCenterUrl)
+        } else {
+            getWindFromThePreferences(skiCenterUrl)
+        }
     }
 
-    private fun getTemperature(temperature: String, skiCenterUrl: String): String {
-        return temperature.takeIf { it.isNotEmpty() } ?: getTemperatureFromThePreferences(skiCenterUrl)
+    private fun getTemperature(skiCenterUrl: String): String {
+        return if (::temperature.isInitialized) {
+            temperature.takeIf { it.isNotEmpty() } ?: getTemperatureFromThePreferences(skiCenterUrl)
+        } else {
+            getTemperatureFromThePreferences(skiCenterUrl)
+        }
     }
 
-    private fun getSnow(snow: String, skiCenterUrl: String): String {
-        return snow.takeIf { it.isNotEmpty() } ?: getSnowFromThePreferences(skiCenterUrl)
+    private fun getSnow(skiCenterUrl: String): String {
+        return if (::snow.isInitialized) {
+            snow.takeIf { it.isNotEmpty() } ?: getSnowFromThePreferences(skiCenterUrl)
+        } else {
+            getSnowFromThePreferences(skiCenterUrl)
+        }
     }
 
-    private fun getCurrentImage(image: String, skiCenterUrl: String): String {
-        return image.takeIf { it.isNotEmpty() } ?: getImageFromThePreferences(skiCenterUrl)
+    private fun getCurrentImage(skiCenterUrl: String): String {
+        return if (::currentWeatherImage.isInitialized) {
+            currentWeatherImage.takeIf { it.isNotEmpty() } ?: getImageFromThePreferences(skiCenterUrl)
+        } else {
+            getImageFromThePreferences(skiCenterUrl)
+        }
     }
 
-    private fun getForecast(forecast: String, skiCenterUrl: String): String {
-        return forecast.takeIf { it.isNotEmpty() } ?: getForecastFromThePreferences(skiCenterUrl)
+    private fun getForecast(skiCenterUrl: String): String {
+        return if (::forecast.isInitialized) {
+            forecast.takeIf { it.isNotEmpty() } ?: getForecastFromThePreferences(skiCenterUrl)
+        } else {
+            getForecastFromThePreferences(skiCenterUrl)
+        }
     }
-
 }

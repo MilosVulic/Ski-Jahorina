@@ -8,33 +8,16 @@
     android:background="@color/colorBackground"
     tools:context=".features.skicenter.lifts.LiftInfoFragment">
 
-    <FrameLayout
+    <View
         android:id="@+id/frameLayoutTop"
         android:layout_width="0dp"
+        android:clickable="false"
         android:layout_height="?android:attr/actionBarSize"
         android:layout_marginTop="0dp"
         android:background="@drawable/gradient_drawable"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.appcompat.widget.SearchView
-        android:id="@+id/searchView"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        app:queryHint="Search by name"
-        android:clickable="true"
-        android:focusable="true"
-        app:queryBackground="@android:color/transparent"
-        app:searchIcon="@drawable/ic_search"
-        app:closeIcon="@drawable/custom_clear_icon"
-        app:searchHintIcon="@drawable/ic_search"
-        app:iconifiedByDefault="false"
-        app:layout_constraintBottom_toBottomOf="@+id/frameLayoutTop"
-        app:layout_constraintEnd_toEndOf="@+id/frameLayoutTop"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/frameLayoutTop" />
 
     <include
         android:id="@+id/include_emptylist_placeholder"
@@ -62,6 +45,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/frameLayoutTop" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

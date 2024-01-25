@@ -1,11 +1,16 @@
 package com.neoapps.skiserbia.features.skicenter.lifts
 
+import android.app.Activity
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
 import androidx.appcompat.widget.SearchView
+import androidx.appcompat.widget.Toolbar
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,7 +18,6 @@ import com.neoapps.skiserbia.R
 import com.neoapps.skiserbia.databinding.FragmentLiftInfoBinding
 import com.neoapps.skiserbia.databinding.IncludeEmptyListPlaceholderBinding
 import com.neoapps.skiserbia.main.MainActivity
-
 
 class LiftInfoFragment : Fragment() {
 
@@ -32,14 +36,17 @@ class LiftInfoFragment : Fragment() {
         setUpFragmentName()
         binding.liftsRecyclerView.layoutManager = LinearLayoutManager(context)
 
-        binding.searchView.apply {
-            val searchTextView = this.findViewById<TextView>(androidx.appcompat.R.id.search_src_text)
-            searchTextView.setTextColor(resources.getColor(R.color.colorWhite))
+        val searchView = activity?.findViewById<Toolbar>(R.id.toolbar)?.findViewById<SearchView>(R.id.searchView2)
+        if (searchView != null) {
+            searchView.visibility = View.VISIBLE
 
-            val searchPlate = this.findViewById<View>(androidx.appcompat.R.id.search_plate)
+            val searchTextView = searchView.findViewById<TextView>(androidx.appcompat.R.id.search_src_text)
+            searchTextView.setTextColor(ContextCompat.getColor(requireContext(), R.color.colorWhite))
+            val searchPlate = searchView.findViewById<View>(androidx.appcompat.R.id.search_plate)
             val queryHintTextView = searchPlate.findViewById<TextView>(androidx.appcompat.R.id.search_src_text)
-            queryHintTextView.setHintTextColor(resources.getColor(R.color.colorWhite))
-            queryHint = "Search by name"
+            queryHintTextView.setTextCursorDrawable(R.drawable.white_cursor)
+            queryHintTextView.setHintTextColor(ContextCompat.getColor(requireContext(), R.color.colorWhite))
+            searchView.queryHint = "Search lift"
         }
 
         if (lifts.lifts.isNotEmpty()) {
@@ -51,14 +58,12 @@ class LiftInfoFragment : Fragment() {
             val listAdapter = LiftInfoAdapter(liftsList)
             binding.liftsRecyclerView.adapter = listAdapter
 
-            binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            searchView?.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
                 override fun onQueryTextSubmit(query: String?): Boolean {
-                    // Handle search submission if needed
                     return true
                 }
 
                 override fun onQueryTextChange(newText: String?): Boolean {
-                    // Filter the list based on the entered text
                     listAdapter.filter.filter(newText)
                     return true
                 }
@@ -78,8 +83,24 @@ class LiftInfoFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
+        binding.liftsRecyclerView.adapter = null
+        binding.liftsRecyclerView.layoutManager = null
+        val searchView = activity?.findViewById<Toolbar>(R.id.toolbar)?.findViewById<SearchView>(R.id.searchView2)
+        searchView?.setQuery("", false)
+        searchView?.setOnQueryTextListener(null)
         bindingProp = null
         bindingPropEmptyState = null
+    }
+
+    // Hide keyboard if its opened
+    override fun onStop() {
+        super.onStop()
+        hideKeyboard()
+
+        val searchView = activity?.findViewById<Toolbar>(R.id.toolbar)?.findViewById<SearchView>(R.id.searchView2)
+        if (searchView != null) {
+            searchView.visibility = View.GONE
+        }
     }
 
     private fun setUpFragmentName() {
@@ -92,5 +113,16 @@ class LiftInfoFragment : Fragment() {
 
             title1TextView.visibility = View.GONE
         }
+    }
+
+    // Extension function for closing the keyboard inside the fragment
+    private fun Context.hideKeyboard(view: View) {
+        val inputMethodManager = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
+    }
+
+    // Calling method of extension function for closing the keyboard
+    private fun Fragment.hideKeyboard() {
+        view?.let { context?.hideKeyboard(it) }
     }
 }

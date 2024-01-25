@@ -26,9 +26,10 @@
         tools:targetApi="31" >
 
         <!-- ca-app-pub-7130760675198405~5021336316" -->
+        <!-- test ca-app-pub-3940256099942544~3347511713" -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-3940256099942544~3347511713"/>
+            android:value="ca-app-pub-7130760675198405~5021336316"/>
 
         <activity
             android:name=".main.MainActivity"

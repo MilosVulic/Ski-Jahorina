@@ -1,130 +1,89 @@
 package com.neoapps.skiserbia.features.skicenter.slopes
 
-import android.content.Intent
-import android.net.Uri
-import android.util.Log
-import android.util.Patterns
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Filter
+import android.widget.Filterable
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.google.android.gms.ads.nativead.NativeAd
 import com.neoapps.skiserbia.R
 import com.neoapps.skiserbia.common.IconMarkCategorySetter
 import com.neoapps.skiserbia.common.IconWorkingIndicatorSetter
 import de.hdodenhof.circleimageview.CircleImageView
+import java.util.Locale
 
-class SlopeInfoAdapter(private val mList: MutableList<Any>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class SlopeInfoAdapter(private val mList: List<SlopeInfo>) : RecyclerView.Adapter<SlopeInfoAdapter.ViewHolder>(), Filterable {
 
-    private val VIEW_TYPE_SLOPE = 0
-    private val VIEW_TYPE_AD = 1
-    var adLoaded = false
+    private var filteredList: List<SlopeInfo> = mList
+    private var visibleList: List<SlopeInfo> = mList
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return when (viewType) {
-            VIEW_TYPE_SLOPE -> {
-                val view = LayoutInflater.from(parent.context)
-                    .inflate(R.layout.slope_row, parent, false)
-                SlopeViewHolder(view)
+    override fun getFilter(): Filter {
+        return object : Filter() {
+            override fun performFiltering(constraint: CharSequence?): FilterResults {
+                val filterResults = FilterResults()
+                val query = constraint?.toString()?.toLowerCase(Locale.ROOT)?.trim()
+
+                filteredList = if (query.isNullOrEmpty()) {
+                    mList
+                } else {
+                    mList.filter { it.name.toLowerCase(Locale.ROOT).contains(query) }
+                }
+
+                filterResults.values = filteredList
+                return filterResults
             }
-            VIEW_TYPE_AD -> {
-                val adView = LayoutInflater.from(parent.context).inflate(R.layout.ad_layout, parent, false)
-                Log.d("SlopeInfoAdapter", "Creating AdViewHolder")
-                AdViewHolder(adView)
+
+            @SuppressLint("NotifyDataSetChanged")
+            @Suppress("UNCHECKED_CAST")
+            override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
+                filteredList = results?.values as List<SlopeInfo>
+                updateVisibleList()
             }
-            else -> throw IllegalArgumentException("Invalid view type")
         }
     }
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        when (holder.itemViewType) {
-            VIEW_TYPE_SLOPE -> {
-                if (holder is SlopeViewHolder) {
-                    val slopeInfo = mList[position] as? SlopeInfo
-                    slopeInfo?.let {
-                        Log.d("SlopeInfoAdapter", "Binding SlopeViewHolder at position: $position")
-                        holder.bind(slopeInfo)
-                    }
-                }
-            }
-            VIEW_TYPE_AD -> {
-                if (holder is AdViewHolder) {
-                    val nativeAd = mList[position] as? NativeAd
-                    nativeAd?.let {
-                        Log.d("SlopeInfoAdapter", "Binding AdViewHolder at position: $position")
-                        holder.bind(nativeAd)
-                    }
-                }
-            }
+    private fun updateVisibleList() {
+        visibleList = if (filteredList.isEmpty()) {
+            emptyList()
+        } else {
+            filteredList
+        }
+        notifyDataSetChanged()
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.slope_row, parent, false)
+
+        return ViewHolder(view)
+    }
+
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        if (position in visibleList.indices) {
+            val slopeInfo = visibleList[position]
+
+            holder.textViewCardTitle.text = slopeInfo.name
+            holder.textViewMark.text = slopeInfo.mark
+            IconWorkingIndicatorSetter.displayImage(slopeInfo.inFunction, holder.workingIndicator)
+            IconWorkingIndicatorSetter.setBackground(slopeInfo.inFunction, holder.workingIndicator)
+            IconMarkCategorySetter.setBackground(slopeInfo.category, holder.circleImageViewCategory)
+            holder.itemView.visibility = View.VISIBLE
+        } else {
+            holder.itemView.visibility = View.GONE
         }
     }
 
     override fun getItemCount(): Int {
-        return mList.size
+        return visibleList.size
     }
 
-    override fun getItemViewType(position: Int): Int {
-        return if (position == 2 && adLoaded) {
-            VIEW_TYPE_AD
-        } else {
-            VIEW_TYPE_SLOPE
-        }
-    }
-
-    class SlopeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val textViewCardTitle: TextView = itemView.findViewById(R.id.textViewRowTitle)
-        private val workingIndicator: ImageView = itemView.findViewById(R.id.workingIndicator)
-        private val circleImageViewCategory: CircleImageView = itemView.findViewById(R.id.imageViewDifficulty)
-        private val textViewMark: TextView = itemView.findViewById(R.id.textViewMark)
-
-        fun bind(slopeInfo: SlopeInfo) {
-            textViewCardTitle.text = slopeInfo.name
-            textViewMark.text = slopeInfo.mark
-            IconWorkingIndicatorSetter.displayImage(slopeInfo.inFunction, workingIndicator)
-            IconWorkingIndicatorSetter.setBackground(slopeInfo.inFunction, workingIndicator)
-            IconMarkCategorySetter.setBackground(slopeInfo.category, circleImageViewCategory)
-        }
-    }
-
-    class AdViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val adTitle: TextView = itemView.findViewById(R.id.nativeAdTitle)
-        private val adIcon: ImageView = itemView.findViewById(R.id.nativeAdIcon)
-
-        init {
-            Log.d("AdViewHolder", "AdViewHolder instantiated")
-        }
-
-        fun bind(nativeAd: NativeAd) {
-            Log.d("AdViewHolder", "Binding AdViewHolder")
-            Log.d("AdViewHolder", "Images are" + nativeAd.images)
-            adTitle.text = nativeAd.headline
-            Glide.with(itemView.context)
-                .load(nativeAd.icon?.uri)
-                .into(adIcon)
-
-            adTitle.visibility = View.VISIBLE
-            adIcon.visibility = View.VISIBLE
-
-
-            itemView.setOnClickListener {
-                val clickAction = nativeAd.callToAction
-                if (!clickAction.isNullOrBlank() && Patterns.WEB_URL.matcher(clickAction).matches()) {
-                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse(clickAction))
-                    itemView.context.startActivity(intent)
-                }
-            }
-        }
-    }
-
-    // Add this method to add native ads to the dataset
-    fun addNativeAd(nativeAd: NativeAd) {
-        if (!adLoaded) {
-            mList.add(2, nativeAd)
-            notifyItemInserted(2)
-            adLoaded = true
-        }
+    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val textViewCardTitle: TextView = itemView.findViewById(R.id.textViewRowTitle)
+        val workingIndicator: ImageView = itemView.findViewById(R.id.workingIndicator)
+        val circleImageViewCategory: CircleImageView = itemView.findViewById(R.id.imageViewDifficulty)
+        val textViewMark: TextView = itemView.findViewById(R.id.textViewMark)
     }
 }
