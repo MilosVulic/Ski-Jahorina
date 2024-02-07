@@ -1,5 +1,6 @@
 package com.neoapps.skiserbia.features.skicenter.camera
 
+import android.app.Activity
 import android.graphics.Rect
 import android.net.Uri
 import android.os.Bundle
@@ -12,8 +13,15 @@ import android.widget.VideoView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.FullScreenContentCallback
+import com.google.android.gms.ads.LoadAdError
+import com.google.android.gms.ads.interstitial.InterstitialAd
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 import com.neoapps.skiserbia.R
+import com.neoapps.skiserbia.common.PreferenceProvider
 import com.neoapps.skiserbia.databinding.FragmentCameraVideoBinding
 import com.neoapps.skiserbia.main.MainActivity
 
@@ -21,7 +29,7 @@ class CameraVideoFragment : Fragment() {
 
     private var bindingProp: FragmentCameraVideoBinding? = null
     private val binding get() = bindingProp!!
-
+    private var mInterstitialCameraAd: InterstitialAd? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,6 +38,27 @@ class CameraVideoFragment : Fragment() {
         bindingProp = FragmentCameraVideoBinding.inflate(inflater, container, false)
         setUpFragmentName()
         binding.cardView1.requestFocus()
+
+        // "ca-app-pub-7130760675198405/7607461423"
+        // test ca-app-pub-3940256099942544/1033173712
+        val adRequest1 = AdRequest.Builder().build()
+        InterstitialAd.load(requireContext(), "ca-app-pub-7130760675198405/7607461423", adRequest1, object : InterstitialAdLoadCallback() {
+            override fun onAdFailedToLoad(adError: LoadAdError) {
+                mInterstitialCameraAd = null
+            }
+
+            override fun onAdLoaded(interstitialAd: InterstitialAd) {
+                mInterstitialCameraAd = interstitialAd
+            }
+        })
+
+
+        mInterstitialCameraAd?.fullScreenContentCallback = object : FullScreenContentCallback() {
+            override fun onAdDismissedFullScreenContent() {
+                mInterstitialCameraAd = null
+            }
+        }
+
         return binding.root
     }
 
@@ -171,16 +200,36 @@ class CameraVideoFragment : Fragment() {
         videoView.setVideoURI(videoUri)
 
         playButton.setOnClickListener {
-            if (videoView.isPlaying) {
-                playButton.visibility = View.VISIBLE
-                videoView.pause()
-            } else {
-                playButton.visibility = View.GONE
-                videoView.start()
-            }
+            PreferenceProvider.cameraClicks += 1
+            if (PreferenceProvider.cameraClicks % 3 == 0) {
+                if (mInterstitialCameraAd != null) {
+                    PreferenceProvider.cameraClicks = 0
+                    mInterstitialCameraAd?.show(context as Activity)
+                } else {
+                    if (videoView.isPlaying) {
+                        playButton.visibility = View.VISIBLE
+                        videoView.pause()
+                    } else {
+                        playButton.visibility = View.GONE
+                        videoView.start()
+                    }
 
-            if (imageView.isVisible){
-                imageView.visibility = View.GONE
+                    if (imageView.isVisible){
+                        imageView.visibility = View.GONE
+                    }
+                }
+            } else {
+                if (videoView.isPlaying) {
+                    playButton.visibility = View.VISIBLE
+                    videoView.pause()
+                } else {
+                    playButton.visibility = View.GONE
+                    videoView.start()
+                }
+
+                if (imageView.isVisible){
+                    imageView.visibility = View.GONE
+                }
             }
         }
 

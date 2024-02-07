@@ -11,6 +11,7 @@
     <string name="settings_other">Other</string>
     <string name="settings_other_help_center">Help center</string>
     <string name="settings_other_about">About</string>
+    <string name="settings_rate">Rate application</string>
 
     <!-- Settings Language -->
     <string name="settings_dialog_language">Select Language</string>

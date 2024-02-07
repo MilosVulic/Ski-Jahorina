@@ -51,4 +51,5 @@ object PreferenceProvider : KotprefModel() {
 
     var weatherClicks: Int by intPref(0)
     var liftsClicks: Int by intPref(0)
+    var cameraClicks: Int by intPref(0)
 }

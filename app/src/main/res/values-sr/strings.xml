@@ -12,6 +12,7 @@
     <string name="settings_other">Ostalo</string>
     <string name="settings_other_help_center">Pomoć</string>
     <string name="settings_other_about">O aplikaciji</string>
+    <string name="settings_rate">Ocenite aplikaciju</string>
 
     <!-- Settings Language -->
     <string name="settings_dialog_language">Odaberite jezik</string>

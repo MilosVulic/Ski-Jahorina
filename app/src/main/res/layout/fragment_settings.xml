@@ -335,6 +335,62 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/about" />
 
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/rate"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:clickable="true"
+                        android:theme="@style/AppTheme.SettingsFragmentRipple"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/divider10">
+
+
+                        <ImageView
+                            android:id="@+id/imageViewRate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="19dp"
+                            android:background="@android:color/transparent"
+                            android:src="@drawable/ic_review"
+                            app:layout_constraintBottom_toBottomOf="@+id/textViewRate"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/textViewRate"
+                            app:tint="@color/iconColorSettings" />
+
+                        <TextView
+                            android:id="@+id/textViewRate"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="30dp"
+                            android:layout_marginTop="25dp"
+                            android:layout_marginEnd="30dp"
+                            android:layout_marginBottom="25dp"
+                            android:background="@android:color/transparent"
+                            android:text="@string/settings_rate"
+                            android:textColor="@color/textColorSettings"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toEndOf="@+id/imageViewRate"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <View
+                        android:id="@+id/divider16"
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:background="@color/colorDivider"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/rate" />
+
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/termsAndConditions"
@@ -346,7 +402,7 @@
                         android:theme="@style/AppTheme.SettingsFragmentRipple"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/divider10">
+                        app:layout_constraintTop_toBottomOf="@+id/divider16">
 
                         <ImageView
                             android:id="@+id/imageViewTermsOfService"

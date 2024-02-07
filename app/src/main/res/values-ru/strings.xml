@@ -12,6 +12,7 @@
     <string name="settings_other">Другое</string>
     <string name="settings_other_help_center">Центр помощи</string>
     <string name="settings_other_about">О приложении</string>
+    <string name="settings_rate">Оцените приложение</string>
 
     <!-- Settings Language -->
     <string name="settings_dialog_language">Выбрать язык</string>

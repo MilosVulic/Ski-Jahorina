@@ -11,6 +11,7 @@
     <string name="settings_other">Andere</string>
     <string name="settings_other_help_center">Hilfezentrum</string>
     <string name="settings_other_about">Über die App</string>
+    <string name="settings_rate">Bewerten Sie die Anwendung</string>
 
     <!-- Settings Language -->
     <string name="settings_dialog_language">Sprache auswählen</string>
