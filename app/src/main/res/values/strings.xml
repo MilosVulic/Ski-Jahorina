@@ -114,4 +114,7 @@
     <string name="altitude8">1801 m</string>
     <string name="altitude9">1890 m</string>
     <string name="altitude10">1961 m</string>
+
+    <string name="appId">1205216450441335</string>
+    <string name="clientToken">d11fbcfbeef22e32d1deca8afc2ce8a4</string>
 </resources>

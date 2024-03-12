@@ -61,7 +61,11 @@ class HomeFragment : Fragment() {
             ) {
                 showUpdateSnackbar()
             } else {
-                findNavController().navigate(com.neoapps.skiserbia.NavigationGraphDirections.actionSkiInfo(url))
+                try {
+                    findNavController().navigate(com.neoapps.skiserbia.NavigationGraphDirections.actionSkiInfo(url))
+                } catch (_: Exception) {
+                    findNavController().navigate(com.neoapps.skiserbia.NavigationGraphDirections.actionSkiInfo(url))
+                }
             }
         }
 

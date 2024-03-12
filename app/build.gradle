@@ -54,7 +54,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     def koin_version = "3.0.1"
-    def navigation_version = "2.7.6"
+    def navigation_version = "2.7.7"
     def preferencesKotPref_version = "2.10.0"
 
     // Kotlin
@@ -67,9 +67,9 @@ dependencies {
     implementation "com.chibatching.kotpref:initializer:$preferencesKotPref_version"
 
     // Lifecycle
-    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.6.2'
-    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.6.2'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2'
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.7.0'
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.7.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0'
 
     // Navigation
     implementation "androidx.navigation:navigation-fragment-ktx:$navigation_version"
@@ -119,7 +119,7 @@ dependencies {
     implementation 'dev.b3nedikt.reword:reword:4.0.2'
 
     // Ads & Analytics & Crashlytics
-    implementation 'com.google.android.gms:play-services-ads:22.6.0'
+    implementation 'com.google.android.gms:play-services-ads:23.0.0'
     implementation(platform("com.google.firebase:firebase-bom:32.7.0"))
     implementation("com.google.firebase:firebase-crashlytics")
     implementation("com.google.firebase:firebase-analytics")
@@ -134,4 +134,8 @@ dependencies {
 
     // Play Core
     implementation 'com.google.android.play:core:1.10.3'
+
+    // Facebook
+    implementation 'com.facebook.android:facebook-android-sdk:latest.release'
+
 }

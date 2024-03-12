@@ -79,12 +79,8 @@ class SettingsFragment : Fragment() {
             startActivity(intent)
         }
 
-        // Opening therms of service
+        // Opening rate application
         binding.rate.setOnClickListener {
-            val uri: Uri = Uri.parse("https://doc-hosting.flycricket.io/ski-serbia/0ac3ee8e-bcd8-4e7e-91b2-ffc9e9674037/terms")
-            val intent = Intent(Intent.ACTION_VIEW, uri)
-            startActivity(intent)
-
             try {
                 startActivity(
                     Intent(
