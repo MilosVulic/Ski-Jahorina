@@ -115,6 +115,17 @@ class MainActivity : AppCompatActivity(), MenuProvider {
 
     override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
         menuInflater.inflate(R.menu.settings_menu, menu)
+        val item = menu.findItem(R.id.action_settings)
+
+        item.setOnMenuItemClickListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.action_settings -> {
+                    navController.navigate(NavigationGraphDirections.actionGlobalSettingsFragment())
+                    true
+                }
+                else -> false
+            }
+        }
     }
 
     override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
