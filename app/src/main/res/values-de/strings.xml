@@ -97,7 +97,7 @@
     <!-- Kamera ski places -->
     <string name="camera1">Viceroy Kopaonik Hotel</string>
     <string name="camera2">Suvo Rudiste</string>
-    <string name="camera4">Green ski bar &amp; restaurant</string>
+    <string name="camera4">Srebrnac</string>
     <string name="camera5">Restaurant Livello</string>
     <string name="camera6">Malo Jezero</string>
     <string name="camera7">Skituljko</string>
@@ -107,7 +107,7 @@
 
     <string name="altitude1">1726 m</string>
     <string name="altitude2">1978 m</string>
-    <string name="altitude4">1890 m</string>
+    <string name="altitude4">1770 m</string>
     <string name="altitude5">1912 m</string>
     <string name="altitude6">1726 m</string>
     <string name="altitude7">1794 m</string>

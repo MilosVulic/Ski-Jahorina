@@ -13,7 +13,6 @@ import android.widget.VideoView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.FullScreenContentCallback
@@ -81,7 +80,7 @@ class CameraVideoFragment : Fragment() {
         val imageUrls = listOf(
             "https://www.infokop.net/images/webcam_thumb/thumb_webcam-kopaonik-pancic1.jpg",
             "https://www.infokop.net/images/webcam_thumb/thumb_webcam-kopaonik-suvorudiste1.jpg",
-            "https://www.infokop.net/images/webcam_thumb/thumb_webcam-kopaonik-greenkaraman.jpg",
+            "https://www.infokop.net/images/webcam_thumb/thumb_webcam-kopaonik-srebrnac3.jpg",
             "https://www.infokop.net/images/webcam_thumb/thumb_webcam-kopaonik-gondola.jpg",
             "https://www.infokop.net/images/webcam_thumb/thumb_webcamkopaonik9.jpg",
             "https://www.infokop.net/images/webcam_thumb/thumb_skituljko.jpg",
@@ -135,7 +134,7 @@ class CameraVideoFragment : Fragment() {
         setupVideoView(
             binding.videoView4,
             binding.playButton4,
-            "https://stream5.infokop.net:1443/live_cameras/greenkaraman/playlist.m3u8",
+            "https://stream5.infokop.net:1443/live_cameras/gobelja/playlist.m3u8",
             binding.relativeLayout4,
             binding.thumbnail4
         )
@@ -238,8 +237,13 @@ class CameraVideoFragment : Fragment() {
                 playButton.visibility = View.VISIBLE
                 videoView.pause()
             } else {
-                playButton.visibility = View.GONE
-                videoView.start()
+                if (playButton.visibility == View.GONE) {
+                    playButton.visibility = View.VISIBLE
+                    videoView.pause()
+                } else {
+                    playButton.visibility = View.GONE
+                    videoView.start()
+                }
             }
 
             if (imageView.isVisible){
@@ -250,8 +254,10 @@ class CameraVideoFragment : Fragment() {
         videoView.setOnPreparedListener {
         }
 
-        videoView.setOnErrorListener { _, _, _ ->
-            activity?.recreate()
+        videoView.setOnErrorListener { nesto, nesto1, nesto2 ->
+            if (nesto2.toString() != "-1004") {
+                activity?.recreate()
+            }
             true
         }
 
