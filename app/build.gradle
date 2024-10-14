@@ -7,15 +7,15 @@ plugins {
 }
 
 android {
-    namespace 'com.neoapps.skiserbia'
+    namespace 'com.neoapps.skijahorina'
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.neoapps.skiserbia"
+        applicationId "com.neoapps.skijahorina"
         minSdk 29
         targetSdk 34
-        versionCode 24
-        versionName "1.0.24"
+        versionCode 1
+        versionName "1.0.1"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {

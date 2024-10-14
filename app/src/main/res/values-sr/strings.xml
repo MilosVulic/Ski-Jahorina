@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- App name -->
-    <string name="app_name">Ski Serbia</string>
+    <string name="app_name">Ski Jahorina</string>
 
     <!-- Settings -->
     <string name="settings">Podešavanja</string>
@@ -71,7 +71,7 @@
     <string name="about_app_version">App Version</string>
     <string name="about_app_version_number">1.0.0</string>
     <string name="about_contact_email">Contact Email</string>
-    <string name="about_email">neoapps.services@gmail.com</string>
+    <string name="about_email">info@neoapps.co</string>
     <string name="about_social">Social</string>
 
     <!-- Help center -->

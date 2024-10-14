@@ -25,11 +25,11 @@
         android:theme="@style/AppTheme.NoActionBar"
         tools:targetApi="31" >
 
-        <!-- ca-app-pub-7130760675198405~5021336316" -->
+        <!-- ca-app-pub-7130760675198405~7352295920" -->
         <!-- test ca-app-pub-3940256099942544~3347511713" -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-7130760675198405~5021336316"/>
+            android:value="ca-app-pub-3940256099942544~3347511713"/>
         <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/appId"/>
         <meta-data android:name="com.facebook.sdk.ClientToken" android:value="@string/clientToken"/>
 
