@@ -25,15 +25,27 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         hideTitle()
 
-        binding.cardViewKopaonik.setOnClickListener {
-            checkForAppUpdateAndNavigate(PreferenceProvider.kopaonikUrl)
+        binding.cardViewSlopesInfo.setOnClickListener {
+            checkForAppUpdateAndNavigate(PreferenceProvider.staraPlaninaUrl)
         }
 
-        binding.cardViewTornik.setOnClickListener {
-            checkForAppUpdateAndNavigate(PreferenceProvider.zlatiborUrl)
+        binding.cardViewLiftInfo.setOnClickListener {
+            checkForAppUpdateAndNavigate(PreferenceProvider.staraPlaninaUrl)
         }
 
-        binding.cardViewStaraPlanina.setOnClickListener {
+        binding.cardViewForecastInfo.setOnClickListener {
+            checkForAppUpdateAndNavigate(PreferenceProvider.staraPlaninaUrl)
+        }
+
+        binding.cardViewMap.setOnClickListener {
+            checkForAppUpdateAndNavigate(PreferenceProvider.staraPlaninaUrl)
+        }
+
+        binding.cardViewUsefulInformation.setOnClickListener {
+            checkForAppUpdateAndNavigate(PreferenceProvider.staraPlaninaUrl)
+        }
+
+        binding.cardViewSomethingInfo.setOnClickListener {
             checkForAppUpdateAndNavigate(PreferenceProvider.staraPlaninaUrl)
         }
         return binding.root

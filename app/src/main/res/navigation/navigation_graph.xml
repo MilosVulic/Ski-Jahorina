@@ -25,9 +25,6 @@
     <fragment
         android:id="@+id/skiMapFragment"
         android:name="com.neoapps.skijahorina.features.skicenter.maps.SkiMapFragment">
-    <argument
-        android:name="skiCenter"
-        app:argType="string" />
     </fragment>
 
     <fragment

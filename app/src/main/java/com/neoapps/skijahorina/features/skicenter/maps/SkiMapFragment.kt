@@ -6,17 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.navArgs
 import com.neoapps.skijahorina.R
 import com.neoapps.skijahorina.databinding.FragmentSkiMapBinding
-import com.neoapps.skijahorina.features.skicenter.SkiCenterDetailsFragmentArgs
 import com.neoapps.skijahorina.main.MainActivity
 
 class SkiMapFragment : Fragment() {
 
     private var bindingProp: FragmentSkiMapBinding? = null
     private val binding get() = bindingProp!!
-    private val skiCenterUrl: SkiCenterDetailsFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -24,7 +21,7 @@ class SkiMapFragment : Fragment() {
     ): View {
         bindingProp = FragmentSkiMapBinding.inflate(inflater, container, false)
         setUpFragmentName()
-        setMap(skiCenterUrl.skiCenter)
+        setMap()
         return binding.root
     }
 
@@ -33,14 +30,8 @@ class SkiMapFragment : Fragment() {
         bindingProp = null
     }
 
-    private fun setMap(skiCenterUrl: String) {
-        if (skiCenterUrl.contains("kopaonik")) {
-            binding.myZoomageView.setImageResource(R.drawable.kopaonik_ski_map)
-        } else if (skiCenterUrl.contains("tornik")) {
-            binding.myZoomageView.setImageResource(R.drawable.tornik_ski_map)
-        } else {
-            binding.myZoomageView.setImageResource(R.drawable.stara_planina_ski_map)
-        }
+    private fun setMap() {
+        binding.myZoomageView.setImageResource(R.drawable.jahorina_ski_map)
     }
 
     private fun setUpFragmentName() {

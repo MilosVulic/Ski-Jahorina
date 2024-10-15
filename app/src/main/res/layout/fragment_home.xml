@@ -2,11 +2,11 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/contraintSettings"
+    android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBackground"
-    tools:context=".main.HomeFragment">
+    tools:context=".features.skicenter.SkiCenterDetailsFragment">
 
     <FrameLayout
         android:id="@+id/frameLayoutTop"
@@ -18,15 +18,50 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ScrollView
-        android:layout_width="match_parent"
+    <FrameLayout
+        android:id="@+id/frameLayoutBackground"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/colorBackground"
-        android:scrollbars="none"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/parabolaShapeLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/frameLayoutTop">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/parabolaShapeLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="70dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayoutBackground">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:cardBackgroundColor="@color/colorCardBackgroundSettings" />
+    </FrameLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@android:color/transparent"
+        android:scrollbars="none"
+        android:layout_marginTop="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -34,233 +69,515 @@
 
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/cardViewKopaonik"
-                android:layout_width="match_parent"
-                android:layout_height="210dp"
+                android:id="@+id/cardViewLiftInfo"
+                android:layout_width="0dp"
+                android:layout_height="200dp"
                 android:layout_marginStart="15dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="15dp"
+                android:layout_marginTop="20dp"
                 app:cardBackgroundColor="@color/colorCardBackgroundSettings"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="5dp"
                 app:cardPreventCornerOverlap="false"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toTopOf="@+id/cardViewStaraPlanina"
+                app:layout_constraintEnd_toStartOf="@+id/cardViewSlopesInfo"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <ImageView
-                        android:id="@+id/skiCenterKopaonikImage"
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:layout_marginBottom="10dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/kopaonik"
-                        app:layout_constraintBottom_toTopOf="@+id/skiCenterKopaonik"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                    <FrameLayout
+                        android:id="@+id/frameLayoutLiftImageHolder"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
 
-                    <TextView
-                        android:id="@+id/skiCenterKopaonik"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="15dp"
-                        android:layout_marginBottom="10dp"
-                        android:text="@string/kopaonik"
-                        android:textSize="18sp"
-                        android:textColor="@color/skiCenterTitleColor"
-                        android:textStyle="bold"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/skiCenterKopaonikImage" />
+                        <ImageView
+                            android:id="@+id/imageViewLiftFull"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/kop_ski_details_lifts"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
 
-                    <TextView
-                        android:id="@+id/skiCenterKopaonikAltitude"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/kopaonik_altitude"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/skiCenterTitleColor"
-                        android:layout_marginEnd="15dp"
-                        app:layout_constraintBottom_toBottomOf="@+id/KopaonikImageAltitudeIcon"
-                        app:layout_constraintTop_toTopOf="@+id/KopaonikImageAltitudeIcon"
-                        app:layout_constraintEnd_toStartOf="@+id/KopaonikImageAltitudeIcon"
-                        tools:layout_editor_absoluteX="295dp" />
+                        <View
+                            android:alpha="0.5"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/orangeOverlayColor" />
 
-                    <ImageView
-                        android:id="@+id/KopaonikImageAltitudeIcon"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/ic_altitude"
-                        app:tint="@color/skiCenterAltitudeIcon"
-                        app:layout_constraintBottom_toBottomOf="@+id/skiCenterKopaonik"
-                        app:layout_constraintTop_toTopOf="@+id/skiCenterKopaonik"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        android:layout_marginEnd="15dp" />
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                            <ImageView
+                                android:id="@+id/imageViewLift"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:src="@drawable/ic_lift"
+                                android:padding="0dp"
+                                android:contentDescription="@string/lifts"
+                                app:tint="@color/colorWhite"
+                                android:layout_marginTop="60dp"
+                                android:layout_gravity="center"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toTopOf="@+id/textViewLiftCategoryName"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"/>
 
-            </androidx.cardview.widget.CardView>
+                            <TextView
+                                android:id="@+id/textViewLiftCategoryName"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:text="@string/lifts"
+                                android:gravity="center"
+                                android:textColor="@color/colorWhite"
+                                android:textSize="19sp"
+                                android:textStyle="bold"
+                                app:layout_constraintTop_toBottomOf="@+id/imageViewLift"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent" />
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardViewStaraPlanina"
-                android:layout_width="match_parent"
-                android:layout_height="210dp"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="15dp"
-                app:cardBackgroundColor="@color/colorCardBackgroundSettings"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="5dp"
-                app:cardPreventCornerOverlap="false"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/cardViewKopaonik"
-                app:layout_constraintBottom_toTopOf="@+id/cardViewTornik">
+                        </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <ImageView
-                        android:id="@+id/skiCenterStaraPlaninaImage"
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:layout_marginBottom="10dp"
-                        android:src="@drawable/stara_planina"
-                        android:scaleType="centerCrop"
-                        app:layout_constraintBottom_toTopOf="@+id/skiCenterStaraPlanina"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/skiCenterStaraPlanina"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="15dp"
-                        android:layout_marginBottom="10dp"
-                        android:text="@string/stara_planina"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/skiCenterTitleColor"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/skiCenterStaraPlaninaImage" />
-
-                    <TextView
-                        android:id="@+id/skiCenterStaraPlaninaAltitude"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/stara_planina_altitude"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/skiCenterTitleColor"
-                        android:layout_marginEnd="15dp"
-                        app:layout_constraintBottom_toBottomOf="@+id/StaraPlaninaImageAltitudeIcon"
-                        app:layout_constraintTop_toTopOf="@+id/StaraPlaninaImageAltitudeIcon"
-                        app:layout_constraintEnd_toStartOf="@+id/StaraPlaninaImageAltitudeIcon"
-                        tools:layout_editor_absoluteX="295dp" />
-
-                    <ImageView
-                        android:id="@+id/StaraPlaninaImageAltitudeIcon"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/ic_altitude"
-                        app:tint="@color/skiCenterAltitudeIcon"
-                        app:layout_constraintBottom_toBottomOf="@+id/skiCenterStaraPlanina"
-                        app:layout_constraintTop_toTopOf="@+id/skiCenterStaraPlanina"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        android:layout_marginEnd="15dp" />
+                    </FrameLayout>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/cardViewTornik"
-                android:layout_width="match_parent"
-                android:layout_height="210dp"
+                android:id="@+id/cardViewSlopesInfo"
+                android:layout_width="0dp"
+                android:layout_height="200dp"
                 android:layout_marginStart="15dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginEnd="15dp"
                 android:layout_marginBottom="15dp"
                 app:cardBackgroundColor="@color/colorCardBackgroundSettings"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="5dp"
                 app:cardPreventCornerOverlap="false"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/cardViewStaraPlanina">
+                app:layout_constraintStart_toEndOf="@+id/cardViewLiftInfo"
+                app:layout_constraintTop_toTopOf="@id/cardViewLiftInfo"
+                app:layout_constraintBottom_toBottomOf="@id/cardViewLiftInfo">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <ImageView
-                        android:id="@+id/skiCenterTornikImage"
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:layout_marginBottom="10dp"
-                        android:src="@drawable/tornik"
-                        android:scaleType="centerCrop"
-                        app:layout_constraintBottom_toTopOf="@+id/skiCenterTornik"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                    <FrameLayout
+                        android:id="@+id/frameLayoutSlopesImageHolder"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
 
-                    <TextView
-                        android:id="@+id/skiCenterTornik"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="15dp"
-                        android:layout_marginBottom="10dp"
-                        android:text="@string/tornik"
-                        android:textColor="@color/skiCenterTitleColor"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/skiCenterTornikImage" />
+                        <ImageView
+                            android:id="@+id/imageViewSlopesCover"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/kop_ski_details_slopes"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
 
-                    <TextView
-                        android:id="@+id/skiCenterTornikAltitude"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/tornik_altitude"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/skiCenterTitleColor"
-                        android:layout_marginEnd="15dp"
-                        app:layout_constraintBottom_toBottomOf="@+id/TornikImageAltitudeIcon"
-                        app:layout_constraintTop_toTopOf="@+id/TornikImageAltitudeIcon"
-                        app:layout_constraintEnd_toStartOf="@+id/TornikImageAltitudeIcon"
-                        tools:layout_editor_absoluteX="295dp" />
+                        <View
+                            android:alpha="0.6"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/blueOverlayColor" />
 
-                    <ImageView
-                        android:id="@+id/TornikImageAltitudeIcon"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/ic_altitude"
-                        app:tint="@color/skiCenterAltitudeIcon"
-                        app:layout_constraintBottom_toBottomOf="@+id/skiCenterTornik"
-                        app:layout_constraintTop_toTopOf="@+id/skiCenterTornik"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        android:layout_marginEnd="15dp" />
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:id="@+id/imageViewSlopes"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:src="@drawable/ic_slopes"
+                                android:padding="0dp"
+                                android:contentDescription="@string/slopes"
+                                android:layout_marginTop="60dp"
+                                android:layout_gravity="center"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toTopOf="@+id/textViewSlopesCategoryName"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"/>
+
+                            <TextView
+                                android:id="@+id/textViewSlopesCategoryName"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:text="@string/slopes"
+                                android:gravity="center"
+                                android:textColor="@color/colorWhite"
+                                android:textSize="19sp"
+                                android:textStyle="bold"
+                                app:layout_constraintTop_toBottomOf="@+id/imageViewSlopes"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </FrameLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewMap"
+                android:layout_width="0dp"
+                android:layout_height="200dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                app:cardBackgroundColor="@color/colorCardBackgroundSettings"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="5dp"
+                app:cardPreventCornerOverlap="false"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/cardViewForecastInfo"
+                app:layout_constraintTop_toBottomOf="@+id/cardViewLiftInfo">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <FrameLayout
+                        android:id="@+id/frameLayoutImageHolder"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/imageViewTemperature"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/kop_ski_details_map"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <View
+                            android:alpha="0.5"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/blueOverlayPurple" />
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:id="@+id/imageViewMap"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:src="@drawable/ic_map"
+                                android:padding="0dp"
+                                android:layout_marginTop="60dp"
+                                android:contentDescription="@string/map"
+                                android:layout_gravity="center"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toTopOf="@+id/textViewMapCategoryName"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"/>
+
+                            <TextView
+                                android:id="@+id/textViewMapCategoryName"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:text="@string/map"
+                                android:gravity="center"
+                                android:textColor="@color/colorWhite"
+                                android:textSize="19sp"
+                                android:textStyle="bold"
+                                app:layout_constraintTop_toBottomOf="@+id/imageViewMap"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </FrameLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewForecastInfo"
+                android:layout_width="0dp"
+                android:layout_height="200dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="15dp"
+                app:cardBackgroundColor="@color/colorCardBackgroundSettings"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="5dp"
+                app:cardPreventCornerOverlap="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/cardViewMap"
+                app:layout_constraintTop_toTopOf="@+id/cardViewMap"
+                app:layout_constraintBottom_toBottomOf="@+id/cardViewMap">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <FrameLayout
+                        android:id="@+id/frameLayoutWeatherImageHolder"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/imageViewWeatherCover"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/kop_ski_details_weather"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <View
+                            android:alpha="0.6"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/darkYellowOverlayColor" />
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:id="@+id/imageViewWeather"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:src="@drawable/ic_partially_cloudy"
+                                app:tint="@color/colorWhite"
+                                android:padding="0dp"
+                                android:contentDescription="@string/weather"
+                                android:layout_marginTop="60dp"
+                                android:layout_gravity="center"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toTopOf="@+id/textViewWeatherCategoryName"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"/>
+
+                            <TextView
+                                android:id="@+id/textViewWeatherCategoryName"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:text="@string/weather"
+                                android:gravity="center"
+                                android:textColor="@color/colorWhite"
+                                android:textSize="19sp"
+                                android:textStyle="bold"
+                                app:layout_constraintTop_toBottomOf="@+id/imageViewWeather"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </FrameLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewUsefulInformation"
+                android:layout_width="0dp"
+                android:layout_height="200dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                app:cardBackgroundColor="@color/colorCardBackgroundSettings"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="5dp"
+                android:layout_marginEnd="15dp"
+                app:cardPreventCornerOverlap="false"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/cardViewForecastInfo"
+                app:layout_constraintTop_toBottomOf="@+id/cardViewMap">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <FrameLayout
+                        android:id="@+id/frameLayoutUseFulInformationImageHolder"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/imageViewUsefulInformation"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/kop_ski_details_useful_info"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <View
+                            android:alpha="0.6"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/darkGreenOverlayColor" />
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:id="@+id/imageViewInfo"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:src="@drawable/ic_info"
+                                android:padding="0dp"
+                                android:contentDescription="@string/useful"
+                                android:layout_marginTop="60dp"
+                                android:layout_gravity="center"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toTopOf="@+id/textViewUsefulICategoryName"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"/>
+
+                            <TextView
+                                android:id="@+id/textViewUsefulICategoryName"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:text="@string/useful"
+                                android:gravity="center"
+                                android:textColor="@color/colorWhite"
+                                android:textSize="19sp"
+                                android:textStyle="bold"
+                                app:layout_constraintTop_toBottomOf="@+id/imageViewInfo"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent" />
+
+                            <TextView
+                                android:id="@+id/textViewInformationCategoryName"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="3dp"
+                                android:text="@string/information"
+                                android:gravity="center"
+                                android:textColor="@color/colorWhite"
+                                android:textSize="19sp"
+                                android:textStyle="bold"
+                                app:layout_constraintTop_toBottomOf="@+id/textViewUsefulICategoryName"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </FrameLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewSomethingInfo"
+                android:layout_width="0dp"
+                android:layout_height="200dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="15dp"
+                app:cardBackgroundColor="@color/colorCardBackgroundSettings"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="5dp"
+                app:cardPreventCornerOverlap="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/cardViewUsefulInformation"
+                app:layout_constraintTop_toTopOf="@+id/cardViewUsefulInformation"
+                app:layout_constraintBottom_toBottomOf="@+id/cardViewUsefulInformation">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <FrameLayout
+                        android:id="@+id/frameLayoutCameraImageHolder"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/imageViewCameraInformation"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/kopaonik_ski_details_camera"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <View
+                            android:alpha="0.5"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/redOverlayColor" />
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:id="@+id/imageViewCamera"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:src="@drawable/ic_camera"
+                                android:padding="0dp"
+                                app:tint="@color/colorWhite"
+                                android:layout_marginTop="60dp"
+                                android:layout_gravity="center"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toTopOf="@+id/textViewCameraCategoryName"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                android:contentDescription="@string/webcams" />
+
+                            <TextView
+                                android:id="@+id/textViewCameraCategoryName"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:text="@string/webcams"
+                                android:gravity="center"
+                                android:textColor="@color/colorWhite"
+                                android:textSize="19sp"
+                                android:textStyle="bold"
+                                app:layout_constraintTop_toBottomOf="@+id/imageViewCamera"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent" />
+
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </FrameLayout>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
             </androidx.cardview.widget.CardView>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
     </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -124,7 +124,7 @@ class SkiCenterDetailsFragment : Fragment() {
         }
 
         binding.cardViewMap.setOnClickListener {
-            findNavController().navigate(com.neoapps.skijahorina.NavigationGraphDirections.actionSkiMap(skiCenterUrl.skiCenter))
+            findNavController().navigate(com.neoapps.skijahorina.NavigationGraphDirections.actionSkiMap())
         }
 
         binding.cardViewForecastInfo.setOnClickListener {

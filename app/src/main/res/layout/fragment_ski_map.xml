@@ -25,7 +25,7 @@
         <com.github.chrisbanes.photoview.PhotoView
             android:id="@+id/myZoomageView"
             android:scaleType="centerCrop"
-            android:src="@drawable/kopaonik_ski_map"
+            android:src="@drawable/jahorina_ski_map"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
     </RelativeLayout>
