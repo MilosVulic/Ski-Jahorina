@@ -16,7 +16,7 @@ class MainApplication : Application() {
         super.onCreate()
 
         ViewPump.init(RewordInterceptor)
-        AppLocale.supportedLocales = listOf(Locale("en"), Locale("sr"), Locale("ru") , Locale("de"))
+        AppLocale.supportedLocales = listOf(Locale("en"), Locale("bs"), Locale("ru") , Locale("de"))
         AppLocale.desiredLocale = Locale(PreferenceProvider.language)
 
         setTheme()
@@ -30,7 +30,7 @@ class MainApplication : Application() {
         return AppLocale.wrap(baseContext).resources
     }
 
-    private fun setTheme(){
+    private fun setTheme() {
         if (PreferenceProvider.darkMode) {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
         } else {

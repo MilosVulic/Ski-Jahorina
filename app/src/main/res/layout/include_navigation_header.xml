@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/appNavHeader"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imageViewPinDotCircle1"
+        android:layout_width="0dp"
+        android:layout_height="110dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toStartOf="@+id/imageViewPinDotCircle2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/shape_border_line_box" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewMapAndCams"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        app:cardBackgroundColor="@color/colorCardBackgroundSettings"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="5dp"
+        app:cardPreventCornerOverlap="false"
+        app:layout_constraintStart_toStartOf="@+id/imageViewPinDotCircle1"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewPinDotCircle1"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewPinDotCircle1"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <FrameLayout
+                android:id="@+id/frameLayoutMapAndCamsImageHolder"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/imageViewMapAndCams"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/gradient_ski_details_box"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/imageViewMapAndCamsFull"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginBottom="10dp"
+                        android:contentDescription="@string/lifts"
+                        android:padding="0dp"
+                        android:src="@drawable/ic_map"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:tint="@color/colorWhite" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </FrameLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <ImageView
+        android:id="@+id/imageViewPinDotCircle2"
+        android:layout_width="0dp"
+        android:layout_height="110dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="20dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toStartOf="@+id/imageViewPinDotCircle3"
+        app:layout_constraintStart_toEndOf="@+id/imageViewPinDotCircle1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/shape_border_line_box" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewLifts"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        app:cardBackgroundColor="@color/colorCardBackgroundSettings"
+        app:cardCornerRadius="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        app:cardElevation="5dp"
+        app:cardPreventCornerOverlap="false"
+        app:layout_constraintStart_toStartOf="@+id/imageViewPinDotCircle2"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewPinDotCircle2"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewPinDotCircle2">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <FrameLayout
+                android:id="@+id/frameLayoutLiftImageHolder"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/imageViewLiftFull"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/gradient_ski_details_box"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/imageViewLift"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginBottom="10dp"
+                        android:contentDescription="@string/lifts"
+                        android:padding="0dp"
+                        android:src="@drawable/ic_slopes"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:tint="@color/colorWhite" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </FrameLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <ImageView
+        android:id="@+id/imageViewPinDotCircle3"
+        android:layout_width="0dp"
+        android:layout_height="110dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="20dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toStartOf="@+id/imageViewPinDotCircle4"
+        app:layout_constraintStart_toEndOf="@+id/imageViewPinDotCircle2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/shape_border_line_box" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewWeather"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        app:cardBackgroundColor="@color/colorCardBackgroundSettings"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="5dp"
+        app:cardPreventCornerOverlap="false"
+        app:layout_constraintStart_toStartOf="@+id/imageViewPinDotCircle3"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewPinDotCircle3"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewPinDotCircle3">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <FrameLayout
+                android:id="@+id/frameLayoutWeatherImageHolder"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/imageViewWeatherFull"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/gradient_ski_details_box"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/imageViewWeather"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginBottom="10dp"
+                        android:contentDescription="@string/lifts"
+                        android:padding="0dp"
+                        android:src="@drawable/ic_partially_cloudy"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:tint="@color/colorWhite" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </FrameLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <ImageView
+        android:id="@+id/imageViewPinDotCircle4"
+        android:layout_width="0dp"
+        android:layout_height="110dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageViewPinDotCircle3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/shape_border_line_box" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewUsefulInfo"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        app:cardBackgroundColor="@color/colorCardBackgroundSettings"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="5dp"
+        app:cardPreventCornerOverlap="false"
+        app:layout_constraintStart_toStartOf="@+id/imageViewPinDotCircle4"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewPinDotCircle4"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewPinDotCircle4">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <FrameLayout
+                android:id="@+id/frameLayoutUsefulInfoImageHolder"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/imageViewUsefulInfoFull"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/gradient_ski_details_box"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/imageViewUsefulInfo"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginBottom="10dp"
+                        android:contentDescription="@string/lifts"
+                        android:padding="0dp"
+                        android:src="@drawable/ic_hotels"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:tint="@color/colorWhite" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </FrameLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/mapsAndCamsText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/homepage_map_amp_cams"
+        android:textColor="@color/colorHomePageNavigation"
+        android:textSize="16sp"
+        android:ellipsize="none"
+        android:layout_marginStart="-15dp"
+        android:layout_marginEnd="-15dp"
+        android:maxLines="2"
+        android:singleLine="false"
+        android:breakStrategy="simple"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="@+id/cardViewMapAndCams"
+        app:layout_constraintStart_toStartOf="@+id/cardViewMapAndCams"
+        app:layout_constraintTop_toBottomOf="@+id/cardViewMapAndCams" />
+
+    <TextView
+        android:id="@+id/liftsText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/homepage_lifts"
+        android:textColor="@color/colorHomePageNavigation"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/cardViewLifts"
+        app:layout_constraintStart_toStartOf="@+id/cardViewLifts"
+        app:layout_constraintTop_toBottomOf="@+id/cardViewLifts" />
+
+    <TextView
+        android:id="@+id/weatherText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/homepage_weather"
+        android:textColor="@color/colorHomePageNavigation"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/cardViewWeather"
+        app:layout_constraintStart_toStartOf="@+id/cardViewWeather"
+        app:layout_constraintTop_toBottomOf="@+id/cardViewWeather" />
+
+    <TextView
+        android:id="@+id/useFullInfo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/apartments"
+        android:layout_marginStart="-15dp"
+        android:layout_marginEnd="-15dp"
+        android:textColor="@color/colorHomePageNavigation"
+        android:textSize="16sp"
+        android:ellipsize="none"
+        android:maxLines="2"
+        android:singleLine="false"
+        android:breakStrategy="simple"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="@+id/cardViewUsefulInfo"
+        app:layout_constraintStart_toStartOf="@+id/cardViewUsefulInfo"
+        app:layout_constraintTop_toBottomOf="@+id/cardViewUsefulInfo" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

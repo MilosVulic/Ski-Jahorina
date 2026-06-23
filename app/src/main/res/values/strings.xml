@@ -16,20 +16,13 @@
     <!-- Settings Language -->
     <string name="settings_dialog_language">Select Language</string>
     <string name="settings_dialog_language_english">English</string>
-    <string name="settings_dialog_language_serbian">Serbian</string>
+    <string name="settings_dialog_language_serbian">Bosnian</string>
     <string name="settings_dialog_language_russian">Russian</string>
     <string name="settings_dialog_language_german">German</string>
 
     <!-- Ski center names -->
-    <string name="kopaonik">Kopaonik</string>
-    <string name="stara_planina">Stara planina</string>
-    <string name="tornik">Tornik</string>
-    <string name="kopaonik_altitude">2017 m</string>
-    <string name="stara_planina_altitude">2169 m</string>
-    <string name="tornik_altitude">1496 m</string>
     <string name="meters">m</string>
     <string name="feet">ft</string>
-    <string name="ski_resorts">Ski Resorts</string>
 
     <!-- Forecast -->
     <string name="temperature">Temperature</string>
@@ -41,12 +34,11 @@
     <string name="firefighter">Firefighter</string>
     <string name="emergency">Emergency</string>
     <string name="mountain_rescue">Mountain Rescue</string>
-    <string name="police_number">192</string>
-    <string name="firefighter_number">193</string>
-    <string name="emergency_number">194</string>
-    <string name="mountain_rescue_kopaonik_number">063 466 466</string>
-    <string name="mountain_rescue_stara_planina_number">063 466 461</string>
-    <string name="mountain_rescue_tornik_number">063 466 467</string>
+    <string name="police_number">122</string>
+    <string name="firefighter_number">123</string>
+    <string name="emergency_number">124</string>
+    <string name="mountain_rescue_jahorina_number">066 333 000</string>
+    <string name="more_details">Jahorina Ski Center, located in Bosnia and Herzegovina, is a top winter sports destination in the Balkans. Situated on Mount Jahorina near Sarajevo, it offers ski slopes for all skill levels, modern lifts, and facilities. Known for its role in the 1984 Winter Olympics, it now features over 40 kilometers of ski runs, snowboard parks, night skiing, and scenic trails for winter and summer activities. Jahorina also offers accommodations, restaurants, and wellness centers, making it popular with both thrill-seekers and families.</string>
 
     <!-- Ski Fragment Details Information -->
     <string name="lifts">LIFTS</string>
@@ -68,7 +60,7 @@
     <string name="about_author">Author</string>
     <string name="about_author_name">Neoapps</string>
     <string name="about_app_version">App Version</string>
-    <string name="about_app_version_number">1.0.0</string>
+    <string name="about_app_version_number">1.0.12</string>
     <string name="about_contact_email">Contact Email</string>
     <string name="about_email">info@neoapps.co</string>
     <string name="about_social">Social</string>
@@ -76,15 +68,15 @@
     <!-- Help center -->
     <string name="help_center_faq">FAQ</string>
     <string name="help">Help Center</string>
-    <string name="help_center_question1">Is there a way to see if a particular ski road is in operation?</string>
-    <string name="help_center_answer1">Yes there is. You can see that under the list of the ski slopes.</string>
+    <string name="help_center_question1">What activities are available at the Jahorina Ski Center besides skiing?</string>
+    <string name="help_center_answer1">At Jahorina Ski Center, visitors can enjoy activities such as snowshoeing, sledding, scenic cable car rides, and relaxing at nearby bars and restaurants after a day on the slopes.</string>
     <string name="help_center_question2">Is there an option for night skiing?</string>
-    <string name="help_center_answer2">Night skiing is only possible at the Kopaonik ski resort.</string>
+    <string name="help_center_answer2">Yes, night skiing is available on the Poljice slope at the Jahorina Ski Center from 6:00 PM to 9:00 PM, providing a unique evening experience on a well-lit trail.</string>
     <string name="help_center_question3">What should I do in case of an injury on the ski slopes?</string>
     <string name="help_center_answer3">In case of an injury, you are required to contact the mountain rescue service.
         They will intervene on the spot and transport you to the official medical facility at the ski resort. Contact number can be found under the useful information section.</string>
     <string name="help_center_question4">What are the operating hours of the ski resort during the ski season?</string>
-    <string name="help_center_answer4">The operating hours of the ski resort vary during the ski season. At the beginning of the season, it is from 9 am to 4 pm, and in the latter part of the season, it extends until 4:30 pm.</string>
+    <string name="help_center_answer4">The ski resort operates from 9:00 AM to 4:00 PM during the ski season for daytime skiing, and also offers night time skiing from 6:00 PM to 9:00 PM.</string>
 
     <!-- Empty List -->
     <string name="emptylist_title">Network Disconnected</string>
@@ -94,27 +86,35 @@
     <string name="update_text">Update is required.</string>
     <string name="update">Update</string>
 
-    <!-- Kamera ski places -->
-    <string name="camera1">Viceroy Kopaonik Hotel</string>
-    <string name="camera2">Suvo Rudiste</string>
-    <string name="camera4">Srebrnac</string>
-    <string name="camera5">Restaurant Livello</string>
-    <string name="camera6">Malo Jezero</string>
-    <string name="camera7">Skituljko</string>
-    <string name="camera8">Crown Peaks</string>
-    <string name="camera9">Green ski bar &amp; restaurant</string>
-    <string name="camera10">Duboka</string>
+    <string name="appId">1897615754106359</string>
+    <string name="clientToken">2e7cf9acfcf29d46e6b58fc8af0e84f0</string>
 
-    <string name="altitude1">1726 m</string>
-    <string name="altitude2">1978 m</string>
-    <string name="altitude4">1770 m</string>
-    <string name="altitude5">1912 m</string>
-    <string name="altitude6">1726 m</string>
-    <string name="altitude7">1794 m</string>
-    <string name="altitude8">1801 m</string>
-    <string name="altitude9">1890 m</string>
-    <string name="altitude10">1961 m</string>
+    <!-- No internet screen -->
+    <string name="no_internet_headline">Ooops!</string>
+    <string name="no_internet_text">We are unable to fetch any data, check your internet connection.</string>
 
-    <string name="appId">1205216450441335</string>
-    <string name="clientToken">d11fbcfbeef22e32d1deca8afc2ce8a4</string>
+    <!-- Cameras -->
+    <string name="camera1">Camera 1</string>
+    <string name="homepage_useful_info">Useful info</string>
+    <string name="homepage_weather">Weather</string>
+    <string name="homepage_lifts">Lifts</string>
+    <string name="homepage_map_amp_cams"><![CDATA[Map & Cams]]></string>
+    <string name="homepage_browse_more_webcams">Browse more Webcams</string>
+    <string name="homepage_webcams">Webcams</string>
+    <string name="homepage_download_map_for_offline_usage">Download Map for Offline Usage</string>
+    <string name="homepage_getting_around">Getting Around</string>
+    <string name="homepage_download_successful">Ski map downloaded successfully!</string>
+    <string name="homepage_download_failed">Failed to download ski map</string>
+    <string name="homepage_downloading">Downloading…</string>
+    <string name="homepage_useful_information">Useful information</string>
+    <string name="homepage_useful_information_check">Check more information</string>
+    <string name="property_email_app_validation">No email app available. \nEmail address has been copied</string>
+    <string name="property_details">Accommodation Details</string>
+    <string name="apartments">Apartments</string>
+
+    <string name="default_number_property">+387 65 904 660</string>
+    <string name="default_email_property">info@jahorinaprestige.com</string>
+    <string name="default_website_property">https://jahorinaprestige.com/apartmani-na-jahorini/</string>
+    <string name="default_subject">Apartments info</string>
+    <string name="property_description">Description</string>
 </resources>

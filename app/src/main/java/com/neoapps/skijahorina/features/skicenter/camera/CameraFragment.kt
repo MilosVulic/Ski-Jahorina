@@ -16,8 +16,10 @@ import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.neoapps.skijahorina.R
 import com.neoapps.skijahorina.databinding.FragmentAsyncCameraBinding
 import com.neoapps.skijahorina.main.MainActivity
@@ -28,7 +30,6 @@ class CameraFragment : Fragment() {
     private var bindingProp: FragmentAsyncCameraBinding? = null
     private val binding get() = bindingProp!!
     private val viewModel: CameraViewModel by viewModels()
-    private val skiCenterUrl: CameraFragmentArgs by navArgs()
     private lateinit var noInternetLayout: View
 
     @SuppressLint("InflateParams")
@@ -40,7 +41,7 @@ class CameraFragment : Fragment() {
         val screen = inflater.inflate(R.layout.fragment_camera, container, false)
 
         val progressBar = screen.findViewById<ProgressBar>(R.id.progressBar)
-        noInternetLayout = inflater.inflate(R.layout.include_empty_list_placeholder, container, false)
+        noInternetLayout = inflater.inflate(R.layout.layout_unable_to_fetch_data, container, false)
 
 
         val asyncLayoutInflater = context?.let { AsyncLayoutInflater(it) }
@@ -56,30 +57,40 @@ class CameraFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.imageList.observe(viewLifecycleOwner) { result ->
-            result?.let { images ->
+        viewModel.cameraDataList.observe(viewLifecycleOwner) { cameraList ->
+            cameraList?.let { cameras ->
                 val container = binding.imageContainer
                 container.removeAllViews()
 
-                for (imageBitmap in images) {
-                    val cardView =
-                        layoutInflater.inflate(R.layout.image_view_row, container, false) as CardView
-                    val imageView = cardView.findViewById<ImageView>(R.id.imageView)
+                for (camera in cameras) {
+                    val cardView = layoutInflater.inflate(R.layout.image_view_row, container, false) as CardView
 
+                    val textView = cardView.findViewById<TextView>(R.id.textView1)
+                    textView.text = camera.name
+
+                    val imageView = cardView.findViewById<ImageView>(R.id.thumbnail1)
                     Glide.with(requireContext())
-                        .load(imageBitmap)
+                        .load(camera.url)
+                        .skipMemoryCache(true)
+                        .diskCacheStrategy(DiskCacheStrategy.NONE)
                         .into(imageView)
 
+
+                    imageView.setOnClickListener {
+                        val action = CameraFragmentDirections.actionCameraFragmentToFullScreenImageFragment(camera.url)
+                        findNavController().navigate(action)
+                    }
+
                     val layoutParams = cardView.layoutParams as ViewGroup.MarginLayoutParams
-                    cardView.radius = 45F
-                    layoutParams.setMargins(40, 40, 40, 0)
+                    cardView.radius = 28F
+                    layoutParams.setMargins(15, 15, 15, 15)
 
                     container.addView(cardView)
                 }
             }
         }
 
-        viewModel.fetchImages(skiCenterUrl.skiCenter)
+        viewModel.fetchCameraDataFromFirestore()
     }
 
     private fun setUpFragmentName() {

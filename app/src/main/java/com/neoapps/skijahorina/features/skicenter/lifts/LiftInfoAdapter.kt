@@ -67,16 +67,16 @@ class LiftInfoAdapter(private val mList: List<LiftInfo>) : RecyclerView.Adapter<
             val liftInfo = visibleList[position]
 
             holder.textViewCardTitle.text = liftInfo.name
-            holder.textViewWorkingHours.text = setWorkingHours(liftInfo.workingHours)
+            holder.textViewWorkingHours.text = liftInfo.openingHours
             IconWorkingIndicatorSetter.displayImage(liftInfo.inFunction, holder.workingIndicator)
             IconWorkingIndicatorSetter.setBackground(liftInfo.inFunction, holder.workingIndicator)
-            IconLiftSetter.displayImage(liftInfo.type, holder.imageViewIcon)
+            IconLiftSetter.displayImage(liftInfo.name, holder.imageViewIcon)
 
-            if (!getBooleanWorkability(liftInfo.inFunction)) {
-                holder.textViewWorkingHours.visibility = View.GONE
-            } else {
+            //if (!getBooleanWorkability(liftInfo.inFunction)) {
+            //    holder.textViewWorkingHours.visibility = View.GONE
+            //} else {
                 holder.textViewWorkingHours.visibility = View.VISIBLE
-            }
+            //}
             holder.itemView.visibility = View.VISIBLE // Ensure the item view is visible
         } else {
             // Hide the entire item view for positions that are out of bounds
@@ -93,15 +93,5 @@ class LiftInfoAdapter(private val mList: List<LiftInfo>) : RecyclerView.Adapter<
         val textViewWorkingHours: TextView = itemView.findViewById(R.id.textViewRowWorkingHours)
         val workingIndicator: ImageView = itemView.findViewById(R.id.workingIndicator)
         val imageViewIcon: ImageView = itemView.findViewById(R.id.imageViewIcon)
-    }
-
-    private fun setWorkingHours(hours: String): String {
-        return if (hours.length >= 5) {
-            val from = hours.substring(0, 5)
-            val to = hours.substring(hours.length - 5, hours.length)
-            "$from  -  $to"
-        } else {
-            hours
-        }
     }
 }

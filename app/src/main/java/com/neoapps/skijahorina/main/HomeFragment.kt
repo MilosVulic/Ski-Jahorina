@@ -13,7 +13,6 @@ import com.google.android.material.snackbar.Snackbar
 import com.google.android.play.core.install.model.AppUpdateType
 import com.google.android.play.core.install.model.UpdateAvailability
 import com.neoapps.skijahorina.R
-import com.neoapps.skijahorina.common.PreferenceProvider
 import com.neoapps.skijahorina.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
@@ -26,27 +25,27 @@ class HomeFragment : Fragment() {
         hideTitle()
 
         binding.cardViewSlopesInfo.setOnClickListener {
-            checkForAppUpdateAndNavigate(PreferenceProvider.staraPlaninaUrl)
+            checkForAppUpdateAndNavigate()
         }
 
         binding.cardViewLiftInfo.setOnClickListener {
-            checkForAppUpdateAndNavigate(PreferenceProvider.staraPlaninaUrl)
+            checkForAppUpdateAndNavigate()
         }
 
         binding.cardViewForecastInfo.setOnClickListener {
-            checkForAppUpdateAndNavigate(PreferenceProvider.staraPlaninaUrl)
+            checkForAppUpdateAndNavigate()
         }
 
         binding.cardViewMap.setOnClickListener {
-            checkForAppUpdateAndNavigate(PreferenceProvider.staraPlaninaUrl)
+            checkForAppUpdateAndNavigate()
         }
 
         binding.cardViewUsefulInformation.setOnClickListener {
-            checkForAppUpdateAndNavigate(PreferenceProvider.staraPlaninaUrl)
+            checkForAppUpdateAndNavigate()
         }
 
         binding.cardViewSomethingInfo.setOnClickListener {
-            checkForAppUpdateAndNavigate(PreferenceProvider.staraPlaninaUrl)
+            checkForAppUpdateAndNavigate()
         }
         return binding.root
     }
@@ -58,12 +57,11 @@ class HomeFragment : Fragment() {
 
         if (null != toolbar) {
             val title1TextView = ac.findViewById<TextView>(R.id.title1)
-            title1TextView.visibility = View.VISIBLE
-            title1TextView.text = resources.getText(R.string.ski_resorts)
+            title1TextView.visibility = View.GONE
         }
     }
 
-    private fun checkForAppUpdateAndNavigate(url: String) {
+    private fun checkForAppUpdateAndNavigate() {
         val ac = activity as MainActivity
         val appUpdateInfoTask = ac.appUpdateManager.appUpdateInfo
 
@@ -74,15 +72,15 @@ class HomeFragment : Fragment() {
                 showUpdateSnackbar()
             } else {
                 try {
-                    findNavController().navigate(com.neoapps.skijahorina.NavigationGraphDirections.actionSkiInfo(url))
+                    findNavController().navigate(com.neoapps.skijahorina.NavigationGraphDirections.actionSkiInfo())
                 } catch (_: Exception) {
-                    findNavController().navigate(com.neoapps.skijahorina.NavigationGraphDirections.actionSkiInfo(url))
+                    findNavController().navigate(com.neoapps.skijahorina.NavigationGraphDirections.actionSkiInfo())
                 }
             }
         }
 
         appUpdateInfoTask.addOnFailureListener {
-            findNavController().navigate(com.neoapps.skijahorina.NavigationGraphDirections.actionSkiInfo(url))
+            findNavController().navigate(com.neoapps.skijahorina.NavigationGraphDirections.actionSkiInfo())
         }
     }
 

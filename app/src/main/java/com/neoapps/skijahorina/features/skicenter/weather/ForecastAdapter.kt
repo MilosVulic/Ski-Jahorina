@@ -1,6 +1,5 @@
 package com.neoapps.skijahorina.features.skicenter.weather
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,8 +9,14 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.neoapps.skijahorina.R
 import com.neoapps.skijahorina.common.IconWeatherSetter
+import com.neoapps.skijahorina.common.PreferenceProvider
+import java.time.Instant
+import java.time.ZoneId
+import java.time.format.DateTimeFormatter
+import java.util.Locale
+import kotlin.math.roundToInt
 
-class ForecastAdapter(private val mList: List<ForecastDay>) : RecyclerView.Adapter<ForecastAdapter.ViewHolder>() {
+class ForecastAdapter(private val mList: List<WeatherDataForecast>) : RecyclerView.Adapter<ForecastAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -24,20 +29,17 @@ class ForecastAdapter(private val mList: List<ForecastDay>) : RecyclerView.Adapt
 
         val forecastInfo = mList[position]
 
-        holder.textViewDay.text = forecastInfo.day
-        holder.textViewDate.text = forecastInfo.date
-        Log.d("Nesto", forecastInfo.windSpeed)
-        if (forecastInfo.windSpeed.length >= 4) {
-            holder.textViewWind.text = forecastInfo.windSpeed.substring(0, forecastInfo.windSpeed.length - 3) + " " + forecastInfo.windSpeed.substring(forecastInfo.windSpeed.length - 3, forecastInfo.windSpeed.length)
-        } else {
-            holder.textViewWind.text = "-"
-        }
-        holder.textViewMinTemperature.text = forecastInfo.minTemp
-        holder.textViewMaxTemperature.text = forecastInfo.maxTemp
+        holder.textViewDay.text = convertUnixToDayOfWeek(forecastInfo.dt)
+        holder.textViewDate.text = convertUnixToDate(forecastInfo.dt)
+
+        holder.textViewWind.text = forecastInfo.wind.speed.roundToInt().toString() + " m/s"
+
+        holder.textViewMinTemperature.text = forecastInfo.main.temp_min.roundToInt().toString() + "°"
+        holder.textViewMaxTemperature.text = forecastInfo.main.temp_max.roundToInt().toString() + "°"
 
         holder.textViewMinTemperature.setTextColor(ContextCompat.getColor(holder.textViewMinTemperature.context, R.color.minTemperatureColor))
         holder.textViewMaxTemperature.setTextColor(ContextCompat.getColor(holder.textViewMaxTemperature.context, R.color.maxTemperatureColor))
-        IconWeatherSetter.displayImage(forecastInfo.image, holder.imageViewWeather)
+        IconWeatherSetter.displayImage(forecastInfo.weather[0].id.toString(), forecastInfo.weather[0].icon, holder.imageViewWeather)
     }
 
     override fun getItemCount(): Int {
@@ -51,5 +53,20 @@ class ForecastAdapter(private val mList: List<ForecastDay>) : RecyclerView.Adapt
         val textViewMinTemperature: TextView = itemView.findViewById(R.id.textViewMinTemperature)
         val textViewMaxTemperature: TextView = itemView.findViewById(R.id.textViewMaxTemperature)
         val imageViewWeather: ImageView = itemView.findViewById(R.id.imageViewWeather)
+    }
+
+    private fun convertUnixToDate(timestamp: Long): String {
+        val instant = Instant.ofEpochSecond(timestamp)
+        val formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy.").withZone(ZoneId.of("UTC"))
+        return formatter.format(instant)
+    }
+
+    private fun convertUnixToDayOfWeek(timestamp: Long): String {
+        val instant = Instant.ofEpochSecond(timestamp)
+        val formatter = DateTimeFormatter
+            .ofPattern("EEE")
+            .withZone(ZoneId.of("UTC"))
+            .withLocale(Locale.forLanguageTag(PreferenceProvider.language))
+        return formatter.format(instant)
     }
 }

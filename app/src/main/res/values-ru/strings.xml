@@ -17,20 +17,13 @@
     <!-- Settings Language -->
     <string name="settings_dialog_language">Выбрать язык</string>
     <string name="settings_dialog_language_english">Английский</string>
-    <string name="settings_dialog_language_serbian">Сербский</string>
+    <string name="settings_dialog_language_serbian">Боснийский</string>
     <string name="settings_dialog_language_russian">Русский</string>
     <string name="settings_dialog_language_german">Немецкий</string>
 
     <!-- Ski center names -->
-    <string name="kopaonik">Копаоник</string>
-    <string name="stara_planina">Старая гора</string>
-    <string name="tornik">Торник</string>
-    <string name="kopaonik_altitude">2017  m</string>
-    <string name="stara_planina_altitude">2169  m</string>
-    <string name="tornik_altitude">1496  m</string>
     <string name="meters">m</string>
     <string name="feet">ft</string>
-    <string name="ski_resorts">Горнолыжные курорты</string>
 
     <!-- Forecast -->
     <string name="temperature">Температура</string>
@@ -42,12 +35,11 @@
     <string name="firefighter">Пожарная служба</string>
     <string name="emergency">Экстренная помощь</string>
     <string name="mountain_rescue">Горная спасательная служба</string>
-    <string name="police_number">192</string>
-    <string name="firefighter_number">193</string>
-    <string name="emergency_number">194</string>
-    <string name="mountain_rescue_kopaonik_number">063 466 466</string>
-    <string name="mountain_rescue_stara_planina_number">063 466 461</string>
-    <string name="mountain_rescue_tornik_number">063 466 467</string>
+    <string name="police_number">122</string>
+    <string name="firefighter_number">123</string>
+    <string name="emergency_number">124</string>
+    <string name="mountain_rescue_jahorina_number">066 333 000</string>
+    <string name="more_details">Горнолыжный центр Яхорина, расположенный в Боснии и Герцеговине, является одним из главных направлений зимних видов спорта на Балканах. Расположенный на горе Яхорина, недалеко от Сараево, он предлагает ряд горнолыжных трасс для всех уровней мастерства, с современными подъемниками и удобствами. Район стал широко известен во время зимних Олимпийских игр 1984 года и теперь предлагает более 40 километров лыжных трасс, сноуборд-парки, ночное катание на лыжах и живописные трассы для зимних и летних видов спорта. В Яхорине также есть жилье, рестораны и оздоровительные центры, что делает его популярным местом как для любителей острых ощущений, так и для семей..</string>
 
     <!-- Ski Fragment Details Information -->
     <string name="lifts">ЛИФТЫ</string>
@@ -69,7 +61,7 @@
     <string name="about_author">Автор</string>
     <string name="about_author_name">Neoapps</string>
     <string name="about_app_version">Версия приложения</string>
-    <string name="about_app_version_number">1.0.0</string>
+    <string name="about_app_version_number">1.0.12</string>
     <string name="about_contact_email">Контактный email</string>
     <string name="about_email">info@neoapps.co</string>
     <string name="about_social">Социальные сети</string>
@@ -77,16 +69,14 @@
     <!-- Help center -->
     <string name="help_center_faq">FAQ</string>
     <string name="help">Центр помощи</string>
-    <string name="help_center_question1">Есть ли способ узнать, открыт ли определенный лыжный спуск?</string>
-    <string name="help_center_answer1">Да, есть. Вы можете увидеть это в списке лыжных склонов.</string>
-    <string name="help_center_question2">Существует ли опция ночного катания?</string>
-    <string name="help_center_answer2">Ночное катание возможно только на лыжном курорте Копаоник.</string>
-    <string name="help_center_question3">Что мне делать в случае травмы на лыжных склонах?</string>
-    <string name="help_center_answer3">При травме обязательно свяжитесь с горной спасательной службой.
-        Они предпримут меры на месте и доставят вас в официальное медицинское учреждение на лыжном курорте. Номер контакта можно найти в разделе полезной информации.</string>
-    <string name="help_center_question4">Каковы часы работы лыжного курорта в течение сезона?</string>
-    <string name="help_center_answer4">Часы работы лыжного курорта меняются в течение сезона. В начале сезона с 9:00 до 16:00, а в конце сезона расширяются до 16:30.</string>
-
+    <string name="help_center_question1">Какие развлечения, помимо катания на лыжах, доступны в горнолыжном центре Яхорина?</string>
+    <string name="help_center_answer1">В горнолыжном центре Яхорина посетители могут заняться такими видами активного отдыха, как ходьба на снегоступах, катание на санях, поездки на канатной дороге по живописным местам, а также отдохнуть в близлежащих барах и ресторанах после дня, проведенного на склонах.</string>
+    <string name="help_center_question2">Есть ли возможность ночного катания?</string>
+    <string name="help_center_answer2">Да, ночное катание на лыжах доступно на склоне Польице в горнолыжном центре Яхорина с 18:00 до 21:00, предлагая уникальные вечерние впечатления на хорошо освещенной трассе.</string>
+    <string name="help_center_question3">Что делать в случае получения травмы на горнолыжных склонах?</string>
+    <string name="help_center_answer3">В случае получения травмы вам необходимо обратиться в горноспасательную службу. Они прибудут на место и доставят вас в официальное медицинское учреждение горнолыжного курорта. Контактный номер можно найти в разделе полезной информации.</string>
+    <string name="help_center_question4">Каковы часы работы горнолыжного курорта в лыжный сезон?</string>
+    <string name="help_center_answer4">Горнолыжный курорт работает с 9:00 до 16:00 в течение лыжного сезона для дневного катания, а также предлагает ночное катание с 18:00 до 21:00.</string>
     <!-- Empty List -->
     <string name="emptylist_title">Сеть отключена</string>
     <string name="emptylist_description">Не удалось установить соединение. Проверьте свои интернет-данные.</string>
@@ -95,24 +85,35 @@
     <string name="update_text">Требуется обновление.</string>
     <string name="update">Обновить</string>
 
-    <!-- Kamera ski places -->
-    <string name="camera1">Viceroy Kopaonik Hotel</string>
-    <string name="camera2">Suvo Rudiste</string>
-    <string name="camera4">Srebrnac</string>
-    <string name="camera5">Restaurant Livello</string>
-    <string name="camera6">Malo Jezero</string>
-    <string name="camera7">Skituljko</string>
-    <string name="camera8">Crown Peaks</string>
-    <string name="camera9">Green ski bar &amp; restaurant</string>
-    <string name="camera10">Duboka</string>
+    <string name="appId">1897615754106359</string>
+    <string name="clientToken">2e7cf9acfcf29d46e6b58fc8af0e84f0</string>
 
-    <string name="altitude1">1726 m</string>
-    <string name="altitude2">1978 m</string>
-    <string name="altitude4">1770 m</string>
-    <string name="altitude5">1912 m</string>
-    <string name="altitude6">1726 m</string>
-    <string name="altitude7">1794 m</string>
-    <string name="altitude8">1801 m</string>
-    <string name="altitude9">1890 m</string>
-    <string name="altitude10">1961 m</string>
+    <!-- No internet screen -->
+    <string name="no_internet_headline">Упс!</string>
+    <string name="no_internet_text">Мы не можем получить данные, проверьте ваше интернет-соединение..</string>
+
+    <!-- Cameras -->
+    <string name="camera1">Камера 1</string>
+    <string name="homepage_useful_info">Полезная информация</string>
+    <string name="homepage_weather">Погода</string>
+    <string name="homepage_lifts">Лифты</string>
+    <string name="homepage_map_amp_cams"><![CDATA[Карта и камеры]]></string>
+    <string name="homepage_browse_more_webcams">Просмотреть другие веб-камеры</string>
+    <string name="homepage_webcams">Веб-камеры</string>
+    <string name="homepage_download_map_for_offline_usage">Загрузить карту для использования офлайн</string>
+    <string name="homepage_getting_around">Обойти</string>
+    <string name="homepage_download_successful">Карта горнолыжных трасс успешно загружена!</string>
+    <string name="homepage_download_failed">Не удалось загрузить карту горнолыжных трасс</string>
+    <string name="homepage_downloading">Загрузка…</string>
+    <string name="homepage_useful_information">Полезная информация</string>
+    <string name="homepage_useful_information_check">Проверьте дополнительную информацию</string>
+    <string name="property_email_app_validation">Нет доступного почтового приложения. \nАдрес электронной почты скопирован</string>
+    <string name="property_details">Детали проживания</string>
+    <string name="apartments">Апартаменты</string>
+
+    <string name="default_number_property">+387 65 904 660</string>
+    <string name="default_email_property">info@jahorinaprestige.com</string>
+    <string name="default_website_property">https://jahorinaprestige.com/apartmani-na-jahorini/</string>
+    <string name="default_subject">Информация об апартаментах</string>
+    <string name="property_description">Описание</string>
 </resources>

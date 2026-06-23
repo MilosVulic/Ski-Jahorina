@@ -129,7 +129,7 @@
         <ImageView
             android:id="@+id/imageViewEnglish"
             android:layout_width="40dp"
-            android:layout_height="20dp"
+            android:layout_height="40dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="30dp"
             app:layout_constraintBottom_toBottomOf="@+id/textViewTermsAgreementTitle"
@@ -158,8 +158,8 @@
         <ImageView
             android:id="@+id/imageViewSerbian"
             android:layout_width="40dp"
-            android:layout_height="20dp"
-            app:srcCompat="@drawable/picture_language_serbian"
+            android:layout_height="40dp"
+            app:srcCompat="@drawable/picture_language_bosnia"
             app:layout_constraintStart_toStartOf="@+id/imageViewEnglish"
             app:layout_constraintTop_toTopOf="@+id/textViewSerbian"
             app:layout_constraintBottom_toBottomOf="@+id/textViewSerbian"/>
@@ -179,7 +179,7 @@
         <ImageView
             android:id="@+id/imageViewGerman"
             android:layout_width="40dp"
-            android:layout_height="20dp"
+            android:layout_height="40dp"
             app:srcCompat="@drawable/picture_language_germany"
             app:layout_constraintStart_toStartOf="@+id/imageViewSerbian"
             app:layout_constraintTop_toTopOf="@+id/textViewGerman"
@@ -201,8 +201,8 @@
         <ImageView
             android:id="@+id/imageViewRussian"
             android:layout_width="40dp"
-            android:layout_height="20dp"
-            app:srcCompat="@drawable/picture_language_russian"
+            android:layout_height="40dp"
+            app:srcCompat="@drawable/picture_language_russia"
             app:layout_constraintStart_toStartOf="@+id/imageViewGerman"
             app:layout_constraintTop_toTopOf="@+id/textViewRussian"
             app:layout_constraintBottom_toBottomOf="@+id/textViewRussian"/>

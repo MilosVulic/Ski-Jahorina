@@ -64,4 +64,14 @@
 
     <color name="colorSnackBarBackground">#1D1D1D</color>
 
+    <color name="colorHomePageNavigation">#497deb</color>
+
+
+    <!-- Properties -->
+    <color  name="propertyCardBackground">#f3f6fb</color>
+    <color  name="profileActionsColor">#4d5153</color>
+    <color name="propertyImage4Shadowed">#6F000000</color>
+    <color  name="textColorPropertyList">#000000</color>
+    <color  name="colorIconProperty">#4d5153</color>
+
 </resources>

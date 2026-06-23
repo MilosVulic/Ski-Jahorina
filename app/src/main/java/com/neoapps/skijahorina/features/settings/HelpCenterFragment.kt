@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.widget.Toolbar
 import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
 import com.neoapps.skijahorina.R
@@ -33,6 +34,7 @@ class HelpCenterFragment : Fragment() {
         title1TextView.visibility = View.VISIBLE
         title1TextView.text = resources.getString(R.string.help)
         title1TextView.setTextColor(ResourcesCompat.getColor(resources, R.color.colorWhite, null))
+        setUpToolbarLongPress()
 
         binding.constraintFirst.setOnClickListener {
             if (openedFirst) {
@@ -160,5 +162,12 @@ class HelpCenterFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         bindingProp = null
+    }
+
+    private fun setUpToolbarLongPress() {
+        val toolbar = (activity as MainActivity).findViewById<Toolbar>(R.id.toolbar)
+        if (toolbar != null) {
+            toolbar.navigationContentDescription = ""
+        }
     }
 }

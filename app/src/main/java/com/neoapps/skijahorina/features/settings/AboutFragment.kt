@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.TranslateAnimation
 import android.widget.TextView
+import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import com.neoapps.skijahorina.R
 import com.neoapps.skijahorina.databinding.FragmentAboutBinding
@@ -43,7 +44,7 @@ class AboutFragment : Fragment() {
         binding.imageViewYoutubeAbout.setOnClickListener {
             val browserIntent = Intent(
                 Intent.ACTION_VIEW,
-                Uri.parse("https://ski-serbia.carrd.co/")
+                Uri.parse("https://ski-jahorina.carrd.co/")
             )
             startActivity(browserIntent)
         }
@@ -108,10 +109,15 @@ class AboutFragment : Fragment() {
     private fun setUpFragmentName() {
         (activity as MainActivity).supportActionBar?.title = ""
         val title1TextView = (activity as MainActivity).findViewById<TextView>(R.id.title1)
+        val toolbar = (activity as MainActivity).findViewById<Toolbar>(R.id.toolbar)
 
         if (title1TextView != null) {
             title1TextView.visibility = View.VISIBLE
             title1TextView.text = resources.getString(R.string.about)
+        }
+
+        if (toolbar != null) {
+            toolbar.navigationContentDescription = ""
         }
     }
 }

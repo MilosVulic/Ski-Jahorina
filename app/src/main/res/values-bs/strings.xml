@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App name -->
+    <string name="app_name">Ski Jahorina</string>
+
+    <!-- Settings -->
+    <string name="settings">Podešavanja</string>
+    <string name="settings_other_therms_of_service">Uslovi i odredbe</string>
+    <string name="application_settings">Postavke Aplikacije</string>
+    <string name="settings_turn_dark_mode_on">Uključite tamni režim</string>
+    <string name="change_application_language">Promijenite jezik aplikacije</string>
+    <string name="settings_other">Ostalo</string>
+    <string name="settings_other_help_center">Pomoć</string>
+    <string name="settings_other_about">O aplikaciji</string>
+    <string name="settings_rate">Ocijenite aplikaciju</string>
+
+    <!-- Settings Language -->
+    <string name="settings_dialog_language">Odaberite jezik</string>
+    <string name="settings_dialog_language_english">Engleski</string>
+    <string name="settings_dialog_language_serbian">Bosanski</string>
+    <string name="settings_dialog_language_russian">Ruski</string>
+    <string name="settings_dialog_language_german">Njemački</string>
+
+    <!-- Ski center names -->
+    <string name="meters">m</string>
+    <string name="feet">ft</string>
+
+    <!-- Forecast -->
+    <string name="temperature">Temperatura</string>
+    <string name="snow">Snijeg</string>
+    <string name="wind">Vjetar</string>
+
+    <!-- Useful information -->
+    <string name="police">Policija</string>
+    <string name="firefighter">Vatrogasci</string>
+    <string name="emergency">Hitna Pomoć</string>
+    <string name="mountain_rescue">Gorska služba</string>
+    <string name="police_number">122</string>
+    <string name="firefighter_number">123</string>
+    <string name="emergency_number">124</string>
+    <string name="mountain_rescue_jahorina_number">066 333 000</string>
+    <string name="more_details">Ski centar Jahorina, koji se nalazi u Bosni i Hercegovini, vrhunska je destinacija za zimske sportove na Balkanu. Smješten na planini Jahorini u blizini Sarajeva, nudi ski staze za sve nivoe vještina, moderne žičare i objekte. Poznat po svojoj ulozi na Zimskim olimpijskim igrama 1984. godine, sada ima preko 40 kilometara skijaških staza, snowboard parkova, noćnog skijanja i slikovitih staza za zimske i ljetne aktivnosti. Jahorina također nudi smještaj, restorane i wellness centre, što je čini popularnom i među ljubiteljima uzbuđenja i porodicama.</string>
+
+    <!-- Ski Fragment Details Information -->
+    <string name="lifts">LIFTOVI</string>
+    <string name="slopes">SKI STAZE</string>
+    <string name="map">MAPA</string>
+    <string name="weather">VREMENSKA PROGNOZA</string>
+    <string name="useful">KORISNO</string>
+    <string name="information">INFORMACIJE</string>
+    <string name="webcams">WEBKAMERE</string>
+    <string name="webcams_lowercase">Webkamere</string>
+    <string name="slopes_lowercase">Ski Staze</string>
+    <string name="map_lowercase">Mapa</string>
+    <string name="lifts_lowercase">Liftovi</string>
+    <string name="useful_information_lowercase">Info</string>
+    <string name="weather_lowercase">Vremenska Prognoza</string>
+
+    <!-- About -->
+    <string name="about">O nama</string>
+    <string name="about_author">Autor</string>
+    <string name="about_author_name">Neoapps</string>
+    <string name="about_app_version">App Version</string>
+    <string name="about_app_version_number">1.0.12</string>
+    <string name="about_contact_email">Kontakt Email</string>
+    <string name="about_email">info@neoapps.co</string>
+    <string name="about_social">Social</string>
+
+    <!-- Help center -->
+    <string name="help_center_faq">FAQ</string>
+    <string name="help">Help Center</string>
+    <string name="help_center_question1">Koje aktivnosti osim skijanja postoje u Ski centru Jahorina?</string>
+    <string name="help_center_answer1">U Ski centru Jahorina posjetitelji mogu uživati u aktivnostima poput krpljanja, sanjkanja, slikovitih vožnja žičarom i opuštanja u obližnjim barovima i restoranima nakon dana na stazama.</string>
+    <string name="help_center_question2">Postoji li opcija za noćno skijanje?</string>
+    <string name="help_center_answer2">Da, noćno skijanje je dostupno na stazi Poljice u Ski centru Jahorina od 18:00 do 21:00, pružajući jedinstveno večernje iskustvo na dobro osvijetljenoj stazi.</string>
+    <string name="help_center_question3">Šta da radim u slučaju povrede na skijaškim stazama?</string>
+    <string name="help_center_answer3">U slučaju povrede obavezno se obratite gorskoj službi spašavanja.
+ Oni će intervenisati na licu mesta i prevesti vas u zvaničnu medicinsku ustanovu na skijalištu. Kontakt broj možete pronaći u rubrici korisnih informacija.</string>
+    <string name="help_center_question4">Koje je radno vrijeme skijališta tokom skijaške sezone?</string>
+    <string name="help_center_answer4">Skijalište radi od 9:00 do 16:00 tokom ski sezone za dnevno skijanje, a nudi i noćno skijanje od 18:00 do 21:00.</string>
+
+    <!-- Empty List -->
+    <string name="emptylist_title">Mreža je prekinuta</string>
+    <string name="emptylist_description">Nije moguće uspostaviti vezu, provjerite svoje internet podatke.</string>
+
+    <!-- Force Update -->
+    <string name="update_text">Ažuriranje je obavezno.</string>
+    <string name="update">Ažuriraj</string>
+
+    <string name="appId">1897615754106359</string>
+    <string name="clientToken">2e7cf9acfcf29d46e6b58fc8af0e84f0</string>
+
+    <!-- No internet screen -->
+    <string name="no_internet_headline">Ooops!</string>
+    <string name="no_internet_text">Nismo u mogućnosti preuzeti nikakve podatke, provjerite vašu internetsku vezu.</string>
+
+    <!-- Cameras -->
+    <string name="camera1">Kamera 1</string>
+    <string name="homepage_useful_info">Korisne informacije</string>
+    <string name="homepage_weather">Vrijeme</string>
+    <string name="homepage_lifts">Liftovi</string>
+    <string name="homepage_map_amp_cams"><![CDATA[Mapa i kamere]]></string>
+    <string name="homepage_browse_more_webcams">Pregledajte više web kamera</string>
+    <string name="homepage_webcams">Web kamere</string>
+    <string name="homepage_download_map_for_offline_usage">Preuzmite mapu za Offline upotrebu</string>
+    <string name="homepage_getting_around">Kretanje po mapi</string>
+    <string name="homepage_download_successful">Ski karta je uspješno preuzeta!</string>
+    <string name="homepage_download_failed">Nije uspjelo preuzimanje ski karte</string>
+    <string name="homepage_downloading">Preuzimanje…</string>
+    <string name="homepage_useful_information">Korisne informacije</string>
+    <string name="homepage_useful_information_check">Provjerite više informacija</string>
+    <string name="property_email_app_validation">Nema dostupne e-mail aplikacije. \nE-mail adresa je kopirana</string>
+    <string name="property_details">Detalji smještaja</string>
+    <string name="apartments">Apartmani</string>
+
+
+    <string name="default_number_property">+387 65 904 660</string>
+    <string name="default_email_property">info@jahorinaprestige.com</string>
+    <string name="default_website_property">https://jahorinaprestige.com/apartmani-na-jahorini/</string>
+    <string name="default_subject">Informacije o apartmanima</string>
+    <string name="property_description">Opis</string>
+</resources>

@@ -63,4 +63,11 @@
     <color name="skiCenterAltitudeIcon">#ffffff</color>
 
     <color name="colorSnackBarBackground">#1D1D1D</color>
+
+    <color name="colorHomePageNavigation">#FFFFFF</color>
+
+    <!-- Hotels -->
+    <color  name="propertyCardBackground">#373737</color>
+    <color  name="textColorPropertyList">#ffffff</color>
+    <color  name="colorIconProperty">#f5f7f8</color>
 </resources>

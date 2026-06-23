@@ -16,20 +16,13 @@
     <!-- Settings Language -->
     <string name="settings_dialog_language">Sprache auswählen</string>
     <string name="settings_dialog_language_english">Englisch</string>
-    <string name="settings_dialog_language_serbian">Serbisch</string>
+    <string name="settings_dialog_language_serbian">Bosnisch</string>
     <string name="settings_dialog_language_russian">Russisch</string>
     <string name="settings_dialog_language_german">Deutsch</string>
 
     <!-- Ski center names -->
-    <string name="kopaonik">Kopaonik</string>
-    <string name="stara_planina">Stara planina</string>
-    <string name="tornik">Tornik</string>
-    <string name="kopaonik_altitude">2017  m</string>
-    <string name="stara_planina_altitude">2169  m</string>
-    <string name="tornik_altitude">1496  m</string>
     <string name="meters">m</string>
     <string name="feet">ft</string>
-    <string name="ski_resorts">Skigebiete</string>
 
     <!-- Forecast -->
     <string name="temperature">Temperatur</string>
@@ -41,12 +34,11 @@
     <string name="firefighter">Feuerwehr</string>
     <string name="emergency">Notfalldienst</string>
     <string name="mountain_rescue">Bergdienst</string>
-    <string name="police_number">192</string>
-    <string name="firefighter_number">193</string>
-    <string name="emergency_number">194</string>
-    <string name="mountain_rescue_kopaonik_number">063 466 466</string>
-    <string name="mountain_rescue_stara_planina_number">063 466 461</string>
-    <string name="mountain_rescue_tornik_number">063 466 467</string>
+    <string name="police_number">122</string>
+    <string name="firefighter_number">123</string>
+    <string name="emergency_number">124</string>
+    <string name="mountain_rescue_jahorina_number">066 333 000</string>
+    <string name="more_details">Das Skizentrum Jahorina in Bosnien und Herzegowina ist eines der beliebtesten Wintersport-Ziele auf dem Balkan. Es liegt auf dem Berg Jahorina in der Nähe von Sarajevo und bietet eine Reihe von Skipisten für alle Schwierigkeitsgrade sowie moderne Lifte und Einrichtungen. Das Gebiet wurde während der Olympischen Winterspiele 1984 bekannt und bietet heute über 40 Kilometer Skipisten, Snowboardparks, Nachtskifahren und malerische Wanderwege für Winter- und Sommeraktivitäten. Jahorina bietet auch Unterkünfte, Restaurants und Wellnesszentren und ist daher ein beliebter Ort für Abenteuerlustige und Familien..</string>
 
     <!-- Ski Fragment Details Information -->
     <string name="lifts">AUFZÜGE</string>
@@ -68,7 +60,7 @@
     <string name="about_author">Autor</string>
     <string name="about_author_name">Neoapps</string>
     <string name="about_app_version">App Version</string>
-    <string name="about_app_version_number">1.0.0</string>
+    <string name="about_app_version_number">1.0.12</string>
     <string name="about_contact_email">Contact Email</string>
     <string name="about_email">info@neoapps.co</string>
     <string name="about_social">Social</string>
@@ -76,15 +68,14 @@
     <!-- Help center -->
     <string name="help_center_faq">FAQ</string>
     <string name="help">Hilfezentrum</string>
-    <string name="help_center_question1">Gibt es eine Möglichkeit zu sehen, ob eine bestimmte Skipiste in Betrieb ist?</string>
-    <string name="help_center_answer1">Ja da ist. Das könnt ihr unter der Liste der Skipisten sehen.</string>
-    <string name="help_center_question2">Gibt es eine Möglichkeit zum Nachtskifahren?</string>
-    <string name="help_center_answer2">Nachtskifahren ist nur im Skigebiet Kopaonik möglich.</string>
-    <string name="help_center_question3">Was soll ich bei einer Verletzung auf der Skipiste tun?</string>
-    <string name="help_center_answer3">Im Falle einer Verletzung ist die Kontaktaufnahme mit dem Bergrettungsdienst erforderlich.
-        Sie greifen vor Ort ein und transportieren Sie zur offiziellen medizinischen Einrichtung im Skigebiet. Die Kontaktnummer finden Sie im Abschnitt Nützliche Informationen.</string>
-    <string name="help_center_question4">Wie sind die Betriebszeiten des Skigebiets während der Skisaison?</string>
-    <string name="help_center_answer4">Die Betriebszeiten des Skigebiets variieren während der Skisaison. Zu Beginn der Saison ist sie von 9.00 bis 16.00 Uhr, in  der letzte Saison Teil geht sie bis 16.30 Uhr.</string>
+    <string name="help_center_question1">Welche Aktivitäten gibt es im Skizentrum Jahorina neben dem Skifahren?</string>
+    <string name="help_center_answer1">Im Skizentrum Jahorina können Besucher Aktivitäten wie Schneeschuhwandern, Rodeln und malerische Seilbahnfahrten genießen und nach einem Tag auf der Piste in nahe gelegenen Bars und Restaurants entspannen.</string>
+    <string name="help_center_question2">Gibt es die Möglichkeit zum Nachtskifahren?</string>
+    <string name="help_center_answer2">Ja, Nachtskifahren ist auf der Poljice-Piste im Skizentrum Jahorina von 18:00 bis 21:00 Uhr möglich und bietet ein einzigartiges Abenderlebnis auf einer gut beleuchteten Piste.</string>
+    <string name="help_center_question3">Was muss ich bei einer Verletzung auf der Skipiste tun?</string>
+    <string name="help_center_answer3">Im Falle einer Verletzung müssen Sie den Bergrettungsdienst kontaktieren. Dieser wird vor Ort eingreifen und Sie zur offiziellen medizinischen Einrichtung im Skigebiet bringen. Die Kontaktnummer finden Sie im Abschnitt „Nützliche Informationen“.</string>
+    <string name="help_center_question4">Welche Betriebszeiten gelten im Skigebiet während der Skisaison?</string>
+    <string name="help_center_answer4">Das Skigebiet ist während der Skisaison von 9:00 bis 16:00 Uhr zum Tagesskifahren geöffnet und bietet auch Nachtskifahren von 18:00 bis 21:00 Uhr an.</string>
 
     <!-- Empty List -->
     <string name="emptylist_title">Netzwerk getrennt</string>
@@ -93,25 +84,35 @@
     <!-- Force Update -->
     <string name="update_text">Update erforderlich.</string>
     <string name="update">Aktualisieren</string>
+    <string name="appId">1897615754106359</string>
+    <string name="clientToken">2e7cf9acfcf29d46e6b58fc8af0e84f0</string>
 
-    <!-- Kamera ski places -->
-    <string name="camera1">Viceroy Kopaonik Hotel</string>
-    <string name="camera2">Suvo Rudiste</string>
-    <string name="camera4">Srebrnac</string>
-    <string name="camera5">Restaurant Livello</string>
-    <string name="camera6">Malo Jezero</string>
-    <string name="camera7">Skituljko</string>
-    <string name="camera8">Crown Peaks</string>
-    <string name="camera9">Green ski bar &amp; restaurant</string>
-    <string name="camera10">Duboka</string>
+    <!-- No internet screen -->
+    <string name="no_internet_headline">Ooops!</string>
+    <string name="no_internet_text">Wir können keine Daten abrufen. Überprüfen Sie Ihre Internetverbindung.</string>
 
-    <string name="altitude1">1726 m</string>
-    <string name="altitude2">1978 m</string>
-    <string name="altitude4">1770 m</string>
-    <string name="altitude5">1912 m</string>
-    <string name="altitude6">1726 m</string>
-    <string name="altitude7">1794 m</string>
-    <string name="altitude8">1801 m</string>
-    <string name="altitude9">1890 m</string>
-    <string name="altitude10">1961 m</string>
+    <!-- Cameras -->
+    <string name="camera1">Kamera 1</string>
+    <string name="homepage_useful_info">Nützliche Infos</string>
+    <string name="homepage_weather">Wetter</string>
+    <string name="homepage_lifts">Lifte</string>
+    <string name="homepage_map_amp_cams"><![CDATA[Karte & Kameras]]></string>
+    <string name="homepage_browse_more_webcams">Weitere Webcams durchsuchen</string>
+    <string name="homepage_webcams">Webcams</string>
+    <string name="homepage_download_map_for_offline_usage">Karte für Offline-Nutzung herunterladen</string>
+    <string name="homepage_getting_around">herumkommen</string>
+    <string name="homepage_download_successful">Pistenplan erfolgreich heruntergeladen!</string>
+    <string name="homepage_download_failed">Pistenkarte konnte nicht heruntergeladen werden</string>
+    <string name="homepage_downloading">Herunterladen…</string>
+    <string name="homepage_useful_information">Nützliche Informationen</string>
+    <string name="homepage_useful_information_check">Weitere Informationen ansehen</string>
+    <string name="property_email_app_validation">Keine E-Mail-App verfügbar. \nE-Mail-Adresse wurde kopiert</string>
+    <string name="property_details">Unterkunftsdetails</string>
+    <string name="apartments">Apartments</string>
+
+    <string name="default_number_property">+387 65 904 660</string>
+    <string name="default_email_property">info@jahorinaprestige.com</string>
+    <string name="default_website_property">https://jahorinaprestige.com/apartmani-na-jahorini/</string>
+    <string name="default_subject">Apartments-Information</string>
+    <string name="property_description">Beschreibung</string>
 </resources>

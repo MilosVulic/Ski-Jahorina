@@ -1,0 +1,5 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#d95089ff" /> <!-- Semi-transparent blue (50% transparency) -->
+    <size android:width="40dp" android:height="40dp" /> <!-- Circle size -->
+    <corners android:radius="50dp" /> <!-- Makes it circular -->
+</shape>

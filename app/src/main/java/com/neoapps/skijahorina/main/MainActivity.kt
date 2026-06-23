@@ -2,6 +2,7 @@ package com.neoapps.skijahorina.main
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
@@ -22,6 +23,7 @@ import androidx.navigation.ui.navigateUp
 import com.google.android.gms.ads.MobileAds
 import com.google.android.play.core.appupdate.AppUpdateManager
 import com.google.android.play.core.appupdate.AppUpdateManagerFactory
+import com.google.android.play.core.appupdate.AppUpdateOptions
 import com.google.android.play.core.install.model.AppUpdateType
 import com.neoapps.skijahorina.NavigationGraphDirections
 import com.neoapps.skijahorina.R
@@ -40,7 +42,7 @@ class MainActivity : AppCompatActivity(), MenuProvider {
     }
 
     private val topLevelFragments = setOf(
-        R.id.firstFragment
+        R.id.skiCenterDetailsFragment
     )
 
     private val appCompatDelegate: AppCompatDelegate by lazy {
@@ -88,8 +90,8 @@ class MainActivity : AppCompatActivity(), MenuProvider {
     private fun startImmediateUpdate(appUpdateInfo: com.google.android.play.core.appupdate.AppUpdateInfo) {
         appUpdateManager.startUpdateFlowForResult(
             appUpdateInfo,
-            AppUpdateType.IMMEDIATE,
             this,
+            AppUpdateOptions.newBuilder(AppUpdateType.IMMEDIATE).build(),
             REQUEST_CODE_UPDATE
         )
     }
@@ -120,8 +122,13 @@ class MainActivity : AppCompatActivity(), MenuProvider {
         item.setOnMenuItemClickListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.action_settings -> {
-                    navController.navigate(NavigationGraphDirections.actionGlobalSettingsFragment())
-                    true
+                    val currentDestination = navController.currentDestination
+                    if (currentDestination?.id == R.id.settingsFragment) {
+                        false
+                    } else {
+                        navController.navigate(NavigationGraphDirections.actionGlobalSettingsFragment())
+                        true
+                    }
                 }
                 else -> false
             }
@@ -129,10 +136,18 @@ class MainActivity : AppCompatActivity(), MenuProvider {
     }
 
     override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
-        when (menuItem.itemId) {
-            R.id.action_settings -> navController.navigate(NavigationGraphDirections.actionGlobalSettingsFragment())
+        val currentDestination = navController.currentDestination
+        return when (menuItem.itemId) {
+            R.id.action_settings -> {
+                if (currentDestination?.id == R.id.settingsFragment) {
+                    false
+                } else {
+                    navController.navigate(NavigationGraphDirections.actionGlobalSettingsFragment())
+                    true
+                }
+            }
+            else -> false
         }
-        return false
     }
 
     override fun attachBaseContext(newBase: Context) {
@@ -148,8 +163,7 @@ class MainActivity : AppCompatActivity(), MenuProvider {
         val title1TextView = this.findViewById<TextView>(R.id.title1)
 
         if (title1TextView != null) {
-            title1TextView.visibility = View.VISIBLE
-            title1TextView.text = resources.getText(R.string.ski_resorts)
+            title1TextView.visibility = View.GONE
         }
     }
 
