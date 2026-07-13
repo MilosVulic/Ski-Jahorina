@@ -1,96 +1,133 @@
 package com.neoapps.skijahorina.features.skicenter.camera
 
 import android.annotation.SuppressLint
-import android.content.Context
-import android.net.ConnectivityManager
-import android.net.NetworkCapabilities
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.ProgressBar
 import android.widget.TextView
-import androidx.asynclayoutinflater.view.AsyncLayoutInflater
 import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.media3.ui.PlayerView
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.neoapps.skijahorina.R
+import com.neoapps.skijahorina.common.AppAnalytics
+import com.neoapps.skijahorina.common.FetchEmptyKind
+import com.neoapps.skijahorina.common.FetchEmptyState
+import com.neoapps.skijahorina.common.NetworkStatus
 import com.neoapps.skijahorina.databinding.FragmentAsyncCameraBinding
+import com.neoapps.skijahorina.databinding.LayoutUnableToFetchDataBinding
 import com.neoapps.skijahorina.main.MainActivity
-
 
 class CameraFragment : Fragment() {
 
     private var bindingProp: FragmentAsyncCameraBinding? = null
     private val binding get() = bindingProp!!
     private val viewModel: CameraViewModel by viewModels()
-    private lateinit var noInternetLayout: View
+    private var noInternetLayout: View? = null
+    private val videoPlayers = mutableListOf<WebcamVideoPlayer>()
 
-    @SuppressLint("InflateParams")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         bindingProp = FragmentAsyncCameraBinding.inflate(inflater, container, false)
-        val screen = inflater.inflate(R.layout.fragment_camera, container, false)
-
-        val progressBar = screen.findViewById<ProgressBar>(R.id.progressBar)
-        noInternetLayout = inflater.inflate(R.layout.layout_unable_to_fetch_data, container, false)
-
-
-        val asyncLayoutInflater = context?.let { AsyncLayoutInflater(it) }
-        asyncLayoutInflater?.inflate(R.layout.fragment_async_camera, null) { view, _, _ ->
-            (screen as? ViewGroup)?.addView(view)
-            bindingProp = FragmentAsyncCameraBinding.bind(view)
-            setUpFragmentName()
-            checkInternetConnection(progressBar)
-        }
-        return screen
+        setUpFragmentName()
+        checkInternetConnection()
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        AppAnalytics.logFeatureOpened(AppAnalytics.Feature.WEBCAMS)
 
         viewModel.cameraDataList.observe(viewLifecycleOwner) { cameraList ->
-            cameraList?.let { cameras ->
-                val container = binding.imageContainer
-                container.removeAllViews()
+            if (!isViewActive()) return@observe
+            releaseVideoPlayers()
 
-                for (camera in cameras) {
-                    val cardView = layoutInflater.inflate(R.layout.image_view_row, container, false) as CardView
+            val container = binding.imageContainer
+            container.removeAllViews()
 
-                    val textView = cardView.findViewById<TextView>(R.id.textView1)
-                    textView.text = camera.name
-
-                    val imageView = cardView.findViewById<ImageView>(R.id.thumbnail1)
-                    Glide.with(requireContext())
-                        .load(camera.url)
-                        .skipMemoryCache(true)
-                        .diskCacheStrategy(DiskCacheStrategy.NONE)
-                        .into(imageView)
-
-
-                    imageView.setOnClickListener {
-                        val action = CameraFragmentDirections.actionCameraFragmentToFullScreenImageFragment(camera.url)
-                        findNavController().navigate(action)
-                    }
-
-                    val layoutParams = cardView.layoutParams as ViewGroup.MarginLayoutParams
-                    cardView.radius = 28F
-                    layoutParams.setMargins(15, 15, 15, 15)
-
-                    container.addView(cardView)
-                }
+            for (camera in cameraList.orEmpty()) {
+                bindCameraRow(container, camera)
             }
         }
 
-        viewModel.fetchCameraDataFromFirestore()
+        if (NetworkStatus.isOnline(requireContext())) {
+            viewModel.fetchCameraDataFromFirestore()
+        }
+    }
+
+    private fun bindCameraRow(container: ViewGroup, camera: Camera) {
+        val cardView = layoutInflater.inflate(R.layout.image_view_row, container, false) as CardView
+        val title = cardView.findViewById<TextView>(R.id.textView1)
+        val thumbnail = cardView.findViewById<ImageView>(R.id.thumbnail1)
+        val playerView = cardView.findViewById<PlayerView>(R.id.playerView)
+        val playButton = cardView.findViewById<ImageView>(R.id.playButton)
+        val videoContainer = cardView.findViewById<ViewGroup>(R.id.videoContainer)
+
+        title.text = camera.name
+
+        val openFullScreen = {
+            val action = CameraFragmentDirections.actionCameraFragmentToFullScreenImageFragment(camera.url)
+            findNavController().navigate(action)
+        }
+
+        if (WebcamUrlHelper.isLikelyStream(camera.url)) {
+            playButton.visibility = View.VISIBLE
+            Glide.with(thumbnail)
+                .load(camera.url)
+                .centerCrop()
+                .into(thumbnail)
+
+            val player = WebcamVideoPlayer(
+                requireContext(),
+                playerView,
+                thumbnail,
+                playButton,
+                videoContainer
+            )
+            player.setup(camera.url)
+            playButton.setOnClickListener { player.toggle() }
+            videoContainer.setOnClickListener { openFullScreen() }
+            videoPlayers.add(player)
+        } else {
+            playButton.visibility = View.GONE
+            playerView.visibility = View.GONE
+            Glide.with(thumbnail)
+                .load(camera.url)
+                .centerCrop()
+                .into(thumbnail)
+            videoContainer.setOnClickListener { openFullScreen() }
+        }
+
+        val layoutParams = cardView.layoutParams as ViewGroup.MarginLayoutParams
+        cardView.radius = 28F
+        layoutParams.setMargins(15, 15, 15, 15)
+        container.addView(cardView)
+    }
+
+    override fun onDestroyView() {
+        releaseVideoPlayers()
+        noInternetLayout?.let { (binding.root as? ViewGroup)?.removeView(it) }
+        noInternetLayout = null
+        bindingProp = null
+        super.onDestroyView()
+    }
+
+    private fun releaseVideoPlayers() {
+        videoPlayers.forEach { it.release() }
+        videoPlayers.clear()
+    }
+
+    private fun isViewActive(): Boolean {
+        return bindingProp != null &&
+            viewLifecycleOwner.lifecycle.currentState.isAtLeast(Lifecycle.State.STARTED)
     }
 
     private fun setUpFragmentName() {
@@ -104,11 +141,16 @@ class CameraFragment : Fragment() {
     }
 
     @SuppressLint("ResourceType")
-    private fun checkInternetConnection(progressBar: ProgressBar) {
-        if (!isNetworkAvailable()) {
-            progressBar.visibility = View.GONE
+    private fun checkInternetConnection() {
+        removeOfflineLayout()
+        if (!NetworkStatus.isOnline(requireContext())) {
             binding.scrollView.visibility = View.GONE
 
+            val offlineLayout = layoutInflater.inflate(
+                R.layout.layout_unable_to_fetch_data,
+                binding.root as ViewGroup,
+                false
+            )
             val noInternetLayoutParams = ConstraintLayout.LayoutParams(
                 ConstraintLayout.LayoutParams.WRAP_CONTENT,
                 ConstraintLayout.LayoutParams.WRAP_CONTENT
@@ -120,27 +162,28 @@ class CameraFragment : Fragment() {
             noInternetLayoutParams.horizontalBias = 0.5f
             noInternetLayoutParams.verticalBias = 0.5f
 
-            (binding.root as? ViewGroup)?.addView(noInternetLayout, noInternetLayoutParams)
+            noInternetLayout = offlineLayout
+            (binding.root as? ViewGroup)?.addView(offlineLayout, noInternetLayoutParams)
 
+            FetchEmptyState.bind(
+                LayoutUnableToFetchDataBinding.bind(offlineLayout),
+                FetchEmptyKind.NO_INTERNET,
+                onRetry = {
+                    checkInternetConnection()
+                    if (NetworkStatus.isOnline(requireContext())) {
+                        viewModel.fetchCameraDataFromFirestore()
+                    }
+                }
+            )
         } else {
-            progressBar.visibility = View.VISIBLE
             binding.scrollView.visibility = View.VISIBLE
         }
     }
 
-    private fun isNetworkAvailable(): Boolean {
-        val connectivityManager =
-            context?.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-
-        val network = connectivityManager.activeNetwork
-        val capabilities = connectivityManager.getNetworkCapabilities(network)
-
-        return capabilities != null &&
-                (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) ||
-                        capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR))
-    }
-    override fun onDestroyView() {
-        super.onDestroyView()
-        bindingProp = null
+    private fun removeOfflineLayout() {
+        noInternetLayout?.let { layout ->
+            (binding.root as? ViewGroup)?.removeView(layout)
+            noInternetLayout = null
+        }
     }
 }

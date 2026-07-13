@@ -41,7 +41,7 @@ class FullScreenPropertyImageFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val adapter = ImagePagerAdapter(this, imageUrls)
+        val adapter = ImagePagerAdapter(imageUrls)
         binding.viewPager.adapter = adapter
         binding.viewPager.setCurrentItem(initialPosition, false)
     }
@@ -56,7 +56,8 @@ class FullScreenPropertyImageFragment : Fragment() {
     }
 
     override fun onDestroyView() {
-        super.onDestroyView()
+        binding.viewPager.adapter = null
         _binding = null
+        super.onDestroyView()
     }
 }

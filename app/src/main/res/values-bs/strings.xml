@@ -55,13 +55,19 @@
     <string name="lifts_lowercase">Liftovi</string>
     <string name="useful_information_lowercase">Info</string>
     <string name="weather_lowercase">Vremenska Prognoza</string>
+    <string name="weather_now_label">Trenutno</string>
+    <string name="weather_forecast_section">Prognoza</string>
+    <string name="weather_wind_label">Vjetar</string>
+    <string name="weather_snow_label">Dubina snijega</string>
 
     <!-- About -->
     <string name="about">O nama</string>
     <string name="about_author">Autor</string>
     <string name="about_author_name">Neoapps</string>
     <string name="about_app_version">App Version</string>
-    <string name="about_app_version_number">1.0.12</string>
+    <string name="video_unavailable">Web kamera nije dostupna</string>
+    <string name="retry">Pokušaj ponovo</string>
+    <string name="play_webcam">Pusti web kameru</string>
     <string name="about_contact_email">Kontakt Email</string>
     <string name="about_email">info@neoapps.co</string>
     <string name="about_social">Social</string>
@@ -93,6 +99,58 @@
     <!-- No internet screen -->
     <string name="no_internet_headline">Ooops!</string>
     <string name="no_internet_text">Nismo u mogućnosti preuzeti nikakve podatke, provjerite vašu internetsku vezu.</string>
+    <string name="empty_no_internet_headline">Nema veze</string>
+    <string name="empty_no_internet_text">Provjerite internetsku vezu i pokušajte ponovo.</string>
+    <string name="empty_stale_headline">Nije moguće osvježiti</string>
+    <string name="empty_stale_text">Nismo uspjeli učitati nove podatke. Pritisnite Pokušaj ponovo.</string>
+    <string name="empty_warming_headline">Priprema u toku</string>
+    <string name="empty_warming_text">Server se pokreće. Ovo obično traje nekoliko sekundi.</string>
+    <string name="search_lift_hint">Pretraži lift</string>
+    <string name="lift_filter_all">Svi</string>
+    <string name="lift_filter_open">Otvoreni</string>
+    <string name="lift_filter_closed">Zatvoreni</string>
+    <string name="lift_filter_on_hold">Na čekanju</string>
+    <string name="lift_status_open">Otvoren</string>
+    <string name="lift_status_closed">Zatvoren</string>
+    <string name="lift_status_on_hold">Na čekanju</string>
+    <string name="last_updated">Ažurirano %1$s</string>
+    <string name="hub_lifts_open">%1$d/%2$d otvoreno</string>
+    <string name="hub_temp_placeholder">—</string>
+    <string name="cd_map_and_cams">Mapa i kamere</string>
+    <string name="cd_lifts">Liftovi</string>
+    <string name="cd_weather">Vrijeme</string>
+    <string name="cd_apartments">Apartmani</string>
+    <string name="cd_ski_map">Ski karta</string>
+    <string name="cd_navigate_back">Nazad</string>
+    <string name="resort_name_jahorina">Jahorina</string>
+    <string name="resort_altitude_jahorina">1 916 m</string>
+    <string name="resort_status_open">Otvoreno</string>
+    <string name="resort_status_partial">Djelimično</string>
+    <string name="resort_status_closed">Zatvoreno</string>
+    <string name="resort_status_unknown">Nepoznato</string>
+    <string name="resort_data_unavailable">Nema podataka</string>
+    <string name="hub_quick_weather">Vrijeme</string>
+    <string name="hub_quick_webcams">Kamere</string>
+    <string name="hub_quick_map">Mapa</string>
+    <string name="hub_quick_emergency">Hitno</string>
+    <string name="hub_section_lifts">Liftovi danas</string>
+    <string name="hub_section_map">Ski mapa</string>
+    <string name="hub_section_webcams">Live kamere</string>
+    <string name="hub_section_stay">Smještaj i info</string>
+    <string name="hub_see_all">Vidi sve</string>
+    <string name="hub_temperature_label">Temp</string>
+    <string name="hub_snow_label">Snijeg</string>
+    <string name="hub_lifts_label">Liftovi</string>
+    <string name="hub_lifts_ratio">%1$d/%2$d</string>
+    <string name="hub_webcam_preview">Otvori kamere</string>
+    <string name="hub_apartments">Apartmani</string>
+    <string name="hub_useful_info">Korisne info</string>
+    <string name="hub_restaurants">Restorani</string>
+    <string name="list_summary_lifts">%1$d od %2$d liftova otvoreno</string>
+    <string name="useful_info_subtitle">Hitni kontakti</string>
+    <string name="useful_info_hint">Dodirnite kontakt da pozovete</string>
+    <string name="useful_info_about_title">O Jahorini</string>
+    <string name="useful_info_rescue_description">Gorska služba spašavanja za Jahorinu</string>
 
     <!-- Cameras -->
     <string name="camera1">Kamera 1</string>
@@ -102,15 +160,13 @@
     <string name="homepage_map_amp_cams"><![CDATA[Mapa i kamere]]></string>
     <string name="homepage_browse_more_webcams">Pregledajte više web kamera</string>
     <string name="homepage_webcams">Web kamere</string>
-    <string name="homepage_download_map_for_offline_usage">Preuzmite mapu za Offline upotrebu</string>
     <string name="homepage_getting_around">Kretanje po mapi</string>
-    <string name="homepage_download_successful">Ski karta je uspješno preuzeta!</string>
-    <string name="homepage_download_failed">Nije uspjelo preuzimanje ski karte</string>
-    <string name="homepage_downloading">Preuzimanje…</string>
     <string name="homepage_useful_information">Korisne informacije</string>
     <string name="homepage_useful_information_check">Provjerite više informacija</string>
     <string name="property_email_app_validation">Nema dostupne e-mail aplikacije. \nE-mail adresa je kopirana</string>
     <string name="property_details">Detalji smještaja</string>
+    <string name="read_more">Pročitaj više</string>
+    <string name="read_less">Prikaži manje</string>
     <string name="apartments">Apartmani</string>
 
 
@@ -119,4 +175,7 @@
     <string name="default_website_property">https://jahorinaprestige.com/apartmani-na-jahorini/</string>
     <string name="default_subject">Informacije o apartmanima</string>
     <string name="property_description">Opis</string>
+    <string name="phone">Telefon</string>
+    <string name="email">Email</string>
+    <string name="website">Web stranica</string>
 </resources>

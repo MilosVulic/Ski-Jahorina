@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.res.Resources
 import androidx.appcompat.app.AppCompatDelegate
 import com.neoapps.skijahorina.common.PreferenceProvider
+import com.neoapps.skijahorina.common.AppAnalytics
 import dev.b3nedikt.app_locale.AppLocale
 import dev.b3nedikt.reword.RewordInterceptor
 import dev.b3nedikt.viewpump.ViewPump
@@ -14,6 +15,8 @@ class MainApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
+
+        AppAnalytics.init(this)
 
         ViewPump.init(RewordInterceptor)
         AppLocale.supportedLocales = listOf(Locale("en"), Locale("bs"), Locale("ru") , Locale("de"))

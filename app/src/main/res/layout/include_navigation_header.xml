@@ -66,7 +66,7 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginEnd="20dp"
                         android:layout_marginBottom="10dp"
-                        android:contentDescription="@string/lifts"
+                        android:contentDescription="@string/cd_map_and_cams"
                         android:padding="0dp"
                         android:src="@drawable/ic_map"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -144,7 +144,7 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginEnd="20dp"
                         android:layout_marginBottom="10dp"
-                        android:contentDescription="@string/lifts"
+                        android:contentDescription="@string/cd_lifts"
                         android:padding="0dp"
                         android:src="@drawable/ic_slopes"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -222,7 +222,7 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginEnd="20dp"
                         android:layout_marginBottom="10dp"
-                        android:contentDescription="@string/lifts"
+                        android:contentDescription="@string/cd_weather"
                         android:padding="0dp"
                         android:src="@drawable/ic_partially_cloudy"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -301,7 +301,7 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginEnd="20dp"
                         android:layout_marginBottom="10dp"
-                        android:contentDescription="@string/lifts"
+                        android:contentDescription="@string/cd_apartments"
                         android:padding="0dp"
                         android:src="@drawable/ic_hotels"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -350,6 +350,21 @@
         app:layout_constraintTop_toBottomOf="@+id/cardViewLifts" />
 
     <TextView
+        android:id="@+id/liftsSummaryText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/colorTextAbout"
+        android:textSize="12sp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/cardViewLifts"
+        app:layout_constraintStart_toStartOf="@+id/cardViewLifts"
+        app:layout_constraintTop_toBottomOf="@+id/liftsText" />
+
+    <TextView
         android:id="@+id/weatherText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -360,6 +375,21 @@
         app:layout_constraintEnd_toEndOf="@+id/cardViewWeather"
         app:layout_constraintStart_toStartOf="@+id/cardViewWeather"
         app:layout_constraintTop_toBottomOf="@+id/cardViewWeather" />
+
+    <TextView
+        android:id="@+id/weatherSummaryText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/colorTextAbout"
+        android:textSize="12sp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/cardViewWeather"
+        app:layout_constraintStart_toStartOf="@+id/cardViewWeather"
+        app:layout_constraintTop_toBottomOf="@+id/weatherText" />
 
     <TextView
         android:id="@+id/useFullInfo"

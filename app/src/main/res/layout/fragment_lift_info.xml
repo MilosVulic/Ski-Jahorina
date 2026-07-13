@@ -2,7 +2,6 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBackground"
@@ -11,50 +10,143 @@
     <View
         android:id="@+id/frameLayoutTop"
         android:layout_width="0dp"
-        android:clickable="false"
         android:layout_height="?android:attr/actionBarSize"
-        android:layout_marginTop="0dp"
-        android:background="@drawable/gradient_drawable"
+        android:clickable="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/liftsHeaderCard"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="12dp"
+        app:cardBackgroundColor="@color/colorCardBackgroundSettings"
+        app:cardCornerRadius="14dp"
+        app:cardElevation="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayoutTop"
+        app:strokeColor="@color/chipOutlineColor"
+        app:strokeWidth="1dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="12dp"
+            android:paddingTop="8dp"
+            android:paddingEnd="12dp"
+            android:paddingBottom="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lastUpdatedText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:textColor="@color/alpineTextSecondary"
+                    android:textSize="12sp"
+                    android:visibility="gone"
+                    tools:text="Updated 23:54"
+                    tools:visibility="visible" />
+
+                <TextView
+                    android:id="@+id/listSummary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:textColor="@color/alpineTextPrimary"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:visibility="gone"
+                    tools:text="0 of 13 lifts open"
+                    tools:visibility="visible" />
+            </LinearLayout>
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:clipToPadding="false"
+                android:overScrollMode="never"
+                android:scrollbars="none">
+
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/liftFilterChipGroup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:chipSpacingHorizontal="6dp"
+                    app:selectionRequired="true"
+                    app:singleSelection="true">
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipFilterAll"
+                        style="@style/Widget.SkiJahorina.FilterChip.Compact"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:text="@string/lift_filter_all" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipFilterOpen"
+                        style="@style/Widget.SkiJahorina.FilterChip.Compact"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/lift_filter_open" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipFilterClosed"
+                        style="@style/Widget.SkiJahorina.FilterChip.Compact"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/lift_filter_closed" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipFilterOnHold"
+                        style="@style/Widget.SkiJahorina.FilterChip.Compact"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/lift_filter_on_hold" />
+                </com.google.android.material.chip.ChipGroup>
+            </HorizontalScrollView>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/lift_recycler_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="6dp"
+        android:clipToPadding="false"
+        android:paddingBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/liftsHeaderCard" />
 
     <include
         android:id="@+id/include_emptylist_placeholder"
         layout="@layout/include_empty_list_placeholder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayoutTop" />
+        app:layout_constraintTop_toBottomOf="@+id/liftsHeaderCard" />
 
     <include
-        android:id="@+id/includedHeader"
-        layout="@layout/include_navigation_header"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayoutTop" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/lifts_recycler_view"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="20dp"
-        android:clipToPadding="false"
-        android:fadingEdgeLength="15dp"
-        android:overScrollMode="never"
-        android:requiresFadingEdge="vertical"
-        android:scrollbars="none"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/includedHeader" />
-
-    <include
-        android:id="@+id/include_weather_unavailable"
+        android:id="@+id/include_unable_to_fetch_data"
         layout="@layout/layout_unable_to_fetch_data"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -62,6 +154,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/liftsHeaderCard" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

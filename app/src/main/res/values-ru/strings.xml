@@ -55,13 +55,19 @@
     <string name="slopes_lowercase">Слоны</string>
     <string name="useful_information_lowercase">Инфо</string>
     <string name="weather_lowercase">Погода</string>
+    <string name="weather_now_label">Сейчас</string>
+    <string name="weather_forecast_section">Прогноз</string>
+    <string name="weather_wind_label">Ветер</string>
+    <string name="weather_snow_label">Глубина снега</string>
 
     <!-- About -->
     <string name="about">О нас</string>
     <string name="about_author">Автор</string>
     <string name="about_author_name">Neoapps</string>
     <string name="about_app_version">Версия приложения</string>
-    <string name="about_app_version_number">1.0.12</string>
+    <string name="video_unavailable">Веб-камера недоступна</string>
+    <string name="retry">Повторить</string>
+    <string name="play_webcam">Воспроизвести веб-камеру</string>
     <string name="about_contact_email">Контактный email</string>
     <string name="about_email">info@neoapps.co</string>
     <string name="about_social">Социальные сети</string>
@@ -91,6 +97,58 @@
     <!-- No internet screen -->
     <string name="no_internet_headline">Упс!</string>
     <string name="no_internet_text">Мы не можем получить данные, проверьте ваше интернет-соединение..</string>
+    <string name="empty_no_internet_headline">Нет соединения</string>
+    <string name="empty_no_internet_text">Проверьте интернет-соединение и попробуйте снова.</string>
+    <string name="empty_stale_headline">Не удалось обновить</string>
+    <string name="empty_stale_text">Не удалось загрузить свежие данные. Нажмите Повторить.</string>
+    <string name="empty_warming_headline">Подготовка</string>
+    <string name="empty_warming_text">Сервер запускается. Обычно это занимает несколько секунд.</string>
+    <string name="search_lift_hint">Поиск подъёмника</string>
+    <string name="lift_filter_all">Все</string>
+    <string name="lift_filter_open">Открыты</string>
+    <string name="lift_filter_closed">Закрыты</string>
+    <string name="lift_filter_on_hold">Ожидание</string>
+    <string name="lift_status_open">Открыт</string>
+    <string name="lift_status_closed">Закрыт</string>
+    <string name="lift_status_on_hold">Ожидание</string>
+    <string name="last_updated">Обновлено %1$s</string>
+    <string name="hub_lifts_open">%1$d/%2$d открыто</string>
+    <string name="hub_temp_placeholder">—</string>
+    <string name="cd_map_and_cams">Карта и камеры</string>
+    <string name="cd_lifts">Лифты</string>
+    <string name="cd_weather">Погода</string>
+    <string name="cd_apartments">Апартаменты</string>
+    <string name="cd_ski_map">Карта трасс</string>
+    <string name="cd_navigate_back">Назад</string>
+    <string name="resort_name_jahorina">Яхорина</string>
+    <string name="resort_altitude_jahorina">1 916 м</string>
+    <string name="resort_status_open">Открыто</string>
+    <string name="resort_status_partial">Частично</string>
+    <string name="resort_status_closed">Закрыто</string>
+    <string name="resort_status_unknown">Неизвестно</string>
+    <string name="resort_data_unavailable">Пока нет данных</string>
+    <string name="hub_quick_weather">Погода</string>
+    <string name="hub_quick_webcams">Камеры</string>
+    <string name="hub_quick_map">Карта</string>
+    <string name="hub_quick_emergency">Экстренно</string>
+    <string name="hub_section_lifts">Подъёмники сегодня</string>
+    <string name="hub_section_map">Карта трасс</string>
+    <string name="hub_section_webcams">Онлайн-камеры</string>
+    <string name="hub_section_stay">Жильё и инфо</string>
+    <string name="hub_see_all">Все</string>
+    <string name="hub_temperature_label">Темп</string>
+    <string name="hub_snow_label">Снег</string>
+    <string name="hub_lifts_label">Лифты</string>
+    <string name="hub_lifts_ratio">%1$d/%2$d</string>
+    <string name="hub_webcam_preview">Открыть камеры</string>
+    <string name="hub_apartments">Апартаменты</string>
+    <string name="hub_useful_info">Полезная информация</string>
+    <string name="hub_restaurants">Рестораны</string>
+    <string name="list_summary_lifts">%1$d из %2$d подъёмников открыто</string>
+    <string name="useful_info_subtitle">Экстренные контакты</string>
+    <string name="useful_info_hint">Нажмите на контакт, чтобы позвонить</string>
+    <string name="useful_info_about_title">О Яхорине</string>
+    <string name="useful_info_rescue_description">Горноспасательная служба Яхорины</string>
 
     <!-- Cameras -->
     <string name="camera1">Камера 1</string>
@@ -100,15 +158,13 @@
     <string name="homepage_map_amp_cams"><![CDATA[Карта и камеры]]></string>
     <string name="homepage_browse_more_webcams">Просмотреть другие веб-камеры</string>
     <string name="homepage_webcams">Веб-камеры</string>
-    <string name="homepage_download_map_for_offline_usage">Загрузить карту для использования офлайн</string>
     <string name="homepage_getting_around">Обойти</string>
-    <string name="homepage_download_successful">Карта горнолыжных трасс успешно загружена!</string>
-    <string name="homepage_download_failed">Не удалось загрузить карту горнолыжных трасс</string>
-    <string name="homepage_downloading">Загрузка…</string>
     <string name="homepage_useful_information">Полезная информация</string>
     <string name="homepage_useful_information_check">Проверьте дополнительную информацию</string>
     <string name="property_email_app_validation">Нет доступного почтового приложения. \nАдрес электронной почты скопирован</string>
     <string name="property_details">Детали проживания</string>
+    <string name="read_more">Читать далее</string>
+    <string name="read_less">Свернуть</string>
     <string name="apartments">Апартаменты</string>
 
     <string name="default_number_property">+387 65 904 660</string>
@@ -116,4 +172,7 @@
     <string name="default_website_property">https://jahorinaprestige.com/apartmani-na-jahorini/</string>
     <string name="default_subject">Информация об апартаментах</string>
     <string name="property_description">Описание</string>
+    <string name="phone">Телефон</string>
+    <string name="email">Email</string>
+    <string name="website">Сайт</string>
 </resources>

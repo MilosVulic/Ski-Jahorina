@@ -1,102 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="6dp"
+    android:layout_marginEnd="16dp"
+    android:layout_marginBottom="6dp"
+    app:cardBackgroundColor="@color/colorCardBackgroundSettings"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="1dp"
+    app:rippleColor="@color/alpineRipple"
+    app:strokeColor="@color/chipOutlineColor"
+    app:strokeWidth="1dp">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/card_view"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginStart="7dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="7dp"
-        android:layout_marginBottom="5dp"
-        android:theme="@style/AppTheme.ApplicationRipple"
-        app:cardBackgroundColor="@color/colorCardBackgroundSettings"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        card_view:cardCornerRadius="10dp"
-        card_view:cardElevation="3dp">
+        android:padding="14dp">
 
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
+        <FrameLayout
+            android:id="@+id/liftIconContainer"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
                 android:id="@+id/imageViewIcon"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:src="@color/colorBlackWhite"
-                android:scaleType="centerCrop"
-                android:padding="0dp"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:layout_gravity="center"
-                app:tint="@color/colorBlackWhite"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:contentDescription="@null"
+                android:scaleType="fitCenter"
+                tools:src="@drawable/ic_gondola" />
+        </FrameLayout>
 
-            <TextView
-                android:id="@+id/textViewRowTitle"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginStart="35dp"
-                android:layout_marginEnd="20dp"
-                android:gravity="start|center_vertical"
-                android:text="TextView"
-                android:textColor="@color/textColorSettings"
-                android:textStyle="bold"
-                android:maxLines="2"
-                android:ellipsize="end"
-                app:layout_constraintBottom_toTopOf="@+id/textViewRowWorkingHours"
-                app:layout_constraintEnd_toStartOf="@+id/workingIndicator"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/imageViewIcon"
-                app:layout_constraintTop_toTopOf="@+id/imageViewIcon" />
+        <TextView
+            android:id="@+id/textViewRowTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_marginEnd="8dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textColor="@color/alpineTextPrimary"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/statusLabel"
+            app:layout_constraintStart_toEndOf="@+id/liftIconContainer"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Poljice gondola" />
 
-            <TextView
-                android:id="@+id/textViewRowWorkingHours"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:gravity="start|center_vertical"
-                android:text="TextView"
-                android:textColor="@color/textColorSettings"
-                android:maxLines="2"
-                android:ellipsize="end"
-                app:layout_constraintBottom_toBottomOf="@+id/imageViewIcon"
-                app:layout_constraintEnd_toEndOf="@+id/textViewRowTitle"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/textViewRowTitle"
-                app:layout_constraintTop_toBottomOf="@+id/textViewRowTitle" />
+        <TextView
+            android:id="@+id/textViewRowType"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="8dp"
+            android:textColor="@color/alpineTextSecondary"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toStartOf="@+id/statusLabel"
+            app:layout_constraintStart_toEndOf="@+id/liftIconContainer"
+            app:layout_constraintTop_toBottomOf="@+id/textViewRowTitle"
+            tools:text="Gondola" />
 
+        <TextView
+            android:id="@+id/textViewRowWorkingHours"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="8dp"
+            android:textColor="@color/homeCardMetaColor"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/statusLabel"
+            app:layout_constraintStart_toEndOf="@+id/liftIconContainer"
+            app:layout_constraintTop_toBottomOf="@+id/textViewRowType"
+            tools:text="09:00 - 16:00" />
 
-            <ImageView
-                android:id="@+id/workingIndicator"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@drawable/ic_cancel"
-                android:layout_marginEnd="15dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toEndOf="@+id/textViewRowTitle"
-                app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/statusLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="10dp"
+            android:paddingTop="4dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="4dp"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Open" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView
+            android:id="@+id/workingIndicator"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    </androidx.cardview.widget.CardView>
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-
+</com.google.android.material.card.MaterialCardView>

@@ -1,185 +1,261 @@
 package com.neoapps.skijahorina.features.skicenter.weather
 
-import android.content.Context
-import android.net.ConnectivityManager
-import android.net.Network
-import android.net.NetworkCapabilities
+
+
 import android.os.Bundle
-import android.util.Log
+
 import android.view.LayoutInflater
+
 import android.view.View
+
 import android.view.ViewGroup
+
 import android.widget.TextView
+
 import androidx.appcompat.widget.Toolbar
+
 import androidx.fragment.app.Fragment
+
+import androidx.fragment.app.viewModels
+
 import androidx.recyclerview.widget.LinearLayoutManager
+
 import com.neoapps.skijahorina.R
+
+import com.neoapps.skijahorina.common.CacheTimestampFormatter
+
+import com.neoapps.skijahorina.common.FetchEmptyState
+
+import com.neoapps.skijahorina.common.AppAnalytics
+
 import com.neoapps.skijahorina.common.IconWeatherSetter
-import com.neoapps.skijahorina.common.RetrofitClient
+
+import com.neoapps.skijahorina.common.PreferenceProvider
+
+import com.neoapps.skijahorina.common.SnowDepthFormatter
+
 import com.neoapps.skijahorina.databinding.FragmentWeatherInfoBinding
+
 import com.neoapps.skijahorina.databinding.LayoutUnableToFetchDataBinding
+
+import com.neoapps.skijahorina.features.skicenter.JahorinaWeatherData
+
 import com.neoapps.skijahorina.main.MainActivity
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import java.time.Instant
-import java.time.ZoneId
-import java.time.format.DateTimeFormatter
-import kotlin.math.roundToInt
+
 
 
 class WeatherFragment : Fragment() {
 
+
+
     private var bindingProp: FragmentWeatherInfoBinding? = null
+
     private val binding get() = bindingProp!!
+
     private var bindingPropEmptyState: LayoutUnableToFetchDataBinding? = null
+
     private val bindingEmptyState get() = bindingPropEmptyState!!
 
+
+
+    private val viewModel: WeatherViewModel by viewModels()
+
+    private var forecastAdapter: ForecastAdapter? = null
+
+
+
     override fun onCreateView(
+
         inflater: LayoutInflater, container: ViewGroup?,
+
         savedInstanceState: Bundle?
+
     ): View {
+
         bindingProp = FragmentWeatherInfoBinding.inflate(inflater, container, false)
+
         bindingPropEmptyState = bindingProp?.includeWeatherUnavailable
+
         if (bindingProp == null || bindingPropEmptyState == null) {
+
             return inflater.inflate(R.layout.fragment_weather_info, container, false)
+
         }
+
         setUpFragmentName()
 
+        binding.forecastRecyclerView.layoutManager = LinearLayoutManager(context)
 
-        if (!isNetworkAvailable(requireContext())) {
-            bindingEmptyState.noInternet.visibility = View.VISIBLE
-            binding.cardViewSnow.visibility = View.GONE
-            binding.cardViewWind.visibility = View.GONE
-            binding.cardViewTemperature.visibility = View.GONE
-        } else {
-            bindingEmptyState.noInternet.visibility = View.GONE
-            binding.cardViewSnow.visibility = View.VISIBLE
-            binding.cardViewWind.visibility = View.VISIBLE
-            binding.cardViewTemperature.visibility = View.VISIBLE
-            binding.forecastRecyclerView.layoutManager = LinearLayoutManager(context)
-            val weatherService = RetrofitClient.retrofit.create(WeatherService::class.java)
-            val callWeather = weatherService.getWeatherByCoordinates(43.738, 18.563, "metric","b0c38f507b5aaf41845adad0f759e199")
+        forecastAdapter = ForecastAdapter().also { adapter ->
 
-            callWeather.enqueue(object : Callback<WeatherDataForecast> {
-                override fun onResponse(call: Call<WeatherDataForecast>, response: Response<WeatherDataForecast>) {
-                    if (response.isSuccessful) {
-                        bindingEmptyState.noInternet.visibility = View.GONE
-                        binding.cardViewSnow.visibility = View.VISIBLE
-                        binding.cardViewWind.visibility = View.VISIBLE
-                        binding.cardViewTemperature.visibility = View.VISIBLE
-                        val weatherData = response.body()
-                        binding.snowValue.text = (weatherData?.snow?.`1h`?.toString() ?: "0") + " cm"
-                        binding.windValue.text = weatherData?.wind?.speed?.roundToInt().toString() + " m/s"
-                        binding.temperatureValue.text = weatherData?.main?.temp?.roundToInt().toString()  + "°"
-                        if (weatherData != null) {
-                            IconWeatherSetter.displayImage(weatherData.weather[0].id.toString(), weatherData.weather[0].icon, binding.temperatureIcon)
-                        }
-                        Log.d("WeatherFrag", "Response: $weatherData")
-                    } else {
-                        bindingEmptyState.noInternet.visibility = View.VISIBLE
-                        binding.cardViewSnow.visibility = View.GONE
-                        binding.cardViewWind.visibility = View.GONE
-                        binding.cardViewTemperature.visibility = View.GONE
-                        Log.e("WeatherFrag", "Request failed with status: ${response.code()}")
-                    }
-                }
+            binding.forecastRecyclerView.adapter = adapter
 
-                override fun onFailure(call: Call<WeatherDataForecast>, t: Throwable) {
-                    bindingEmptyState.noInternet.visibility = View.VISIBLE
-                    binding.cardViewSnow.visibility = View.GONE
-                    binding.cardViewWind.visibility = View.GONE
-                    binding.cardViewTemperature.visibility = View.GONE
-                    Log.e("WeatherFrag", "Request failed: ${t.message}")
-                }
-            })
-
-
-            val callForecast = weatherService.getForecastByCoordinates(43.738, 18.563, "metric","b0c38f507b5aaf41845adad0f759e199")
-
-            callForecast.enqueue(object : Callback<ForecastData> {
-                override fun onResponse(call: Call<ForecastData>, response: Response<ForecastData>) {
-                    if (response.isSuccessful) {
-                        binding.forecastRecyclerView.visibility = View.VISIBLE
-                        binding.forecastRecyclerView.layoutManager = LinearLayoutManager(context)
-
-                        val forecastData = response.body()?.list ?: emptyList()
-
-                        val dateFormatter = DateTimeFormatter.ofPattern("dd.MM.yyyy.")
-                        val groupedByDate = forecastData.groupBy { data ->
-                            Instant.ofEpochSecond(data.dt)
-                                .atZone(ZoneId.of("UTC"))
-                                .format(dateFormatter)
-                        }
-
-                        val filteredForecast = groupedByDate.map { (_, entries) ->
-                            val minTemp = entries.minOf { it.main.temp_min }
-                            val maxTemp = entries.maxOf { it.main.temp_max }
-                            val maxWindSpeed = entries.maxOf { it.wind.speed }
-
-                            val representativeEntry = entries.first().copy(
-                                main = entries.first().main.copy(
-                                    temp_min = minTemp,
-                                    temp_max = maxTemp
-                                ),
-                                wind = entries.first().wind.copy(
-                                    speed = maxWindSpeed
-                                )
-                            )
-
-                            representativeEntry
-                        }
-
-                        if (filteredForecast.size == 6){
-                            val listAdapter = ForecastAdapter(filteredForecast.subList(1, 6))
-                            binding.forecastRecyclerView.adapter = listAdapter
-                        } else {
-                            val listAdapter = ForecastAdapter(filteredForecast)
-                            binding.forecastRecyclerView.adapter = listAdapter
-                        }
-
-                        Log.d("WeatherFrag", "Response: $forecastData")
-                    } else {
-                        binding.forecastRecyclerView.visibility = View.GONE
-                        Log.e("WeatherFrag", "Request failed with status: ${response.code()}")
-                    }
-                }
-
-                override fun onFailure(call: Call<ForecastData>, t: Throwable) {
-                    binding.forecastRecyclerView.visibility = View.GONE
-                    Log.e("WeatherFrag", "Request failed: ${t.message}")
-                }
-            })
         }
 
         return binding.root
+
     }
+
+
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+        super.onViewCreated(view, savedInstanceState)
+
+        AppAnalytics.logFeatureOpened(AppAnalytics.Feature.WEATHER)
+
+        viewModel.weatherData.observe(viewLifecycleOwner) { data ->
+
+            bindWeatherUi(data)
+
+        }
+
+        viewModel.loadWeather()
+
+    }
+
+
+
+    private fun bindWeatherUi(data: JahorinaWeatherData) {
+
+        if (bindingProp == null) return
+
+
+
+        val hasData = data.hasData
+
+        if (hasData) {
+
+            FetchEmptyState.hide(bindingEmptyState)
+
+            binding.weatherHeroCard.visibility = View.VISIBLE
+
+            binding.forecastCard.visibility = View.VISIBLE
+
+
+
+            bindLastUpdated()
+
+
+
+            val snowDisplay = SnowDepthFormatter.formatForDisplay(data.snow)
+
+            binding.snowValue.text = snowDisplay
+
+            binding.snowMetricTile.visibility =
+
+                if (snowDisplay == "—") View.GONE else View.VISIBLE
+
+
+
+            binding.windValue.text = data.wind.ifBlank { "—" }
+
+            binding.temperatureValue.text = data.temperature.ifBlank { "—" }
+
+            if (data.weatherImage.isNotBlank()) {
+
+                IconWeatherSetter.displayImage(data.weatherImage, binding.temperatureIcon)
+
+            }
+
+            forecastAdapter?.submitList(data.forecast)
+
+        } else {
+
+            binding.includeLastUpdated.root.visibility = View.GONE
+
+            binding.weatherHeroCard.visibility = View.GONE
+
+            binding.forecastCard.visibility = View.GONE
+
+            FetchEmptyState.bind(
+
+                bindingEmptyState,
+
+                FetchEmptyState.resolve(requireContext(), hasCachedData = false),
+
+                onRetry = { viewModel.loadWeather() }
+
+            )
+
+        }
+
+    }
+
+
+
+    private fun bindLastUpdated() {
+
+        val formatted = CacheTimestampFormatter.bestTimestamp(
+
+            PreferenceProvider.resortApiUpdatedAt,
+
+            PreferenceProvider.lastWeatherFetchTime
+
+        )
+
+        if (formatted != null) {
+
+            binding.includeLastUpdated.root.visibility = View.VISIBLE
+
+            binding.includeLastUpdated.lastUpdatedText.text =
+
+                getString(R.string.last_updated, formatted)
+
+        } else {
+
+            binding.includeLastUpdated.root.visibility = View.GONE
+
+        }
+
+    }
+
+
 
     private fun setUpFragmentName() {
+
         (activity as MainActivity).supportActionBar?.title = ""
+
         val title1TextView = (activity as MainActivity).findViewById<TextView>(R.id.title1)
+
         val toolbar = (activity as MainActivity).findViewById<Toolbar>(R.id.toolbar)
 
+
+
         if (title1TextView != null) {
+
             title1TextView.visibility = View.VISIBLE
+
             title1TextView.text = resources.getText(R.string.weather_lowercase)
+
         }
+
+
 
         if (toolbar != null) {
-            toolbar.navigationContentDescription = ""
+
+            toolbar.navigationContentDescription = getString(R.string.cd_navigate_back)
+
         }
+
     }
 
-    private fun isNetworkAvailable(context: Context): Boolean {
-        val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-        val network: Network? = connectivityManager.activeNetwork
-        val capabilities: NetworkCapabilities? = connectivityManager.getNetworkCapabilities(network)
-        return capabilities != null && capabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
-    }
+
 
     override fun onDestroyView() {
+
         super.onDestroyView()
+
+        bindingProp?.forecastRecyclerView?.adapter = null
+
+        forecastAdapter = null
+
         bindingProp = null
+
         bindingPropEmptyState = null
+
     }
+
 }
+
+

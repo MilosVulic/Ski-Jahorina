@@ -6,37 +6,44 @@ import com.neoapps.skijahorina.R
 
 object IconWorkingIndicatorSetter {
 
-    fun getBooleanWorkability(inFunction: String) : Boolean {
-        return when (inFunction) {
-            "/img/resorts/lift-status-close.svg" -> false
-            "/img/resorts/lift-status-closed.svg" -> false
-            "/img/resorts/lift-status-open.svg" -> true
-            "/img/resorts/lift-status-opened.svg" -> true
-            else -> {false}
-        }
-    }
+    fun getBooleanWorkability(inFunction: String): Boolean =
+        liftStatusFrom(inFunction) == LiftStatus.OPEN
 
     fun displayImage(inFunction: String, view: ImageView) {
-        when (inFunction) {
-            "/img/resorts/lift-status-close.svg", "/img/resorts/lift-status-closed.svg", "close", "Close", "closed", "Closed" -> view.setImageResource(R.drawable.ic_cancel)
-            "/img/resorts/lift-status-open.svg", "/img/resorts/lift-status-opened.svg", "open", "Open", "opened", "Opened" -> view.setImageResource(R.drawable.ic_check)
-            "unknown", "Unknown" -> view.setImageResource(R.drawable.ic_status_on_hold)
-            else -> view.setImageResource(R.drawable.ic_cancel)
+        when (liftStatusFrom(inFunction)) {
+            LiftStatus.OPEN -> view.setImageResource(R.drawable.ic_check)
+            LiftStatus.ON_HOLD -> view.setImageResource(R.drawable.ic_status_on_hold)
+            LiftStatus.CLOSED -> view.setImageResource(R.drawable.ic_cancel)
         }
+        view.contentDescription = statusContentDescription(view.context, inFunction)
     }
 
     fun setBackground(inFunction: String, view: ImageView) {
-        when (inFunction) {
-            "/img/resorts/lift-status-close.svg", "/img/resorts/lift-status-closed.svg", "close", "Close", "closed", "Closed" -> {
+        when (liftStatusFrom(inFunction)) {
+            LiftStatus.CLOSED ->
                 view.setColorFilter(ContextCompat.getColor(view.context, R.color.cancelColor))
-            }
-            "/img/resorts/lift-status-open.svg", "/img/resorts/lift-status-opened.svg", "open", "Open", "opened", "Opened" -> {
+            LiftStatus.OPEN ->
                 view.setColorFilter(ContextCompat.getColor(view.context, R.color.acceptColor))
-            }
-            "unknown", "Unknown" -> {
-                return
-            }
-            else -> view.setColorFilter(ContextCompat.getColor(view.context, R.color.cancelColor))
+            LiftStatus.ON_HOLD -> view.clearColorFilter()
+        }
+    }
+
+    fun statusContentDescription(context: android.content.Context, inFunction: String): String {
+        val res = when (liftStatusFrom(inFunction)) {
+            LiftStatus.OPEN -> R.string.lift_status_open
+            LiftStatus.CLOSED -> R.string.lift_status_closed
+            LiftStatus.ON_HOLD -> R.string.lift_status_on_hold
+        }
+        return context.getString(res)
+    }
+
+    private fun liftStatusFrom(inFunction: String): LiftStatus {
+        val status = inFunction.trim()
+        return when {
+            status.equals("unknown", ignoreCase = true) -> LiftStatus.ON_HOLD
+            isOpenStatus(status) -> LiftStatus.OPEN
+            isClosedStatus(status) -> LiftStatus.CLOSED
+            else -> LiftStatus.CLOSED
         }
     }
 }

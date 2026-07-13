@@ -1,0 +1,26 @@
+---
+description: Remote ads config for Ski Jahorina - AdsScreens wiring and DB-only toggles
+globs: **/ads/**,**/SkiCenterDetailsFragment.kt
+alwaysApply: false
+---
+
+# Remote ads (ski_jahorina)
+
+## How it works
+1. App fetches `GET /v1/ads-config/ski_jahorina` (~every 3 days) -> `AdsPolicyStore`
+2. Hub navigation increments `AdClickStore` and calls `shouldShowAd(screenId, clicks)`
+3. If enabled and `clicks % everyN == 0`, show interstitial then navigate
+
+## Wired screen_ids
+`weather`, `lifts`, `cameras`, `map`, `useful_info`, `apartments`
+
+## Ops (no app release needed)
+- Toggle/frequency: UPDATE `ad_screen_policies` for existing wired `screen_id`
+- Cache TTL ~3 days (`AdsConfigFetcher.CACHE_TTL_MS`)
+
+## App release needed
+- Adding a **new** `screen_id` requires: constant in `AdsScreens`, default in `AdsPolicyStore`, and a call site that checks it
+
+## Do not
+- Expect a DB-only row to monetize a screen with no `shouldShowAd` check
+- Change backend schema for simple enable/frequency edits

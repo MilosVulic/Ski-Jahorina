@@ -1,21 +1,72 @@
-# Add project specific ProGuard rules here.
-# You can control the set of applied configuration files using the
-# proguardFiles setting in build.gradle.
-#
-# For more details, see
-#   http://developer.android.com/guide/developing/tools/proguard.html
+# Crashlytics-readable stack traces
+-keepattributes SourceFile,LineNumberTable
+-renamesourcefileattribute SourceFile
+-keepattributes Signature
+-keepattributes *Annotation*
+-keepattributes EnclosingMethod
+-keepattributes InnerClasses
 
-# If your project uses WebView with JS, uncomment the following
-# and specify the fully qualified class name to the JavaScript interface
-# class:
-#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
-#   public *;
-#}
+# Kotlin / coroutines
+-keep class kotlin.Metadata { *; }
+-dontwarn kotlin.**
+-dontwarn kotlinx.coroutines.**
 
-# Uncomment this to preserve the line number information for
-# debugging stack traces.
-#-keepattributes SourceFile,LineNumberTable
+# Parcelize / Parcelable
+-keep class * implements android.os.Parcelable {
+    public static final ** CREATOR;
+}
 
-# If you keep the line number information, uncomment this to
-# hide the original source file name.
-#-renamesourcefileattribute SourceFile
+# Firestore & Firebase model classes
+-keep enum com.neoapps.skijahorina.** { *; }
+-keep class com.neoapps.skijahorina.features.skicenter.properties.Property { *; }
+-keep class com.neoapps.skijahorina.features.skicenter.camera.Camera { *; }
+-keep class com.neoapps.skijahorina.common.PreferenceProvider { *; }
+-keep class com.neoapps.skijahorina.common.AppAnalytics { *; }
+
+-keep class com.google.firebase.** { *; }
+-keep class com.google.android.gms.** { *; }
+-dontwarn com.google.firebase.**
+-dontwarn com.google.android.gms.**
+
+# Retrofit
+-keepclassmembers,allowshrinking,allowobfuscation interface * {
+    @retrofit2.http.* <methods>;
+}
+-dontwarn okhttp3.**
+-dontwarn okio.**
+-dontwarn retrofit2.**
+
+# Gson (Retrofit converter)
+-keep class com.google.gson.** { *; }
+-keep class com.neoapps.skijahorina.features.skicenter.data.api.** { *; }
+-keep class * extends com.google.gson.TypeAdapter
+-keep class * implements com.google.gson.TypeAdapterFactory
+-keep class * implements com.google.gson.JsonSerializer
+-keep class * implements com.google.gson.JsonDeserializer
+
+# Glide
+-keep public class * implements com.bumptech.glide.module.GlideModule
+-keep class * extends com.bumptech.glide.module.AppGlideModule { <init>(...); }
+-keep public enum com.bumptech.glide.load.ImageHeaderParser$** {
+    **[] $VALUES;
+    public *;
+}
+
+# Google Ads
+-keep class com.google.android.gms.ads.** { *; }
+
+# ViewBinding
+-keep class com.neoapps.skijahorina.databinding.** { *; }
+
+# Navigation Safe Args
+-keepnames class androidx.navigation.fragment.NavArgsLazy
+
+# Jsoup
+-dontwarn org.jsoup.**
+
+# Media3 / ExoPlayer
+-keep class androidx.media3.** { *; }
+-dontwarn androidx.media3.**
+
+# BuildConfig
+-keep class com.neoapps.skijahorina.BuildConfig { *; }

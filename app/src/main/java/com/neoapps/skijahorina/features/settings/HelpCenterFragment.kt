@@ -11,6 +11,7 @@ import androidx.appcompat.widget.Toolbar
 import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
 import com.neoapps.skijahorina.R
+import com.neoapps.skijahorina.common.AppAnalytics
 import com.neoapps.skijahorina.databinding.FragmentHelpCenterBinding
 import com.neoapps.skijahorina.main.MainActivity
 
@@ -29,6 +30,7 @@ class HelpCenterFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         bindingProp = FragmentHelpCenterBinding.inflate(inflater, container, false)
+        AppAnalytics.logFeatureOpened(AppAnalytics.Feature.HELP_CENTER)
 
         val title1TextView = (activity as MainActivity).findViewById<TextView>(R.id.title1)
         title1TextView.visibility = View.VISIBLE

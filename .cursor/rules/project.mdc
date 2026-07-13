@@ -1,0 +1,29 @@
+---
+description: Ski Jahorina Android app overview - Fragments hub, resort API, remote ads
+alwaysApply: true
+---
+
+# Ski-Jahorina
+
+Android app for Jahorina resort. Package: `com.neoapps.skijahorina`.
+
+## Stack
+- Kotlin, minSdk 30, compileSdk 35
+- Navigation Component + Fragments (hub: `SkiCenterDetailsFragment`)
+- ViewModels, Kotpref, Retrofit/OkHttp to shared Railway API
+- AdMob interstitials via `RotatingInterstitialAdManager`
+
+## Layout
+- `features/skicenter/` - hub, lifts, weather, cameras, map, apartments, useful info
+- `common/` - prefs, icons, binders
+- `common/ads/` - remote ads config fetch/cache + screen IDs
+
+## Backend
+- Shared `ski-serbia-api` on Railway
+- Resort data + `GET /v1/ads-config/ski_jahorina`
+- API key from `local.properties` / BuildConfig - never commit secrets
+
+## Workflow
+- Match existing UI/patterns; prefer small focused diffs
+- Commit only when asked
+- Remote ads: DB controls `enabled` / `every_n_clicks` for screens already wired in `AdsScreens`

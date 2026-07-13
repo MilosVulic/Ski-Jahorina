@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorBackground">#f7f8fa</color>
+    <color name="colorBackground">#F8FAFC</color>
     <color name="iconColorSettings">#4D4D4D</color>
     <color name="colorCardBackgroundSettings">#ffffff</color>
     <color name="colorCardBackgroundWeather">#fafafa</color>
@@ -73,5 +73,75 @@
     <color name="propertyImage4Shadowed">#6F000000</color>
     <color  name="textColorPropertyList">#000000</color>
     <color  name="colorIconProperty">#4d5153</color>
+
+    <!-- Alpine hub palette -->
+    <color name="alpineRipple">#1A0F766E</color>
+    <color name="alpineNavy">#0F172A</color>
+    <color name="alpineNavyDark">#1E293B</color>
+    <color name="alpineAccent">#38BDF8</color>
+    <color name="alpineAccentSoft">#E0F2FE</color>
+    <color name="alpineSnow">#F8FAFC</color>
+    <color name="alpineGreen">#10B981</color>
+    <color name="alpineTextPrimary">#0F172A</color>
+    <color name="alpineTextSecondary">#64748B</color>
+    <color name="alpineTextOnDark">#F8FAFC</color>
+    <color name="statusOpenBg">#D1FAE5</color>
+    <color name="statusOpenText">#047857</color>
+    <color name="statusPartialBg">#FEF3C7</color>
+    <color name="statusPartialText">#B45309</color>
+    <color name="statusClosedBg">#FEE2E2</color>
+    <color name="statusClosedText">#B91C1C</color>
+    <color name="statusUnknownBg">#E2E8F0</color>
+    <color name="statusUnknownText">#475569</color>
+    <color name="chipSurfaceColor">#FFFFFF</color>
+    <color name="chipOutlineColor">#E2E8F0</color>
+    <color name="chipIconTint">#475569</color>
+    <color name="filterChipCheckedBg">#DBEAFE</color>
+    <color name="filterChipUncheckedBg">#F8FAFC</color>
+    <color name="filterChipCheckedText">#1D4ED8</color>
+    <color name="filterChipUncheckedText">#334155</color>
+    <color name="hubLinkColor">#0F766E</color>
+    <color name="homeCardMetaColor">#64748B</color>
+
+    <!-- Lift icon accents -->
+    <color name="liftIconChairBg">#F1F5F9</color>
+    <color name="liftIconChairRing">#CBD5E1</color>
+    <color name="liftIconChairTint">#334155</color>
+    <color name="liftIconGondolaBg">#ECFDF5</color>
+    <color name="liftIconGondolaRing">#6EE7B7</color>
+    <color name="liftIconGondolaTint">#047857</color>
+    <color name="liftIconTbarBg">#FFF7ED</color>
+    <color name="liftIconTbarRing">#FDBA74</color>
+    <color name="liftIconTbarTint">#C2410C</color>
+    <color name="liftIconAdventureBg">#F5F3FF</color>
+    <color name="liftIconAdventureRing">#C4B5FD</color>
+    <color name="liftIconAdventureTint">#6D28D9</color>
+
+    <!-- Useful info -->
+    <color name="usefulInfoSubtitleColor">#374151</color>
+    <color name="usefulInfoHintColor">#9CA3AF</color>
+    <color name="usefulInfoNumberColor">#111827</color>
+    <color name="usefulInfoRescueIconBg">#FEE2E2</color>
+    <color name="usefulInfoRescueIconTint">#DC2626</color>
+    <color name="usefulInfoPoliceIconBg">#DBEAFE</color>
+    <color name="usefulInfoPoliceIconTint">#2563EB</color>
+    <color name="usefulInfoFireIconBg">#FFEDD5</color>
+    <color name="usefulInfoFireIconTint">#EA580C</color>
+    <color name="usefulInfoEmergencyIconBg">#EDE9FE</color>
+    <color name="usefulInfoEmergencyIconTint">#7C3AED</color>
+    <color name="usefulInfoFeaturedStroke">#FCA5A5</color>
+
+    <color name="lastUpdatedTextColor">#475569</color>
+    <color name="lastUpdatedBannerBackground">#F8FAFC</color>
+    <color name="lastUpdatedIconTint">#64748B</color>
+
+    <color name="weatherWindIconTint">#2563EB</color>
+    <color name="weatherWindLabelColor">#64748B</color>
+    <color name="weatherSnowIconTint">#4F46E5</color>
+    <color name="weatherSnowLabelColor">#64748B</color>
+    <color name="weatherMetricTileBg">#F8FAFC</color>
+    <color name="weatherWindIconBg">#DBEAFE</color>
+    <color name="weatherSnowIconBg">#E0E7FF</color>
+    <color name="weatherConditionIconTint">#334155</color>
 
 </resources>

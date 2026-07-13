@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.neoapps.skijahorina.R
+import com.neoapps.skijahorina.common.AppAnalytics
 import com.neoapps.skijahorina.databinding.FragmentSkiMapBinding
 import com.neoapps.skijahorina.main.MainActivity
 
@@ -22,6 +23,7 @@ class SkiMapFragment : Fragment() {
         bindingProp = FragmentSkiMapBinding.inflate(inflater, container, false)
         setUpFragmentName()
         setMap()
+        AppAnalytics.logFeatureOpened(AppAnalytics.Feature.MAP)
         return binding.root
     }
 

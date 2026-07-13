@@ -1,406 +1,805 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    xmlns:tools="http://schemas.android.com/tools"
+
     android:layout_width="match_parent"
+
     android:layout_height="match_parent"
+
     android:background="@color/colorBackground"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <FrameLayout
-        android:id="@+id/frameLayoutTop"
-        android:layout_width="0dp"
-        android:layout_height="?android:attr/actionBarSize"
-        android:layout_marginTop="0dp"
-        android:background="@drawable/gradient_drawable"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    android:clipToPadding="false"
 
-    <ScrollView
+    android:overScrollMode="never"
+
+    android:paddingTop="?android:attr/actionBarSize"
+
+    android:paddingBottom="24dp">
+
+
+
+    <LinearLayout
+
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="10dp"
-        android:background="@android:color/transparent"
-        android:scrollbars="none"
-        android:fadingEdgeLength="15dp"
-        android:overScrollMode="never"
-        android:requiresFadingEdge="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayoutTop">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_height="wrap_content"
+
+        android:orientation="vertical"
+
+        android:paddingTop="8dp">
+
+
+
+        <com.google.android.material.card.MaterialCardView
+
+            android:id="@+id/cardViewApartmentPic1"
+
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardViewApartmentPic1"
-        android:layout_width="0dp"
-        android:layout_height="200dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
-        app:cardCornerRadius="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+            android:layout_height="220dp"
 
-        <ImageView
-            android:id="@+id/imageViewPic1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:scaleType="centerCrop"
-            android:src="@drawable/picture_apartment"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.cardview.widget.CardView>
+            android:layout_marginStart="16dp"
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardViewApartmentPic2"
-        android:layout_width="0dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        app:cardCornerRadius="20dp"
-        app:layout_constraintEnd_toStartOf="@+id/cardViewApartmentPic3"
-        app:layout_constraintStart_toStartOf="@+id/cardViewApartmentPic1"
-        app:layout_constraintTop_toBottomOf="@+id/cardViewApartmentPic1">
+            android:layout_marginEnd="16dp"
 
-        <ImageView
-            android:id="@+id/imageViewPic2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:scaleType="centerCrop"
-            android:src="@drawable/picture_apartment"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.cardview.widget.CardView>
+            app:cardCornerRadius="18dp"
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardViewApartmentPic3"
-        android:layout_width="0dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        app:cardCornerRadius="20dp"
-        app:layout_constraintEnd_toStartOf="@+id/cardViewApartmentPic4"
-        app:layout_constraintStart_toEndOf="@+id/cardViewApartmentPic2"
-        app:layout_constraintTop_toBottomOf="@+id/cardViewApartmentPic1">
+            app:cardElevation="2dp"
 
-        <ImageView
-            android:id="@+id/imageViewPic3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:scaleType="centerCrop"
-            android:src="@drawable/picture_apartment"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.cardview.widget.CardView>
+            app:strokeColor="@color/chipOutlineColor"
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardViewApartmentPic4"
-        android:layout_width="0dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        app:cardCornerRadius="20dp"
-        app:layout_constraintEnd_toEndOf="@+id/cardViewApartmentPic1"
-        app:layout_constraintStart_toEndOf="@+id/cardViewApartmentPic3"
-        app:layout_constraintTop_toBottomOf="@+id/cardViewApartmentPic1">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-        <ImageView
-            android:id="@+id/imageViewPic4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:scaleType="centerCrop"
-            android:src="@drawable/picture_apartment"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/textViewForImageView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="+3"
-            android:textColor="@color/colorWhite"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:visibility="gone"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            app:strokeWidth="1dp">
 
 
-    </androidx.cardview.widget.CardView>
-
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/textViewApartmentName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Jahorina Prestige"
-        android:textColor="@color/textColorPropertyList"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/cardViewApartmentPic2"
-        app:layout_constraintTop_toBottomOf="@+id/cardViewApartmentPic2" />
-
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/textViewLocation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginBottom="5dp"
-        android:textColor="@color/textColorSettings"
-        android:text="Lokacija apartmana je u blizini skijaških staza na Jahorini"
-        app:layout_constraintStart_toStartOf="@+id/textViewApartmentName"
-        app:layout_constraintTop_toBottomOf="@+id/textViewApartmentName" />
-
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/textViewDescription"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="@string/property_description"
-        android:textColor="@color/textColorPropertyList"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/textViewLocation"
-        app:layout_constraintTop_toBottomOf="@+id/textViewLocation" />
-
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/textViewDescriptionContent"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:textColor="@color/textColorSettings"
-        android:text="Dobrodošli u naš katalog udobnih i luksuznih apartmana na Jahorini! Nudimo veliki broj moderno opremljenih apartmana koji pružaju savršen odmor u planinskom okruženju. Lokacija svih naših apartman je idealna za sve ljubitelje skijanja, ali i za one koji žele istražiti prirodne ljepote Jahorine. Uživajte u udobnosti, luksuzu, blizini ski staze i ski liftova. Apartmane mozete detaljnije pogledati na websajtu jahorinaprestige!"
-        app:layout_constraintEnd_toEndOf="@+id/cardViewApartmentPic4"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/textViewDescription"
-        app:layout_constraintTop_toBottomOf="@+id/textViewDescription" />
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardViewPhoneNumber"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:clickable="true"
-        app:cardBackgroundColor="@color/propertyCardBackground"
-        app:cardCornerRadius="40dp"
-        app:cardPreventCornerOverlap="false"
-        app:layout_constraintStart_toStartOf="@+id/textViewDescriptionContent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewDescriptionContent">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/phoneIcon"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginBottom="10dp"
-                android:src="@drawable/ic_phone"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:tint="@color/colorIconProperty" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                android:id="@+id/imageViewPic1"
 
-    </androidx.cardview.widget.CardView>
+                android:layout_width="match_parent"
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/textViewPhoneLabel"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:textSize="17sp"
-        android:text="Phone"
-        android:textStyle="bold"
-        android:textColor="@color/colorIconProperty"
-        app:layout_constraintBottom_toBottomOf="@+id/cardViewPhoneNumber"
-        app:layout_constraintStart_toEndOf="@+id/cardViewPhoneNumber"
-        app:layout_constraintTop_toTopOf="@+id/cardViewPhoneNumber" />
+                android:layout_height="match_parent"
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/textViewPhoneContent"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:text="+387 65 904 660"
-        android:textSize="15sp"
-        android:maxLines="2"
-        android:gravity="end"
-        android:textColor="@color/textColorSettings"
-        android:singleLine="false"
-        android:breakStrategy="simple"
-        app:layout_constraintBottom_toBottomOf="@+id/textViewPhoneLabel"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/textViewPhoneLabel"
-        app:layout_constraintTop_toTopOf="@+id/textViewPhoneLabel" />
+                android:contentDescription="@null"
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardViewEmail"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:clickable="true"
-        app:cardBackgroundColor="@color/propertyCardBackground"
-        app:cardCornerRadius="40dp"
-        app:cardPreventCornerOverlap="false"
-        app:layout_constraintStart_toStartOf="@+id/cardViewPhoneNumber"
-        app:layout_constraintTop_toBottomOf="@+id/cardViewPhoneNumber">
+                android:scaleType="centerCrop"
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+                tools:src="@drawable/picture_apartment" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+
+        <LinearLayout
+
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
 
-            <ImageView
-                android:id="@+id/emailIcon"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginBottom="10dp"
-                android:src="@drawable/ic_email"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:tint="@color/colorIconProperty" />
+            android:layout_height="wrap_content"
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            android:layout_marginStart="16dp"
 
-    </androidx.cardview.widget.CardView>
+            android:layout_marginTop="8dp"
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/textViewEmailLabel"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:textSize="17sp"
-        android:text="Email"
-        android:textColor="@color/colorIconProperty"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/cardViewEmail"
-        app:layout_constraintStart_toEndOf="@+id/cardViewEmail"
-        app:layout_constraintTop_toTopOf="@+id/cardViewEmail" />
+            android:layout_marginEnd="16dp"
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/textViewEmailContent"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:breakStrategy="simple"
-        android:gravity="end"
-        android:maxLines="2"
-        android:singleLine="false"
-        android:textColor="@color/textColorSettings"
-        android:text="info@jahorinaprestige.com"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="@+id/textViewEmailLabel"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textViewEmailLabel"
-        app:layout_constraintTop_toTopOf="@+id/textViewEmailLabel" />
+            android:orientation="horizontal">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardViewWebsite"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:clickable="true"
-        app:cardBackgroundColor="@color/propertyCardBackground"
-        app:cardCornerRadius="40dp"
-        app:cardPreventCornerOverlap="false"
-        android:layout_marginBottom="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/cardViewEmail"
-        app:layout_constraintTop_toBottomOf="@+id/cardViewEmail">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+
+            <com.google.android.material.card.MaterialCardView
+
+                android:id="@+id/cardViewApartmentPic2"
+
+                android:layout_width="0dp"
+
+                android:layout_height="72dp"
+
+                android:layout_marginEnd="6dp"
+
+                android:layout_weight="1"
+
+                app:cardCornerRadius="12dp"
+
+                app:cardElevation="0dp"
+
+                app:strokeColor="@color/chipOutlineColor"
+
+                app:strokeWidth="1dp">
+
+
+
+                <ImageView
+
+                    android:id="@+id/imageViewPic2"
+
+                    android:layout_width="match_parent"
+
+                    android:layout_height="match_parent"
+
+                    android:contentDescription="@null"
+
+                    android:scaleType="centerCrop"
+
+                    tools:src="@drawable/picture_apartment" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+
+            <com.google.android.material.card.MaterialCardView
+
+                android:id="@+id/cardViewApartmentPic3"
+
+                android:layout_width="0dp"
+
+                android:layout_height="72dp"
+
+                android:layout_marginEnd="6dp"
+
+                android:layout_weight="1"
+
+                app:cardCornerRadius="12dp"
+
+                app:cardElevation="0dp"
+
+                app:strokeColor="@color/chipOutlineColor"
+
+                app:strokeWidth="1dp">
+
+
+
+                <ImageView
+
+                    android:id="@+id/imageViewPic3"
+
+                    android:layout_width="match_parent"
+
+                    android:layout_height="match_parent"
+
+                    android:contentDescription="@null"
+
+                    android:scaleType="centerCrop"
+
+                    tools:src="@drawable/picture_apartment" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+
+            <com.google.android.material.card.MaterialCardView
+
+                android:id="@+id/cardViewApartmentPic4"
+
+                android:layout_width="0dp"
+
+                android:layout_height="72dp"
+
+                android:layout_weight="1"
+
+                app:cardCornerRadius="12dp"
+
+                app:cardElevation="0dp"
+
+                app:strokeColor="@color/chipOutlineColor"
+
+                app:strokeWidth="1dp">
+
+
+
+                <FrameLayout
+
+                    android:layout_width="match_parent"
+
+                    android:layout_height="match_parent">
+
+
+
+                    <ImageView
+
+                        android:id="@+id/imageViewPic4"
+
+                        android:layout_width="match_parent"
+
+                        android:layout_height="match_parent"
+
+                        android:contentDescription="@null"
+
+                        android:scaleType="centerCrop"
+
+                        tools:src="@drawable/picture_apartment" />
+
+
+
+                    <TextView
+
+                        android:id="@+id/textViewForImageView4"
+
+                        android:layout_width="match_parent"
+
+                        android:layout_height="match_parent"
+
+                        android:background="#990F172A"
+
+                        android:gravity="center"
+
+                        android:text="+3"
+
+                        android:textColor="@color/colorWhite"
+
+                        android:textSize="18sp"
+
+                        android:textStyle="bold"
+
+                        android:visibility="gone"
+
+                        tools:visibility="visible" />
+
+                </FrameLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+
+
+
+        <com.google.android.material.card.MaterialCardView
+
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
 
-            <ImageView
-                android:id="@+id/websiteIcon"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginBottom="10dp"
-                android:src="@drawable/ic_webpage"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:tint="@color/colorIconProperty" />
+            android:layout_height="wrap_content"
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            android:layout_marginStart="16dp"
 
-    </androidx.cardview.widget.CardView>
+            android:layout_marginTop="16dp"
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/textViewWebsiteLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:text="Website"
-        android:textSize="17sp"
-        android:textStyle="bold"
-        android:textColor="@color/colorIconProperty"
-        app:layout_constraintBottom_toBottomOf="@+id/cardViewWebsite"
-        app:layout_constraintStart_toEndOf="@+id/cardViewWebsite"
-        app:layout_constraintTop_toTopOf="@+id/cardViewWebsite" />
+            android:layout_marginEnd="16dp"
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/textViewWebsiteContent"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:breakStrategy="simple"
-        android:gravity="end"
-        android:maxLines="2"
-        android:singleLine="false"
-        android:textColor="@color/textColorSettings"
-        android:text="https://jahorinaprestige.com/apartmani-na-jahorini/"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="@+id/cardViewWebsite"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textViewWebsiteLabel"
-        app:layout_constraintTop_toTopOf="@+id/cardViewWebsite" />
+            app:cardBackgroundColor="@color/colorCardBackgroundSettings"
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
+            app:cardCornerRadius="18dp"
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            app:cardElevation="2dp"
+
+            app:strokeColor="@color/chipOutlineColor"
+
+            app:strokeWidth="1dp">
+
+
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+
+                android:layout_height="wrap_content"
+
+                android:orientation="vertical"
+
+                android:padding="18dp">
+
+
+
+                <TextView
+
+                    android:id="@+id/textViewApartmentName"
+
+                    android:layout_width="match_parent"
+
+                    android:layout_height="wrap_content"
+
+                    android:textColor="@color/alpineTextPrimary"
+
+                    android:textSize="22sp"
+
+                    android:textStyle="bold"
+
+                    tools:text="Jahorina Prestige" />
+
+
+
+                <TextView
+
+                    android:id="@+id/textViewLocation"
+
+                    android:layout_width="match_parent"
+
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginTop="6dp"
+
+                    android:textColor="@color/alpineTextSecondary"
+
+                    android:textSize="14sp"
+
+                    tools:text="Near ski slopes on Jahorina" />
+
+
+
+                <TextView
+
+                    android:id="@+id/textViewDescription"
+
+                    android:layout_width="match_parent"
+
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginTop="18dp"
+
+                    android:text="@string/property_description"
+
+                    android:textColor="@color/alpineTextPrimary"
+
+                    android:textSize="16sp"
+
+                    android:textStyle="bold" />
+
+
+
+                <TextView
+
+                    android:id="@+id/textViewDescriptionContent"
+
+                    android:layout_width="match_parent"
+
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginTop="8dp"
+
+                    android:ellipsize="end"
+
+                    android:lineSpacingExtra="4dp"
+
+                    android:maxLines="4"
+
+                    android:textColor="@color/alpineTextSecondary"
+
+                    android:textSize="15sp"
+
+                    tools:text="Description text goes here." />
+
+
+
+                <TextView
+
+                    android:id="@+id/textViewExpandDescription"
+
+                    android:layout_width="wrap_content"
+
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginTop="6dp"
+
+                    android:paddingTop="4dp"
+
+                    android:paddingBottom="4dp"
+
+                    android:text="@string/read_more"
+
+                    android:textColor="@color/alpineAccent"
+
+                    android:textSize="14sp"
+
+                    android:textStyle="bold"
+
+                    android:visibility="gone"
+
+                    tools:visibility="visible" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+
+        <com.google.android.material.card.MaterialCardView
+
+            android:id="@+id/cardViewWebsite"
+
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content"
+
+            android:layout_marginStart="16dp"
+
+            android:layout_marginTop="12dp"
+
+            android:layout_marginEnd="16dp"
+
+            android:clickable="true"
+
+            android:focusable="true"
+
+            app:cardBackgroundColor="@color/colorCardBackgroundSettings"
+
+            app:cardCornerRadius="16dp"
+
+            app:cardElevation="1dp"
+
+            app:rippleColor="@color/alpineRipple"
+
+            app:strokeColor="@color/chipOutlineColor"
+
+            app:strokeWidth="1dp">
+
+
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+
+                android:layout_height="wrap_content"
+
+                android:gravity="center_vertical"
+
+                android:orientation="horizontal"
+
+                android:padding="14dp">
+
+
+
+                <FrameLayout
+
+                    android:layout_width="44dp"
+
+                    android:layout_height="44dp"
+
+                    android:background="@drawable/bg_alpine_empty_icon_circle">
+
+
+
+                    <ImageView
+
+                        android:id="@+id/websiteIcon"
+
+                        android:layout_width="22dp"
+
+                        android:layout_height="22dp"
+
+                        android:layout_gravity="center"
+
+                        android:contentDescription="@null"
+
+                        android:src="@drawable/ic_webpage"
+
+                        app:tint="@color/alpineAccent" />
+
+                </FrameLayout>
+
+
+
+                <LinearLayout
+
+                    android:layout_width="0dp"
+
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginStart="14dp"
+
+                    android:layout_weight="1"
+
+                    android:orientation="vertical">
+
+
+
+                    <TextView
+
+                        android:id="@+id/textViewWebsiteLabel"
+
+                        android:layout_width="wrap_content"
+
+                        android:layout_height="wrap_content"
+
+                        android:text="@string/website"
+
+                        android:textColor="@color/alpineTextPrimary"
+
+                        android:textSize="14sp"
+
+                        android:textStyle="bold" />
+
+
+
+                    <TextView
+
+                        android:id="@+id/textViewWebsiteContent"
+
+                        android:layout_width="match_parent"
+
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginTop="2dp"
+
+                        android:ellipsize="end"
+
+                        android:maxLines="2"
+
+                        android:textColor="@color/alpineTextSecondary"
+
+                        android:textSize="14sp"
+
+                        tools:text="https://jahorinaprestige.com" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+
+        <com.google.android.material.card.MaterialCardView
+
+            android:id="@+id/cardViewPhoneNumber"
+
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content"
+
+            android:layout_marginStart="16dp"
+
+            android:layout_marginTop="8dp"
+
+            android:layout_marginEnd="16dp"
+
+            android:clickable="true"
+
+            android:focusable="true"
+
+            app:cardBackgroundColor="@color/colorCardBackgroundSettings"
+
+            app:cardCornerRadius="16dp"
+
+            app:cardElevation="1dp"
+
+            app:rippleColor="@color/alpineRipple"
+
+            app:strokeColor="@color/chipOutlineColor"
+
+            app:strokeWidth="1dp">
+
+
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+
+                android:layout_height="wrap_content"
+
+                android:gravity="center_vertical"
+
+                android:orientation="horizontal"
+
+                android:padding="14dp">
+
+
+
+                <FrameLayout
+
+                    android:layout_width="44dp"
+
+                    android:layout_height="44dp"
+
+                    android:background="@drawable/bg_alpine_empty_icon_circle">
+
+
+
+                    <ImageView
+
+                        android:id="@+id/phoneIcon"
+
+                        android:layout_width="22dp"
+
+                        android:layout_height="22dp"
+
+                        android:layout_gravity="center"
+
+                        android:contentDescription="@null"
+
+                        android:src="@drawable/ic_phone"
+
+                        app:tint="@color/alpineAccent" />
+
+                </FrameLayout>
+
+
+
+                <LinearLayout
+
+                    android:layout_width="0dp"
+
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginStart="14dp"
+
+                    android:layout_weight="1"
+
+                    android:orientation="vertical">
+
+
+
+                    <TextView
+
+                        android:id="@+id/textViewPhoneLabel"
+
+                        android:layout_width="wrap_content"
+
+                        android:layout_height="wrap_content"
+
+                        android:text="@string/phone"
+
+                        android:textColor="@color/alpineTextPrimary"
+
+                        android:textSize="14sp"
+
+                        android:textStyle="bold" />
+
+
+
+                    <TextView
+
+                        android:id="@+id/textViewPhoneContent"
+
+                        android:layout_width="match_parent"
+
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginTop="2dp"
+
+                        android:textColor="@color/alpineTextSecondary"
+
+                        android:textSize="14sp"
+
+                        tools:text="+387 65 904 660" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+
+        <com.google.android.material.card.MaterialCardView
+
+            android:id="@+id/cardViewEmail"
+
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content"
+
+            android:layout_marginStart="16dp"
+
+            android:layout_marginTop="8dp"
+
+            android:layout_marginEnd="16dp"
+
+            android:clickable="true"
+
+            android:focusable="true"
+
+            app:cardBackgroundColor="@color/colorCardBackgroundSettings"
+
+            app:cardCornerRadius="16dp"
+
+            app:cardElevation="1dp"
+
+            app:rippleColor="@color/alpineRipple"
+
+            app:strokeColor="@color/chipOutlineColor"
+
+            app:strokeWidth="1dp">
+
+
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+
+                android:layout_height="wrap_content"
+
+                android:gravity="center_vertical"
+
+                android:orientation="horizontal"
+
+                android:padding="14dp">
+
+
+
+                <FrameLayout
+
+                    android:layout_width="44dp"
+
+                    android:layout_height="44dp"
+
+                    android:background="@drawable/bg_alpine_empty_icon_circle">
+
+
+
+                    <ImageView
+
+                        android:id="@+id/emailIcon"
+
+                        android:layout_width="22dp"
+
+                        android:layout_height="22dp"
+
+                        android:layout_gravity="center"
+
+                        android:contentDescription="@null"
+
+                        android:src="@drawable/ic_email"
+
+                        app:tint="@color/alpineAccent" />
+
+                </FrameLayout>
+
+
+
+                <LinearLayout
+
+                    android:layout_width="0dp"
+
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginStart="14dp"
+
+                    android:layout_weight="1"
+
+                    android:orientation="vertical">
+
+
+
+                    <TextView
+
+                        android:id="@+id/textViewEmailLabel"
+
+                        android:layout_width="wrap_content"
+
+                        android:layout_height="wrap_content"
+
+                        android:text="@string/email"
+
+                        android:textColor="@color/alpineTextPrimary"
+
+                        android:textSize="14sp"
+
+                        android:textStyle="bold" />
+
+
+
+                    <TextView
+
+                        android:id="@+id/textViewEmailContent"
+
+                        android:layout_width="match_parent"
+
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginTop="2dp"
+
+                        android:ellipsize="end"
+
+                        android:maxLines="2"
+
+                        android:textColor="@color/alpineTextSecondary"
+
+                        android:textSize="14sp"
+
+                        tools:text="info@jahorinaprestige.com" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>
+
+

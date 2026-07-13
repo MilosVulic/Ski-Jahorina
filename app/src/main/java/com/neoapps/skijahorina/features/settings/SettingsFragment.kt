@@ -22,6 +22,7 @@ import androidx.navigation.fragment.findNavController
 import com.neoapps.skijahorina.NavigationGraphDirections
 import com.neoapps.skijahorina.R
 import com.neoapps.skijahorina.common.PreferenceProvider
+import com.neoapps.skijahorina.common.AppAnalytics
 import com.neoapps.skijahorina.databinding.FragmentSettingsBinding
 import com.neoapps.skijahorina.main.MainActivity
 import de.hdodenhof.circleimageview.CircleImageView
@@ -43,6 +44,7 @@ class SettingsFragment : Fragment() {
         bindingProp = FragmentSettingsBinding.inflate(inflater, container, false)
         setUpFragmentName()
         themeSettings()
+        AppAnalytics.logFeatureOpened(AppAnalytics.Feature.SETTINGS)
 
         // changing application language
         binding.changeApplicationLanguage.setOnClickListener {
@@ -64,6 +66,7 @@ class SettingsFragment : Fragment() {
                 PreferenceProvider.darkMode = false
                 binding.imageViewTheme.setImageResource(R.drawable.ic_light_mode)
             }
+            AppAnalytics.logThemeChanged(isChecked)
         }
 
         binding.about.setOnClickListener {
@@ -149,6 +152,7 @@ class SettingsFragment : Fragment() {
 
         radioGroupEnglish?.setOnCheckedChangeListener { _, _ ->
             PreferenceProvider.language = "en"
+            AppAnalytics.logLanguageChanged("en")
 
             when {
                 radioButtonSerbian?.isChecked!! -> {
@@ -183,6 +187,7 @@ class SettingsFragment : Fragment() {
 
         radioGroupSerbian?.setOnCheckedChangeListener { _, _ ->
             PreferenceProvider.language = "bs"
+            AppAnalytics.logLanguageChanged("bs")
 
             when {
                 radioButtonEnglish?.isChecked!! -> {
@@ -217,6 +222,7 @@ class SettingsFragment : Fragment() {
 
         radioGroupRussian?.setOnCheckedChangeListener { _, _ ->
             PreferenceProvider.language = "ru"
+            AppAnalytics.logLanguageChanged("ru")
 
             when {
                 radioButtonEnglish?.isChecked!! -> {
@@ -251,6 +257,7 @@ class SettingsFragment : Fragment() {
 
         radioGroupGerman?.setOnCheckedChangeListener { _, _ ->
             PreferenceProvider.language = "de"
+            AppAnalytics.logLanguageChanged("de")
 
             when {
                 radioButtonEnglish?.isChecked!! -> {

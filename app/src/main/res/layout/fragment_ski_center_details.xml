@@ -1,661 +1,481 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBackground"
+    android:clipToPadding="false"
+    android:overScrollMode="never"
+    android:paddingBottom="24dp"
     tools:context=".features.skicenter.SkiCenterDetailsFragment">
 
-    <FrameLayout
-        android:id="@+id/frameLayoutTop"
-        android:layout_width="0dp"
-        android:layout_height="?android:attr/actionBarSize"
-        android:layout_marginTop="0dp"
-        android:background="@drawable/gradient_drawable"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <FrameLayout
-        android:id="@+id/frameLayoutBackground"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/parabolaShapeLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayoutTop">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </FrameLayout>
-
-    <FrameLayout
-        android:id="@+id/parabolaShapeLayout"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="70dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayoutBackground">
-
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:cardBackgroundColor="@color/colorCardBackgroundSettings" />
-    </FrameLayout>
-
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="50dp"
-        android:background="@android:color/transparent"
-        android:scrollbars="none"
-        android:fadingEdgeLength="15dp"
-        android:overScrollMode="never"
-        android:requiresFadingEdge="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="240dp">
 
-            <include
-                android:id="@+id/includedHeader"
-                layout="@layout/include_navigation_header"
+            <ImageView
+                android:id="@+id/hubHeroImage"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:layout_height="match_parent"
+                android:contentDescription="@string/cd_ski_map"
+                android:scaleType="centerCrop"
+                android:src="@drawable/jahorina_hero" />
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_resort_hero_scrim" />
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardViewMapBox"
-                android:layout_width="0dp"
-                android:layout_height="250dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="10dp"
-                app:cardBackgroundColor="@color/colorCardBackgroundSettings"
-                app:cardCornerRadius="20dp"
-                app:cardPreventCornerOverlap="false"
-                android:layout_marginBottom="10dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toTopOf="@+id/cardViewCameraBox"
-                app:layout_constraintTop_toBottomOf="@+id/includedHeader">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:orientation="vertical"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:paddingBottom="40dp">
 
-                <androidx.constraintlayout.widget.ConstraintLayout
+                <TextView
+                    android:id="@+id/hubResortName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/resort_name_jahorina"
+                    android:textColor="@color/alpineTextOnDark"
+                    android:textSize="28sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/hubResortAltitude"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/resort_altitude_jahorina"
+                    android:textColor="@color/alpineTextOnDark"
+                    android:textSize="15sp" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="-20dp"
+            android:layout_marginEnd="16dp"
+            app:cardBackgroundColor="@color/colorCardBackgroundSettings"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
 
-                    <FrameLayout
-                        android:id="@+id/frameLayoutForMapImageHolder"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                    <TextView
+                        android:id="@+id/hubStatusChip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="10dp"
+                        android:paddingTop="4dp"
+                        android:paddingEnd="10dp"
+                        android:paddingBottom="4dp"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        tools:text="Open" />
 
-                        <ImageView
-                            android:id="@+id/imageViewMapFull"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/gradient_ski_details_box"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
 
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:id="@+id/constraintCardViewMap"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
+                    <TextView
+                        android:id="@+id/hubStatusUpdated"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/alpineTextSecondary"
+                        android:textSize="12sp"
+                        tools:text="Updated 12:05" />
+                </LinearLayout>
 
-                            <TextView
-                                android:id="@+id/gettingAroundText"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="15dp"
-                                android:layout_marginTop="10dp"
-                                android:text="@string/homepage_getting_around"
-                                android:textColor="#ffffff"
-                                android:textSize="19sp"
-                                android:textStyle="bold"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
 
-                            <androidx.cardview.widget.CardView
-                                android:id="@+id/cardViewMapBoxPicture"
-                                android:layout_width="0dp"
-                                android:layout_height="140dp"
-                                android:layout_marginStart="10dp"
-                                android:layout_marginTop="10dp"
-                                android:layout_marginEnd="10dp"
-                                app:cardBackgroundColor="@color/colorCardBackgroundSettings"
-                                app:cardCornerRadius="20dp"
-                                app:cardElevation="5dp"
-                                app:cardPreventCornerOverlap="false"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toBottomOf="@+id/gettingAroundText">
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
 
-                                <androidx.constraintlayout.widget.ConstraintLayout
-                                    android:id="@+id/constraintCardViewCameras1"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/hub_temperature_label"
+                            android:textColor="@color/alpineTextSecondary"
+                            android:textSize="12sp" />
 
-                                    <ImageView
-                                        android:id="@+id/imageViewFullMapBox"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:layout_gravity="center"
-                                        android:contentDescription="@string/lifts"
-                                        android:padding="0dp"
-                                        android:scaleType="centerCrop"
-                                        android:src="@drawable/jahorina_ski_map"
-                                        app:layout_constraintBottom_toBottomOf="parent"
-                                        app:layout_constraintEnd_toEndOf="parent"
-                                        app:layout_constraintStart_toStartOf="parent"
-                                        app:layout_constraintTop_toTopOf="parent" />
+                        <TextView
+                            android:id="@+id/hubStatusTemperature"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:textColor="@color/alpineTextPrimary"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            tools:text="-2°C" />
+                    </LinearLayout>
 
-                                    <ImageView
-                                        android:id="@+id/imageViewBlueBackground"
-                                        android:layout_width="40dp"
-                                        android:layout_height="40dp"
-                                        android:layout_marginTop="10dp"
-                                        android:layout_marginEnd="10dp"
-                                        android:src="@drawable/circle_background"
-                                        app:layout_constraintEnd_toEndOf="parent"
-                                        app:layout_constraintTop_toTopOf="parent" />
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
 
-                                    <ImageView
-                                        android:layout_width="25dp"
-                                        android:layout_height="25dp"
-                                        android:layout_marginStart="10dp"
-                                        android:layout_marginTop="10dp"
-                                        android:layout_marginEnd="10dp"
-                                        android:layout_marginBottom="10dp"
-                                        android:src="@drawable/ic_zoom"
-                                        app:layout_constraintBottom_toBottomOf="@+id/imageViewBlueBackground"
-                                        app:layout_constraintEnd_toEndOf="@+id/imageViewBlueBackground"
-                                        app:layout_constraintStart_toStartOf="@+id/imageViewBlueBackground"
-                                        app:layout_constraintTop_toTopOf="@+id/imageViewBlueBackground"
-                                        app:tint="@color/colorWhite" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/hub_snow_label"
+                            android:textColor="@color/alpineTextSecondary"
+                            android:textSize="12sp" />
 
-                                </androidx.constraintlayout.widget.ConstraintLayout>
+                        <TextView
+                            android:id="@+id/hubStatusSnow"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:textColor="@color/alpineTextPrimary"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            tools:text="42 cm" />
+                    </LinearLayout>
 
-                            </androidx.cardview.widget.CardView>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
 
-                            <TextView
-                                android:id="@+id/downloadMapText"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="15dp"
-                                android:layout_marginTop="10dp"
-                                android:layout_marginEnd="30dp"
-                                android:layout_marginBottom="10dp"
-                                android:breakStrategy="simple"
-                                android:gravity="start"
-                                android:maxLines="2"
-                                android:singleLine="false"
-                                android:text="@string/homepage_download_map_for_offline_usage"
-                                android:textColor="#ffffff"
-                                android:textSize="17sp"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toStartOf="@+id/downloadIcon"
-                                app:layout_constraintHorizontal_bias="0.0"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toBottomOf="@+id/cardViewMapBoxPicture" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/hub_lifts_label"
+                            android:textColor="@color/alpineTextSecondary"
+                            android:textSize="12sp" />
 
-                            <ImageView
-                                android:id="@+id/downloadIcon"
-                                android:layout_width="30dp"
-                                android:layout_height="30dp"
-                                android:layout_gravity="center"
-                                android:layout_marginEnd="10dp"
-                                android:contentDescription="@string/lifts"
-                                android:padding="0dp"
-                                android:src="@drawable/ic_download"
-                                app:layout_constraintBottom_toBottomOf="@+id/downloadMapText"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintTop_toTopOf="@+id/downloadMapText"
-                                app:tint="@color/colorWhite" />
+                        <TextView
+                            android:id="@+id/hubStatusLifts"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:textColor="@color/alpineTextPrimary"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            tools:text="9/12" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
 
-                        </androidx.constraintlayout.widget.ConstraintLayout>
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:clipToPadding="false"
+            android:overScrollMode="never"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:scrollbars="none">
 
-                    </FrameLayout>
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <ProgressBar
-                android:id="@+id/progressBar"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:indeterminate="true"
-                android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:orientation="horizontal">
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardViewCameraBox"
-                android:layout_width="0dp"
-                android:layout_height="250dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="10dp"
-                app:cardBackgroundColor="@color/colorCardBackgroundSettings"
-                app:cardCornerRadius="20dp"
-                app:cardPreventCornerOverlap="false"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cardViewMapBox">
+                <TextView
+                    android:id="@+id/quickActionWeather"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_hub_quick_action_ripple"
+                    android:clickable="true"
+                    android:drawablePadding="8dp"
+                    android:focusable="true"
+                    android:gravity="center_vertical"
+                    android:paddingStart="14dp"
+                    android:paddingTop="10dp"
+                    android:paddingEnd="14dp"
+                    android:paddingBottom="10dp"
+                    android:text="@string/hub_quick_weather"
+                    android:textColor="@color/alpineTextPrimary"
+                    android:textStyle="bold"
+                    app:drawableStartCompat="@drawable/ic_temperature"
+                    app:drawableTint="@color/chipIconTint" />
 
-                <androidx.constraintlayout.widget.ConstraintLayout
+                <TextView
+                    android:id="@+id/quickActionMap"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/bg_hub_quick_action_ripple"
+                    android:clickable="true"
+                    android:drawablePadding="8dp"
+                    android:focusable="true"
+                    android:gravity="center_vertical"
+                    android:paddingStart="14dp"
+                    android:paddingTop="10dp"
+                    android:paddingEnd="14dp"
+                    android:paddingBottom="10dp"
+                    android:text="@string/hub_quick_map"
+                    android:textColor="@color/alpineTextPrimary"
+                    android:textStyle="bold"
+                    app:drawableStartCompat="@drawable/ic_map"
+                    app:drawableTint="@color/chipIconTint" />
+
+                <TextView
+                    android:id="@+id/quickActionLifts"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/bg_hub_quick_action_ripple"
+                    android:clickable="true"
+                    android:drawablePadding="8dp"
+                    android:focusable="true"
+                    android:gravity="center_vertical"
+                    android:paddingStart="14dp"
+                    android:paddingTop="10dp"
+                    android:paddingEnd="14dp"
+                    android:paddingBottom="10dp"
+                    android:text="@string/homepage_lifts"
+                    android:textColor="@color/alpineTextPrimary"
+                    android:textStyle="bold"
+                    app:drawableStartCompat="@drawable/ic_slopes"
+                    app:drawableTint="@color/chipIconTint" />
+
+                <TextView
+                    android:id="@+id/quickActionWebcams"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/bg_hub_quick_action_ripple"
+                    android:clickable="true"
+                    android:drawablePadding="8dp"
+                    android:focusable="true"
+                    android:gravity="center_vertical"
+                    android:paddingStart="14dp"
+                    android:paddingTop="10dp"
+                    android:paddingEnd="14dp"
+                    android:paddingBottom="10dp"
+                    android:text="@string/hub_quick_webcams"
+                    android:textColor="@color/alpineTextPrimary"
+                    android:textStyle="bold"
+                    app:drawableStartCompat="@drawable/ic_webpage"
+                    app:drawableTint="@color/chipIconTint" />
+
+                <TextView
+                    android:id="@+id/quickActionUsefulInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/bg_hub_quick_action_ripple"
+                    android:clickable="true"
+                    android:drawablePadding="8dp"
+                    android:focusable="true"
+                    android:gravity="center_vertical"
+                    android:paddingStart="14dp"
+                    android:paddingTop="10dp"
+                    android:paddingEnd="14dp"
+                    android:paddingBottom="10dp"
+                    android:text="@string/hub_useful_info"
+                    android:textColor="@color/alpineTextPrimary"
+                    android:textStyle="bold"
+                    app:drawableStartCompat="@drawable/ic_info"
+                    app:drawableTint="@color/chipIconTint" />
+
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/hubLiftsCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardBackgroundColor="@color/colorCardBackgroundSettings"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp"
+            app:rippleColor="@color/alpineRipple">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
 
-                    <FrameLayout
-                        android:id="@+id/frameLayoutForCameraImageHolder"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/hub_section_lifts"
+                        android:textColor="@color/alpineTextPrimary"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
 
-                        <ImageView
-                            android:id="@+id/imageViewCameraFull"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/gradient_ski_details_box"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+                    <TextView
+                        android:id="@+id/hubLiftsSeeAll"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="4dp"
+                        android:text="@string/hub_see_all"
+                        android:textColor="@color/hubLinkColor"
+                        android:textStyle="bold" />
+                </LinearLayout>
 
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:id="@+id/constraintCardViewCameras"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
-
-                            <TextView
-                                android:id="@+id/webCamsText"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="15dp"
-                                android:layout_marginTop="10dp"
-                                android:text="@string/homepage_webcams"
-                                android:textColor="#ffffff"
-                                android:textSize="19sp"
-                                android:textStyle="bold"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
-
-                            <androidx.cardview.widget.CardView
-                                android:id="@+id/cardViewCameraBoxPicture"
-                                android:layout_width="0dp"
-                                android:layout_height="140dp"
-                                android:layout_marginStart="10dp"
-                                android:layout_marginTop="10dp"
-                                android:layout_marginEnd="10dp"
-                                app:cardBackgroundColor="@color/colorCardBackgroundSettings"
-                                app:cardCornerRadius="20dp"
-                                app:cardElevation="5dp"
-                                app:cardPreventCornerOverlap="false"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toBottomOf="@+id/webCamsText">
-
-                                <ImageView
-                                    android:id="@+id/imageViewFullCameraBox"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:layout_gravity="center"
-                                    android:contentDescription="@string/lifts"
-                                    android:padding="0dp"
-                                    android:scaleType="centerCrop"
-                                    android:src="@drawable/camera_preview"
-                                    app:layout_constraintBottom_toBottomOf="parent"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent" />
-
-                            </androidx.cardview.widget.CardView>
-
-                            <TextView
-                                android:id="@+id/browseMoreCameraText"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="15dp"
-                                android:layout_marginTop="10dp"
-                                android:layout_marginEnd="30dp"
-                                android:layout_marginBottom="10dp"
-                                android:breakStrategy="simple"
-                                android:gravity="start"
-                                android:maxLines="2"
-                                android:singleLine="false"
-                                android:text="@string/homepage_browse_more_webcams"
-                                android:textColor="#ffffff"
-                                android:textSize="17sp"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toStartOf="@+id/moreCameraIcon"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toBottomOf="@+id/cardViewCameraBoxPicture" />
-
-                            <ImageView
-                                android:id="@+id/moreCameraIcon"
-                                android:layout_width="30dp"
-                                android:layout_height="30dp"
-                                android:layout_gravity="center"
-                                android:layout_marginEnd="10dp"
-                                android:contentDescription="@string/lifts"
-                                android:padding="0dp"
-                                android:src="@drawable/ic_right_sign"
-                                app:layout_constraintBottom_toBottomOf="@+id/browseMoreCameraText"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintTop_toTopOf="@+id/browseMoreCameraText"
-                                app:tint="@color/colorWhite" />
-
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-
-                    </FrameLayout>
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-            </androidx.cardview.widget.CardView>
-
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardViewUsefulInfo"
-                android:layout_width="0dp"
-                android:layout_height="250dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginBottom="20dp"
-                app:cardBackgroundColor="@color/colorCardBackgroundSettings"
-                app:cardCornerRadius="20dp"
-                app:cardPreventCornerOverlap="false"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cardViewCameraBox">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
+                <LinearLayout
+                    android:id="@+id/hubLiftsSnapshotList"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="vertical" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
 
-                    <FrameLayout
-                        android:id="@+id/frameLayoutForUsefulInfoImageHolder"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/hubWebcamsCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="16dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardBackgroundColor="@color/colorCardBackgroundSettings"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp"
+            app:rippleColor="@color/alpineRipple">
 
-                        <ImageView
-                            android:id="@+id/imageViewUsefulInfoFull"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/gradient_ski_details_box"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
 
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:id="@+id/constraintCardViewUsefulInfo"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
 
-                            <TextView
-                                android:id="@+id/usefulInformationText"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="10dp"
-                                android:layout_marginTop="10dp"
-                                android:text="@string/homepage_useful_information"
-                                android:textColor="#ffffff"
-                                android:textSize="19sp"
-                                android:textStyle="bold"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/hub_section_webcams"
+                        android:textColor="@color/alpineTextPrimary"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
 
-                            <androidx.cardview.widget.CardView
-                                android:id="@+id/cardViewUsefulInformationBoxPicture"
-                                android:layout_width="0dp"
-                                android:layout_height="140dp"
-                                android:layout_marginStart="10dp"
-                                android:layout_marginTop="10dp"
-                                android:layout_marginEnd="10dp"
-                                app:cardElevation="3dp"
-                                app:cardCornerRadius="15dp"
-                                app:cardPreventCornerOverlap="false"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toBottomOf="@+id/usefulInformationText">
+                    <TextView
+                        android:id="@+id/hubWebcamsSeeAll"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="4dp"
+                        android:text="@string/hub_see_all"
+                        android:textColor="@color/hubLinkColor"
+                        android:textStyle="bold" />
+                </LinearLayout>
 
-                                <FrameLayout
-                                    android:id="@+id/frameLayoutForUsefulInfoImageHolder1"
-                                    android:layout_width="match_parent"
-                                    android:background="@color/darkGreenOverlayColor"
-                                    android:layout_height="match_parent">
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/hubWebcamPreview"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_marginTop="12dp"
+                    android:contentDescription="@string/homepage_webcams"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/camera_preview"
+                    app:shapeAppearanceOverlay="@style/ShapeAppearance.MaterialComponents.MediumComponent" />
 
-                                <ImageView
-                                    android:id="@+id/imageViewUsefulInfoFull1"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:scaleType="centerCrop"
-                                    android:alpha="0.9"
-                                    android:src="@drawable/back3"
-                                    app:layout_constraintBottom_toBottomOf="parent"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/hub_webcam_preview"
+                    android:textColor="@color/alpineTextSecondary"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
 
-                                <androidx.constraintlayout.widget.ConstraintLayout
-                                    android:id="@+id/constraintCardViewUsefulInformation1"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/hub_section_stay"
+            android:textColor="@color/alpineTextPrimary"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
-                                    <androidx.constraintlayout.widget.ConstraintLayout
-                                        android:id="@+id/firstNumber"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="0dp"
-                                        android:background="@android:color/transparent"
-                                        android:layout_marginStart="15dp"
-                                        android:layout_marginEnd="15dp"
-                                        android:clickable="true"
-                                        app:layout_constraintEnd_toEndOf="parent"
-                                        app:layout_constraintStart_toStartOf="parent"
-                                        app:layout_constraintTop_toTopOf="parent">
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/hubApartmentsCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="16dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardBackgroundColor="@color/colorCardBackgroundSettings"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp"
+            app:rippleColor="@color/alpineRipple">
 
-                                        <TextView
-                                            android:id="@+id/mountainRescueTitle"
-                                            android:layout_width="0dp"
-                                            android:layout_height="wrap_content"
-                                            android:layout_marginTop="25dp"
-                                            android:layout_marginEnd="20dp"
-                                            android:layout_marginBottom="20dp"
-                                            android:background="@android:color/transparent"
-                                            android:breakStrategy="simple"
-                                            android:ellipsize="none"
-                                            android:gravity="start"
-                                            android:maxLines="3"
-                                            android:singleLine="false"
-                                            android:text="@string/mountain_rescue"
-                                            android:textSize="18sp"
-                                            android:textStyle="bold"
-                                            android:textColor="#ffffff"
-                                            app:layout_constraintBottom_toBottomOf="parent"
-                                            app:layout_constraintEnd_toStartOf="@+id/phoneIconMountainRescue"
-                                            app:layout_constraintHorizontal_bias="0.0"
-                                            app:layout_constraintStart_toStartOf="parent"
-                                            app:layout_constraintTop_toTopOf="parent" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="16dp">
 
+                <ImageView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_hotels"
+                    app:tint="@color/chipIconTint" />
 
-                                        <ImageView
-                                            android:id="@+id/imageViewBlueBackground7"
-                                            android:layout_width="45dp"
-                                            android:layout_height="45dp"
-                                            android:layout_marginEnd="10dp"
-                                            android:src="@drawable/circle_background"
-                                            app:layout_constraintBottom_toBottomOf="@+id/mountainRescueTitle"
-                                            app:layout_constraintEnd_toEndOf="parent"
-                                            app:layout_constraintTop_toTopOf="@+id/mountainRescueTitle" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:text="@string/hub_apartments"
+                    android:textColor="@color/alpineTextPrimary"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
 
-                                        <ImageView
-                                            android:id="@+id/phoneIconMountainRescue"
-                                            android:layout_width="25dp"
-                                            android:layout_height="25dp"
-                                            android:layout_marginStart="10dp"
-                                            android:layout_marginTop="10dp"
-                                            android:layout_marginEnd="10dp"
-                                            android:layout_marginBottom="10dp"
-                                            android:src="@drawable/red_telephone_icon"
-                                            app:layout_constraintBottom_toBottomOf="@+id/imageViewBlueBackground7"
-                                            app:layout_constraintEnd_toEndOf="@+id/imageViewBlueBackground7"
-                                            app:layout_constraintStart_toStartOf="@+id/imageViewBlueBackground7"
-                                            app:layout_constraintTop_toTopOf="@+id/imageViewBlueBackground7"
-                                            app:tint="@color/colorWhite" />
-
-
-                                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                                    <View
-                                        android:id="@+id/divider1"
-                                        android:layout_width="0dp"
-                                        android:layout_height="1dp"
-                                        android:layout_marginStart="16dp"
-                                        android:layout_marginTop="0dp"
-                                        android:layout_marginEnd="16dp"
-                                        android:background="@color/colorDivider"
-                                        app:layout_constraintEnd_toEndOf="parent"
-                                        app:layout_constraintStart_toStartOf="parent"
-                                        app:layout_constraintTop_toBottomOf="@+id/firstNumber" />
-
-                                    <androidx.constraintlayout.widget.ConstraintLayout
-                                        android:id="@+id/secondNumber"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="0dp"
-                                        android:layout_marginStart="15dp"
-                                        android:layout_marginEnd="15dp"
-                                        android:clickable="true"
-                                        android:background="@android:color/transparent"
-                                        app:layout_constraintEnd_toEndOf="parent"
-                                        app:layout_constraintStart_toStartOf="parent"
-                                        app:layout_constraintTop_toBottomOf="@+id/divider1">
-
-                                        <TextView
-                                            android:id="@+id/emergencyTitle"
-                                            android:layout_width="0dp"
-                                            android:layout_height="wrap_content"
-                                            android:layout_marginTop="20dp"
-                                            android:layout_marginEnd="20dp"
-                                            android:background="@android:color/transparent"
-                                            android:breakStrategy="simple"
-                                            android:ellipsize="none"
-                                            android:gravity="start"
-                                            android:maxLines="3"
-                                            android:singleLine="false"
-                                            android:text="@string/emergency"
-                                            android:textSize="18sp"
-                                            android:textStyle="bold"
-                                            android:textColor="#ffffff"
-                                            app:layout_constraintEnd_toStartOf="@+id/phoneIconEmergency"
-                                            app:layout_constraintHorizontal_bias="0.0"
-                                            app:layout_constraintStart_toStartOf="parent"
-                                            app:layout_constraintTop_toTopOf="parent"/>
-                                            <!-- android:textColor="@color/skiCenterTitleColor" -->
-
-
-                                        <ImageView
-                                            android:id="@+id/imageViewBlueBackground6"
-                                            android:layout_width="45dp"
-                                            android:layout_height="45dp"
-                                            android:layout_marginEnd="10dp"
-                                            android:src="@drawable/circle_background"
-                                            app:layout_constraintBottom_toBottomOf="@+id/emergencyTitle"
-                                            app:layout_constraintEnd_toEndOf="parent"
-                                            app:layout_constraintTop_toTopOf="@+id/emergencyTitle" />
-
-                                        <ImageView
-                                            android:id="@+id/phoneIconEmergency"
-                                            android:layout_width="25dp"
-                                            android:layout_height="25dp"
-                                            android:layout_marginStart="10dp"
-                                            android:layout_marginTop="10dp"
-                                            android:layout_marginEnd="10dp"
-                                            android:layout_marginBottom="10dp"
-                                            android:src="@drawable/red_telephone_icon"
-                                            app:layout_constraintBottom_toBottomOf="@+id/imageViewBlueBackground6"
-                                            app:layout_constraintEnd_toEndOf="@+id/imageViewBlueBackground6"
-                                            app:layout_constraintStart_toStartOf="@+id/imageViewBlueBackground6"
-                                            app:layout_constraintTop_toTopOf="@+id/imageViewBlueBackground6"
-                                            app:tint="@color/colorWhite" />
-
-                                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                                </androidx.constraintlayout.widget.ConstraintLayout>
-
-                                </FrameLayout>
-
-                            </androidx.cardview.widget.CardView>
-
-                            <TextView
-                                android:id="@+id/checkMoreInfoText"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="10dp"
-                                android:layout_marginTop="10dp"
-                                android:layout_marginEnd="20dp"
-                                android:layout_marginBottom="10dp"
-                                android:breakStrategy="simple"
-                                android:gravity="start"
-                                android:maxLines="2"
-                                android:singleLine="false"
-                                android:text="@string/homepage_useful_information_check"
-                                android:textColor="#ffffff"
-                                android:textSize="17sp"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toStartOf="@+id/moreUsefulInfoIcon"
-                                app:layout_constraintHorizontal_bias="0.0"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toBottomOf="@+id/cardViewUsefulInformationBoxPicture" />
-
-                            <ImageView
-                                android:id="@+id/moreUsefulInfoIcon"
-                                android:layout_width="30dp"
-                                android:layout_height="30dp"
-                                android:layout_gravity="center"
-                                android:layout_marginTop="10dp"
-                                android:layout_marginEnd="10dp"
-                                android:layout_marginBottom="10dp"
-                                android:contentDescription="@string/lifts"
-                                android:padding="0dp"
-                                android:src="@drawable/ic_right_sign"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintTop_toBottomOf="@+id/cardViewUsefulInformationBoxPicture"
-                                app:tint="@color/colorWhite" />
-
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-
-                    </FrameLayout>
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-            </androidx.cardview.widget.CardView>
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

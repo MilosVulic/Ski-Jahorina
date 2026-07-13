@@ -1,73 +1,142 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorBackground">#2b2b2b</color>
-    <color name="iconColorSettings">#B3B3B3</color>
-    <color name="colorCardBackgroundSettings">#1c1c1c</color>
-    <color name="colorCardBackgroundWeather">#1c1c1c</color>
-    <color name="colorDivider">#737373</color>
-    <color name="textColorSettings">#A6A6A6</color>
-    <color name="colorRippleEnteringElements">#3D4348</color>
-    <color name="colorBlackWhite">#ffffff</color>
-    <color name="startColor">#222222</color>
-    <color name="endColor">#222222</color>
+    <color name="colorBackground">#0B1220</color>
+    <color name="iconColorSettings">#CBD5E1</color>
+    <color name="colorCardBackgroundSettings">#1E293B</color>
+    <color name="colorCardBackgroundWeather">#1E293B</color>
+    <color name="colorDivider">#334155</color>
+    <color name="textColorSettings">#94A3B8</color>
+    <color name="colorRippleEnteringElements">#334ADE80</color>
+    <color name="colorBlackWhite">#F8FAFC</color>
+    <color name="startColor">#0B1220</color>
+    <color name="endColor">#0B1220</color>
     <color name="colorWhite">#ffffff</color>
 
     <!-- Dialogs -->
-    <color  name="textColorDialogs">#ffffff</color>
-    <color  name="colorBackgroundDialogs">#2b2b2b</color>
-    <color  name="dilogXCircle">#3b4146</color>
+    <color name="textColorDialogs">#F8FAFC</color>
+    <color name="colorBackgroundDialogs">#1E293B</color>
+    <color name="dilogXCircle">#334155</color>
 
     <!-- Working hours indicator -->
-    <color name="cancelColor">#f84f31</color>
-    <color name="acceptColor">#23c552</color>
+    <color name="cancelColor">#F87171</color>
+    <color name="acceptColor">#34D399</color>
 
     <!-- Category slopes colors -->
-    <color name="easyColor">#20a5ff</color>
+    <color name="easyColor">#38BDF8</color>
     <color name="difficultColor">#000000</color>
 
     <!-- Weather Temperature colors -->
-    <color name="maxTemperatureColor">#c80900</color>
-    <color name="minTemperatureColor">#046edb</color>
-    <color name="currentWeatherBackgroundColor">#1c1c1c</color>
-    <color name="currentWeatherIconsColor">#1589e2</color>
-    <color name="currentWeatherTitleColor">#F5F7F8</color>
-    <color name="currentWeatherValueColor">#F5F7F8</color>
+    <color name="maxTemperatureColor">#FCA5A5</color>
+    <color name="minTemperatureColor">#60A5FA</color>
+    <color name="currentWeatherBackgroundColor">#1E293B</color>
+    <color name="currentWeatherIconsColor">#38BDF8</color>
+    <color name="currentWeatherTitleColor">#F8FAFC</color>
+    <color name="currentWeatherValueColor">#F8FAFC</color>
 
     <!-- Fragment Details colors -->
-    <color name="blueOverlayPurple">#1c1c1c</color>
-    <color name="blueOverlayColor">#1c1c1c</color>
-    <color name="darkGreenOverlayColor">#1c1c1c</color>
-    <color name="orangeOverlayColor">#1c1c1c</color>
-    <color name="darkYellowOverlayColor">#1c1c1c</color>
-    <color name="redOverlayColor">#1c1c1c</color>
+    <color name="blueOverlayPurple">#1E293B</color>
+    <color name="blueOverlayColor">#1E293B</color>
+    <color name="darkGreenOverlayColor">#1E293B</color>
+    <color name="orangeOverlayColor">#1E293B</color>
+    <color name="darkYellowOverlayColor">#1E293B</color>
+    <color name="redOverlayColor">#1E293B</color>
 
     <!-- Settings Fragment colors -->
     <color name="colorWebSite">#ff6882</color>
     <color name="colorBlack">#000000</color>
-    <color  name="colorTextAbout">#A6A6A6</color>
-    <color name="headerColorTextAbout">#f5f7f8</color>
-    <color name="colorDropDown">#919191</color>
-    <color  name="colorFocusedField">#609bcb</color>
-    <color  name="colorHelpCenter">#f5f7f8</color>
+    <color name="colorTextAbout">#94A3B8</color>
+    <color name="headerColorTextAbout">#F8FAFC</color>
+    <color name="colorDropDown">#94A3B8</color>
+    <color name="colorFocusedField">#38BDF8</color>
+    <color name="colorHelpCenter">#F8FAFC</color>
 
     <!-- Ski details colors -->
-    <color name="homeScreenStart">#6f74f2</color>
-    <color name="homeScreenCenter">#896fff</color>
-    <color name="homeScreenEnd">#e05ff7</color>
+    <color name="homeScreenStart">#0B1220</color>
+    <color name="homeScreenCenter">#1E293B</color>
+    <color name="homeScreenEnd">#0F172A</color>
 
     <!-- Empty list colors -->
-    <color  name="colorTextSpark">#f5f7f8</color>
+    <color name="colorTextSpark">#F8FAFC</color>
 
     <!-- Home screen colors -->
-    <color name="skiCenterTitleColor">#f5f7f8</color>
-    <color name="skiCenterAltitudeIcon">#ffffff</color>
+    <color name="skiCenterTitleColor">#F8FAFC</color>
+    <color name="skiCenterAltitudeIcon">#F8FAFC</color>
+    <color name="homeCardMetaColor">#94A3B8</color>
 
-    <color name="colorSnackBarBackground">#1D1D1D</color>
-
-    <color name="colorHomePageNavigation">#FFFFFF</color>
+    <color name="colorSnackBarBackground">#0B1220</color>
+    <color name="colorHomePageNavigation">#F8FAFC</color>
 
     <!-- Hotels -->
-    <color  name="propertyCardBackground">#373737</color>
-    <color  name="textColorPropertyList">#ffffff</color>
-    <color  name="colorIconProperty">#f5f7f8</color>
+    <color name="propertyCardBackground">#1E293B</color>
+    <color name="textColorPropertyList">#F8FAFC</color>
+    <color name="colorIconProperty">#CBD5E1</color>
+
+    <!-- Alpine hub palette (unified dark) -->
+    <color name="alpineRipple">#334ADE80</color>
+    <color name="alpineNavy">#0B1220</color>
+    <color name="alpineNavyDark">#1E293B</color>
+    <color name="alpineAccent">#38BDF8</color>
+    <color name="alpineAccentSoft">#1E3A5F</color>
+    <color name="alpineSnow">#0B1220</color>
+    <color name="alpineGreen">#34D399</color>
+    <color name="alpineTextPrimary">#F8FAFC</color>
+    <color name="alpineTextSecondary">#94A3B8</color>
+    <color name="alpineTextOnDark">#F8FAFC</color>
+    <color name="statusOpenBg">#064E3B</color>
+    <color name="statusOpenText">#6EE7B7</color>
+    <color name="statusPartialBg">#78350F</color>
+    <color name="statusPartialText">#FCD34D</color>
+    <color name="statusClosedBg">#7F1D1D</color>
+    <color name="statusClosedText">#FCA5A5</color>
+    <color name="statusUnknownBg">#334155</color>
+    <color name="statusUnknownText">#CBD5E1</color>
+    <color name="chipSurfaceColor">#1E293B</color>
+    <color name="chipOutlineColor">#334155</color>
+    <color name="chipIconTint">#CBD5E1</color>
+    <color name="filterChipCheckedBg">#1E3A5F</color>
+    <color name="filterChipUncheckedBg">#1E293B</color>
+    <color name="filterChipCheckedText">#38BDF8</color>
+    <color name="filterChipUncheckedText">#E2E8F0</color>
+    <color name="hubLinkColor">#34D399</color>
+
+    <!-- Lift icon accents (dark) -->
+    <color name="liftIconChairBg">#334155</color>
+    <color name="liftIconChairRing">#64748B</color>
+    <color name="liftIconChairTint">#E2E8F0</color>
+    <color name="liftIconGondolaBg">#064E3B</color>
+    <color name="liftIconGondolaRing">#34D399</color>
+    <color name="liftIconGondolaTint">#6EE7B7</color>
+    <color name="liftIconTbarBg">#7C2D12</color>
+    <color name="liftIconTbarRing">#FB923C</color>
+    <color name="liftIconTbarTint">#FDBA74</color>
+    <color name="liftIconAdventureBg">#4C1D95</color>
+    <color name="liftIconAdventureRing">#A78BFA</color>
+    <color name="liftIconAdventureTint">#C4B5FD</color>
+
+    <!-- Useful info -->
+    <color name="usefulInfoSubtitleColor">#F8FAFC</color>
+    <color name="usefulInfoHintColor">#94A3B8</color>
+    <color name="usefulInfoNumberColor">#E2E8F0</color>
+    <color name="usefulInfoRescueIconBg">#3F1D1D</color>
+    <color name="usefulInfoRescueIconTint">#F87171</color>
+    <color name="usefulInfoPoliceIconBg">#1E3A5F</color>
+    <color name="usefulInfoPoliceIconTint">#60A5FA</color>
+    <color name="usefulInfoFireIconBg">#431407</color>
+    <color name="usefulInfoFireIconTint">#FB923C</color>
+    <color name="usefulInfoEmergencyIconBg">#2E1065</color>
+    <color name="usefulInfoEmergencyIconTint">#A78BFA</color>
+    <color name="usefulInfoFeaturedStroke">#7F1D1D</color>
+
+    <color name="lastUpdatedTextColor">#94A3B8</color>
+    <color name="lastUpdatedBannerBackground">#1E293B</color>
+    <color name="lastUpdatedIconTint">#64748B</color>
+
+    <color name="weatherWindIconTint">#38BDF8</color>
+    <color name="weatherWindLabelColor">#94A3B8</color>
+    <color name="weatherSnowIconTint">#818CF8</color>
+    <color name="weatherSnowLabelColor">#94A3B8</color>
+    <color name="weatherMetricTileBg">#0F172A</color>
+    <color name="weatherWindIconBg">#1E3A5F</color>
+    <color name="weatherSnowIconBg">#1E1B4B</color>
+    <color name="weatherConditionIconTint">#E2E8F0</color>
 </resources>

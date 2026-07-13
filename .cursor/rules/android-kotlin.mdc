@@ -1,0 +1,27 @@
+---
+description: Android Kotlin / Fragment conventions for Ski Jahorina
+globs: **/*.{kt,xml}
+alwaysApply: false
+---
+
+# Android Kotlin conventions
+
+## Architecture
+- Follow existing Fragment + ViewModel + binder pattern; do not introduce Hilt/Clean Architecture layers unless asked
+- Use `viewLifecycleOwner.lifecycleScope` for UI-bound coroutines
+- Prefer `viewBinding`; clear bindings in `onDestroyView`
+- Navigation via Safe Args / `NavigationGraphDirections`
+
+## Kotlin
+- Prefer `val`, null-safety, no unnecessary `!!`
+- Avoid `GlobalScope` / `runBlocking` on main paths
+- Keep UI strings in `res/values*/strings.xml` (en + bs/de/ru as needed)
+
+## UI
+- Preserve alpine theme / existing hub layout language
+- Don't add clutter cards or redesign hubs unless requested
+- Toolbar/status bar behavior should stay consistent with current fragments
+
+## Ads / monetization
+- Gate monetized hub opens through `handleMonetizedNavigation` + `AdsPolicyStore`
+- AdMob unit IDs stay in app code; frequency comes from remote config

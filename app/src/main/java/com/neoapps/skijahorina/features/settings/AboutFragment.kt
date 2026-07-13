@@ -14,6 +14,7 @@ import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import com.neoapps.skijahorina.R
+import com.neoapps.skijahorina.common.AppAnalytics
 import com.neoapps.skijahorina.databinding.FragmentAboutBinding
 import com.neoapps.skijahorina.main.MainActivity
 
@@ -29,6 +30,7 @@ class AboutFragment : Fragment() {
     ): View {
         bindingProp = FragmentAboutBinding.inflate(inflater, container, false)
         setUpFragmentName()
+        AppAnalytics.logFeatureOpened(AppAnalytics.Feature.ABOUT)
 
         settingAnimationSocial()
 

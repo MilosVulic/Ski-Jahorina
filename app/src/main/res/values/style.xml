@@ -2,10 +2,13 @@
 <resources>
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
-
-        <item name="colorPrimary">#609bcb</item>
-        <item name="colorPrimaryDark">#4aa1c4</item>
-        <item name="colorAccent">#609bcb</item>
+        <item name="colorPrimary">@color/alpineNavy</item>
+        <item name="colorPrimaryDark">@color/alpineNavyDark</item>
+        <item name="colorAccent">@color/alpineAccent</item>
+        <item name="colorSecondary">@color/hubLinkColor</item>
+        <item name="android:colorBackground">@color/colorBackground</item>
+        <item name="android:statusBarColor">@color/alpineNavy</item>
+        <item name="android:windowLightStatusBar">false</item>
     </style>
 
     <!-- Customizing ripple effect for the layouts within the settings menu  -->
@@ -14,11 +17,29 @@
         <item name="android:background">?android:attr/selectableItemBackground</item>
     </style>
 
-    <style name="AppTheme.NoActionBar" >
+    <style name="AppTheme.NoActionBar" parent="AppTheme">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-        <item name="android:navigationBarColor">@android:color/black</item>
-        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:navigationBarColor">@color/alpineNavy</item>
+        <item name="android:statusBarColor">@color/alpineNavy</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+
+    <style name="Widget.SkiJahorina.FilterChip" parent="Widget.MaterialComponents.Chip.Choice">
+        <item name="chipBackgroundColor">@color/chip_background_selector</item>
+        <item name="chipStrokeColor">@color/chipOutlineColor</item>
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="android:textColor">@color/chip_text_selector</item>
+        <item name="checkedIconVisible">false</item>
+        <item name="chipMinHeight">32dp</item>
+        <item name="chipCornerRadius">16dp</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="Widget.SkiJahorina.FilterChip.Compact" parent="Widget.SkiJahorina.FilterChip">
+        <item name="chipMinHeight">28dp</item>
+        <item name="android:textSize">12sp</item>
+        <item name="chipCornerRadius">14dp</item>
     </style>
 
     <!-- Style for onBoarding screens -->

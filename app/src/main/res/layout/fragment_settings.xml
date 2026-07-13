@@ -13,7 +13,7 @@
         android:layout_width="0dp"
         android:layout_height="?android:attr/actionBarSize"
         android:layout_marginTop="0dp"
-        android:background="@drawable/gradient_drawable"
+        android:background="@color/alpineNavy"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

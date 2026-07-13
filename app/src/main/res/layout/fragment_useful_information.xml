@@ -11,409 +11,372 @@
         android:id="@+id/frameLayoutTop"
         android:layout_width="0dp"
         android:layout_height="?android:attr/actionBarSize"
-        android:layout_marginTop="0dp"
-        android:background="@drawable/gradient_drawable"
+        android:background="@color/alpineNavy"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="0dp"
         android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:fillViewport="true"
+        android:overScrollMode="never"
+        android:paddingBottom="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/frameLayoutTop">
 
-        <include
-            android:id="@+id/includedHeader"
-            layout="@layout/include_navigation_header"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="16dp"
+            android:paddingTop="20dp"
+            android:paddingEnd="16dp">
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:background="@android:color/transparent"
-            android:scrollbars="none"
-            android:layout_marginTop="10dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/includedHeader">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <TextView
+                android:id="@+id/usefulInfoSubtitle"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:text="@string/useful_info_subtitle"
+                android:textColor="@color/usefulInfoSubtitleColor"
+                android:textSize="22sp"
+                android:textStyle="bold" />
 
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/moreDetails"
-                    android:layout_width="0dp"
+            <TextView
+                android:id="@+id/usefulInfoHint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="@string/useful_info_hint"
+                android:textColor="@color/usefulInfoHintColor"
+                android:textSize="14sp" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/firstNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardBackgroundColor="@color/colorCardBackgroundSettings"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:rippleColor="@color/alpineRipple"
+                app:strokeColor="@color/usefulInfoFeaturedStroke"
+                app:strokeWidth="1dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginTop="5dp"
-                    app:cardBackgroundColor="@color/colorCardBackgroundSettings"
-                    app:cardCornerRadius="20dp"
-                    app:cardElevation="5dp"
-                    app:cardPreventCornerOverlap="false"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
+                    android:padding="16dp">
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                    <FrameLayout
+                        android:id="@+id/rescueIconContainer"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="@drawable/bg_useful_info_icon_rescue"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
 
-                        <TextView
-                            android:id="@+id/moreDetailsText"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="20dp"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginEnd="20dp"
-                            android:layout_marginBottom="10dp"
-                            android:text="@string/more_details"
-                            android:textColor="@color/skiCenterTitleColor"
-                            android:textSize="15sp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+                        <ImageView
+                            android:id="@+id/phoneIconMountainRescue"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="center"
+                            android:contentDescription="@null"
+                            android:src="@drawable/ic_phone"
+                            app:tint="@color/usefulInfoRescueIconTint" />
+                    </FrameLayout>
 
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-                </androidx.cardview.widget.CardView>
+                    <TextView
+                        android:id="@+id/mountainRescueTitle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:text="@string/mountain_rescue"
+                        android:textColor="@color/skiCenterTitleColor"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/rescueIconContainer"
+                        app:layout_constraintTop_toTopOf="parent" />
 
+                    <TextView
+                        android:id="@+id/mountainRescueDescription"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:layout_marginTop="2dp"
+                        android:text="@string/useful_info_rescue_description"
+                        android:textColor="@color/usefulInfoHintColor"
+                        android:textSize="13sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/rescueIconContainer"
+                        app:layout_constraintTop_toBottomOf="@+id/mountainRescueTitle" />
 
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/cardViewApplicationSettings"
-                    android:layout_width="0dp"
+                    <TextView
+                        android:id="@+id/mountainRescueNumber"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/mountain_rescue_jahorina_number"
+                        android:textColor="@color/usefulInfoNumberColor"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/rescueIconContainer"
+                        app:layout_constraintTop_toBottomOf="@+id/mountainRescueDescription" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/secondNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardBackgroundColor="@color/colorCardBackgroundSettings"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:rippleColor="@color/alpineRipple">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginBottom="20dp"
-                    app:cardBackgroundColor="@color/colorCardBackgroundSettings"
-                    app:cardCornerRadius="20dp"
-                    app:cardElevation="5dp"
-                    app:cardPreventCornerOverlap="false"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/moreDetails">
+                    android:padding="16dp">
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/someConstraint"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                    <FrameLayout
+                        android:id="@+id/policeIconContainer"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="@drawable/bg_useful_info_icon_police"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
 
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:id="@+id/firstNumber"
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_marginStart="15dp"
-                            android:layout_marginEnd="15dp"
-                            android:clickable="true"
-                            android:theme="@style/AppTheme.SettingsFragmentRipple"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent">
+                        <ImageView
+                            android:id="@+id/phoneIconPolice"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="center"
+                            android:contentDescription="@null"
+                            android:src="@drawable/ic_phone"
+                            app:tint="@color/usefulInfoPoliceIconTint" />
+                    </FrameLayout>
 
-                            <TextView
-                                android:id="@+id/mountainRescueTitle"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="25dp"
-                                android:layout_marginBottom="20dp"
-                                android:layout_marginEnd="20dp"
-                                android:background="@android:color/transparent"
-                                android:breakStrategy="simple"
-                                android:ellipsize="none"
-                                android:gravity="start"
-                                android:maxLines="3"
-                                android:singleLine="false"
-                                android:text="@string/mountain_rescue"
-                                android:textColor="@color/skiCenterTitleColor"
-                                android:textSize="18sp"
-                                android:textStyle="bold"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toStartOf="@+id/phoneIconMountainRescue"
-                                app:layout_constraintHorizontal_bias="0.0"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
+                    <TextView
+                        android:id="@+id/policeTitle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:text="@string/police"
+                        android:textColor="@color/skiCenterTitleColor"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/policeIconContainer"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-                            <ImageView
-                                android:id="@+id/phoneIconMountainRescue"
-                                android:layout_width="24dp"
-                                android:layout_height="24dp"
-                                android:layout_marginStart="20dp"
-                                android:background="@android:color/transparent"
-                                android:clickable="true"
-                                android:src="@drawable/red_telephone_icon"
-                                app:layout_constraintBottom_toBottomOf="@+id/mountainRescueTitle"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="@+id/mountainRescueTitle" />
+                    <TextView
+                        android:id="@+id/policeNumber"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:layout_marginTop="6dp"
+                        android:text="@string/police_number"
+                        android:textColor="@color/usefulInfoNumberColor"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/policeIconContainer"
+                        app:layout_constraintTop_toBottomOf="@+id/policeTitle" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
 
-                            <TextView
-                                android:id="@+id/mountainRescueNumber"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginEnd="20dp"
-                                android:background="@android:color/transparent"
-                                android:clickable="true"
-                                android:padding="0dp"
-                                android:text="@string/mountain_rescue_jahorina_number"
-                                android:textColor="@color/skiCenterTitleColor"
-                                android:textSize="18sp"
-                                app:layout_constraintBottom_toBottomOf="@+id/phoneIconMountainRescue"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintTop_toTopOf="@+id/phoneIconMountainRescue" />
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/thirdNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardBackgroundColor="@color/colorCardBackgroundSettings"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:rippleColor="@color/alpineRipple">
 
-                        </androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp">
 
-                        <View
-                            android:id="@+id/divider1"
-                            android:layout_width="0dp"
-                            android:layout_height="1dp"
-                            android:layout_marginStart="16dp"
-                            android:layout_marginTop="0dp"
-                            android:layout_marginEnd="16dp"
-                            android:background="@color/colorDivider"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/firstNumber" />
+                    <FrameLayout
+                        android:id="@+id/fireIconContainer"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="@drawable/bg_useful_info_icon_fire"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
 
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:id="@+id/secondNumber"
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_marginStart="15dp"
-                            android:layout_marginEnd="15dp"
-                            android:clickable="true"
-                            android:theme="@style/AppTheme.SettingsFragmentRipple"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/divider1">
+                        <ImageView
+                            android:id="@+id/phoneIconFirefigther"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="center"
+                            android:contentDescription="@null"
+                            android:src="@drawable/ic_phone"
+                            app:tint="@color/usefulInfoFireIconTint" />
+                    </FrameLayout>
 
-                            <TextView
-                                android:id="@+id/policeTitle"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="20dp"
-                                android:layout_marginEnd="20dp"
-                                android:background="@android:color/transparent"
-                                android:text="@string/police"
-                                android:breakStrategy="simple"
-                                android:ellipsize="none"
-                                android:gravity="start"
-                                android:maxLines="3"
-                                android:singleLine="false"
-                                android:textColor="@color/skiCenterTitleColor"
-                                android:textSize="18sp"
-                                android:textStyle="bold"
-                                app:layout_constraintHorizontal_bias="0.0"
-                                app:layout_constraintEnd_toStartOf="@+id/phoneIconPolice"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
+                    <TextView
+                        android:id="@+id/firefighterTitle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:text="@string/firefighter"
+                        android:textColor="@color/skiCenterTitleColor"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/fireIconContainer"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-                            <ImageView
-                                android:id="@+id/phoneIconPolice"
-                                android:layout_width="24dp"
-                                android:layout_height="24dp"
-                                android:layout_marginStart="20dp"
-                                android:background="@android:color/transparent"
-                                android:clickable="true"
-                                android:src="@drawable/red_telephone_icon"
-                                app:layout_constraintBottom_toBottomOf="@+id/policeNumber"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="@+id/policeNumber" />
+                    <TextView
+                        android:id="@+id/firefighterNumber"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:layout_marginTop="6dp"
+                        android:text="@string/firefighter_number"
+                        android:textColor="@color/usefulInfoNumberColor"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/fireIconContainer"
+                        app:layout_constraintTop_toBottomOf="@+id/firefighterTitle" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
 
-                            <TextView
-                                android:id="@+id/policeNumber"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="20dp"
-                                android:layout_marginEnd="20dp"
-                                android:layout_marginBottom="20dp"
-                                android:background="@android:color/transparent"
-                                android:clickable="true"
-                                android:padding="0dp"
-                                android:text="@string/police_number"
-                                android:textColor="@color/skiCenterTitleColor"
-                                android:textSize="18sp"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/fourthNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardBackgroundColor="@color/colorCardBackgroundSettings"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:rippleColor="@color/alpineRipple">
 
-                        </androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp">
 
-                        <View
-                            android:id="@+id/divider2"
-                            android:layout_width="0dp"
-                            android:layout_height="1dp"
-                            android:layout_marginStart="16dp"
-                            android:layout_marginTop="0dp"
-                            android:layout_marginEnd="16dp"
-                            android:background="@color/colorDivider"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/secondNumber" />
+                    <FrameLayout
+                        android:id="@+id/emergencyIconContainer"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="@drawable/bg_useful_info_icon_emergency"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
 
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:id="@+id/thirdNumber"
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_marginStart="15dp"
-                            android:layout_marginEnd="15dp"
-                            android:clickable="true"
-                            android:theme="@style/AppTheme.SettingsFragmentRipple"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/divider2">
+                        <ImageView
+                            android:id="@+id/phoneIconEmergency"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="center"
+                            android:contentDescription="@null"
+                            android:src="@drawable/ic_phone"
+                            app:tint="@color/usefulInfoEmergencyIconTint" />
+                    </FrameLayout>
 
-                            <TextView
-                                android:id="@+id/firefighterTitle"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="20dp"
-                                android:layout_marginEnd="20dp"
-                                android:background="@android:color/transparent"
-                                android:text="@string/firefighter"
-                                android:textColor="@color/skiCenterTitleColor"
-                                android:textSize="18sp"
-                                android:textStyle="bold"
-                                android:breakStrategy="simple"
-                                android:ellipsize="none"
-                                android:gravity="start"
-                                android:maxLines="3"
-                                android:singleLine="false"
-                                app:layout_constraintEnd_toStartOf="@+id/phoneIconFirefigther"
-                                app:layout_constraintHorizontal_bias="0.0"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
+                    <TextView
+                        android:id="@+id/emergencyTitle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:text="@string/emergency"
+                        android:textColor="@color/skiCenterTitleColor"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/emergencyIconContainer"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-                            <ImageView
-                                android:id="@+id/phoneIconFirefigther"
-                                android:layout_width="24dp"
-                                android:layout_height="24dp"
-                                android:layout_marginStart="20dp"
-                                android:background="@android:color/transparent"
-                                android:clickable="true"
-                                android:src="@drawable/red_telephone_icon"
-                                app:layout_constraintBottom_toBottomOf="@+id/firefighterNumber"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="@+id/firefighterNumber" />
+                    <TextView
+                        android:id="@+id/emergencyNumber"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:layout_marginTop="6dp"
+                        android:text="@string/emergency_number"
+                        android:textColor="@color/usefulInfoNumberColor"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/emergencyIconContainer"
+                        app:layout_constraintTop_toBottomOf="@+id/emergencyTitle" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:text="@string/useful_info_about_title"
+                android:textColor="@color/usefulInfoSubtitleColor"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
-                            <TextView
-                                android:id="@+id/firefighterNumber"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="20dp"
-                                android:layout_marginEnd="20dp"
-                                android:layout_marginBottom="20dp"
-                                android:background="@android:color/transparent"
-                                android:clickable="true"
-                                android:padding="0dp"
-                                android:text="@string/firefighter_number"
-                                android:textColor="@color/skiCenterTitleColor"
-                                android:textSize="18sp"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/moreDetails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                app:cardBackgroundColor="@color/colorCardBackgroundSettings"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp">
 
-                        </androidx.constraintlayout.widget.ConstraintLayout>
+                <TextView
+                    android:id="@+id/moreDetailsText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:lineSpacingExtra="3dp"
+                    android:maxLines="4"
+                    android:padding="16dp"
+                    android:text="@string/more_details"
+                    android:textColor="@color/alpineTextSecondary"
+                    android:textSize="14sp" />
+            </com.google.android.material.card.MaterialCardView>
 
-                        <View
-                            android:id="@+id/divider3"
-                            android:layout_width="0dp"
-                            android:layout_height="1dp"
-                            android:layout_marginStart="16dp"
-                            android:layout_marginTop="0dp"
-                            android:layout_marginEnd="16dp"
-                            android:background="@color/colorDivider"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/thirdNumber" />
+            <TextView
+                android:id="@+id/moreDetailsToggle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:text="@string/read_more"
+                android:textColor="@color/alpineAccent"
+                android:textSize="14sp"
+                android:textStyle="bold" />
 
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:id="@+id/fourthNumber"
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_marginStart="15dp"
-                            android:layout_marginEnd="15dp"
-                            android:clickable="true"
-                            android:theme="@style/AppTheme.SettingsFragmentRipple"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/divider3">
-
-                            <TextView
-                                android:id="@+id/emergencyTitle"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="20dp"
-                                android:layout_marginBottom="25dp"
-                                android:layout_marginEnd="20dp"
-                                android:background="@android:color/transparent"
-                                android:text="@string/emergency"
-                                android:breakStrategy="simple"
-                                android:ellipsize="none"
-                                android:gravity="start"
-                                android:maxLines="3"
-                                android:singleLine="false"
-                                android:textColor="@color/skiCenterTitleColor"
-                                android:textSize="18sp"
-                                android:textStyle="bold"
-                                app:layout_constraintEnd_toStartOf="@+id/phoneIconEmergency"
-                                app:layout_constraintHorizontal_bias="0.0"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
-
-                            <ImageView
-                                android:id="@+id/phoneIconEmergency"
-                                android:layout_width="24dp"
-                                android:layout_height="24dp"
-                                android:layout_marginStart="20dp"
-                                android:background="@android:color/transparent"
-                                android:clickable="true"
-                                android:src="@drawable/red_telephone_icon"
-                                app:layout_constraintBottom_toBottomOf="@+id/emergencyNumber"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="@+id/emergencyNumber" />
-
-                            <TextView
-                                android:id="@+id/emergencyNumber"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="20dp"
-                                android:layout_marginEnd="20dp"
-                                android:layout_marginBottom="20dp"
-                                android:background="@android:color/transparent"
-                                android:clickable="true"
-                                android:padding="0dp"
-                                android:text="@string/emergency_number"
-                                android:textColor="@color/skiCenterTitleColor"
-                                android:textSize="18sp"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
-
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-                </androidx.cardview.widget.CardView>
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </ScrollView>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

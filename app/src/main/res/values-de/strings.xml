@@ -54,13 +54,19 @@
     <string name="lifts_lowercase">Aufzüge</string>
     <string name="useful_information_lowercase">Info</string>
     <string name="weather_lowercase">Wetter</string>
+    <string name="weather_now_label">Jetzt</string>
+    <string name="weather_forecast_section">Vorhersage</string>
+    <string name="weather_wind_label">Wind</string>
+    <string name="weather_snow_label">Schneehöhe</string>
 
     <!-- About -->
     <string name="about">Über die App</string>
     <string name="about_author">Autor</string>
     <string name="about_author_name">Neoapps</string>
     <string name="about_app_version">App Version</string>
-    <string name="about_app_version_number">1.0.12</string>
+    <string name="video_unavailable">Webcam nicht verfügbar</string>
+    <string name="retry">Erneut versuchen</string>
+    <string name="play_webcam">Webcam abspielen</string>
     <string name="about_contact_email">Contact Email</string>
     <string name="about_email">info@neoapps.co</string>
     <string name="about_social">Social</string>
@@ -90,6 +96,58 @@
     <!-- No internet screen -->
     <string name="no_internet_headline">Ooops!</string>
     <string name="no_internet_text">Wir können keine Daten abrufen. Überprüfen Sie Ihre Internetverbindung.</string>
+    <string name="empty_no_internet_headline">Keine Verbindung</string>
+    <string name="empty_no_internet_text">Prüfen Sie Ihre Internetverbindung und versuchen Sie es erneut.</string>
+    <string name="empty_stale_headline">Aktualisierung fehlgeschlagen</string>
+    <string name="empty_stale_text">Frische Daten konnten nicht geladen werden. Tippen Sie auf Erneut versuchen.</string>
+    <string name="empty_warming_headline">Wird vorbereitet</string>
+    <string name="empty_warming_text">Der Server startet. Das dauert normalerweise nur wenige Sekunden.</string>
+    <string name="search_lift_hint">Lift suchen</string>
+    <string name="lift_filter_all">Alle</string>
+    <string name="lift_filter_open">Offen</string>
+    <string name="lift_filter_closed">Geschlossen</string>
+    <string name="lift_filter_on_hold">Wartend</string>
+    <string name="lift_status_open">Offen</string>
+    <string name="lift_status_closed">Geschlossen</string>
+    <string name="lift_status_on_hold">Wartend</string>
+    <string name="last_updated">Aktualisiert %1$s</string>
+    <string name="hub_lifts_open">%1$d/%2$d offen</string>
+    <string name="hub_temp_placeholder">—</string>
+    <string name="cd_map_and_cams">Karte und Kameras</string>
+    <string name="cd_lifts">Lifte</string>
+    <string name="cd_weather">Wetter</string>
+    <string name="cd_apartments">Apartments</string>
+    <string name="cd_ski_map">Pistenkarte</string>
+    <string name="cd_navigate_back">Zurück</string>
+    <string name="resort_name_jahorina">Jahorina</string>
+    <string name="resort_altitude_jahorina">1 916 m</string>
+    <string name="resort_status_open">Offen</string>
+    <string name="resort_status_partial">Teilweise</string>
+    <string name="resort_status_closed">Geschlossen</string>
+    <string name="resort_status_unknown">Unbekannt</string>
+    <string name="resort_data_unavailable">Noch keine Daten</string>
+    <string name="hub_quick_weather">Wetter</string>
+    <string name="hub_quick_webcams">Webcams</string>
+    <string name="hub_quick_map">Karte</string>
+    <string name="hub_quick_emergency">Notruf</string>
+    <string name="hub_section_lifts">Lifte heute</string>
+    <string name="hub_section_map">Pistenkarte</string>
+    <string name="hub_section_webcams">Live-Webcams</string>
+    <string name="hub_section_stay">Unterkunft &amp; Info</string>
+    <string name="hub_see_all">Alle anzeigen</string>
+    <string name="hub_temperature_label">Temp</string>
+    <string name="hub_snow_label">Schnee</string>
+    <string name="hub_lifts_label">Lifte</string>
+    <string name="hub_lifts_ratio">%1$d/%2$d</string>
+    <string name="hub_webcam_preview">Webcams öffnen</string>
+    <string name="hub_apartments">Apartments</string>
+    <string name="hub_useful_info">Nützliche Infos</string>
+    <string name="hub_restaurants">Restaurants</string>
+    <string name="list_summary_lifts">%1$d von %2$d Liften geöffnet</string>
+    <string name="useful_info_subtitle">Notrufkontakte</string>
+    <string name="useful_info_hint">Tippen Sie auf einen Kontakt zum Anrufen</string>
+    <string name="useful_info_about_title">Über Jahorina</string>
+    <string name="useful_info_rescue_description">Bergrettung für Jahorina</string>
 
     <!-- Cameras -->
     <string name="camera1">Kamera 1</string>
@@ -99,15 +157,13 @@
     <string name="homepage_map_amp_cams"><![CDATA[Karte & Kameras]]></string>
     <string name="homepage_browse_more_webcams">Weitere Webcams durchsuchen</string>
     <string name="homepage_webcams">Webcams</string>
-    <string name="homepage_download_map_for_offline_usage">Karte für Offline-Nutzung herunterladen</string>
     <string name="homepage_getting_around">herumkommen</string>
-    <string name="homepage_download_successful">Pistenplan erfolgreich heruntergeladen!</string>
-    <string name="homepage_download_failed">Pistenkarte konnte nicht heruntergeladen werden</string>
-    <string name="homepage_downloading">Herunterladen…</string>
     <string name="homepage_useful_information">Nützliche Informationen</string>
     <string name="homepage_useful_information_check">Weitere Informationen ansehen</string>
     <string name="property_email_app_validation">Keine E-Mail-App verfügbar. \nE-Mail-Adresse wurde kopiert</string>
     <string name="property_details">Unterkunftsdetails</string>
+    <string name="read_more">Mehr lesen</string>
+    <string name="read_less">Weniger anzeigen</string>
     <string name="apartments">Apartments</string>
 
     <string name="default_number_property">+387 65 904 660</string>
@@ -115,4 +171,7 @@
     <string name="default_website_property">https://jahorinaprestige.com/apartmani-na-jahorini/</string>
     <string name="default_subject">Apartments-Information</string>
     <string name="property_description">Beschreibung</string>
+    <string name="phone">Telefon</string>
+    <string name="email">E-Mail</string>
+    <string name="website">Webseite</string>
 </resources>

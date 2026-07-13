@@ -8,18 +8,14 @@
     android:layout_marginEnd="15dp"
     app:cardBackgroundColor="@color/colorCardBackgroundSettings"
     android:elevation="4dp"
-    android:radius="28dp"
-    app:cardCornerRadius="20dp"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent">
+    app:cardCornerRadius="20dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/relativeLayout1"
+        <RelativeLayout
+            android:id="@+id/videoContainer"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginBottom="10dp"
@@ -28,59 +24,57 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
+            <androidx.media3.ui.PlayerView
+                android:id="@+id/playerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:surface_type="texture_view"
+                app:use_controller="false" />
+
             <ImageView
                 android:id="@+id/thumbnail1"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:adjustViewBounds="true"
-                android:scaleType="centerCrop"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:scaleType="centerCrop" />
 
             <ImageView
-                android:id="@+id/imageViewBlueBackground"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="15dp"
-                android:src="@drawable/circle_background"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:tint="#80FAFAFA"/>
-
-            <ImageView
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginBottom="10dp"
-                android:src="@drawable/ic_zoom"
-                app:layout_constraintBottom_toBottomOf="@+id/imageViewBlueBackground"
-                app:layout_constraintEnd_toEndOf="@+id/imageViewBlueBackground"
-                app:layout_constraintStart_toStartOf="@+id/imageViewBlueBackground"
-                app:layout_constraintTop_toTopOf="@+id/imageViewBlueBackground"
+                android:id="@+id/playButton"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_centerInParent="true"
+                android:contentDescription="@string/play_webcam"
+                android:src="@drawable/ic_play"
+                android:visibility="gone"
                 app:tint="@color/colorWhite" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            <ImageView
+                android:id="@+id/fullscreenHint"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:src="@drawable/ic_zoom"
+                app:tint="@color/colorWhite" />
+
+        </RelativeLayout>
 
         <TextView
             android:id="@+id/textView1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
             android:layout_marginBottom="10dp"
             android:text="@string/camera1"
             android:textColor="@color/skiCenterTitleColor"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginEnd="15dp"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/relativeLayout1" />
+            app:layout_constraintTop_toBottomOf="@+id/videoContainer" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
